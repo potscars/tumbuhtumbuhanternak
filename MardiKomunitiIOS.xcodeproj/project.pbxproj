@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8AD602A5C3BF6182E97CA3F9 /* Pods_MardiKomunitiIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */; };
 		9E4462441F7E374700F82591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4462431F7E374700F82591 /* AppDelegate.swift */; };
 		9E4462461F7E374700F82591 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4462451F7E374700F82591 /* ViewController.swift */; };
 		9E4462491F7E374700F82591 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4462471F7E374700F82591 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19FAB0D63926E69F98D04A81 /* Pods-MardiKomunitiIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MardiKomunitiIOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-MardiKomunitiIOS/Pods-MardiKomunitiIOS.release.xcconfig"; sourceTree = "<group>"; };
+		79C3F55900B47F65D8E38E71 /* Pods-MardiKomunitiIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MardiKomunitiIOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MardiKomunitiIOS/Pods-MardiKomunitiIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9E4462401F7E374700F82591 /* MardiKomunitiIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MardiKomunitiIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E4462431F7E374700F82591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E4462451F7E374700F82591 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,7 @@
 		9E44624A1F7E374700F82591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E44624D1F7E374700F82591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E44624F1F7E374700F82591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MardiKomunitiIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8AD602A5C3BF6182E97CA3F9 /* Pods_MardiKomunitiIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		673420F58CE7E5697264B833 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				79C3F55900B47F65D8E38E71 /* Pods-MardiKomunitiIOS.debug.xcconfig */,
+				19FAB0D63926E69F98D04A81 /* Pods-MardiKomunitiIOS.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		9E4462371F7E374600F82591 = {
 			isa = PBXGroup;
 			children = (
 				9E4462421F7E374700F82591 /* MardiKomunitiIOS */,
 				9E4462411F7E374700F82591 /* Products */,
+				673420F58CE7E5697264B833 /* Pods */,
+				D3ABA0F4D711F4525CA64C50 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +80,14 @@
 			path = MardiKomunitiIOS;
 			sourceTree = "<group>";
 		};
+		D3ABA0F4D711F4525CA64C50 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9E4462521F7E374700F82591 /* Build configuration list for PBXNativeTarget "MardiKomunitiIOS" */;
 			buildPhases = (
+				8BF612A76DB8C414AB0B7C65 /* [CP] Check Pods Manifest.lock */,
 				9E44623C1F7E374700F82591 /* Sources */,
 				9E44623D1F7E374700F82591 /* Frameworks */,
 				9E44623E1F7E374700F82591 /* Resources */,
+				04B261BF2BA5DD61EA1BD5CF /* [CP] Embed Pods Frameworks */,
+				06D8668A0E8EA50F7B626B35 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -131,6 +158,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		04B261BF2BA5DD61EA1BD5CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MardiKomunitiIOS/Pods-MardiKomunitiIOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		06D8668A0E8EA50F7B626B35 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MardiKomunitiIOS/Pods-MardiKomunitiIOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8BF612A76DB8C414AB0B7C65 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9E44623C1F7E374700F82591 /* Sources */ = {
@@ -257,6 +332,7 @@
 		};
 		9E4462531F7E374700F82591 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79C3F55900B47F65D8E38E71 /* Pods-MardiKomunitiIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6CSE68LD7S;
@@ -270,6 +346,7 @@
 		};
 		9E4462541F7E374700F82591 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19FAB0D63926E69F98D04A81 /* Pods-MardiKomunitiIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6CSE68LD7S;
