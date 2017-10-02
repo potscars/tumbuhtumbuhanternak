@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rY6-P2-5SG">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rY6-P2-5SG">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -60,28 +60,56 @@
             </objects>
             <point key="canvasLocation" x="204" y="-243"/>
         </scene>
-        <!--Item-->
+        <!--Aplikasi Berkaitan-->
         <scene sceneID="LQC-3N-GSd">
             <objects>
-                <collectionViewController id="Iht-rA-NOU" sceneMemberID="viewController">
+                <collectionViewController id="Iht-rA-NOU" customClass="AplikasiBerkaitanCVC" customModule="MardiKomunitiIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="ldw-aM-rdF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="7Cu-e7-vAV">
-                            <size key="itemSize" width="50" height="50"/>
+                            <size key="itemSize" width="164" height="175"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="MTo-bQ-m6a">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="aplikasiCell" id="MTo-bQ-m6a" customClass="AplikasiCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fertigasi Tomato" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="O06-zJ-51g">
+                                            <rect key="frame" x="23" y="121" width="104.5" height="21"/>
+                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fermion" translatesAutoresizingMaskIntoConstraints="NO" id="bpX-75-0ld">
+                                            <rect key="frame" x="23" y="8" width="105" height="105"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="105" id="BOv-yg-FJA"/>
+                                                <constraint firstAttribute="width" constant="105" id="v4n-wb-nCx"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
                                 </view>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="bpX-75-0ld" firstAttribute="centerX" secondItem="MTo-bQ-m6a" secondAttribute="centerX" id="Elb-63-Rcv"/>
+                                    <constraint firstItem="O06-zJ-51g" firstAttribute="centerX" secondItem="MTo-bQ-m6a" secondAttribute="centerX" id="Gzk-v8-c9J"/>
+                                    <constraint firstAttribute="bottom" secondItem="O06-zJ-51g" secondAttribute="bottom" constant="8" id="RjD-2h-4O3"/>
+                                    <constraint firstItem="bpX-75-0ld" firstAttribute="top" secondItem="MTo-bQ-m6a" secondAttribute="top" constant="8" id="WRy-V2-v65"/>
+                                    <constraint firstItem="O06-zJ-51g" firstAttribute="top" secondItem="bpX-75-0ld" secondAttribute="bottom" constant="8" id="o1P-Lv-wVG"/>
+                                </constraints>
+                                <size key="customSize" width="150" height="150"/>
+                                <connections>
+                                    <outlet property="aplikasiName" destination="O06-zJ-51g" id="ohL-rg-cQr"/>
+                                    <outlet property="featuredImage" destination="bpX-75-0ld" id="bAX-d4-3Ro"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -89,14 +117,14 @@
                             <outlet property="delegate" destination="Iht-rA-NOU" id="aOc-Na-x73"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="Jwg-DU-OBf"/>
+                    <tabBarItem key="tabBarItem" title="Aplikasi Berkaitan" id="Jwg-DU-OBf"/>
                     <connections>
                         <segue destination="Sw2-ga-DkO" kind="show" id="C5R-NT-f1p"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VTh-Jf-GY6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="204" y="461"/>
+            <point key="canvasLocation" x="204" y="460.11994002998506"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="74e-BT-Scs">
@@ -281,7 +309,7 @@
         <scene sceneID="IMh-AZ-Dt4">
             <objects>
                 <collectionViewController id="76F-yC-1wk" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="38z-1J-vXP">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="38z-1J-vXP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -329,6 +357,9 @@
             <point key="canvasLocation" x="-1529" y="107"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="fermion" width="740" height="493"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="C5R-NT-f1p"/>
     </inferredMetricsTieBreakers>
