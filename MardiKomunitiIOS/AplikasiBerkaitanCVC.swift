@@ -30,8 +30,8 @@ class AplikasiBerkaitanCVC: UICollectionViewController {
     }
 
     func configureNavigationBar() {
-        tabBarItem.title = "Aplikasi Berkaitan"
-        navigationItem.title = "Aplikasi Berkaitan"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: nil)
     }
 }
 
