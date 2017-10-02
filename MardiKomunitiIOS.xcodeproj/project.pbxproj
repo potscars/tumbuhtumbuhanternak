@@ -13,6 +13,12 @@
 		9E4462491F7E374700F82591 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4462471F7E374700F82591 /* Main.storyboard */; };
 		9E44624B1F7E374700F82591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E44624A1F7E374700F82591 /* Assets.xcassets */; };
 		9E44624E1F7E374700F82591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E44624C1F7E374700F82591 /* LaunchScreen.storyboard */; };
+		9E5884751F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */; };
+		9E5884771F81FC91001EDA2E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884761F81FC91001EDA2E /* Extension.swift */; };
+		9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884781F81FCAC001EDA2E /* NetworkProcessor.swift */; };
+		9E58847C1F8210FA001EDA2E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58847B1F8210FA001EDA2E /* Colors.swift */; };
+		9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58847D1F8215D2001EDA2E /* AplikasiCell.swift */; };
+		9E5884801F821B6F001EDA2E /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58847F1F821B6F001EDA2E /* MainTabBarVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +31,12 @@
 		9E44624A1F7E374700F82591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E44624D1F7E374700F82591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E44624F1F7E374700F82591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AplikasiBerkaitanCVC.swift; sourceTree = "<group>"; };
+		9E5884761F81FC91001EDA2E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		9E5884781F81FCAC001EDA2E /* NetworkProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProcessor.swift; sourceTree = "<group>"; };
+		9E58847B1F8210FA001EDA2E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		9E58847D1F8215D2001EDA2E /* AplikasiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AplikasiCell.swift; sourceTree = "<group>"; };
+		9E58847F1F821B6F001EDA2E /* MainTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
 		BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MardiKomunitiIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -70,14 +82,36 @@
 		9E4462421F7E374700F82591 /* MardiKomunitiIOS */ = {
 			isa = PBXGroup;
 			children = (
+				9E5884731F81FB9E001EDA2E /* AplikasiBerkaitan */,
+				9E58847A1F81FCD4001EDA2E /* Etc */,
 				9E4462431F7E374700F82591 /* AppDelegate.swift */,
 				9E4462451F7E374700F82591 /* ViewController.swift */,
 				9E4462471F7E374700F82591 /* Main.storyboard */,
 				9E44624A1F7E374700F82591 /* Assets.xcassets */,
 				9E44624C1F7E374700F82591 /* LaunchScreen.storyboard */,
 				9E44624F1F7E374700F82591 /* Info.plist */,
+				9E58847F1F821B6F001EDA2E /* MainTabBarVC.swift */,
 			);
 			path = MardiKomunitiIOS;
+			sourceTree = "<group>";
+		};
+		9E5884731F81FB9E001EDA2E /* AplikasiBerkaitan */ = {
+			isa = PBXGroup;
+			children = (
+				9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */,
+				9E58847D1F8215D2001EDA2E /* AplikasiCell.swift */,
+			);
+			name = AplikasiBerkaitan;
+			sourceTree = "<group>";
+		};
+		9E58847A1F81FCD4001EDA2E /* Etc */ = {
+			isa = PBXGroup;
+			children = (
+				9E5884761F81FC91001EDA2E /* Extension.swift */,
+				9E5884781F81FCAC001EDA2E /* NetworkProcessor.swift */,
+				9E58847B1F8210FA001EDA2E /* Colors.swift */,
+			);
+			name = Etc;
 			sourceTree = "<group>";
 		};
 		D3ABA0F4D711F4525CA64C50 /* Frameworks */ = {
@@ -213,7 +247,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E4462461F7E374700F82591 /* ViewController.swift in Sources */,
+				9E58847C1F8210FA001EDA2E /* Colors.swift in Sources */,
+				9E5884751F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift in Sources */,
 				9E4462441F7E374700F82591 /* AppDelegate.swift in Sources */,
+				9E5884771F81FC91001EDA2E /* Extension.swift in Sources */,
+				9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */,
+				9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */,
+				9E5884801F821B6F001EDA2E /* MainTabBarVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
