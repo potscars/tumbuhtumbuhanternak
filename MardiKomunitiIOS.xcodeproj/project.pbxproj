@@ -27,6 +27,8 @@
 		B7C8AF171F8342630097597F /* PengumumanDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF161F8342630097597F /* PengumumanDetailsTVC.swift */; };
 		B7C8AF191F8342770097597F /* PengumumanDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF181F8342770097597F /* PengumumanDetailsTVCell.swift */; };
 		B7C8AF1B1F8346410097597F /* ZGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF1A1F8346410097597F /* ZGraphics.swift */; };
+		B7C8AF1E1F83843C0097597F /* InfoPenggunaTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF1D1F83843C0097597F /* InfoPenggunaTVC.swift */; };
+		B7C8AF201F8384530097597F /* InfoPenggunaTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF1F1F8384530097597F /* InfoPenggunaTVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,6 +55,8 @@
 		B7C8AF161F8342630097597F /* PengumumanDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PengumumanDetailsTVC.swift; sourceTree = "<group>"; };
 		B7C8AF181F8342770097597F /* PengumumanDetailsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PengumumanDetailsTVCell.swift; sourceTree = "<group>"; };
 		B7C8AF1A1F8346410097597F /* ZGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZGraphics.swift; sourceTree = "<group>"; };
+		B7C8AF1D1F83843C0097597F /* InfoPenggunaTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPenggunaTVC.swift; sourceTree = "<group>"; };
+		B7C8AF1F1F8384530097597F /* InfoPenggunaTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPenggunaTVCell.swift; sourceTree = "<group>"; };
 		BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MardiKomunitiIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +102,7 @@
 		9E4462421F7E374700F82591 /* MardiKomunitiIOS */ = {
 			isa = PBXGroup;
 			children = (
+				B7C8AF1C1F8384170097597F /* Info */,
 				B71AD02B1F8336EC008DA4AF /* Res */,
 				B71AD0241F8242CA008DA4AF /* Pengumuman */,
 				9E5884731F81FB9E001EDA2E /* AplikasiBerkaitan */,
@@ -160,6 +165,15 @@
 				B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */,
 			);
 			name = Sprites;
+			sourceTree = "<group>";
+		};
+		B7C8AF1C1F8384170097597F /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				B7C8AF1D1F83843C0097597F /* InfoPenggunaTVC.swift */,
+				B7C8AF1F1F8384530097597F /* InfoPenggunaTVCell.swift */,
+			);
+			name = Info;
 			sourceTree = "<group>";
 		};
 		D3ABA0F4D711F4525CA64C50 /* Frameworks */ = {
@@ -298,6 +312,7 @@
 				9E4462461F7E374700F82591 /* ViewController.swift in Sources */,
 				9E58847C1F8210FA001EDA2E /* Colors.swift in Sources */,
 				B71AD0281F833001008DA4AF /* PengumumanTVCell.swift in Sources */,
+				B7C8AF201F8384530097597F /* InfoPenggunaTVCell.swift in Sources */,
 				9E5884751F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift in Sources */,
 				B71AD0261F832F8D008DA4AF /* PengumumanTVC.swift in Sources */,
 				9E4462441F7E374700F82591 /* AppDelegate.swift in Sources */,
@@ -309,6 +324,7 @@
 				9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */,
 				9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */,
 				9E5884801F821B6F001EDA2E /* MainTabBarVC.swift in Sources */,
+				B7C8AF1E1F83843C0097597F /* InfoPenggunaTVC.swift in Sources */,
 				B7C8AF191F8342770097597F /* PengumumanDetailsTVCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
