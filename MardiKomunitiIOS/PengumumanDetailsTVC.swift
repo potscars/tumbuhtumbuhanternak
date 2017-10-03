@@ -1,5 +1,5 @@
 //
-//  PengumumanTVC.swift
+//  PengumumanDetailsTVC.swift
 //  MardiKomunitiIOS
 //
 //  Created by Mohd Zulhilmi Mohd Zain on 03/10/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PengumumanTVC: UITableViewController {
+class PengumumanDetailsTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,10 +18,6 @@ class PengumumanTVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-        
-        ZUISetup.setupTableViewWithTabView(tableView: self)
-        self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 160.0
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,35 +29,23 @@ class PengumumanTVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if(indexPath.row == 1){
-            let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCWithPicCellID", for: indexPath) as! PengumumanTVCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
         // Configure the cell...
-            cell.updateImageCell(data: [:])
 
-            return cell
-        }
-        else {
-            let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCNoPicCellID", for: indexPath) as! PengumumanTVCell
-
-            
-            // Configure the cell...
-            
-            return cell
-        }
+        return cell
     }
-    
+    */
 
     /*
     // Override to support conditional editing of the table view.
