@@ -1,5 +1,5 @@
 //
-//  PengumumanTVC.swift
+//  PengumumanDetailsTVC.swift
 //  MardiKomunitiIOS
 //
 //  Created by Mohd Zulhilmi Mohd Zain on 03/10/2017.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PengumumanTVC: UITableViewController {
+class PengumumanDetailsTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +22,8 @@ class PengumumanTVC: UITableViewController {
         ZUISetup.setupTableViewWithTabView(tableView: self)
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 160.0
+        
+        ZGraphics.hideTableSeparatorAfterLastCell(tableView: self.tableView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,37 +40,37 @@ class PengumumanTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 3
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if(indexPath.row == 1){
-            let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCWithPicCellID", for: indexPath) as! PengumumanTVCell
+        if(indexPath.row == 0) {
+            let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDSenderInfoCellID", for: indexPath) as! PengumumanDetailsTVCell
 
-        // Configure the cell...
-            cell.updateImageCell(data: [:])
+            // Configure the cell...
 
+            return cell
+        }
+        else if(indexPath.row == 1) {
+            let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDImageCellID", for: indexPath) as! PengumumanDetailsTVCell
+        
+            // Configure the cell...
+        
             return cell
         }
         else {
-            let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCNoPicCellID", for: indexPath) as! PengumumanTVCell
-
+            let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDFullDescCellID", for: indexPath) as! PengumumanDetailsTVCell
             
             // Configure the cell...
+            cell.updateDescriptions(data: [:])
             
             return cell
         }
+        
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        self.performSegue(withIdentifier: "MYA_GOTO_PENGUMUMAN_DETAILS", sender: self)
-        
-    }
 
     /*
     // Override to support conditional editing of the table view.

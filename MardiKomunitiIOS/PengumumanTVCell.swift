@@ -8,6 +8,24 @@
 
 import UIKit
 
+extension UIImage{
+    
+    func resizeImageWith(newSize: CGSize) -> UIImage {
+        
+        let horizontalRatio = newSize.width / size.width
+        let verticalRatio = newSize.height / size.height
+        
+        let ratio = max(horizontalRatio, verticalRatio)
+        let newSize = CGSize(width: size.width * ratio, height: size.height * ratio)
+        UIGraphicsBeginImageContextWithOptions(newSize, true, 0)
+        draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: newSize))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage!
+    }
+    
+}
+
 class PengumumanTVCell: UITableViewCell {
 
     @IBOutlet weak var uilPVCNPTitle: UILabel!
@@ -27,6 +45,21 @@ class PengumumanTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func updateImageCell(data: NSDictionary) {
+        
+        uiivPVCWPImage.image = UIImage.init(named: "")?.resizeImageWith(newSize: CGSize.init(width: 359, height: 145))
+        uilPVCWPTitle.text = ""
+        uilPVCWPDesc.text = ""
+        
+    }
+    
+    func updateCell(data: NSDictionary) {
+        
+        uilPVCNPTitle.text = ""
+        uilPVCNPDesc.text = ""
+        
     }
 
 }
