@@ -82,6 +82,7 @@
 		9E4462421F7E374700F82591 /* MardiKomunitiIOS */ = {
 			isa = PBXGroup;
 			children = (
+				B71AD0241F8242CA008DA4AF /* Pengumuman */,
 				9E5884731F81FB9E001EDA2E /* AplikasiBerkaitan */,
 				9E58847A1F81FCD4001EDA2E /* Etc */,
 				9E4462431F7E374700F82591 /* AppDelegate.swift */,
@@ -112,6 +113,13 @@
 				9E58847B1F8210FA001EDA2E /* Colors.swift */,
 			);
 			name = Etc;
+			sourceTree = "<group>";
+		};
+		B71AD0241F8242CA008DA4AF /* Pengumuman */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pengumuman;
 			sourceTree = "<group>";
 		};
 		D3ABA0F4D711F4525CA64C50 /* Frameworks */ = {
