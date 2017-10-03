@@ -18,6 +18,12 @@ class PengumumanDetailsTVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        ZUISetup.setupTableViewWithTabView(tableView: self)
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 160.0
+        
+        ZGraphics.hideTableSeparatorAfterLastCell(tableView: self.tableView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -29,23 +35,41 @@ class PengumumanDetailsTVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 3
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        
+        if(indexPath.row == 0) {
+            let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDSenderInfoCellID", for: indexPath) as! PengumumanDetailsTVCell
 
-        // Configure the cell...
+            // Configure the cell...
 
-        return cell
+            return cell
+        }
+        else if(indexPath.row == 1) {
+            let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDImageCellID", for: indexPath) as! PengumumanDetailsTVCell
+        
+            // Configure the cell...
+        
+            return cell
+        }
+        else {
+            let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDFullDescCellID", for: indexPath) as! PengumumanDetailsTVCell
+            
+            // Configure the cell...
+            
+            return cell
+        }
+        
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

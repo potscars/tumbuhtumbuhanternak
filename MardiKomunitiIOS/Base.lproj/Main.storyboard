@@ -175,7 +175,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="C4R-bT-ivN"/>
                     <connections>
                         <segue destination="Sw2-ga-DkO" kind="show" id="Urw-61-lvl"/>
-                        <segue destination="ylp-ZO-5aU" kind="show" id="Njr-hn-73K"/>
+                        <segue destination="ylp-ZO-5aU" kind="show" identifier="MYA_GOTO_PENGUMUMAN_DETAILS" id="Njr-hn-73K"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bGa-xb-4An" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -252,7 +252,7 @@
         <scene sceneID="svS-Gs-sD0">
             <objects>
                 <tableViewController id="ylp-ZO-5aU" customClass="PengumumanDetailsTVC" customModule="MardiKomunitiIOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zj0-Jg-X3Z">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zj0-Jg-X3Z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -286,10 +286,9 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.85104695429999999" green="0.57966183900000001" blue="0.68391265180000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstItem="bwg-qD-fpU" firstAttribute="leading" secondItem="8S5-Sf-2Z3" secondAttribute="leading" id="6SN-28-OVr"/>
-                                                <constraint firstAttribute="width" constant="297" id="CqI-Vo-Lrr"/>
+                                                <constraint firstAttribute="width" constant="297" placeholder="YES" id="CqI-Vo-Lrr"/>
                                                 <constraint firstAttribute="bottom" secondItem="bwg-qD-fpU" secondAttribute="bottom" id="HjE-Z3-SBw"/>
                                                 <constraint firstAttribute="trailing" secondItem="bwg-qD-fpU" secondAttribute="trailing" constant="-1" id="Pdg-fx-rBA"/>
                                                 <constraint firstAttribute="trailing" secondItem="YYS-2s-wuv" secondAttribute="trailing" constant="-1" id="gSU-6X-ZyN"/>
@@ -316,6 +315,10 @@
                                         <constraint firstItem="8S5-Sf-2Z3" firstAttribute="leading" secondItem="gSj-xt-0Gu" secondAttribute="trailing" constant="8" id="mfZ-I4-11a"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="uilPDTVCSenderDate" destination="bwg-qD-fpU" id="6OX-dU-bVl"/>
+                                    <outlet property="uilPDTVCSenderName" destination="YYS-2s-wuv" id="AqF-WN-hlc"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PDImageCellID" rowHeight="200" id="opG-ad-2KP" customClass="PengumumanDetailsTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="98" width="375" height="200"/>
@@ -327,8 +330,11 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbK-AZ-qXc">
                                             <rect key="frame" x="8" y="8" width="359" height="184"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="51O-NR-6At">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="padikebangsaan.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="51O-NR-6At">
                                                     <rect key="frame" x="0.0" y="0.0" width="359" height="184"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="184" id="z3s-LJ-iZv"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" red="0.18823529410000001" green="0.2470588235" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -347,6 +353,9 @@
                                         <constraint firstAttribute="bottom" secondItem="tbK-AZ-qXc" secondAttribute="bottom" constant="7.5" id="evi-GA-HJN"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="uiivPDTVCArticleImage" destination="51O-NR-6At" id="Ycw-FF-VYc"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PDFullDescCellID" id="vfk-UB-08C" customClass="PengumumanDetailsTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="298" width="375" height="44"/>
@@ -369,6 +378,9 @@
                                         <constraint firstItem="9fw-bM-8OY" firstAttribute="leading" secondItem="ePc-fD-nqS" secondAttribute="leadingMargin" id="tn0-p4-2wF"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="uilPDTVCArticleFullDesc" destination="9fw-bM-8OY" id="odu-fg-Nu0"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -614,6 +626,7 @@
     </scenes>
     <resources>
         <image name="fermion" width="740" height="493"/>
+        <image name="padikebangsaan.jpg" width="750" height="250"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Urw-61-lvl"/>

@@ -9,7 +9,12 @@
 import UIKit
 
 class PengumumanDetailsTVCell: UITableViewCell {
-
+    
+    @IBOutlet weak var uilPDTVCSenderName: UILabel!
+    @IBOutlet weak var uilPDTVCSenderDate: UILabel!
+    @IBOutlet weak var uiivPDTVCArticleImage: UIImageView!
+    @IBOutlet weak var uilPDTVCArticleFullDesc: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
