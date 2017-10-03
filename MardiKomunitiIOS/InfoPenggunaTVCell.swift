@@ -9,6 +9,12 @@
 import UIKit
 
 class InfoPenggunaTVCell: UITableViewCell {
+    
+    @IBOutlet weak var uilIPTVCUserName: UILabel!
+    @IBOutlet weak var uilIPTVCProfileDesc: UILabel!
+    
+    @IBOutlet weak var uiivIPTVCSettingsIcon: UIImageView!
+    @IBOutlet weak var uilIPTVCSettingsName: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,6 +25,20 @@ class InfoPenggunaTVCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func updateUserProfile(data: NSDictionary) {
+        
+        uilIPTVCUserName.text = ""
+        uilIPTVCProfileDesc.text = ""
+        
+    }
+    
+    func updateSettings(data: NSDictionary) {
+        
+        uiivIPTVCSettingsIcon.image = UIImage.init(named: "")
+        uilIPTVCSettingsName.text = ""
+        
     }
 
 }
