@@ -64,6 +64,7 @@ class PengumumanDetailsTVC: UITableViewController {
             let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDFullDescCellID", for: indexPath) as! PengumumanDetailsTVCell
             
             // Configure the cell...
+            cell.updateDescriptions(data: [:])
             
             return cell
         }

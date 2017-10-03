@@ -26,4 +26,14 @@ class PengumumanDetailsTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func updateSenderInfo(data: NSDictionary) {
+        
+    }
+    
+    func updateDescriptions(data: NSDictionary) {
+        
+        uilPDTVCArticleFullDesc.text = "Padi merupakan tanaman strategik dari segi keselamatan makanan, pembasmian kemiskinan dan sosio-politik di Malaysia."
+        
+    }
+    
 }

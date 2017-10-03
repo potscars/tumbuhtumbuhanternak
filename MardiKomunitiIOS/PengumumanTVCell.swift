@@ -49,13 +49,16 @@ class PengumumanTVCell: UITableViewCell {
     
     func updateImageCell(data: NSDictionary) {
         
-        uiivPVCWPImage.image = UIImage.init(named: "padikebangsaan.jpg")?.resizeImageWith(newSize: CGSize.init(width: 359, height: 145))
+        uiivPVCWPImage.image = UIImage.init(named: "")?.resizeImageWith(newSize: CGSize.init(width: 359, height: 145))
+        uilPVCWPTitle.text = ""
+        uilPVCWPDesc.text = ""
         
     }
     
     func updateCell(data: NSDictionary) {
         
-        
+        uilPVCNPTitle.text = ""
+        uilPVCNPDesc.text = ""
         
     }
 
