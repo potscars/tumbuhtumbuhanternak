@@ -32,8 +32,8 @@ class PengumumanTVCell: UITableViewCell {
     func updateImageCell(data: NSDictionary) {
         
         uiivPVCWPImage.image = UIImage.init(named: "")?.resizeImageWith(newSize: CGSize.init(width: 359, height: 145))
-        uilPVCWPTitle.text = ""
-        uilPVCWPDesc.text = ""
+        uilPVCWPTitle.text = "Persidangan Padi Kebangsaan 2017"
+        uilPVCWPDesc.text = "Padi merupakan tanaman strategik dari segi keselamatan makanan, pembasmian kemiskinan dan sosio-politik di Malaysia."
         
     }
     
