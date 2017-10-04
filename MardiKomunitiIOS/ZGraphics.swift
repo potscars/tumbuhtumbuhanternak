@@ -101,6 +101,26 @@ class ZGraphics: NSObject {
         tableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
     }
 
+    static func stylizingTextField(target: UITextField) {
+     
+        target.layer.borderColor = UIColor.init(red: 6.0/255.0, green: 142.0/255.0, blue: 61.0/255.0, alpha: 1).cgColor
+        target.layer.borderWidth = 2.0
+        target.layer.cornerRadius = 5
+        target.clipsToBounds = true
+        
+        
+    }
+    
+    static func stylizingButton(target: UIButton) {
+        
+        target.layer.borderColor = UIColor.init(red: 6.0/255.0, green: 142.0/255.0, blue: 61.0/255.0, alpha: 1).cgColor
+        target.layer.borderWidth = 0.0
+        target.layer.cornerRadius = 5
+        target.clipsToBounds = true
+        
+        
+    }
+    
 }
 
 
