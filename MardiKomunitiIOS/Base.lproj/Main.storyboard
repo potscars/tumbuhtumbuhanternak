@@ -409,7 +409,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwr-cJ-T7W">
                                 <rect key="frame" x="16" y="300" width="343" height="166"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8tq-l1-76C">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Nama Pengguna" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8tq-l1-76C">
                                         <rect key="frame" x="8" y="8" width="327" height="40"/>
                                         <color key="backgroundColor" red="0.22352941179999999" green="0.5568627451" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -419,7 +419,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="continue"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cAC-iu-Dra">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="Kata Laluan" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cAC-iu-Dra">
                                         <rect key="frame" x="8" y="56" width="327" height="40"/>
                                         <color key="backgroundColor" red="0.22352941179999999" green="0.5568627451" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -427,7 +427,7 @@
                                         </constraints>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGH-8q-8W3">
                                         <rect key="frame" x="8" y="116" width="327" height="42"/>
@@ -487,17 +487,17 @@
                         <outlet property="uiivLVCAppImage" destination="73v-Vp-9HQ" id="LiR-11-AR3"/>
                         <outlet property="uitfLVCPassword" destination="cAC-iu-Dra" id="Q6c-Op-ZUc"/>
                         <outlet property="uitfLVCUsername" destination="8tq-l1-76C" id="s0G-xA-BkU"/>
-                        <segue destination="4C4-ja-Shg" kind="show" id="GQ1-bK-Yz4"/>
+                        <segue destination="4C4-ja-Shg" kind="show" identifier="MYA_PROCESS_LOGIN" animates="NO" id="GQ1-bK-Yz4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jm2-BC-MSB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1268" y="106.59670164917542"/>
         </scene>
-        <!--View Controller-->
+        <!--Login ProcessVC-->
         <scene sceneID="8mj-L3-4qI">
             <objects>
-                <viewController id="4C4-ja-Shg" sceneMemberID="viewController">
+                <viewController id="4C4-ja-Shg" customClass="LoginProcessVC" customModule="MardiKomunitiIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U3R-wF-GUM"/>
                         <viewControllerLayoutGuide type="bottom" id="FcC-xh-MAe"/>
@@ -508,12 +508,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="MCz-aN-jlU" kind="show" id="q4g-Ub-8Qg"/>
+                        <segue destination="MCz-aN-jlU" kind="show" identifier="" id="q4g-Ub-8Qg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJg-Tl-58j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1268" y="830"/>
+            <point key="canvasLocation" x="1268" y="829.83508245877067"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0pG-Z1-xQ9">

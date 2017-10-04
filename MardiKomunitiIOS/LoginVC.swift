@@ -22,6 +22,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
+        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         ZGraphics.stylizingTextField(target: uitfLVCUsername)
@@ -29,6 +31,31 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         ZGraphics.stylizingButton(target: uibLVCLogin)
         uitfLVCUsername.delegate = self
         uitfLVCPassword.delegate = self
+        //uitfLVCPassword.
+        
+        uibLVCLogin.addTarget(self, action: #selector(gotoLoginProcess(_:)), for: UIControlEvents.touchUpInside)
+        
+    }
+    
+    func gotoLoginProcess(_ sender: UIButton) {
+        
+        if(uitfLVCUsername.text != "") {
+            
+            if(uitfLVCPassword.text != "") {
+                
+            } else {
+                
+                ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Masalah", dialogMessage: "Sila masukkan kata laluan", afterDialogDismissed: nil)
+                
+            }
+            
+        } else {
+            
+            ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Masalah", dialogMessage: "Sila masukkan nama pengguna", afterDialogDismissed: nil)
+            
+        }
+        
+        self.performSegue(withIdentifier: "MYA_PROCESS_LOGIN", sender: self)
         
     }
     

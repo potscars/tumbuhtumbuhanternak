@@ -30,6 +30,8 @@
 		B7C8AF1E1F83843C0097597F /* InfoPenggunaTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF1D1F83843C0097597F /* InfoPenggunaTVC.swift */; };
 		B7C8AF201F8384530097597F /* InfoPenggunaTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF1F1F8384530097597F /* InfoPenggunaTVCell.swift */; };
 		B7C8AF251F8488A80097597F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF241F8488A80097597F /* LoginVC.swift */; };
+		B7C8AF271F84BDF50097597F /* LoginProcessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF261F84BDF50097597F /* LoginProcessVC.swift */; };
+		B7C8AF291F84E5A50097597F /* ZUIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF281F84E5A50097597F /* ZUIs.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +61,8 @@
 		B7C8AF1D1F83843C0097597F /* InfoPenggunaTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPenggunaTVC.swift; sourceTree = "<group>"; };
 		B7C8AF1F1F8384530097597F /* InfoPenggunaTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPenggunaTVCell.swift; sourceTree = "<group>"; };
 		B7C8AF241F8488A80097597F /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		B7C8AF261F84BDF50097597F /* LoginProcessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginProcessVC.swift; sourceTree = "<group>"; };
+		B7C8AF281F84E5A50097597F /* ZUIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZUIs.swift; sourceTree = "<group>"; };
 		BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MardiKomunitiIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -133,6 +137,7 @@
 		9E58847A1F81FCD4001EDA2E /* Etc */ = {
 			isa = PBXGroup;
 			children = (
+				B7C8AF281F84E5A50097597F /* ZUIs.swift */,
 				B7C8AF1A1F8346410097597F /* ZGraphics.swift */,
 				B7C8AF141F833A670097597F /* ZImages.swift */,
 				B71AD0291F8331E2008DA4AF /* ZUISetup.swift */,
@@ -183,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				B7C8AF241F8488A80097597F /* LoginVC.swift */,
+				B7C8AF261F84BDF50097597F /* LoginProcessVC.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -320,6 +326,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7C8AF291F84E5A50097597F /* ZUIs.swift in Sources */,
 				9E4462461F7E374700F82591 /* ViewController.swift in Sources */,
 				9E58847C1F8210FA001EDA2E /* Colors.swift in Sources */,
 				B71AD0281F833001008DA4AF /* PengumumanTVCell.swift in Sources */,
@@ -334,6 +341,7 @@
 				B7C8AF171F8342630097597F /* PengumumanDetailsTVC.swift in Sources */,
 				9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */,
 				9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */,
+				B7C8AF271F84BDF50097597F /* LoginProcessVC.swift in Sources */,
 				B7C8AF251F8488A80097597F /* LoginVC.swift in Sources */,
 				9E5884801F821B6F001EDA2E /* MainTabBarVC.swift in Sources */,
 				B7C8AF1E1F83843C0097597F /* InfoPenggunaTVC.swift in Sources */,
