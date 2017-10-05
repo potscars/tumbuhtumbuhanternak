@@ -30,12 +30,36 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         ZGraphics.stylizingTextField(target: uitfLVCUsername)
         ZGraphics.stylizingTextField(target: uitfLVCPassword)
         ZGraphics.stylizingButton(target: uibLVCLogin)
+        
         uitfLVCUsername.delegate = self
         uitfLVCPassword.delegate = self
-        //uitfLVCPassword.
+        
+        uitfLVCUsername.attributedPlaceholder = NSAttributedString.init(string: "Nama Pengguna", attributes: [NSForegroundColorAttributeName: UIColor.init(red: 213.0/255.0, green: 213.0/255.0, blue: 213.0/255.0, alpha: 1)])
+        uitfLVCPassword.attributedPlaceholder = NSAttributedString.init(string: "Kata Laluan", attributes: [NSForegroundColorAttributeName: UIColor.init(red: 213.0/255.0, green: 213.0/255.0, blue: 213.0/255.0, alpha: 1)])
+        
+        let rect: CGRect = CGRect.init(x: 0, y: 0, width: 30, height: 30)
+        let iconImage: UIImage = UIImage.init(named: "ic_loginavt300.png")!
+        let iconPassImage: UIImage = UIImage.init(named: "ic_loginkey300.png")!
+        
+        UIGraphicsBeginImageContext(rect.size)
+        iconImage.draw(in: rect)
+        let newIconImage: UIImageView = UIImageView.init(image: UIGraphicsGetImageFromCurrentImageContext()?.addImagePadding(x: 16, y: 16))
+        UIGraphicsEndImageContext()
+        uitfLVCUsername.leftView = newIconImage
+        uitfLVCUsername.leftViewMode = UITextFieldViewMode.always
+        
+        UIGraphicsBeginImageContext(rect.size)
+        iconPassImage.draw(in: rect)
+        let newIconPassImage: UIImageView = UIImageView.init(image: UIGraphicsGetImageFromCurrentImageContext()?.addImagePadding(x: 16, y: 16))
+        UIGraphicsEndImageContext()
+        uitfLVCPassword.leftView = newIconPassImage
+        uitfLVCPassword.leftViewMode = UITextFieldViewMode.always
         
         uibLVCLogin.addTarget(self, action: #selector(gotoLoginProcess(_:)), for: UIControlEvents.touchUpInside)
         uibLVCCancel.addTarget(self, action: #selector(cancelLogin(_:)), for: UIControlEvents.touchUpInside)
+        
+        let imageResize: CGSize = CGSize.init(width: 100, height: 100)
+        uiivLVCAppImage.image = UIImage.init(named: "ic_mardilogo.png")
         
     }
     
