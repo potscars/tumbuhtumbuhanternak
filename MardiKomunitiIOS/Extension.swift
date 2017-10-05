@@ -26,6 +26,12 @@ extension UIView {
         clipsToBounds = true
     }
     
+    func circledView(_ widthView: CGFloat) {
+        
+        layer.cornerRadius = widthView / 2
+        layer.masksToBounds = true
+    }
+    
     func addConstraintsWithFormat(_ format: String, views: UIView...) {
         var viewsDictionary = [String: UIView]()
         for (index, view) in views.enumerated() {
