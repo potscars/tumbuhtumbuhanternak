@@ -32,6 +32,10 @@
 		B7C8AF251F8488A80097597F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF241F8488A80097597F /* LoginVC.swift */; };
 		B7C8AF271F84BDF50097597F /* LoginProcessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF261F84BDF50097597F /* LoginProcessVC.swift */; };
 		B7C8AF291F84E5A50097597F /* ZUIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF281F84E5A50097597F /* ZUIs.swift */; };
+		B7C8AF2B1F85EC510097597F /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF2A1F85EC510097597F /* Connectivity.swift */; };
+		B7C8AF2D1F85ECA60097597F /* ZNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF2C1F85ECA60097597F /* ZNetwork.swift */; };
+		B7C8AF2F1F85EEE60097597F /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF2E1F85EEE60097597F /* URLs.swift */; };
+		B7C8AF311F861BAF0097597F /* AfterLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF301F861BAF0097597F /* AfterLoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +67,10 @@
 		B7C8AF241F8488A80097597F /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		B7C8AF261F84BDF50097597F /* LoginProcessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginProcessVC.swift; sourceTree = "<group>"; };
 		B7C8AF281F84E5A50097597F /* ZUIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZUIs.swift; sourceTree = "<group>"; };
+		B7C8AF2A1F85EC510097597F /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		B7C8AF2C1F85ECA60097597F /* ZNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZNetwork.swift; sourceTree = "<group>"; };
+		B7C8AF2E1F85EEE60097597F /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		B7C8AF301F861BAF0097597F /* AfterLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterLoginVC.swift; sourceTree = "<group>"; };
 		BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MardiKomunitiIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,6 +145,7 @@
 		9E58847A1F81FCD4001EDA2E /* Etc */ = {
 			isa = PBXGroup;
 			children = (
+				B7C8AF2C1F85ECA60097597F /* ZNetwork.swift */,
 				B7C8AF281F84E5A50097597F /* ZUIs.swift */,
 				B7C8AF1A1F8346410097597F /* ZGraphics.swift */,
 				B7C8AF141F833A670097597F /* ZImages.swift */,
@@ -144,6 +153,8 @@
 				9E5884761F81FC91001EDA2E /* Extension.swift */,
 				9E5884781F81FCAC001EDA2E /* NetworkProcessor.swift */,
 				9E58847B1F8210FA001EDA2E /* Colors.swift */,
+				B7C8AF2A1F85EC510097597F /* Connectivity.swift */,
+				B7C8AF2E1F85EEE60097597F /* URLs.swift */,
 			);
 			name = Etc;
 			sourceTree = "<group>";
@@ -189,6 +200,7 @@
 			children = (
 				B7C8AF241F8488A80097597F /* LoginVC.swift */,
 				B7C8AF261F84BDF50097597F /* LoginProcessVC.swift */,
+				B7C8AF301F861BAF0097597F /* AfterLoginVC.swift */,
 			);
 			name = Login;
 			sourceTree = "<group>";
@@ -335,17 +347,21 @@
 				B71AD0261F832F8D008DA4AF /* PengumumanTVC.swift in Sources */,
 				9E4462441F7E374700F82591 /* AppDelegate.swift in Sources */,
 				B71AD02A1F8331E2008DA4AF /* ZUISetup.swift in Sources */,
+				B7C8AF311F861BAF0097597F /* AfterLoginVC.swift in Sources */,
 				9E5884771F81FC91001EDA2E /* Extension.swift in Sources */,
 				B7C8AF151F833A670097597F /* ZImages.swift in Sources */,
 				B7C8AF1B1F8346410097597F /* ZGraphics.swift in Sources */,
 				B7C8AF171F8342630097597F /* PengumumanDetailsTVC.swift in Sources */,
 				9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */,
 				9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */,
+				B7C8AF2D1F85ECA60097597F /* ZNetwork.swift in Sources */,
+				B7C8AF2F1F85EEE60097597F /* URLs.swift in Sources */,
 				B7C8AF271F84BDF50097597F /* LoginProcessVC.swift in Sources */,
 				B7C8AF251F8488A80097597F /* LoginVC.swift in Sources */,
 				9E5884801F821B6F001EDA2E /* MainTabBarVC.swift in Sources */,
 				B7C8AF1E1F83843C0097597F /* InfoPenggunaTVC.swift in Sources */,
 				B7C8AF191F8342770097597F /* PengumumanDetailsTVCell.swift in Sources */,
+				B7C8AF2B1F85EC510097597F /* Connectivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

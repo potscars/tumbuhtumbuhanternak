@@ -471,18 +471,26 @@
                                     <constraint firstAttribute="trailing" secondItem="73v-Vp-9HQ" secondAttribute="trailing" id="oxu-ut-Jhm"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRZ-eo-99X">
+                                <rect key="frame" x="90" y="474" width="195" height="30"/>
+                                <state key="normal" title="Kembali"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="NRZ-eo-99X" firstAttribute="leading" secondItem="Chq-Gv-6qS" secondAttribute="leadingMargin" constant="74" id="EVO-Af-1of"/>
                             <constraint firstItem="hwr-cJ-T7W" firstAttribute="top" secondItem="3bb-Fo-Anc" secondAttribute="bottom" constant="44" id="RyP-a7-gxI"/>
                             <constraint firstItem="hwr-cJ-T7W" firstAttribute="leading" secondItem="Chq-Gv-6qS" secondAttribute="leadingMargin" id="VNq-gK-imk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="3bb-Fo-Anc" secondAttribute="trailing" constant="77" id="cR7-l1-eTa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NRZ-eo-99X" secondAttribute="trailing" constant="74" id="jsh-Bv-s2V"/>
                             <constraint firstItem="hwr-cJ-T7W" firstAttribute="trailing" secondItem="Chq-Gv-6qS" secondAttribute="trailingMargin" id="n4E-ZO-AiY"/>
+                            <constraint firstItem="NRZ-eo-99X" firstAttribute="top" secondItem="hwr-cJ-T7W" secondAttribute="bottom" constant="8" id="pnc-g8-8vK"/>
                             <constraint firstItem="3bb-Fo-Anc" firstAttribute="top" secondItem="mRy-2V-ywD" secondAttribute="bottom" constant="46" id="sWj-Wh-PVi"/>
                             <constraint firstItem="3bb-Fo-Anc" firstAttribute="leading" secondItem="Chq-Gv-6qS" secondAttribute="leadingMargin" constant="76" id="vG7-be-j9q"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="uibLVCCancel" destination="NRZ-eo-99X" id="VrC-Kg-3e9"/>
                         <outlet property="uibLVCLogin" destination="LGH-8q-8W3" id="cge-TU-NXA"/>
                         <outlet property="uiivLVCAppImage" destination="73v-Vp-9HQ" id="LiR-11-AR3"/>
                         <outlet property="uitfLVCPassword" destination="cAC-iu-Dra" id="Q6c-Op-ZUc"/>
@@ -508,7 +516,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <segue destination="MCz-aN-jlU" kind="show" identifier="" id="q4g-Ub-8Qg"/>
+                        <segue destination="MCz-aN-jlU" kind="presentation" identifier="MYA_LOGGED_GOTO_MAIN" modalTransitionStyle="crossDissolve" id="q4g-Ub-8Qg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bJg-Tl-58j" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -552,35 +560,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kf2-M2-Bsp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2882" y="107"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="rx1-Va-Xfq">
-            <objects>
-                <tableViewController id="6eR-DP-qMi" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="B3J-D2-DIB">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vLA-hi-7vg">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vLA-hi-7vg" id="OEQ-cr-DkT">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="6eR-DP-qMi" id="rkQ-ow-AZZ"/>
-                            <outlet property="delegate" destination="6eR-DP-qMi" id="OsZ-Jf-6B3"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="AuU-vS-D2K"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hrb-te-l4D" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3726" y="-1997"/>
         </scene>
         <!--Item-->
         <scene sceneID="MLZ-OP-CaZ">
@@ -780,7 +759,7 @@
         <scene sceneID="IMh-AZ-Dt4">
             <objects>
                 <collectionViewController id="76F-yC-1wk" customClass="AplikasiBerkaitanCVC" customModule="MardiKomunitiIOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="38z-1J-vXP">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="38z-1J-vXP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

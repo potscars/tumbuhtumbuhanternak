@@ -14,6 +14,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var uitfLVCUsername: UITextField!
     @IBOutlet weak var uitfLVCPassword: UITextField!
     @IBOutlet weak var uibLVCLogin: UIButton!
+    @IBOutlet weak var uibLVCCancel: UIButton!
     
     var textEditing: Bool = false
     
@@ -34,6 +35,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         //uitfLVCPassword.
         
         uibLVCLogin.addTarget(self, action: #selector(gotoLoginProcess(_:)), for: UIControlEvents.touchUpInside)
+        uibLVCCancel.addTarget(self, action: #selector(cancelLogin(_:)), for: UIControlEvents.touchUpInside)
         
     }
     
@@ -42,6 +44,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         if(uitfLVCUsername.text != "") {
             
             if(uitfLVCPassword.text != "") {
+                
+                self.performSegue(withIdentifier: "MYA_PROCESS_LOGIN", sender: self)
                 
             } else {
                 
@@ -55,7 +59,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             
         }
         
-        self.performSegue(withIdentifier: "MYA_PROCESS_LOGIN", sender: self)
+    }
+    
+    func cancelLogin(_ sender: UIButton) {
+        
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
         
     }
     
@@ -114,14 +122,23 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "MYA_PROCESS_LOGIN") {
+            
+            let destinationVC: LoginProcessVC = segue.destination as! LoginProcessVC
+            
+            destinationVC.loginData = ["username":uitfLVCUsername.text!,
+                                       "password":uitfLVCPassword.text!]
+            
+        }
     }
-    */
+ 
 
 }

@@ -1,12 +1,17 @@
 PODS:
-  - NVActivityIndicatorView (3.5.2)
+  - NVActivityIndicatorView (4.0.0):
+    - NVActivityIndicatorView/Presenter (= 4.0.0)
+  - NVActivityIndicatorView/Presenter (4.0.0)
+  - PlainPing (0.4)
 
 DEPENDENCIES:
   - NVActivityIndicatorView
+  - PlainPing
 
 SPEC CHECKSUMS:
-  NVActivityIndicatorView: 8c10abd410a0657afd21aa853373e1a3cfc25e7f
+  NVActivityIndicatorView: 54c9b93b6f25a4f467512680c0c90c09a1095cf2
+  PlainPing: 17845ab9e2b41460edc0faa94fd02093fa17d236
 
-PODFILE CHECKSUM: c53f9082244db78a1614032d7d0803cd5b6623b2
+PODFILE CHECKSUM: bddbb4798074b7c27b36fcdcff2f2c01a480c4bd
 
 COCOAPODS: 1.2.0
