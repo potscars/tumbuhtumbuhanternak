@@ -540,10 +540,10 @@
             </objects>
             <point key="canvasLocation" x="2078" y="513"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--After LoginVC-->
         <scene sceneID="SwB-cA-5ib">
             <objects>
-                <tabBarController id="WUf-6n-lLY" sceneMemberID="viewController">
+                <tabBarController id="WUf-6n-lLY" customClass="AfterLoginVC" customModule="MardiKomunitiIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="gye-N2-Jrh"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="0GE-c3-yR7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -551,11 +551,11 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
+                        <segue destination="76F-yC-1wk" kind="show" id="qPx-t7-2xA"/>
+                        <segue destination="UHi-zc-n36" kind="relationship" relationship="viewControllers" id="v9P-AC-avn"/>
                         <segue destination="6O7-tT-Dia" kind="relationship" relationship="viewControllers" id="Ak3-At-8I7"/>
                         <segue destination="xBY-CW-pzw" kind="relationship" relationship="viewControllers" id="6aU-wn-Gn8"/>
                         <segue destination="H5I-Rr-aIx" kind="relationship" relationship="viewControllers" id="P3q-ke-ji1"/>
-                        <segue destination="76F-yC-1wk" kind="show" id="qPx-t7-2xA"/>
-                        <segue destination="UHi-zc-n36" kind="relationship" relationship="viewControllers" id="v9P-AC-avn"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kf2-M2-Bsp" userLabel="First Responder" sceneMemberID="firstResponder"/>

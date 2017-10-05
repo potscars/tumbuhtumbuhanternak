@@ -8,12 +8,19 @@
 
 import UIKit
 
-class AfterLoginVC: UINavigationController {
-
+class AfterLoginVC: UITabBarController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        DispatchQueue.main.async(execute: {
+        
+            UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+            
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
