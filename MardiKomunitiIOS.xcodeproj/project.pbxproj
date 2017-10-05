@@ -41,6 +41,16 @@
 		B7C8AF1B1F8346410097597F /* ZGraphics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF1A1F8346410097597F /* ZGraphics.swift */; };
 		B7C8AF1E1F83843C0097597F /* InfoPenggunaTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF1D1F83843C0097597F /* InfoPenggunaTVC.swift */; };
 		B7C8AF201F8384530097597F /* InfoPenggunaTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF1F1F8384530097597F /* InfoPenggunaTVCell.swift */; };
+		B7C8AF251F8488A80097597F /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF241F8488A80097597F /* LoginVC.swift */; };
+		B7C8AF271F84BDF50097597F /* LoginProcessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF261F84BDF50097597F /* LoginProcessVC.swift */; };
+		B7C8AF291F84E5A50097597F /* ZUIs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF281F84E5A50097597F /* ZUIs.swift */; };
+		B7C8AF2B1F85EC510097597F /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF2A1F85EC510097597F /* Connectivity.swift */; };
+		B7C8AF2D1F85ECA60097597F /* ZNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF2C1F85ECA60097597F /* ZNetwork.swift */; };
+		B7C8AF2F1F85EEE60097597F /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF2E1F85EEE60097597F /* URLs.swift */; };
+		B7C8AF311F861BAF0097597F /* AfterLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF301F861BAF0097597F /* AfterLoginVC.swift */; };
+		B7C8AF341F8623090097597F /* ic_loginavt300.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C8AF331F8623090097597F /* ic_loginavt300.png */; };
+		B7C8AF361F8623210097597F /* ic_loginkey300.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C8AF351F8623210097597F /* ic_loginkey300.png */; };
+		B7C8AF381F8625280097597F /* ic_mardilogo.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C8AF371F8625280097597F /* ic_mardilogo.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +91,16 @@
 		B7C8AF1A1F8346410097597F /* ZGraphics.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZGraphics.swift; sourceTree = "<group>"; };
 		B7C8AF1D1F83843C0097597F /* InfoPenggunaTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPenggunaTVC.swift; sourceTree = "<group>"; };
 		B7C8AF1F1F8384530097597F /* InfoPenggunaTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoPenggunaTVCell.swift; sourceTree = "<group>"; };
+		B7C8AF241F8488A80097597F /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		B7C8AF261F84BDF50097597F /* LoginProcessVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginProcessVC.swift; sourceTree = "<group>"; };
+		B7C8AF281F84E5A50097597F /* ZUIs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZUIs.swift; sourceTree = "<group>"; };
+		B7C8AF2A1F85EC510097597F /* Connectivity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
+		B7C8AF2C1F85ECA60097597F /* ZNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZNetwork.swift; sourceTree = "<group>"; };
+		B7C8AF2E1F85EEE60097597F /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		B7C8AF301F861BAF0097597F /* AfterLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterLoginVC.swift; sourceTree = "<group>"; };
+		B7C8AF331F8623090097597F /* ic_loginavt300.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_loginavt300.png; sourceTree = "<group>"; };
+		B7C8AF351F8623210097597F /* ic_loginkey300.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_loginkey300.png; sourceTree = "<group>"; };
+		B7C8AF371F8625280097597F /* ic_mardilogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_mardilogo.png; sourceTree = "<group>"; };
 		BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MardiKomunitiIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -153,7 +173,11 @@
 		9E4462421F7E374700F82591 /* MardiKomunitiIOS */ = {
 			isa = PBXGroup;
 			children = (
+
 				9E0552CA1F8490F5002BA0E0 /* Message */,
+
+				B7C8AF211F8488520097597F /* Login */,
+
 				B7C8AF1C1F8384170097597F /* Info */,
 				B71AD02B1F8336EC008DA4AF /* Res */,
 				B71AD0241F8242CA008DA4AF /* Pengumuman */,
@@ -182,12 +206,16 @@
 		9E58847A1F81FCD4001EDA2E /* Etc */ = {
 			isa = PBXGroup;
 			children = (
+				B7C8AF2C1F85ECA60097597F /* ZNetwork.swift */,
+				B7C8AF281F84E5A50097597F /* ZUIs.swift */,
 				B7C8AF1A1F8346410097597F /* ZGraphics.swift */,
 				B7C8AF141F833A670097597F /* ZImages.swift */,
 				B71AD0291F8331E2008DA4AF /* ZUISetup.swift */,
 				9E5884761F81FC91001EDA2E /* Extension.swift */,
 				9E5884781F81FCAC001EDA2E /* NetworkProcessor.swift */,
 				9E58847B1F8210FA001EDA2E /* Colors.swift */,
+				B7C8AF2A1F85EC510097597F /* Connectivity.swift */,
+				B7C8AF2E1F85EEE60097597F /* URLs.swift */,
 			);
 			name = Etc;
 			sourceTree = "<group>";
@@ -214,6 +242,8 @@
 		B71AD02C1F8336F6008DA4AF /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				B7C8AF371F8625280097597F /* ic_mardilogo.png */,
+				B7C8AF321F8620660097597F /* Login */,
 				B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */,
 			);
 			name = Sprites;
@@ -226,6 +256,25 @@
 				B7C8AF1F1F8384530097597F /* InfoPenggunaTVCell.swift */,
 			);
 			name = Info;
+			sourceTree = "<group>";
+		};
+		B7C8AF211F8488520097597F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B7C8AF241F8488A80097597F /* LoginVC.swift */,
+				B7C8AF261F84BDF50097597F /* LoginProcessVC.swift */,
+				B7C8AF301F861BAF0097597F /* AfterLoginVC.swift */,
+			);
+			name = Login;
+			sourceTree = "<group>";
+		};
+		B7C8AF321F8620660097597F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B7C8AF351F8623210097597F /* ic_loginkey300.png */,
+				B7C8AF331F8623090097597F /* ic_loginavt300.png */,
+			);
+			name = Login;
 			sourceTree = "<group>";
 		};
 		D3ABA0F4D711F4525CA64C50 /* Frameworks */ = {
@@ -300,11 +349,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E44624E1F7E374700F82591 /* LaunchScreen.storyboard in Resources */,
+
 				9E0552E31F84EBF1002BA0E0 /* MembersCollectionCell.xib in Resources */,
 				9E44624B1F7E374700F82591 /* Assets.xcassets in Resources */,
 				9E0552E11F84EA87002BA0E0 /* RepliedCell.xib in Resources */,
 				B71AD02E1F833708008DA4AF /* padikebangsaan.jpg in Resources */,
 				9E0552DD1F84E6DB002BA0E0 /* MembersCell.xib in Resources */,
+
+				B7C8AF361F8623210097597F /* ic_loginkey300.png in Resources */,
+				9E44624B1F7E374700F82591 /* Assets.xcassets in Resources */,
+				B7C8AF381F8625280097597F /* ic_mardilogo.png in Resources */,
+				B71AD02E1F833708008DA4AF /* padikebangsaan.jpg in Resources */,
+				B7C8AF341F8623090097597F /* ic_loginavt300.png in Resources */,
+
 				9E4462491F7E374700F82591 /* Main.storyboard in Resources */,
 				9E0552DF1F84E86E002BA0E0 /* ContentCell.xib in Resources */,
 			);
@@ -365,6 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7C8AF291F84E5A50097597F /* ZUIs.swift in Sources */,
 				9E4462461F7E374700F82591 /* ViewController.swift in Sources */,
 				9E0552D41F84CE19002BA0E0 /* ContentCell.swift in Sources */,
 				9E58847C1F8210FA001EDA2E /* Colors.swift in Sources */,
@@ -377,7 +435,11 @@
 				B71AD0261F832F8D008DA4AF /* PengumumanTVC.swift in Sources */,
 				9E4462441F7E374700F82591 /* AppDelegate.swift in Sources */,
 				B71AD02A1F8331E2008DA4AF /* ZUISetup.swift in Sources */,
+
 				9E0552D61F84CE26002BA0E0 /* RepliedCell.swift in Sources */,
+
+				B7C8AF311F861BAF0097597F /* AfterLoginVC.swift in Sources */,
+
 				9E5884771F81FC91001EDA2E /* Extension.swift in Sources */,
 				B7C8AF151F833A670097597F /* ZImages.swift in Sources */,
 				9E0552D91F84DBDD002BA0E0 /* MembersCollectionCell.swift in Sources */,
@@ -386,10 +448,18 @@
 				B7C8AF171F8342630097597F /* PengumumanDetailsTVC.swift in Sources */,
 				9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */,
 				9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */,
+				B7C8AF2D1F85ECA60097597F /* ZNetwork.swift in Sources */,
+				B7C8AF2F1F85EEE60097597F /* URLs.swift in Sources */,
+				B7C8AF271F84BDF50097597F /* LoginProcessVC.swift in Sources */,
+				B7C8AF251F8488A80097597F /* LoginVC.swift in Sources */,
 				9E5884801F821B6F001EDA2E /* MainTabBarVC.swift in Sources */,
 				B7C8AF1E1F83843C0097597F /* InfoPenggunaTVC.swift in Sources */,
 				B7C8AF191F8342770097597F /* PengumumanDetailsTVCell.swift in Sources */,
+
 				9E0552CE1F84972A002BA0E0 /* MessageInboxCell.swift in Sources */,
+
+				B7C8AF2B1F85EC510097597F /* Connectivity.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

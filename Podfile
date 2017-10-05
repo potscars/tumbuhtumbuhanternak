@@ -7,4 +7,7 @@ target 'MardiKomunitiIOS' do
 
   # Pods for MardiKomunitiIOS
 
+pod 'NVActivityIndicatorView'
+pod 'PlainPing'
+
 end
