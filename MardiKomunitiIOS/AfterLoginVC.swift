@@ -15,7 +15,12 @@ class AfterLoginVC: UITabBarController {
 
         // Do any additional setup after loading the view.
         
-        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+        DispatchQueue.main.async(execute: {
+        
+            UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+            
+        })
+        
     }
 
     override func didReceiveMemoryWarning() {
