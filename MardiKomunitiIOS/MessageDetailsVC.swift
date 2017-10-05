@@ -6,6 +6,9 @@
 //  Copyright © 2017 com.ingeniworks. All rights reserved.
 //
 
+
+//tableview and collectionview datasource located at MessageDetailsExtension.swift
+
 import UIKit
 
 class MessageDetailsVC: UIViewController {
@@ -26,10 +29,18 @@ class MessageDetailsVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+
+        configureTextview()
+        registerObserver()
+    }
+    
+    func configureTextview() {
+        
         replyTextView.delegate = self
         replyTextView.circledView(replyTextView.frame.height)
         
-        registerObserver()
+        replyTextView.text = "Comment.."
+        replyTextView.textColor = .lightGray
     }
     
     func registerObserver() {
@@ -88,6 +99,19 @@ extension MessageDetailsVC : UITextViewDelegate {
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         
+        if replyTextView.textColor == .lightGray {
+            replyTextView.text = nil
+            replyTextView.textColor = .black
+        }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        
+        if replyTextView.text.characters.count <= 0 {
+            
+            replyTextView.textColor = .lightGray
+            replyTextView.text = "Comment.."
+        }
     }
     
     func textViewDidChange(_ textView: UITextView) {
@@ -95,6 +119,7 @@ extension MessageDetailsVC : UITextViewDelegate {
         expandAndShrinkingTheContentView()
     }
     
+    //handle expanding and shrinking replyview.
     func expandAndShrinkingTheContentView() {
         
         let scrollableFrameSize = replyTextView.intrinsicContentSize.height
