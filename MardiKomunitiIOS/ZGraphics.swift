@@ -100,7 +100,6 @@ class ZGraphics: NSObject {
     {
         tableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
     }
-<<<<<<< HEAD
     
     func createImageWithLetter(_ name: String, imageView: UIImageView, fontSize: CGFloat) {
         
@@ -117,9 +116,7 @@ class ZGraphics: NSObject {
         letterLabel.font = UIFont(name: "Futura-Medium", size: fontSize)
         letterLabel.text = nameTemp.substring(to: nameTemp.index(nameTemp.startIndex, offsetBy: 2))
         imageView.addSubview(letterLabel)
-        
     }
-=======
 
     static func stylizingTextField(target: UITextField) {
      
@@ -140,8 +137,6 @@ class ZGraphics: NSObject {
         
         
     }
-    
->>>>>>> master
 }
 
 
