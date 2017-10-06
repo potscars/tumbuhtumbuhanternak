@@ -104,10 +104,14 @@ class ZGraphics: NSObject {
     func createImageWithLetter(_ name: String, imageView: UIImageView, fontSize: CGFloat) {
         
         let nameWords = name.components(separatedBy: CharacterSet.whitespaces)
-        var nameTemp = ""
+        var nameTemp = String()
         
         for nameWord in nameWords {
             nameTemp += "\(nameWord.characters.first!)"
+        }
+        
+        for view in imageView.subviews {
+            view.removeFromSuperview()
         }
         
         let letterLabel = UILabel(frame: CGRect(x: 0, y: 0, width: imageView.frame.width, height: imageView.frame.height))
