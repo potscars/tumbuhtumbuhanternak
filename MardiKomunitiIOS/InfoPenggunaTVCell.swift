@@ -29,15 +29,15 @@ class InfoPenggunaTVCell: UITableViewCell {
     
     func updateUserProfile(data: NSDictionary) {
         
-        uilIPTVCUserName.text = ""
-        uilIPTVCProfileDesc.text = ""
+        uilIPTVCUserName.text = data.value(forKey: "PROFILE_USERNAME") as? String ?? "Tiada Nama"
+        uilIPTVCProfileDesc.text = "Melihat Profil Data"
         
     }
     
     func updateSettings(data: NSDictionary) {
         
-        uiivIPTVCSettingsIcon.image = UIImage.init(named: "")
-        uilIPTVCSettingsName.text = ""
+        uiivIPTVCSettingsIcon.image = UIImage.init(named: data.value(forKey: "MENU_ICON") as? String ?? "")
+        uilIPTVCSettingsName.text = data.value(forKey: "MENU_NAME") as? String ?? "Data Tidak Sah"
         
     }
 
