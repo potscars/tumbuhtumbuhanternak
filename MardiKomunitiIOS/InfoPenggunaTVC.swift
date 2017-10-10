@@ -9,6 +9,8 @@
 import UIKit
 
 class InfoPenggunaTVC: UITableViewController {
+    
+    var menuInfo: NSMutableArray = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,11 @@ class InfoPenggunaTVC: UITableViewController {
         ZUISetup.setupTableViewWithTabView(tableView: self)
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 80.0
+        
+        menuInfo.add(["PROFILE_USERNAME":"Tetapan"])
+        menuInfo.add(["MENU_NAME":"Tetapan", "MENU_ICON":"ic_cog.png"])
+        menuInfo.add(["MENU_NAME":"Berkenaan Aplikasi", "MENU_ICON":"ic_info.png"])
+        menuInfo.add(["MENU_NAME":"Log Keluar", "MENU_ICON":"ic_logout.png"])
         
     }
 
@@ -39,7 +46,7 @@ class InfoPenggunaTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return 1 + menuInfo.count
     }
 
     
@@ -50,6 +57,7 @@ class InfoPenggunaTVC: UITableViewController {
             let cell: InfoPenggunaTVCell = tableView.dequeueReusableCell(withIdentifier: "IPUserInfoCellID", for: indexPath) as! InfoPenggunaTVCell
             
             // Configure the cell...
+            cell.updateUserProfile(data: menuInfo.object(at: indexPath.row) as! NSDictionary)
             
             return cell
             
@@ -59,10 +67,17 @@ class InfoPenggunaTVC: UITableViewController {
             let cell: InfoPenggunaTVCell = tableView.dequeueReusableCell(withIdentifier: "IPMenuCellID", for: indexPath) as! InfoPenggunaTVCell
             
             // Configure the cell...
+            cell.updateSettings(data: menuInfo.object(at: indexPath.row) as! NSDictionary)
             
             return cell
             
         }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         
     }
     

@@ -14,17 +14,23 @@ class ProjekCell: UITableViewCell {
     @IBOutlet weak var projekTitleLabel : UILabel!
     @IBOutlet weak var projekContentLabel : UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+//    var projek: Projek! {
+//        didSet {
+//            self.updateUI()
+//        }
+//    }
     
-    func updateUI(_ data: Projek) {
+    func updateUI(_ index: Int, projek: Projek) {
+        print(index)
+        print(projek.name)
+        print(projek.dateStart)
+        print(projek.id)
+        print(projek.projekCategory)
         
-        projekTitleLabel.text = data.title
-        projekContentLabel.text = data.members
-        
+        guard let name = projek.name else { return; }
+        projekTitleLabel.text = name
+        //print(projek.enrolls?.count)
         featuredImage.circledView(featuredImage.frame.width)
-        ZGraphics().createImageWithLetter(projekTitleLabel.text!, imageView: featuredImage, fontSize: featuredImage.frame.width / 2)
+        ZGraphics().createImageWithLetter("Rocky Stomp", imageView: featuredImage, fontSize: featuredImage.frame.width / 2)
     }
 }

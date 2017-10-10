@@ -17,7 +17,7 @@ struct ProjekIdentifier {
 class ProjectTVC: UITableViewController {
     
     var sectionHeader = ["PERIKANAN", "TANAMAN", "TERNAKAN"]
-    var dummyData = Projek.fetchData()
+    var projeksData = [Projeks]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +25,23 @@ class ProjectTVC: UITableViewController {
         configureTableView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let projek = Projeks()
+        projek.fetchProjek { (data) in
+            
+            DispatchQueue.main.async {
+                
+                self.projeksData = data
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     func configureTableView() {
         
+        tableView.contentInset = UIEdgeInsetsMake(0, 0, (tabBarController?.tabBar.frame.height)!, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
     }
@@ -34,7 +49,7 @@ class ProjectTVC: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionHeader.count
+        return projeksData.count
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -46,7 +61,7 @@ class ProjectTVC: UITableViewController {
         label.textColor = UIColor.white
         label.font = UIFont(name: "Futura-Bold", size: 16.0)!
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = sectionHeader[section]
+        label.text = projeksData[section].title
         headerView.addSubview(label)
         label.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 16).isActive = true
         label.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: 16).isActive = true
@@ -61,7 +76,8 @@ class ProjectTVC: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dummyData[section].count
+        print(projeksData[section].projek.count)
+        return projeksData[section].projek.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -71,7 +87,8 @@ class ProjectTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProjekIdentifier.ProjekCell, for: indexPath) as! ProjekCell
         
         cell.selectionStyle = .none
-        cell.updateUI(dummyData[section][indexPath.row])
+        print(projeksData[section].projek.count)
+        cell.updateUI(indexPath.row, projek: projeksData[section].projek[indexPath.row])
         
         return cell
     }

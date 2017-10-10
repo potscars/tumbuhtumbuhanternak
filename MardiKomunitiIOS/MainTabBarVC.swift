@@ -14,23 +14,11 @@ class MainTabBarVC: UITabBarController {
         super.viewDidLoad()
 
         configureNavigationBar()
-        configureTabbar()
     }
     
     func configureNavigationBar() {
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Login", style: .done, target: self, action: #selector(loginButtonTapped(_:)))
-    }
-    
-    func configureTabbar() {
-        
-        let attributes: [String : Any] = [ NSFontAttributeName: UIFont(name: "Futura-Bold", size: 12.0)!]
-        
-        for bar in tabBar.items! {
-            
-            bar.titlePositionAdjustment = UIOffsetMake(0, -(tabBar.frame.height - 12) / 2)
-            bar.setTitleTextAttributes(attributes, for: .normal)
-        }
     }
     
     @objc private func loginButtonTapped(_ sender : UIBarButtonItem) {

@@ -56,6 +56,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().barTintColor = Colors.mainGreen
         UITabBar.appearance().tintColor = UIColor.white
         
+        let attributes: [String : Any] = [ NSFontAttributeName: UIFont(name: "Futura-Bold", size: 12.0)!]
+        UITabBarItem.appearance().setTitleTextAttributes(attributes, for: .normal)
+        UITabBarItem.appearance().titlePositionAdjustment.vertical = -15
+        
         return true
     }
 

@@ -59,18 +59,17 @@ class LoginProcessVC: UIViewController {
                     let data: NSDictionary = result!["data"] as! NSDictionary
                     
                     print("dataaq: \(data)")
-                    
+                    self.insertDataToUserDefaults("user_id", userDefaultsKeyString: "MYA_USERID", datas: data)
+                    self.insertDataToUserDefaults("username", userDefaultsKeyString: "MYA_USERNAME", datas: data)
+                    self.insertDataToUserDefaults("alt_username", userDefaultsKeyString: "MYA_ALTUSERNAME", datas: data)
+                    self.insertDataToUserDefaults("name", userDefaultsKeyString: "MYA_NAME", datas: data)
+                    self.insertDataToUserDefaults("ic_no", userDefaultsKeyString: "MYA_ICNO", datas: data)
+                    self.insertDataToUserDefaults("hp_no", userDefaultsKeyString: "MYA_HPNO", datas: data)
+                    self.insertDataToUserDefaults("email", userDefaultsKeyString: "MYA_EMAIL", datas: data)
+                    self.insertDataToUserDefaults("roles", userDefaultsKeyString: "MYA_ROLES_ARR", datas: data)
+                    self.insertDataToUserDefaults("address", userDefaultsKeyString: "MYA_ADDRESS_ARR", datas: data)
+                    self.insertDataToUserDefaults("token", userDefaultsKeyString: "MYA_USERTOKEN", datas: data)
                     UserDefaults.standard.set(true, forKey: "MYA_USERLOGGEDIN")
-                    UserDefaults.standard.set(data.value(forKey: "user_id") ?? "", forKey: "MYA_USERID")
-                    UserDefaults.standard.set(data.value(forKey: "username") ?? "", forKey: "MYA_USERNAME")
-                    UserDefaults.standard.set(data.value(forKey: "alt_username") ?? "", forKey: "MYA_ALTUSERNAME")
-                    UserDefaults.standard.set(data.value(forKey: "name") ?? "", forKey: "MYA_NAME")
-                    UserDefaults.standard.set(data.value(forKey: "ic_no") ?? "", forKey: "MYA_ICNO")
-                    UserDefaults.standard.set(data.value(forKey: "hp_no") ?? "", forKey: "MYA_HPNO")
-                    UserDefaults.standard.set(data.value(forKey: "email") ?? "", forKey: "MYA_EMAIL")
-                    UserDefaults.standard.set(data.value(forKey: "roles") ?? "", forKey: "MYA_ROLES_ARR")
-                    UserDefaults.standard.set(data.value(forKey: "address") ?? "", forKey: "MYA_ADDRESS_ARR")
-                    UserDefaults.standard.set(data.value(forKey: "token") ?? "", forKey: "MYA_USERTOKEN")
                     
                     //in future, remember me will be set
                     //in future, language will be set
@@ -90,8 +89,26 @@ class LoginProcessVC: UIViewController {
             }
         
         }
+    
+    }
+    
+    func insertDataToUserDefaults(_ apiKeyString: String, userDefaultsKeyString: String, datas: NSDictionary) {
         
-        
+        if let data = datas.value(forKey: apiKeyString) {
+            
+            if let data = data as? NSDictionary {
+                print("Key")
+                let dataKeyArchived = NSKeyedArchiver.archivedData(withRootObject: data)
+                UserDefaults.standard.set(dataKeyArchived, forKey: userDefaultsKeyString)
+            }
+            
+            if let data = data as? String {
+                print("Unkey")
+                UserDefaults.standard.set(data, forKey: userDefaultsKeyString)
+            }
+        } else {
+            UserDefaults.standard.set("", forKey: userDefaultsKeyString)
+        }
     }
 
     override func didReceiveMemoryWarning() {
