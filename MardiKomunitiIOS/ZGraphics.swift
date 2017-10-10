@@ -100,6 +100,23 @@ class ZGraphics: NSObject {
     {
         tableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
     }
+    
+    func createImageWithLetter(_ name: String, imageView: UIImageView, fontSize: CGFloat) {
+        
+        let nameWords = name.components(separatedBy: CharacterSet.whitespaces)
+        var nameTemp = ""
+        
+        for nameWord in nameWords {
+            nameTemp += "\(nameWord.characters.first!)"
+        }
+        
+        let letterLabel = UILabel(frame: CGRect(x: 0, y: 0, width: imageView.frame.width, height: imageView.frame.height))
+        letterLabel.textColor = UIColor.white
+        letterLabel.textAlignment = .center
+        letterLabel.font = UIFont(name: "Futura-Medium", size: fontSize)
+        letterLabel.text = nameTemp.substring(to: nameTemp.index(nameTemp.startIndex, offsetBy: 2))
+        imageView.addSubview(letterLabel)
+    }
 
     static func stylizingTextField(target: UITextField) {
      
@@ -120,7 +137,6 @@ class ZGraphics: NSObject {
         
         
     }
-    
 }
 
 
