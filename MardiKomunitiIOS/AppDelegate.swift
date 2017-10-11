@@ -49,9 +49,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
-        UINavigationBar.appearance().barTintColor = Colors.mainGreen
-        UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        self.navigationBar()
         
         UITabBar.appearance().barTintColor = Colors.mainGreen
         UITabBar.appearance().tintColor = UIColor.white
@@ -61,6 +59,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBarItem.appearance().titlePositionAdjustment.vertical = -15
         
         return true
+    }
+    
+    func navigationBar() {
+        
+        UINavigationBar.appearance().barTintColor = Colors.mainGreen
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

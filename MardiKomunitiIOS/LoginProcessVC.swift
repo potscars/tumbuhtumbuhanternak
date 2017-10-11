@@ -48,7 +48,7 @@ class LoginProcessVC: UIViewController {
         let loginParamParam: [String : Any] = ["username":loginData.value(forKey: "username") as! String,
                                                "password":loginData.value(forKey: "password") as! String]
         
-        np.uploadJSONData(loginParamParam) { (result, response) in
+        np.postRequestJSONFromUrl(loginParamParam) { (result, response) in
             
             if(result != nil) {
                 

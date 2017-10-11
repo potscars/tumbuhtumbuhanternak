@@ -25,6 +25,8 @@
 		9E4462491F7E374700F82591 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4462471F7E374700F82591 /* Main.storyboard */; };
 		9E44624B1F7E374700F82591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E44624A1F7E374700F82591 /* Assets.xcassets */; };
 		9E44624E1F7E374700F82591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E44624C1F7E374700F82591 /* LaunchScreen.storyboard */; };
+		9E49FCBB1F8CACFC001006A5 /* Mesej.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCBA1F8CACFC001006A5 /* Mesej.swift */; };
+		9E49FCBD1F8CC02C001006A5 /* LoadingSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCBC1F8CC02C001006A5 /* LoadingSpinner.swift */; };
 		9E5884751F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */; };
 		9E5884771F81FC91001EDA2E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884761F81FC91001EDA2E /* Extension.swift */; };
 		9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884781F81FCAC001EDA2E /* NetworkProcessor.swift */; };
@@ -82,6 +84,8 @@
 		9E44624A1F7E374700F82591 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E44624D1F7E374700F82591 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E44624F1F7E374700F82591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E49FCBA1F8CACFC001006A5 /* Mesej.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mesej.swift; sourceTree = "<group>"; };
+		9E49FCBC1F8CC02C001006A5 /* LoadingSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingSpinner.swift; sourceTree = "<group>"; };
 		9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AplikasiBerkaitanCVC.swift; sourceTree = "<group>"; };
 		9E5884761F81FC91001EDA2E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		9E5884781F81FCAC001EDA2E /* NetworkProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProcessor.swift; sourceTree = "<group>"; };
@@ -144,6 +148,7 @@
 			children = (
 				9E0552CB1F849132002BA0E0 /* MessageInboxTVC.swift */,
 				9E0552CD1F84972A002BA0E0 /* MessageInboxCell.swift */,
+				9E49FCBA1F8CACFC001006A5 /* Mesej.swift */,
 				9E0552D71F84CE33002BA0E0 /* Details */,
 			);
 			name = Message;
@@ -228,6 +233,7 @@
 				9E58847B1F8210FA001EDA2E /* Colors.swift */,
 				B7C8AF2A1F85EC510097597F /* Connectivity.swift */,
 				B7C8AF2E1F85EEE60097597F /* URLs.swift */,
+				9E49FCBC1F8CC02C001006A5 /* LoadingSpinner.swift */,
 			);
 			name = Etc;
 			sourceTree = "<group>";
@@ -463,12 +469,14 @@
 				9E58847C1F8210FA001EDA2E /* Colors.swift in Sources */,
 				B71AD0281F833001008DA4AF /* PengumumanTVCell.swift in Sources */,
 				9EC60DF51F876C0A00E056EF /* Projek.swift in Sources */,
+				9E49FCBB1F8CACFC001006A5 /* Mesej.swift in Sources */,
 				9E0552E71F84FD6F002BA0E0 /* MessageDetailsExtension.swift in Sources */,
 				B7C8AF201F8384530097597F /* InfoPenggunaTVCell.swift in Sources */,
 				9E0552E51F84EDB6002BA0E0 /* MessageDetailsVC.swift in Sources */,
 				9E0552D21F84CE09002BA0E0 /* MembersCell.swift in Sources */,
 				9E5884751F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift in Sources */,
 				B71AD0261F832F8D008DA4AF /* PengumumanTVC.swift in Sources */,
+				9E49FCBD1F8CC02C001006A5 /* LoadingSpinner.swift in Sources */,
 				9E4462441F7E374700F82591 /* AppDelegate.swift in Sources */,
 				B71AD02A1F8331E2008DA4AF /* ZUISetup.swift in Sources */,
 				9E0552D61F84CE26002BA0E0 /* RepliedCell.swift in Sources */,

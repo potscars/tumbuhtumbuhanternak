@@ -22,15 +22,20 @@ class ProjekCell: UITableViewCell {
     
     func updateUI(_ index: Int, projek: Projek) {
         print(index)
-        print(projek.name)
-        print(projek.dateStart)
-        print(projek.id)
-        print(projek.projekCategory)
+        var enrollTemp = ""
         
         guard let name = projek.name else { return; }
         projekTitleLabel.text = name
-        //print(projek.enrolls?.count)
+        
+        for enroll in projek.enrolls! {
+            
+            enrollTemp += "\(enroll.name!), \n"
+        }
+        
+        let  finalEnroll = enrollTemp.substring(to: enrollTemp.index(enrollTemp.endIndex, offsetBy: -4))
+        projekContentLabel.text = finalEnroll
+        
         featuredImage.circledView(featuredImage.frame.width)
-        ZGraphics().createImageWithLetter("Rocky Stomp", imageView: featuredImage, fontSize: featuredImage.frame.width / 2)
+        ZGraphics().createImageWithLetter(name, imageView: featuredImage, fontSize: featuredImage.frame.width / 2)
     }
 }

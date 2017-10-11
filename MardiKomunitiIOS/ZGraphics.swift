@@ -101,13 +101,16 @@ class ZGraphics: NSObject {
         tableView.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
     }
     
-    func createImageWithLetter(_ name: String, imageView: UIImageView, fontSize: CGFloat) {
+    func createImageWithLetter(_ name: String = "Not Available", imageView: UIImageView, fontSize: CGFloat) {
         
-        let nameWords = name.components(separatedBy: CharacterSet.whitespaces)
+        let nameWords = name.components(separatedBy: CharacterSet.whitespacesAndNewlines)
         var nameTemp = String()
         
         for nameWord in nameWords {
-            nameTemp += "\(nameWord.characters.first!)"
+            
+            if let firstWord = nameWord.characters.first {
+                nameTemp += "\(firstWord)"
+            }
         }
         
         for view in imageView.subviews {

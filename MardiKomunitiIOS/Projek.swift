@@ -30,7 +30,7 @@ class Projeks {
         
         let params = ["token" : token]
         
-        networkProcessors.uploadJSONData(params) { (data, responses) in
+        networkProcessors.postRequestJSONFromUrl(params) { (data, responses) in
             
             guard responses == nil else { return }
             guard let status = data?["status"] as? Int else { return; }
