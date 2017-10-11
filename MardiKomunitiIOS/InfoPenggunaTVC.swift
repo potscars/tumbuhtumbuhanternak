@@ -46,7 +46,7 @@ class InfoPenggunaTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1 + menuInfo.count
+        return menuInfo.count
     }
 
     

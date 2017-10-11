@@ -18,10 +18,12 @@ class ProjectTVC: UITableViewController {
     
     var sectionHeader = ["PERIKANAN", "TANAMAN", "TERNAKAN"]
     var projeksData = [Projeks]()
+    var spinner: LoadingSpinner!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        spinner = LoadingSpinner(view: self.view, isNavBar: true)
         configureTableView()
     }
     
@@ -29,18 +31,28 @@ class ProjectTVC: UITableViewController {
         super.viewDidAppear(animated)
         
         let projek = Projeks()
-        projek.fetchProjek { (data) in
+        
+        if projeksData.count <= 0 {
             
-            DispatchQueue.main.async {
+            spinner.setLoadingScreen()
+            projek.fetchProjek { (data) in
                 
-                self.projeksData = data
-                self.tableView.reloadData()
+                DispatchQueue.main.async {
+                    
+                    self.projeksData = data
+                    self.spinner.removeLoadingScreen()
+                    self.tableView.separatorStyle = .singleLine
+                    self.tableView.reloadData()
+                }
             }
+        } else {
+            spinner.removeLoadingScreen()
         }
     }
     
     func configureTableView() {
         
+        tableView.separatorStyle = .none
         tableView.contentInset = UIEdgeInsetsMake(0, 0, (tabBarController?.tabBar.frame.height)!, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0

@@ -686,7 +686,7 @@
             </objects>
             <point key="canvasLocation" x="4704.8000000000002" y="-583.3583208395803"/>
         </scene>
-        <!--Message-->
+        <!--Mesej-->
         <scene sceneID="7ck-Jr-Aos">
             <objects>
                 <tableViewController storyboardIdentifier="MessageInboxTVC" id="xBY-CW-pzw" customClass="MessageInboxTVC" customModule="MardiKomunitiIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -712,8 +712,8 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="0Bt-6Z-pCk">
                                             <rect key="frame" x="80" y="8" width="287" height="19.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="King's Landing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puI-sw-ugc">
-                                                    <rect key="frame" x="0.0" y="0.0" width="106.5" height="19.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="King's Landing" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puI-sw-ugc">
+                                                    <rect key="frame" x="0.0" y="0.0" width="143.5" height="19.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -758,7 +758,7 @@
                             <outlet property="delegate" destination="xBY-CW-pzw" id="iSe-i5-Dkz"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Message" id="R0i-4O-Mnt"/>
+                    <tabBarItem key="tabBarItem" title="Mesej" id="R0i-4O-Mnt"/>
                     <connections>
                         <segue destination="ryM-dN-oyo" kind="show" identifier="gotoMessageDetails" id="m0a-Wy-fR5"/>
                     </connections>
