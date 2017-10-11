@@ -36,7 +36,7 @@ class InfoPenggunaTVCell: UITableViewCell {
     
     func updateSettings(data: NSDictionary) {
         
-        uiivIPTVCSettingsIcon.image = UIImage.init(named: data.value(forKey: "MENU_ICON") as? String ?? "")
+        uiivIPTVCSettingsIcon.image = UIImage.init(named: data.value(forKey: "MENU_ICON") as? String ?? "")//?.resizeImageWith(newSize: CGSize.init(width: 50, height: 50))
         uilIPTVCSettingsName.text = data.value(forKey: "MENU_NAME") as? String ?? "Data Tidak Sah"
         
     }
