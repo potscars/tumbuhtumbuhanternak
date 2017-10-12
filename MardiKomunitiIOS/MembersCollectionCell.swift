@@ -13,15 +13,24 @@ class MembersCollectionCell: UICollectionViewCell {
     @IBOutlet weak var imageFeatured : UIImageView!
     @IBOutlet weak var nameLabel : UILabel!
     
+    var responderName: String! {
+        didSet{
+            self.updateUI()
+        }
+    }
+    
+    override func awakeFromNib() {
+        
+        
+    }
+    
     func updateUI() {
         
-        let name = "Kim Jong Kook"
+        nameLabel.text = responderName
         
         imageFeatured.backgroundColor = .purple
         imageFeatured.circledView(imageFeatured.frame.width)
         
-        ZGraphics().createImageWithLetter(name, imageView: imageFeatured, fontSize: imageFeatured.frame.width / 2)
-        
-        nameLabel.text = name
+        ZGraphics().createImageWithLetter(responderName, imageView: imageFeatured, fontSize: imageFeatured.frame.width / 2)
     }
 }

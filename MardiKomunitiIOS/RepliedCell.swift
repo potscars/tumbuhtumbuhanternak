@@ -16,19 +16,22 @@ class RepliedCell: UITableViewCell {
     @IBOutlet weak var positionLabel : UILabel!
     @IBOutlet weak var contentLabel : UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    var respond: Respond! {
+        didSet {
+            self.updateUI()
+        }
+    }
+
+    private func updateUI() {
+        
+        senderLabel.text = respond.responderName
+        positionLabel.text = respond.responderCaption
+        contentLabel.text = respond.responderMessage
         
         imageFeatured.backgroundColor = .green
         imageFeatured.circledView(imageFeatured.frame.width)
         
-        ZGraphics().createImageWithLetter("Seo Chan Hee", imageView: imageFeatured, fontSize: 16.0)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        ZGraphics().createImageWithLetter(respond.responderName!, imageView: imageFeatured, fontSize: imageFeatured.frame.width / 2)
     }
 
 }

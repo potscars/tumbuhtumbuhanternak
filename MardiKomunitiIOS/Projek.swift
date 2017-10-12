@@ -51,6 +51,7 @@ class Projeks {
                 var enrollUsername: String = "Chief"
                 var enrollICNumber: String = "0000"
                 var enrollPhoneNumber: String = "0000"
+                var agencyNameTemp: String = "Not Available"
                 
                 for dataResult in dataResults {
                     
@@ -84,14 +85,24 @@ class Projeks {
                         
                         for enroll in enrolls {
 
+                            if let address = (enroll as AnyObject).value(forKey: "address") as? NSDictionary, let district = address["district"] as? NSDictionary, let districtName = district["name"] as? String {
+                                
+                                agencyNameTemp = districtName
+                            }
+                            
                             guard let user = (enroll as AnyObject).value(forKey: "user") as? NSDictionary else { return }
                             
                             if let name = user["name"] as? String{
                                 enrollName = name
                             }
                             
-                            if let username = user["username"] as? String{
+                            if let username = user["username"] as? String {
                                 enrollUsername = username
+                            }
+                            
+                            if let employment = user["employment"] as? NSDictionary, let branch = employment["branch"] as? NSDictionary, let agency = branch["agency"] as? NSDictionary, let agencyName = agency["name"] as? String {
+                                
+                                agencyNameTemp = agencyName
                             }
                             
                             if let icNumber = user["ic_no"] as? String{
@@ -102,7 +113,7 @@ class Projeks {
                                 enrollPhoneNumber = phoneNumber
                             }
                             
-                            projekEnrollsTemp.append(Enrolls(name: enrollName, username: enrollUsername, icNumber: enrollICNumber, phoneNumber: enrollPhoneNumber))
+                            projekEnrollsTemp.append(Enrolls(name: enrollName, username: enrollUsername, icNumber: enrollICNumber, phoneNumber: enrollPhoneNumber, agency: agencyNameTemp))
                         }
                         
                         projekTemp.append(Projek(projectId, name: projectName, dateStart: projectDateStart, projekCategory: projectCategoryName, enrolls: projekEnrollsTemp))
@@ -141,13 +152,15 @@ class Enrolls {
     var username : String?
     var icNumber : String?
     var phoneNumber : String?
+    var agency: String?
     
-    init (name: String, username: String, icNumber: String, phoneNumber: String) {
+    init (name: String, username: String, icNumber: String, phoneNumber: String, agency: String?) {
         
         self.name = name
         self.username = username
         self.icNumber = icNumber
         self.phoneNumber = phoneNumber
+        self.agency = agency
     }
 }
 

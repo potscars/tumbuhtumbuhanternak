@@ -11,70 +11,61 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contentCell" rowHeight="192" id="LXK-Kk-eBb" customClass="ContentCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="368" height="197"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="contentCell" rowHeight="161" id="LXK-Kk-eBb" customClass="ContentCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="368" height="161"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LXK-Kk-eBb" id="Uz1-pi-eVW">
-                <rect key="frame" x="0.0" y="0.0" width="368" height="197"/>
+                <rect key="frame" x="0.0" y="0.0" width="368" height="160"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1jA-2a-Z5f">
-                        <rect key="frame" x="8" y="8" width="36" height="36"/>
+                        <rect key="frame" x="8" y="8" width="40" height="40"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="36" id="0KG-sG-tNv"/>
-                            <constraint firstAttribute="height" constant="36" id="BiX-xO-MwB"/>
+                            <constraint firstAttribute="width" constant="40" id="0KG-sG-tNv"/>
+                            <constraint firstAttribute="height" constant="40" id="BiX-xO-MwB"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kim Byung Man" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4i-BO-pvD">
-                        <rect key="frame" x="52" y="8" width="308" height="17"/>
+                        <rect key="frame" x="56" y="8" width="304" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13/09/1823 12:03 am" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9N-zU-l5f">
-                        <rect key="frame" x="52" y="29" width="308" height="12"/>
+                        <rect key="frame" x="56" y="29" width="304" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The Wailing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rXd-vl-qI8">
-                        <rect key="frame" x="8" y="52" width="352" height="17"/>
+                        <rect key="frame" x="8" y="56" width="352" height="17"/>
                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxg-B3-RXV">
-                        <rect key="frame" x="8" y="77" width="352" height="72"/>
+                        <rect key="frame" x="8" y="81" width="352" height="72"/>
                         <string key="text">A Japanese man has recently arrived at a little village in the mountains of South Korea, living in a secluded house. A mysterious disease starts spreading among the villagers, causing a rash which precedes violent murderous outbreaks followed by stupor and eventually death.</string>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ui2-Jo-vcg">
-                        <rect key="frame" x="162" y="157" width="44" height="32"/>
-                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
-                        <state key="normal" title="Balas">
-                            <color key="titleColor" red="0.94117647410000005" green="0.49803921579999999" blue="0.35294118520000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </state>
-                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="K9N-zU-l5f" firstAttribute="top" secondItem="b4i-BO-pvD" secondAttribute="bottom" constant="4" id="3DS-nH-mzB"/>
                     <constraint firstItem="b4i-BO-pvD" firstAttribute="leading" secondItem="1jA-2a-Z5f" secondAttribute="trailing" constant="8" id="4d1-td-GFd"/>
                     <constraint firstItem="rXd-vl-qI8" firstAttribute="top" secondItem="1jA-2a-Z5f" secondAttribute="bottom" constant="8" id="5dZ-ur-zec"/>
-                    <constraint firstItem="Ui2-Jo-vcg" firstAttribute="top" secondItem="Kxg-B3-RXV" secondAttribute="bottom" constant="8" id="6hm-xV-meS"/>
                     <constraint firstAttribute="trailing" secondItem="K9N-zU-l5f" secondAttribute="trailing" constant="8" id="Aop-iC-HYG"/>
                     <constraint firstItem="1jA-2a-Z5f" firstAttribute="top" secondItem="Uz1-pi-eVW" secondAttribute="top" constant="8" id="Ejw-OE-KNS"/>
                     <constraint firstItem="1jA-2a-Z5f" firstAttribute="leading" secondItem="Uz1-pi-eVW" secondAttribute="leading" constant="8" id="FhO-O4-Rsi"/>
                     <constraint firstItem="K9N-zU-l5f" firstAttribute="leading" secondItem="1jA-2a-Z5f" secondAttribute="trailing" constant="8" id="Fi8-AR-j9s"/>
                     <constraint firstItem="b4i-BO-pvD" firstAttribute="top" secondItem="1jA-2a-Z5f" secondAttribute="top" id="Lml-yq-JW4"/>
                     <constraint firstAttribute="trailing" secondItem="rXd-vl-qI8" secondAttribute="trailing" constant="8" id="PmO-WV-DQf"/>
+                    <constraint firstAttribute="bottom" secondItem="Kxg-B3-RXV" secondAttribute="bottom" constant="8" id="ZWp-T0-UsN"/>
                     <constraint firstItem="Kxg-B3-RXV" firstAttribute="leading" secondItem="Uz1-pi-eVW" secondAttribute="leading" constant="8" id="cWW-xz-XBq"/>
-                    <constraint firstItem="Ui2-Jo-vcg" firstAttribute="centerX" secondItem="Uz1-pi-eVW" secondAttribute="centerX" id="j4j-Nj-2au"/>
                     <constraint firstItem="rXd-vl-qI8" firstAttribute="leading" secondItem="Uz1-pi-eVW" secondAttribute="leading" constant="8" id="mqh-d3-KWT"/>
                     <constraint firstAttribute="trailing" secondItem="Kxg-B3-RXV" secondAttribute="trailing" constant="8" id="yLu-yK-7dv"/>
                     <constraint firstItem="Kxg-B3-RXV" firstAttribute="top" secondItem="rXd-vl-qI8" secondAttribute="bottom" constant="8" id="z9a-St-B8y"/>
-                    <constraint firstAttribute="bottom" secondItem="Ui2-Jo-vcg" secondAttribute="bottom" constant="8" id="zV9-p9-nbt"/>
                     <constraint firstAttribute="trailing" secondItem="b4i-BO-pvD" secondAttribute="trailing" constant="8" id="zdh-kN-xXt"/>
                 </constraints>
             </tableViewCellContentView>
@@ -82,11 +73,10 @@
                 <outlet property="contentLabel" destination="Kxg-B3-RXV" id="zLr-Up-hAs"/>
                 <outlet property="dateLabel" destination="K9N-zU-l5f" id="4Ck-pZ-aMz"/>
                 <outlet property="imageFeatured" destination="1jA-2a-Z5f" id="zRo-xo-uii"/>
-                <outlet property="replyButton" destination="Ui2-Jo-vcg" id="u0j-aZ-stx"/>
                 <outlet property="senderLabel" destination="b4i-BO-pvD" id="KOF-If-VxD"/>
                 <outlet property="titleLabel" destination="rXd-vl-qI8" id="POK-Yt-suk"/>
             </connections>
-            <point key="canvasLocation" x="7" y="-33.5"/>
+            <point key="canvasLocation" x="7" y="-51.5"/>
         </tableViewCell>
     </objects>
 </document>

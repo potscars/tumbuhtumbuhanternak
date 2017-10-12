@@ -11,6 +11,8 @@ import UIKit
 struct ProjekIdentifier {
     
     static let ProjekCell = "projekCell"
+    static let ProjekMembersCell = "projectMembersCell"
+    static let ProjekLocationCell = "projectLocationCell"
     static let ProjekDetailSegue = "projekDetailsSegue"
 }
 
@@ -99,7 +101,6 @@ class ProjectTVC: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProjekIdentifier.ProjekCell, for: indexPath) as! ProjekCell
         
         cell.selectionStyle = .none
-        print(projeksData[section].projek.count)
         cell.updateUI(indexPath.row, projek: projeksData[section].projek[indexPath.row])
         
         return cell

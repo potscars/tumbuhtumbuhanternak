@@ -24,7 +24,13 @@ extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
         if section == 0 {
             return 2
         } else {
-            return 5
+            
+            if isFetched {
+                let count = respondData.count > 0 ? respondData.count : 1
+                return count
+            } else {
+                return respondData.count
+            }
         }
     }
     
@@ -44,13 +50,26 @@ extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
                 
                 let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageContentCell, for: indexPath) as! ContentCell
                 cell.selectionStyle = .none
+                cell.message = message
                 return cell
             }
         } else {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageRepliedCell, for: indexPath) as! RepliedCell
-            cell.selectionStyle = .none
-            return cell
+            if respondData.count > 0 {
+            
+                let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageRepliedCell, for: indexPath) as! RepliedCell
+                cell.selectionStyle = .none
+                cell.respond = respondData[indexPath.row]
+                return cell
+            } else {
+                
+                let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageErrorCell, for: indexPath) as! ErrorCell
+                
+                cell.selectionStyle = .none
+                cell.errorMessage = "Ops. Tiada data."
+                
+                return cell
+            }
         }
     }
     
@@ -59,17 +78,22 @@ extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
         if let cell = cell as? MembersCell {
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
-            cell.collectionView.reloadData()
+            spinner = LoadingSpinner.init(view: cell.collectionView, isNavBar: false)
+            spinner.startSpinner()
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if indexPath.section == 0 && indexPath.row == 0 {
-            return 150
+            return 142
         } else {
             
-            return UITableViewAutomaticDimension
+            if respondData.count <= 0 {
+                return 130
+            } else {
+                return UITableViewAutomaticDimension
+            }
         }
     }
 }
@@ -81,13 +105,14 @@ extension MessageDetailsVC : UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return respondersName.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MessageIdentifier.MessageMemberCollectionCell, for: indexPath) as! MembersCollectionCell
-        cell.updateUI()
+        
+        cell.responderName = respondersName[indexPath.row]
         
         return cell
     }
@@ -96,9 +121,9 @@ extension MessageDetailsVC : UICollectionViewDataSource, UICollectionViewDelegat
         
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.minimumLineSpacing = 4
-        layout.minimumInteritemSpacing = 4
-        layout.sectionInset = UIEdgeInsetsMake(4, 4, 4, 4)
+        layout.minimumInteritemSpacing = 0
+        layout.sectionInset = UIEdgeInsetsMake(4, 0, 4, 0)
         
-        return CGSize(width: 90.0, height: (145.0 - 8))
+        return CGSize(width: 90.0, height: (140.0 - 8))
     }
 }

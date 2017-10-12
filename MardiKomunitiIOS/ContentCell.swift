@@ -17,19 +17,29 @@ class ContentCell: UITableViewCell {
     @IBOutlet weak var contentLabel : UILabel!
     @IBOutlet weak var replyButton : UIButton!
     
+    
+    var message: Mesej! {
+        didSet{
+            self.updateUI()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+    }
+
+    private func updateUI() {
+        
+        senderLabel.text = message.engagesName
+        dateLabel.text = message.createdDate
+        titleLabel.text = message.title
+        contentLabel.text = message.content
         
         imageFeatured.backgroundColor = .orange
         imageFeatured.circledView(imageFeatured.frame.width)
         
-        ZGraphics().createImageWithLetter("Kim Byung Man", imageView: imageFeatured, fontSize: 16.0)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        
+        ZGraphics().createImageWithLetter(senderLabel.text!, imageView: imageFeatured, fontSize: imageFeatured.frame.width / 2)
     }
 
 }

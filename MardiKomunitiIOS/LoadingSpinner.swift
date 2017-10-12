@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class LoadingSpinner {
+class LoadingSpinner: NSObject {
     
     //MARK: - Variables for setting up loading spinner.
     private let loadingView = UIView()
@@ -64,6 +64,21 @@ class LoadingSpinner {
         
     }
     
+    func startSpinner() {
+        
+        self.spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        self.spinner.frame = CGRect(x: (view.bounds.width / 2) - 30, y: 50, width: 30, height: 30)
+        self.spinner.hidesWhenStopped = true
+        self.spinner.startAnimating()
+        
+        self.view.addSubview(spinner)
+    }
+    
+    func stopSpinner() {
+        
+        self.spinner.stopAnimating()
+    }
+    
     // Remove the activity indicator from the main view
     func removeLoadingScreen() {
         
@@ -72,6 +87,20 @@ class LoadingSpinner {
         self.loadingView.removeFromSuperview()
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
