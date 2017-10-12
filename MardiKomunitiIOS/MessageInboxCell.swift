@@ -14,21 +14,30 @@ class MessageInboxCell: UITableViewCell {
     @IBOutlet weak var titleLabel : UILabel!
     @IBOutlet weak var dateLabel : UILabel!
     @IBOutlet weak var contentLabel : UILabel!
+    @IBOutlet weak var projectNameLabel: UILabel!
+    
+    var message: Mesej! {
+        didSet {
+            self.updateUI()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let string = "Kim Byung Man"
+    }
+    
+    private func updateUI() {
+        
+        projectNameLabel.text = message.projectName
+        titleLabel.text = message.title
+        dateLabel.text = message.createdDate
+        contentLabel.text = message.content
         
         imageFeatured.backgroundColor = .orange
         imageFeatured.circledView(imageFeatured.frame.width)
         
-        ZGraphics().createImageWithLetter(string, imageView: imageFeatured, fontSize: 20.0)
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
+        ZGraphics().createImageWithLetter(message.projectName!, imageView: imageFeatured, fontSize: imageFeatured.frame.width / 2)
     }
 }
 

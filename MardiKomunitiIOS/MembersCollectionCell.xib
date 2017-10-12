@@ -12,21 +12,21 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="membersCollectionCell" id="uBB-np-H9Y" customClass="MembersCollectionCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="93" height="168"/>
+            <rect key="frame" x="0.0" y="0.0" width="93" height="140"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="93" height="168"/>
+                <rect key="frame" x="0.0" y="0.0" width="93" height="140"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vf7-Hr-QZ6">
-                        <rect key="frame" x="15" y="8" width="64" height="64"/>
+                        <rect key="frame" x="21.5" y="8" width="50" height="50"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="64" id="80t-87-GbA"/>
-                            <constraint firstAttribute="height" constant="64" id="f34-ow-2ZF"/>
+                            <constraint firstAttribute="width" constant="50" id="80t-87-GbA"/>
+                            <constraint firstAttribute="height" constant="50" id="f34-ow-2ZF"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kim Byung Man" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="by9-CV-IaT">
-                        <rect key="frame" x="8" y="80" width="77" height="33.5"/>
+                        <rect key="frame" x="8" y="66" width="77" height="33.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>

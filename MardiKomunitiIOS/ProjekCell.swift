@@ -14,14 +14,7 @@ class ProjekCell: UITableViewCell {
     @IBOutlet weak var projekTitleLabel : UILabel!
     @IBOutlet weak var projekContentLabel : UILabel!
     
-//    var projek: Projek! {
-//        didSet {
-//            self.updateUI()
-//        }
-//    }
-    
     func updateUI(_ index: Int, projek: Projek) {
-        print(index)
         var enrollTemp = ""
         
         guard let name = projek.name else { return; }
@@ -29,11 +22,11 @@ class ProjekCell: UITableViewCell {
         
         for enroll in projek.enrolls! {
             
-            enrollTemp += "\(enroll.name!), \n"
+            enrollTemp += "\(enroll.name!) - \(enroll.agency!)\n"
         }
         
         let  finalEnroll = enrollTemp.substring(to: enrollTemp.index(enrollTemp.endIndex, offsetBy: -4))
-        projekContentLabel.text = finalEnroll
+        projekContentLabel.text = enrollTemp
         
         featuredImage.circledView(featuredImage.frame.width)
         ZGraphics().createImageWithLetter(name, imageView: featuredImage, fontSize: featuredImage.frame.width / 2)

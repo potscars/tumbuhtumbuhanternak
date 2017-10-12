@@ -19,12 +19,47 @@ class MessageDetailsVC: UIViewController {
     
     @IBOutlet weak var replyViewConstraint : NSLayoutConstraint!
     
-    var sectionHeader = ["Members", "Reply"]
+    var sectionHeader = ["Members", "Replies"]
     var limitTextViewHeight: CGFloat!
+    var message: Mesej!
+    var respondData = [Respond]()
+    var respondersName = [String]()
+    var isFetched = false
+    var collectionCell: MembersCell!
+    
+    var spinner: LoadingSpinner!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+         super.viewDidAppear(animated)
+        
+        let respond = Respond()
+        
+        respond.fetchData(message.id!) { (result, respondersName, responses) in
+            
+            guard responses == nil else {
+                //show error message
+                return
+            }
+            
+            guard let respondResult = result else { return; }
+            
+            DispatchQueue.main.async {
+                self.respondersName = respondersName!
+                self.respondData = respondResult
+                self.isFetched = true
+                
+                self.spinner.stopSpinner()
+                let cell = self.tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as! MembersCell
+                cell.collectionView.reloadData()
+                
+                self.tableView.reloadSections(IndexSet(integer: 1), with: .none)
+            }
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,6 +93,7 @@ class MessageDetailsVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
+        tableView.separatorStyle = .none
         
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 150.0
@@ -67,6 +103,7 @@ class MessageDetailsVC: UIViewController {
         registerCellNib("MembersCell", identifier: MessageIdentifier.MessageMemberCell)
         registerCellNib("ContentCell", identifier: MessageIdentifier.MessageContentCell)
         registerCellNib("RepliedCell", identifier: MessageIdentifier.MessageRepliedCell)
+        registerCellNib("ErrorCell", identifier: MessageIdentifier.MessageErrorCell)
     }
     
     func registerCellNib(_ name: String, identifier: String) {

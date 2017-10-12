@@ -27,6 +27,13 @@
 		9E44624E1F7E374700F82591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E44624C1F7E374700F82591 /* LaunchScreen.storyboard */; };
 		9E49FCBB1F8CACFC001006A5 /* Mesej.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCBA1F8CACFC001006A5 /* Mesej.swift */; };
 		9E49FCBD1F8CC02C001006A5 /* LoadingSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCBC1F8CC02C001006A5 /* LoadingSpinner.swift */; };
+		9E49FCBF1F8DF90A001006A5 /* Respond.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCBE1F8DF90A001006A5 /* Respond.swift */; };
+		9E49FCC21F8E3F1F001006A5 /* ErrorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E49FCC11F8E3F1F001006A5 /* ErrorCell.xib */; };
+		9E49FCC41F8E3FB1001006A5 /* ErrorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCC31F8E3FB1001006A5 /* ErrorCell.swift */; };
+		9E49FCCA1F8E6CD4001006A5 /* ProjectMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCC81F8E6CD4001006A5 /* ProjectMembersCell.swift */; };
+		9E49FCCB1F8E6CD4001006A5 /* ProjectMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E49FCC91F8E6CD4001006A5 /* ProjectMembersCell.xib */; };
+		9E49FCCD1F8E6FB0001006A5 /* BasicInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCCC1F8E6FB0001006A5 /* BasicInfoCell.swift */; };
+		9E49FCCF1F8E716D001006A5 /* ProjekDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCCE1F8E716D001006A5 /* ProjekDetailsTVC.swift */; };
 		9E5884751F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */; };
 		9E5884771F81FC91001EDA2E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884761F81FC91001EDA2E /* Extension.swift */; };
 		9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884781F81FCAC001EDA2E /* NetworkProcessor.swift */; };
@@ -90,6 +97,13 @@
 		9E44624F1F7E374700F82591 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E49FCBA1F8CACFC001006A5 /* Mesej.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mesej.swift; sourceTree = "<group>"; };
 		9E49FCBC1F8CC02C001006A5 /* LoadingSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingSpinner.swift; sourceTree = "<group>"; };
+		9E49FCBE1F8DF90A001006A5 /* Respond.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Respond.swift; sourceTree = "<group>"; };
+		9E49FCC11F8E3F1F001006A5 /* ErrorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorCell.xib; sourceTree = "<group>"; };
+		9E49FCC31F8E3FB1001006A5 /* ErrorCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorCell.swift; sourceTree = "<group>"; };
+		9E49FCC81F8E6CD4001006A5 /* ProjectMembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectMembersCell.swift; sourceTree = "<group>"; };
+		9E49FCC91F8E6CD4001006A5 /* ProjectMembersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectMembersCell.xib; sourceTree = "<group>"; };
+		9E49FCCC1F8E6FB0001006A5 /* BasicInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfoCell.swift; sourceTree = "<group>"; };
+		9E49FCCE1F8E716D001006A5 /* ProjekDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjekDetailsTVC.swift; sourceTree = "<group>"; };
 		9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AplikasiBerkaitanCVC.swift; sourceTree = "<group>"; };
 		9E5884761F81FC91001EDA2E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		9E5884781F81FCAC001EDA2E /* NetworkProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProcessor.swift; sourceTree = "<group>"; };
@@ -167,14 +181,7 @@
 			children = (
 				9E0552E41F84EDB6002BA0E0 /* MessageDetailsVC.swift */,
 				9E0552E61F84FD6F002BA0E0 /* MessageDetailsExtension.swift */,
-				9E0552D81F84DBDD002BA0E0 /* MembersCollectionCell.swift */,
-				9E0552E21F84EBF1002BA0E0 /* MembersCollectionCell.xib */,
-				9E0552D11F84CE09002BA0E0 /* MembersCell.swift */,
-				9E0552DC1F84E6DB002BA0E0 /* MembersCell.xib */,
-				9E0552D31F84CE19002BA0E0 /* ContentCell.swift */,
-				9E0552DE1F84E86E002BA0E0 /* ContentCell.xib */,
-				9E0552D51F84CE26002BA0E0 /* RepliedCell.swift */,
-				9E0552E01F84EA87002BA0E0 /* RepliedCell.xib */,
+				9E49FCC01F8E210B001006A5 /* Views */,
 			);
 			name = Details;
 			sourceTree = "<group>";
@@ -219,6 +226,35 @@
 			path = MardiKomunitiIOS;
 			sourceTree = "<group>";
 		};
+		9E49FCC01F8E210B001006A5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E49FCBE1F8DF90A001006A5 /* Respond.swift */,
+				9E0552D81F84DBDD002BA0E0 /* MembersCollectionCell.swift */,
+				9E0552E21F84EBF1002BA0E0 /* MembersCollectionCell.xib */,
+				9E0552D11F84CE09002BA0E0 /* MembersCell.swift */,
+				9E0552DC1F84E6DB002BA0E0 /* MembersCell.xib */,
+				9E0552D31F84CE19002BA0E0 /* ContentCell.swift */,
+				9E0552DE1F84E86E002BA0E0 /* ContentCell.xib */,
+				9E0552D51F84CE26002BA0E0 /* RepliedCell.swift */,
+				9E0552E01F84EA87002BA0E0 /* RepliedCell.xib */,
+				9E49FCC31F8E3FB1001006A5 /* ErrorCell.swift */,
+				9E49FCC11F8E3F1F001006A5 /* ErrorCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		9E49FCC51F8E673F001006A5 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				9E49FCCC1F8E6FB0001006A5 /* BasicInfoCell.swift */,
+				9E49FCC81F8E6CD4001006A5 /* ProjectMembersCell.swift */,
+				9E49FCC91F8E6CD4001006A5 /* ProjectMembersCell.xib */,
+				9E49FCCE1F8E716D001006A5 /* ProjekDetailsTVC.swift */,
+			);
+			name = Details;
+			sourceTree = "<group>";
+		};
 		9E5884731F81FB9E001EDA2E /* AplikasiBerkaitan */ = {
 			isa = PBXGroup;
 			children = (
@@ -252,6 +288,7 @@
 				9EC60DF01F8738A100E056EF /* ProjectTVC.swift */,
 				9EC60DF21F87552000E056EF /* ProjekCell.swift */,
 				9EC60DF41F876C0A00E056EF /* Projek.swift */,
+				9E49FCC51F8E673F001006A5 /* Details */,
 			);
 			name = Projek;
 			sourceTree = "<group>";
@@ -404,6 +441,7 @@
 				B7C8AF3B1F8CAF9B0097597F /* ic_cog.png in Resources */,
 				B7C8AF3F1F8CBFEE0097597F /* ic_info_black.png in Resources */,
 				9E0552E31F84EBF1002BA0E0 /* MembersCollectionCell.xib in Resources */,
+				9E49FCCB1F8E6CD4001006A5 /* ProjectMembersCell.xib in Resources */,
 				9E44624B1F7E374700F82591 /* Assets.xcassets in Resources */,
 				B7C8AF401F8CBFEE0097597F /* ic_info.png in Resources */,
 				9E0552E11F84EA87002BA0E0 /* RepliedCell.xib in Resources */,
@@ -414,6 +452,7 @@
 				B7C8AF381F8625280097597F /* ic_mardilogo.png in Resources */,
 				B71AD02E1F833708008DA4AF /* padikebangsaan.jpg in Resources */,
 				B7C8AF431F8DD1FB0097597F /* ic_default.png in Resources */,
+				9E49FCC21F8E3F1F001006A5 /* ErrorCell.xib in Resources */,
 				B7C8AF341F8623090097597F /* ic_loginavt300.png in Resources */,
 				B7C8AF411F8CBFEE0097597F /* ic_logout.png in Resources */,
 				9E4462491F7E374700F82591 /* Main.storyboard in Resources */,
@@ -480,6 +519,7 @@
 				9E4462461F7E374700F82591 /* ViewController.swift in Sources */,
 				9E0552D41F84CE19002BA0E0 /* ContentCell.swift in Sources */,
 				9E58847C1F8210FA001EDA2E /* Colors.swift in Sources */,
+				9E49FCCD1F8E6FB0001006A5 /* BasicInfoCell.swift in Sources */,
 				B71AD0281F833001008DA4AF /* PengumumanTVCell.swift in Sources */,
 				9EC60DF51F876C0A00E056EF /* Projek.swift in Sources */,
 				9E49FCBB1F8CACFC001006A5 /* Mesej.swift in Sources */,
@@ -489,10 +529,12 @@
 				9E0552D21F84CE09002BA0E0 /* MembersCell.swift in Sources */,
 				9E5884751F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift in Sources */,
 				B71AD0261F832F8D008DA4AF /* PengumumanTVC.swift in Sources */,
+				9E49FCCA1F8E6CD4001006A5 /* ProjectMembersCell.swift in Sources */,
 				9E49FCBD1F8CC02C001006A5 /* LoadingSpinner.swift in Sources */,
 				9E4462441F7E374700F82591 /* AppDelegate.swift in Sources */,
 				B71AD02A1F8331E2008DA4AF /* ZUISetup.swift in Sources */,
 				9E0552D61F84CE26002BA0E0 /* RepliedCell.swift in Sources */,
+				9E49FCCF1F8E716D001006A5 /* ProjekDetailsTVC.swift in Sources */,
 				B7C8AF311F861BAF0097597F /* AfterLoginVC.swift in Sources */,
 				B7C8AF471F8F1C070097597F /* AfterNavController.swift in Sources */,
 				9E5884771F81FC91001EDA2E /* Extension.swift in Sources */,
@@ -502,11 +544,13 @@
 				9E0552CC1F849132002BA0E0 /* MessageInboxTVC.swift in Sources */,
 				B7C8AF1B1F8346410097597F /* ZGraphics.swift in Sources */,
 				B7C8AF171F8342630097597F /* PengumumanDetailsTVC.swift in Sources */,
+				9E49FCBF1F8DF90A001006A5 /* Respond.swift in Sources */,
 				9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */,
 				9EC60DF11F8738A100E056EF /* ProjectTVC.swift in Sources */,
 				B7C8AF451F8F1A1D0097597F /* BeforeNavController.swift in Sources */,
 				9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */,
 				B7C8AF2D1F85ECA60097597F /* ZNetwork.swift in Sources */,
+				9E49FCC41F8E3FB1001006A5 /* ErrorCell.swift in Sources */,
 				B7C8AF2F1F85EEE60097597F /* URLs.swift in Sources */,
 				B7C8AF271F84BDF50097597F /* LoginProcessVC.swift in Sources */,
 				B7C8AF251F8488A80097597F /* LoginVC.swift in Sources */,
