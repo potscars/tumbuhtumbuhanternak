@@ -112,7 +112,13 @@ class ZImages: NSObject {
                     
                     if let imageData = data {
                         
-                        DispatchQueue.main.async() { () -> Void in imageView.image = UIImage.init(data: imageData)! }
+                        DispatchQueue.main.async() { () -> Void in
+                            
+                            let image: UIImage = UIImage.init(data: imageData)!.resizeImageWith(newSize: CGSize.init(width: 359, height: 145))
+                            
+                            imageView.image = image
+                            
+                        }
                         
                     } else if let e = error {
                         

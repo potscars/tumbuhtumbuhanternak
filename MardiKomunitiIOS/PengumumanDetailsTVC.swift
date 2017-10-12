@@ -9,6 +9,8 @@
 import UIKit
 
 class PengumumanDetailsTVC: UITableViewController {
+    
+    var detailsData: NSDictionary = [:]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,8 @@ class PengumumanDetailsTVC: UITableViewController {
         self.tableView.estimatedRowHeight = 160.0
         
         ZGraphics.hideTableSeparatorAfterLastCell(tableView: self.tableView)
+        
+        print("\(detailsData)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,8 +59,13 @@ class PengumumanDetailsTVC: UITableViewController {
         }
         else if(indexPath.row == 1) {
             let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDImageCellID", for: indexPath) as! PengumumanDetailsTVCell
+            
+            let imageArray: NSArray = detailsData.value(forKey: "ARTICLE_IMAGE") as! NSArray
+            
+            print("check imagearray \(imageArray)")
         
             // Configure the cell...
+            cell.updateSenderImage(data: imageArray)
         
             return cell
         }
