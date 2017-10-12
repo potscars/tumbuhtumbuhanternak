@@ -1106,11 +1106,10 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wfo-hV-3hQ">
                                             <rect key="frame" x="8" y="8" width="64" height="34"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uuz-4w-1dZ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Uuz-4w-1dZ">
                                                     <rect key="frame" x="0.0" y="0.0" width="64" height="34"/>
                                                 </imageView>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.18823529410000001" green="0.2470588235" blue="0.62352941179999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="Uuz-4w-1dZ" secondAttribute="bottom" id="M0a-Vs-f92"/>
                                                 <constraint firstItem="Uuz-4w-1dZ" firstAttribute="leading" secondItem="Wfo-hV-3hQ" secondAttribute="leading" id="XCv-Zq-wuu"/>
@@ -1166,7 +1165,7 @@
             </objects>
             <point key="canvasLocation" x="3797.5999999999999" y="786.65667166416802"/>
         </scene>
-        <!--Item-->
+        <!--Info-->
         <scene sceneID="IMh-AZ-Dt4">
             <objects>
                 <collectionViewController id="76F-yC-1wk" customClass="AplikasiBerkaitanCVC" customModule="MardiKomunitiIOS" customModuleProvider="target" sceneMemberID="viewController">
@@ -1219,7 +1218,7 @@
                             <outlet property="delegate" destination="76F-yC-1wk" id="uE3-LY-3og"/>
                         </connections>
                     </collectionView>
-                    <tabBarItem key="tabBarItem" title="Item" id="bUG-is-Yop"/>
+                    <tabBarItem key="tabBarItem" title="Info" id="bUG-is-Yop"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjJ-Ld-xMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

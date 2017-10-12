@@ -22,10 +22,11 @@ class InfoPenggunaTVC: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         ZUISetup.setupTableViewWithTabView(tableView: self)
+        ZGraphics.hideTableSeparatorAfterLastCell(tableView: self.tableView)
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 80.0
         
-        menuInfo.add(["PROFILE_USERNAME":"Tetapan"])
+        menuInfo.add(["PROFILE_USERNAME":UserDefaults.standard.object(forKey: "MYA_NAME") as! String])
         menuInfo.add(["MENU_NAME":"Tetapan", "MENU_ICON":"ic_cog.png"])
         menuInfo.add(["MENU_NAME":"Berkenaan Aplikasi", "MENU_ICON":"ic_info.png"])
         menuInfo.add(["MENU_NAME":"Log Keluar", "MENU_ICON":"ic_logout.png"])

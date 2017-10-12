@@ -22,6 +22,20 @@ class PengumumanTVC: UITableViewController {
         ZUISetup.setupTableViewWithTabView(tableView: self)
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 160.0
+        
+        grabAnnouncementInfo()
+    }
+    
+    func grabAnnouncementInfo() {
+        
+        let np: NetworkProcessor = NetworkProcessor.init(URLs.guestAnnouncementURL)
+        
+        np.downloadJSONFromUrl  { (result, response) in
+            
+            print("result is \(result)")
+        
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -13,8 +13,9 @@ class URLs: NSObject {
     static let developmentURL: String = "http://myagro.myapp.my"
     static let productionURL: String = ""
     
-    static let guestAnnouncementURL: String = String.init(format: "%@/api/guest", URLs.developmentURL)
+    static let guestAnnouncementURL: String = String.init(format: "%@/api/announcement/list/guest", URLs.developmentURL)
     static let loginURL: String = String.init(format: "%@/api/login", URLs.developmentURL)
+
     static let projectByCategoryURL = "\(URLs.developmentURL)/api/project/viewbysector"
     static let listConversationURL = "\(URLs.developmentURL)/api/conversation"
 

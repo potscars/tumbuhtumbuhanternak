@@ -23,6 +23,9 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         
+        uitfLVCUsername.text = "eruan.hanapi"
+        uitfLVCPassword.text = "password"
+        
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.default
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
