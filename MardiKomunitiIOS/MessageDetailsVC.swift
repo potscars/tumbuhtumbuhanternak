@@ -28,6 +28,7 @@ class MessageDetailsVC: UIViewController {
     
     var spinner: LoadingSpinner!
     var tableViewSpinner: LoadingSpinner!
+    let alertController = AlertController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -114,7 +115,39 @@ class MessageDetailsVC: UIViewController {
     }
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
-        print("Tapped")
+        
+        let messageText = replyTextView.text
+        let conversationId = message.id
+        let token = UserDefaults.standard.object(forKey: "MYA_USERTOKEN")
+        
+        let networkProcessor = NetworkProcessor.init(URLs.sendConversationRespondURL)
+        
+        
+        if replyTextView.textColor != .lightGray && !(messageText?.isEmpty)! {
+            print("Sent")
+            
+            let params = ["token" : token,
+                          "conversation_id" : conversationId!,
+                          "message" : messageText!]
+            
+            networkProcessor.postRequestJSONFromUrl(params, completion: { (result, response) in
+                
+                guard response == nil else {
+                    
+                    return;
+                }
+                
+                guard let status = result?["status"] as? Int, status == 1 else {
+                    self.alertController.alertController(self, title: "Ralat", message: "Gagal untuk membalas.")
+                    return;
+                }
+                
+                DispatchQueue.main.async {
+                    self.alertController.alertController(self, title: "Berjaya", message: "Mesej anda berjaya dihantarkan.")
+                    self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+                }
+            })
+        }
     }
     
     func keyboardWillShow(_ notification: NSNotification) {

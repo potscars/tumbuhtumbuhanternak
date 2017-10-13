@@ -32,94 +32,52 @@ class PengumumanTVC: UITableViewController {
     func grabAnnouncementInfo() {
         
         var np: NetworkProcessor? = nil
-        
-        
-        np?.getRequestJSONFromUrl  { (result, response) in
             
-            if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil)
-            {
-                if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
+        if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil)
+        {
+            if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
+                
+                print("logged in")
+                
+                np = NetworkProcessor.init(URLs.loggedAnnouncementURL)
+                np!.postRequestJSONFromUrl(["token":UserDefaults.standard.object(forKey: "MYA_USERTOKEN") as! String]) { (result, response) in
                     
-                    print("logged in")
-                    
-                    np = NetworkProcessor.init(URLs.loggedAnnouncementURL)
-                    np!.postRequestJSONFromUrl(["token":UserDefaults.standard.object(forKey: "MYA_USERTOKEN") as! String]) { (result, response) in
+                    if result != nil {
                         
-                        if result != nil {
+                        let convertData: NSDictionary = result! as NSDictionary
+                        
+                        guard let status = convertData.value(forKey: "status") as? Int, status == 1 else {
+                            return
+                        }
+                        
+                        let grabDataDict: NSDictionary = convertData.value(forKey: "data") as! NSDictionary
+                        let grabFullDataArray: NSArray = grabDataDict.value(forKey: "data") as! NSArray
+                        
+                        for i in 0...grabFullDataArray.count - 1 {
                             
-                            let convertData: NSDictionary = result! as NSDictionary
-                            let grabDataDict: NSDictionary = convertData.value(forKey: "data") as! NSDictionary
-                            let grabFullDataArray: NSArray = grabDataDict.value(forKey: "data") as! NSArray
+                            let grabData: NSDictionary = grabFullDataArray.object(at: i) as! NSDictionary
+                            let getImageArray: NSArray? = grabData.value(forKey: "imageable") as? NSArray
                             
-                            for i in 0...grabFullDataArray.count - 1 {
-                                
-                                let grabData: NSDictionary = grabFullDataArray.object(at: i) as! NSDictionary
-                                let getImageArray: NSArray? = grabData.value(forKey: "imageable") as? NSArray
-                                
-                                self.getJSONData.add([
-                                    "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
-                                    "ARTICLE_CONTENT":String.checkStringValidity(data: grabData.value(forKey: "content"), defaultValue: "Data Kosong"),
-                                    "ARTICLE_IMAGE":getImageArray ?? []
-                                    ])
-                                
-                            }
-                            
-                            DispatchQueue.main.async {
-                                
-                                self.tableView.reloadData()
-                                
-                            }
+                            self.getJSONData.add([
+                                "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
+                                "ARTICLE_CONTENT":String.checkStringValidity(data: grabData.value(forKey: "content"), defaultValue: "Data Kosong"),
+                                "ARTICLE_IMAGE":getImageArray ?? []
+                                ])
                             
                         }
-                    }
-                    
-                } else {
-                    
-                    print("logged in but technical problem")
-                    
-                    np = NetworkProcessor.init(URLs.guestAnnouncementURL)
-                    np!.getRequestJSONFromUrl  { (result, response) in
                         
-                        if result is NSDictionary {
+                        DispatchQueue.main.async {
                             
-                            let convertData: NSDictionary = result as! NSDictionary
-                            let grabDataDict: NSDictionary = convertData.value(forKey: "data") as! NSDictionary
-                            let grabFullDataArray: NSArray = grabDataDict.value(forKey: "data") as! NSArray
-                            
-                            for i in 0...grabFullDataArray.count - 1 {
-                                
-                                let grabData: NSDictionary = grabFullDataArray.object(at: i) as! NSDictionary
-                                let getImageArray: NSArray? = grabData.value(forKey: "imageable") as? NSArray
-                                
-                                self.getJSONData.add([
-                                    "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
-                                    "ARTICLE_CONTENT":String.checkStringValidity(data: grabData.value(forKey: "content"), defaultValue: "Data Kosong"),
-                                    "ARTICLE_IMAGE":getImageArray ?? []
-                                    ])
-                                
-                            }
-                            
-                            DispatchQueue.main.async {
-                                
-                                self.tableView.reloadData()
-                                
-                            }
-                            
-                            
-                        } else if result is NSArray {
-                            
-                            
-                        } else {
-                            
+                            self.tableView.reloadData()
                             
                         }
                         
                     }
-                    
                 }
+                
             } else {
                 
-                print("not logged in")
+                print("logged in but technical problem")
                 
                 np = NetworkProcessor.init(URLs.guestAnnouncementURL)
                 np!.getRequestJSONFromUrl  { (result, response) in
@@ -129,10 +87,6 @@ class PengumumanTVC: UITableViewController {
                         let convertData: NSDictionary = result as! NSDictionary
                         let grabDataDict: NSDictionary = convertData.value(forKey: "data") as! NSDictionary
                         let grabFullDataArray: NSArray = grabDataDict.value(forKey: "data") as! NSArray
-                        
-                        print("datarray: \(grabDataDict)")
-                        print("dataFullarray: \(grabFullDataArray)")
-                        
                         
                         for i in 0...grabFullDataArray.count - 1 {
                             
@@ -165,6 +119,53 @@ class PengumumanTVC: UITableViewController {
                 }
                 
             }
+        } else {
+            
+            print("not logged in")
+            
+            np = NetworkProcessor.init(URLs.guestAnnouncementURL)
+            np!.getRequestJSONFromUrl  { (result, response) in
+                
+                if result is NSDictionary {
+                    
+                    let convertData: NSDictionary = result as! NSDictionary
+                    let grabDataDict: NSDictionary = convertData.value(forKey: "data") as! NSDictionary
+                    let grabFullDataArray: NSArray = grabDataDict.value(forKey: "data") as! NSArray
+                    
+                    print("datarray: \(grabDataDict)")
+                    print("dataFullarray: \(grabFullDataArray)")
+                    
+                    
+                    for i in 0...grabFullDataArray.count - 1 {
+                        
+                        let grabData: NSDictionary = grabFullDataArray.object(at: i) as! NSDictionary
+                        let getImageArray: NSArray? = grabData.value(forKey: "imageable") as? NSArray
+                        
+                        self.getJSONData.add([
+                            "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
+                            "ARTICLE_CONTENT":String.checkStringValidity(data: grabData.value(forKey: "content"), defaultValue: "Data Kosong"),
+                            "ARTICLE_IMAGE":getImageArray ?? []
+                            ])
+                        
+                    }
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.tableView.reloadData()
+                        
+                    }
+                    
+                    
+                } else if result is NSArray {
+                    
+                    
+                } else {
+                    
+                    
+                }
+                
+            }
+            
         }
     }
 

@@ -18,7 +18,7 @@ class AplikasiBerkaitanCVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureNavigationBar()
+        //configureNavigationBar()
         configureCollectionView()
     }
     
@@ -26,7 +26,10 @@ class AplikasiBerkaitanCVC: UICollectionViewController {
         
         collectionView?.backgroundColor = Colors.backgroundGray
         collectionView?.showsVerticalScrollIndicator = false
-        collectionView?.contentInset = UIEdgeInsetsMake(0, 0, (tabBarController?.tabBar.frame.height)!, 0)
+        
+        if let bottomBarHeight = tabBarController?.tabBar.frame.height {
+            collectionView?.contentInset = UIEdgeInsetsMake(0, 0, bottomBarHeight, 0)
+        }
     }
 
     func configureNavigationBar() {

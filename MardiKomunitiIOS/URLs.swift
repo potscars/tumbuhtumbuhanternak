@@ -17,5 +17,5 @@ class URLs: NSObject {
     
     static let loadImage: String = String.init(format: "%@/images/original/", AppDelegate.switchingURL())
     static let listConversationURL = "\(AppDelegate.switchingURL())/api/conversation"
-
+    static let sendConversationRespondURL = "\(AppDelegate.switchingURL())/api/conversation/reply"
 }

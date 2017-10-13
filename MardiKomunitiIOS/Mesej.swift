@@ -58,7 +58,7 @@ class Mesej {
                 
                 guard let resultData = result?["data"] as? NSDictionary else { return; }
                 guard let conversations = resultData["data"] as? NSArray, conversations.count > 0 else {
-                    completion(nil, responses);
+                    completion(nil, "Tiada data.");
                     return;
                 }
                 
@@ -104,7 +104,7 @@ class Mesej {
                 completion(conversationTemp, nil)
             } else {
                 //status == 0
-                completion(nil, responses);
+                completion(nil, "Gagal untuk mendapatkan data.");
             }
         }
     }

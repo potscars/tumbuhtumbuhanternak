@@ -21,7 +21,7 @@ class Projeks {
     init() {
     }
     
-    func fetchProjek(_ completion: @escaping ([Projeks]) -> ()) {
+    func fetchProjek(_ completion: @escaping ([Projeks]?, String?) -> ()) {
         
         print("fetchinggg")
         
@@ -37,14 +37,19 @@ class Projeks {
             
             if status == 1 {
                 
-                guard let dataResults = data?["data"] as? NSArray, dataResults.count > 0 else { return; }
-                
                 var projeksTemp = [Projeks]()
+                
+                guard let dataResults = data?["data"] as? NSArray, dataResults.count > 0 else {
+                    completion(nil, "Tiada data.")
+                    return;
+                }
                 
                 //tempt string to hold project json
                 var projectId: Int = 99999
                 var projectName: String = ""
+                var projectDateEnd: String = "1889"
                 var projectDateStart: String = "1885"
+                var projectAgency = [String]()
                 var projectCategoryName: String = ""
                 
                 var enrollName: String = "Kim Byung Man"
@@ -59,7 +64,7 @@ class Projeks {
                     
                     let projekCategory = (dataResult as AnyObject).value(forKey: "name") as! String
                     
-                    guard let projects = (dataResult as AnyObject).value(forKey: "projects") as? NSArray, projects.count > 0 else { return }
+                    guard let projects = (dataResult as AnyObject).value(forKey: "projects") as? NSArray else { return }
                     
                     for project in projects {
                         
@@ -77,11 +82,24 @@ class Projeks {
                             projectDateStart = dateStart
                         }
                         
+                        if let dateEnd = (project as AnyObject).value(forKey: "date_end") as? String {
+                            projectDateEnd = dateEnd
+                        }
+                        
                         if let category = (project as AnyObject).value(forKey: "project_category") as? NSDictionary, let name = category["name"] as? String {
                             projectCategoryName = name
                         }
                         
-                        guard let enrolls = (project as AnyObject).value(forKey: "enrolls") as? NSArray, enrolls.count > 0 else { return }
+                        if let conducts = (project as AnyObject).value(forKey: "project_category") as? NSArray {
+                            for conduct in conducts {
+                                
+                                if let agency = (conduct as AnyObject).value(forKey: "agency") as? NSDictionary, let agencyName = agency["name"] as? String {
+                                    projectAgency.append(agencyName)
+                                }
+                            }
+                        }
+                        
+                        guard let enrolls = (project as AnyObject).value(forKey: "enrolls") as? NSArray else { return }
                         
                         for enroll in enrolls {
 
@@ -116,13 +134,15 @@ class Projeks {
                             projekEnrollsTemp.append(Enrolls(name: enrollName, username: enrollUsername, icNumber: enrollICNumber, phoneNumber: enrollPhoneNumber, agency: agencyNameTemp))
                         }
                         
-                        projekTemp.append(Projek(projectId, name: projectName, dateStart: projectDateStart, projekCategory: projectCategoryName, enrolls: projekEnrollsTemp))
+                        projekTemp.append(Projek(projectId, name: projectName, dateStart: projectDateStart, dateEnd: projectDateEnd, agency: projectAgency, projekCategory: projectCategoryName, enrolls: projekEnrollsTemp))
                     }
                     
                     projeksTemp.append(Projeks(title: projekCategory, projek: projekTemp))
                 }
                 
-                completion(projeksTemp)
+                completion(projeksTemp, nil)
+            } else {
+                completion(nil, "Gagal untuk mendapatkan data.")
             }
         }
     }
@@ -133,14 +153,18 @@ class Projek {
     var id : Int?
     var name : String?
     var dateStart : String?
+    var dateEnd: String?
+    var agency: [String]?
     var projekCategory : String?
     var enrolls: [Enrolls]?
     
-    init(_ id: Int, name: String, dateStart: String, projekCategory: String, enrolls: [Enrolls]) {
+    init(_ id: Int, name: String, dateStart: String, dateEnd: String, agency: [String], projekCategory: String, enrolls: [Enrolls]) {
         
         self.id = id
         self.name = name
         self.dateStart = dateStart
+        self.dateEnd = dateEnd
+        self.agency = agency
         self.projekCategory = projekCategory
         self.enrolls = enrolls
     }

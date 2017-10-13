@@ -34,6 +34,7 @@
 		9E49FCCB1F8E6CD4001006A5 /* ProjectMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E49FCC91F8E6CD4001006A5 /* ProjectMembersCell.xib */; };
 		9E49FCCD1F8E6FB0001006A5 /* BasicInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCCC1F8E6FB0001006A5 /* BasicInfoCell.swift */; };
 		9E49FCCF1F8E716D001006A5 /* ProjekDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCCE1F8E716D001006A5 /* ProjekDetailsTVC.swift */; };
+		9E49FCD31F906ADA001006A5 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCD21F906ADA001006A5 /* AlertController.swift */; };
 		9E5884751F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */; };
 		9E5884771F81FC91001EDA2E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884761F81FC91001EDA2E /* Extension.swift */; };
 		9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884781F81FCAC001EDA2E /* NetworkProcessor.swift */; };
@@ -104,6 +105,7 @@
 		9E49FCC91F8E6CD4001006A5 /* ProjectMembersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectMembersCell.xib; sourceTree = "<group>"; };
 		9E49FCCC1F8E6FB0001006A5 /* BasicInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfoCell.swift; sourceTree = "<group>"; };
 		9E49FCCE1F8E716D001006A5 /* ProjekDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjekDetailsTVC.swift; sourceTree = "<group>"; };
+		9E49FCD21F906ADA001006A5 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AplikasiBerkaitanCVC.swift; sourceTree = "<group>"; };
 		9E5884761F81FC91001EDA2E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		9E5884781F81FCAC001EDA2E /* NetworkProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkProcessor.swift; sourceTree = "<group>"; };
@@ -248,9 +250,9 @@
 			isa = PBXGroup;
 			children = (
 				9E49FCCC1F8E6FB0001006A5 /* BasicInfoCell.swift */,
+				9E49FCCE1F8E716D001006A5 /* ProjekDetailsTVC.swift */,
 				9E49FCC81F8E6CD4001006A5 /* ProjectMembersCell.swift */,
 				9E49FCC91F8E6CD4001006A5 /* ProjectMembersCell.xib */,
-				9E49FCCE1F8E716D001006A5 /* ProjekDetailsTVC.swift */,
 			);
 			name = Details;
 			sourceTree = "<group>";
@@ -277,6 +279,7 @@
 				9E58847B1F8210FA001EDA2E /* Colors.swift */,
 				B7C8AF2A1F85EC510097597F /* Connectivity.swift */,
 				B7C8AF2E1F85EEE60097597F /* URLs.swift */,
+				9E49FCD21F906ADA001006A5 /* AlertController.swift */,
 				9E49FCBC1F8CC02C001006A5 /* LoadingSpinner.swift */,
 			);
 			name = Etc;
@@ -549,6 +552,7 @@
 				9EC60DF11F8738A100E056EF /* ProjectTVC.swift in Sources */,
 				B7C8AF451F8F1A1D0097597F /* BeforeNavController.swift in Sources */,
 				9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */,
+				9E49FCD31F906ADA001006A5 /* AlertController.swift in Sources */,
 				B7C8AF2D1F85ECA60097597F /* ZNetwork.swift in Sources */,
 				9E49FCC41F8E3FB1001006A5 /* ErrorCell.swift in Sources */,
 				B7C8AF2F1F85EEE60097597F /* URLs.swift in Sources */,

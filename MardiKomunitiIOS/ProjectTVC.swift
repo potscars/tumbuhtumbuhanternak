@@ -13,6 +13,8 @@ struct ProjekIdentifier {
     static let ProjekCell = "projekCell"
     static let ProjekMembersCell = "projectMembersCell"
     static let ProjekLocationCell = "projectLocationCell"
+    static let ProjekStatusCell = "projectStatusCell"
+    static let ProjekDescriptionCell = "projectDescriptionCell"
     static let ProjekDetailSegue = "projekDetailsSegue"
 }
 
@@ -21,6 +23,8 @@ class ProjectTVC: UITableViewController {
     var sectionHeader = ["PERIKANAN", "TANAMAN", "TERNAKAN"]
     var projeksData = [Projeks]()
     var spinner: LoadingSpinner!
+    var isError = false
+    var errorMessage = "Tiada data."
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,21 +38,36 @@ class ProjectTVC: UITableViewController {
         
         let projek = Projeks()
         
-        if projeksData.count <= 0 {
-            
+        if ZNetwork.isConnectedToNetwork() {
             spinner.setLoadingScreen()
-            projek.fetchProjek { (data) in
-                
-                DispatchQueue.main.async {
+            isError = false
+            if projeksData.count <= 0 {
+                projek.fetchProjek { (data, responses) in
                     
-                    self.projeksData = data
-                    self.spinner.removeLoadingScreen()
-                    self.tableView.separatorStyle = .singleLine
-                    self.tableView.reloadData()
+                    DispatchQueue.main.async {
+                        
+                        self.spinner.removeLoadingScreen()
+                        
+                        guard responses == nil else {
+                            self.isError = true
+                            self.errorMessage = responses!
+                            self.tableView.reloadData()
+                            return
+                        }
+                        
+                        guard let dataResult = data else { return }
+                        self.projeksData = dataResult
+                        self.tableView.reloadData()
+                    }
                 }
+            } else {
+                spinner.removeLoadingScreen()
             }
         } else {
+            isError = true
+            errorMessage = "Tiada internet. Sila periksa rangkaian anda."
             spinner.removeLoadingScreen()
+            self.tableView.reloadData()
         }
     }
     
@@ -58,56 +77,105 @@ class ProjectTVC: UITableViewController {
         tableView.contentInset = UIEdgeInsetsMake(0, 0, (tabBarController?.tabBar.frame.height)!, 0)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
+        
+        let nibName = UINib(nibName: "ErrorCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.MessageErrorCell)
     }
     
-    // MARK: - Table view data source
+    var selectedProjek: Projek!
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == ProjekIdentifier.ProjekDetailSegue {
+            
+            if let destination = segue.destination as? ProjekDetailsTVC {
+                
+                destination.projek = selectedProjek
+            }
+        }
+    }
+}
 
+extension ProjectTVC {
+    
+    // MARK: - Table view data source
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return projeksData.count
+        let count = !isError ? projeksData.count : 1
+        return count
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 50))
-        headerView.backgroundColor = Colors.mainGreen.withAlphaComponent(0.9)
-        
-        let label = UILabel()
-        label.textColor = UIColor.white
-        label.font = UIFont(name: "Futura-Bold", size: 16.0)!
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = projeksData[section].title
-        headerView.addSubview(label)
-        label.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 16).isActive = true
-        label.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: 16).isActive = true
-        label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
-        label.heightAnchor.constraint(equalToConstant: 25).isActive = true
-        
-        return headerView
+        if !isError {
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 50))
+            headerView.backgroundColor = Colors.mainGreen.withAlphaComponent(0.9)
+            
+            let label = UILabel()
+            label.textColor = UIColor.white
+            label.font = UIFont(name: "Futura-Bold", size: 16.0)!
+            label.translatesAutoresizingMaskIntoConstraints = false
+            label.text = projeksData[section].title
+            headerView.addSubview(label)
+            label.leftAnchor.constraint(equalTo: headerView.leftAnchor, constant: 16).isActive = true
+            label.rightAnchor.constraint(equalTo: headerView.rightAnchor, constant: 16).isActive = true
+            label.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
+            label.heightAnchor.constraint(equalToConstant: 25).isActive = true
+            
+            return headerView
+        } else {
+            return nil
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50.0
+        let height: CGFloat = !isError ? 50.0 : 0.0
+        return height
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print(projeksData[section].projek.count)
-        return projeksData[section].projek.count
+        let count = !isError ? projeksData[section].projek.count : 1
+        return count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let section = indexPath.section
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: ProjekIdentifier.ProjekCell, for: indexPath) as! ProjekCell
-        
-        cell.selectionStyle = .none
-        cell.updateUI(indexPath.row, projek: projeksData[section].projek[indexPath.row])
-        
-        return cell
+        if !isError {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProjekIdentifier.ProjekCell, for: indexPath) as! ProjekCell
+            
+            cell.selectionStyle = .none
+            cell.updateUI(indexPath.row, projek: projeksData[section].projek[indexPath.row])
+            
+            return cell
+        } else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageErrorCell, for: indexPath) as! ErrorCell
+            
+            cell.errorMessage = errorMessage
+            
+            return cell
+        }
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: ProjekIdentifier.ProjekDetailSegue, sender: self)
+        
+        if let _ = tableView.cellForRow(at: indexPath) as? ProjekCell {
+            
+            selectedProjek = projeksData[indexPath.section].projek[indexPath.row]
+            performSegue(withIdentifier: ProjekIdentifier.ProjekDetailSegue, sender: self)
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if isError {
+            return self.view.frame.height
+        } else {
+            return UITableViewAutomaticDimension
+        }
     }
 }
 

@@ -8,6 +8,11 @@
 
 import UIKit
 
+struct AfterLoginIdentifier {
+    
+    static let GotoAplikasiBerkaitan = "GOTO_APLIKASIBERKAITAN"
+}
+
 class AfterLoginVC: UITabBarController {
     
     override func viewDidLoad() {
@@ -29,7 +34,6 @@ class AfterLoginVC: UITabBarController {
     
     @objc func aplikasiButtonTapped(_ sender: UIBarButtonItem) {
         
-        
+        performSegue(withIdentifier: AfterLoginIdentifier.GotoAplikasiBerkaitan, sender: self)
     }
-
 }

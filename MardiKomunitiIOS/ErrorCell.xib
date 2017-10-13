@@ -15,17 +15,19 @@
             <rect key="frame" x="0.0" y="0.0" width="246" height="108"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fik-ID-8kA" id="HwV-gX-ll4">
-                <rect key="frame" x="0.0" y="0.0" width="246" height="108"/>
+                <rect key="frame" x="0.0" y="0.0" width="246" height="107"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ops. Tiada data." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIZ-At-RNJ">
-                        <rect key="frame" x="65.5" y="44" width="116.5" height="19.5"/>
+                        <rect key="frame" x="32" y="44" width="182" height="20"/>
                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="pIZ-At-RNJ" secondAttribute="trailing" constant="32" id="4ce-hs-rZA"/>
+                    <constraint firstItem="pIZ-At-RNJ" firstAttribute="leading" secondItem="HwV-gX-ll4" secondAttribute="leading" constant="32" id="O9U-IP-hDZ"/>
                     <constraint firstItem="pIZ-At-RNJ" firstAttribute="centerY" secondItem="HwV-gX-ll4" secondAttribute="centerY" id="QBQ-VS-ycS"/>
                     <constraint firstItem="pIZ-At-RNJ" firstAttribute="centerX" secondItem="HwV-gX-ll4" secondAttribute="centerX" id="QcR-Gy-mXq"/>
                 </constraints>
