@@ -30,7 +30,7 @@ class PengumumanTVC: UITableViewController {
         
         let np: NetworkProcessor = NetworkProcessor.init(URLs.guestAnnouncementURL)
         
-        np.downloadJSONFromUrl  { (result, response) in
+        np.getRequestJSONFromUrl  { (result, response) in
             
             print("result is \(result)")
         

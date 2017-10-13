@@ -16,7 +16,6 @@ class MessageDetailsVC: UIViewController {
     @IBOutlet weak var tableView : UITableView!
     @IBOutlet weak var replyCommentView : UIView!
     @IBOutlet weak var replyTextView: UITextView!
-    
     @IBOutlet weak var replyViewConstraint : NSLayoutConstraint!
     
     var sectionHeader = ["Members", "Replies"]
@@ -28,6 +27,7 @@ class MessageDetailsVC: UIViewController {
     var collectionCell: MembersCell!
     
     var spinner: LoadingSpinner!
+    var tableViewSpinner: LoadingSpinner!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +57,7 @@ class MessageDetailsVC: UIViewController {
                 let cell = self.tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as! MembersCell
                 cell.collectionView.reloadData()
                 
+                self.tableViewSpinner.stopSpinner()
                 self.tableView.reloadSections(IndexSet(integer: 1), with: .none)
             }
         }
@@ -110,6 +111,10 @@ class MessageDetailsVC: UIViewController {
         
         let nibName = UINib(nibName: name, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: identifier)
+    }
+    
+    @IBAction func sendButtonTapped(_ sender: UIButton) {
+        print("Tapped")
     }
     
     func keyboardWillShow(_ notification: NSNotification) {

@@ -67,7 +67,8 @@ class LoadingSpinner: NSObject {
     func startSpinner() {
         
         self.spinner.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        self.spinner.frame = CGRect(x: (view.bounds.width / 2) - 30, y: 50, width: 30, height: 30)
+        self.spinner.frame.size = CGSize(width: 30, height: 30)
+        self.spinner.center = CGPoint(x: view.center.x, y: 50)
         self.spinner.hidesWhenStopped = true
         self.spinner.startAnimating()
         

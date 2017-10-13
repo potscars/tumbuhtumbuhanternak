@@ -25,12 +25,14 @@ extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
             return 2
         } else {
             
-            if isFetched {
-                let count = respondData.count > 0 ? respondData.count : 1
-                return count
-            } else {
-                return respondData.count
-            }
+//            if isFetched {
+//                let count = respondData.count > 0 ? respondData.count : 1
+//                return count
+//            } else {
+//                return respondData.count
+//            }
+            let count = respondData.count > 0 ? respondData.count : 1
+            return count
         }
     }
     
@@ -66,7 +68,15 @@ extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
                 let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageErrorCell, for: indexPath) as! ErrorCell
                 
                 cell.selectionStyle = .none
-                cell.errorMessage = "Ops. Tiada data."
+                
+                if isFetched {
+                    cell.errorLabel.isHidden = false
+                    cell.errorMessage = "Ops. Tiada data."
+                } else {
+                    tableViewSpinner = LoadingSpinner.init(view: cell.contentView, isNavBar: false)
+                    tableViewSpinner.startSpinner()
+                    cell.errorLabel.isHidden = true
+                }
                 
                 return cell
             }
@@ -78,7 +88,7 @@ extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
         if let cell = cell as? MembersCell {
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
-            spinner = LoadingSpinner.init(view: cell.collectionView, isNavBar: false)
+            spinner = LoadingSpinner.init(view: cell.contentView, isNavBar: false)
             spinner.startSpinner()
         }
     }
