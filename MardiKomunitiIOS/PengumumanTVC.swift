@@ -9,6 +9,9 @@
 import UIKit
 
 class PengumumanTVC: UITableViewController {
+    
+    var getJSONData: NSMutableArray = []
+    var selectedRow: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +31,141 @@ class PengumumanTVC: UITableViewController {
     
     func grabAnnouncementInfo() {
         
-        let np: NetworkProcessor = NetworkProcessor.init(URLs.guestAnnouncementURL)
+        var np: NetworkProcessor? = nil
         
-        np.getRequestJSONFromUrl  { (result, response) in
+        
+        np?.getRequestJSONFromUrl  { (result, response) in
             
-            print("result is \(result)")
-        
+            if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil)
+            {
+                if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
+                    
+                    print("logged in")
+                    
+                    np = NetworkProcessor.init(URLs.loggedAnnouncementURL)
+                    np!.postRequestJSONFromUrl(["token":UserDefaults.standard.object(forKey: "MYA_USERTOKEN") as! String]) { (result, response) in
+                        
+                        if result != nil {
+                            
+                            let convertData: NSDictionary = result! as NSDictionary
+                            let grabDataDict: NSDictionary = convertData.value(forKey: "data") as! NSDictionary
+                            let grabFullDataArray: NSArray = grabDataDict.value(forKey: "data") as! NSArray
+                            
+                            for i in 0...grabFullDataArray.count - 1 {
+                                
+                                let grabData: NSDictionary = grabFullDataArray.object(at: i) as! NSDictionary
+                                let getImageArray: NSArray? = grabData.value(forKey: "imageable") as? NSArray
+                                
+                                self.getJSONData.add([
+                                    "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
+                                    "ARTICLE_CONTENT":String.checkStringValidity(data: grabData.value(forKey: "content"), defaultValue: "Data Kosong"),
+                                    "ARTICLE_IMAGE":getImageArray ?? []
+                                    ])
+                                
+                            }
+                            
+                            DispatchQueue.main.async {
+                                
+                                self.tableView.reloadData()
+                                
+                            }
+                            
+                        }
+                    }
+                    
+                } else {
+                    
+                    print("logged in but technical problem")
+                    
+                    np = NetworkProcessor.init(URLs.guestAnnouncementURL)
+                    np!.getRequestJSONFromUrl  { (result, response) in
+                        
+                        if result is NSDictionary {
+                            
+                            let convertData: NSDictionary = result as! NSDictionary
+                            let grabDataDict: NSDictionary = convertData.value(forKey: "data") as! NSDictionary
+                            let grabFullDataArray: NSArray = grabDataDict.value(forKey: "data") as! NSArray
+                            
+                            for i in 0...grabFullDataArray.count - 1 {
+                                
+                                let grabData: NSDictionary = grabFullDataArray.object(at: i) as! NSDictionary
+                                let getImageArray: NSArray? = grabData.value(forKey: "imageable") as? NSArray
+                                
+                                self.getJSONData.add([
+                                    "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
+                                    "ARTICLE_CONTENT":String.checkStringValidity(data: grabData.value(forKey: "content"), defaultValue: "Data Kosong"),
+                                    "ARTICLE_IMAGE":getImageArray ?? []
+                                    ])
+                                
+                            }
+                            
+                            DispatchQueue.main.async {
+                                
+                                self.tableView.reloadData()
+                                
+                            }
+                            
+                            
+                        } else if result is NSArray {
+                            
+                            
+                        } else {
+                            
+                            
+                        }
+                        
+                    }
+                    
+                }
+            } else {
+                
+                print("not logged in")
+                
+                np = NetworkProcessor.init(URLs.guestAnnouncementURL)
+                np!.getRequestJSONFromUrl  { (result, response) in
+                    
+                    if result is NSDictionary {
+                        
+                        let convertData: NSDictionary = result as! NSDictionary
+                        let grabDataDict: NSDictionary = convertData.value(forKey: "data") as! NSDictionary
+                        let grabFullDataArray: NSArray = grabDataDict.value(forKey: "data") as! NSArray
+                        
+                        print("datarray: \(grabDataDict)")
+                        print("dataFullarray: \(grabFullDataArray)")
+                        
+                        
+                        for i in 0...grabFullDataArray.count - 1 {
+                            
+                            let grabData: NSDictionary = grabFullDataArray.object(at: i) as! NSDictionary
+                            let getImageArray: NSArray? = grabData.value(forKey: "imageable") as? NSArray
+                            
+                            self.getJSONData.add([
+                                "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
+                                "ARTICLE_CONTENT":String.checkStringValidity(data: grabData.value(forKey: "content"), defaultValue: "Data Kosong"),
+                                "ARTICLE_IMAGE":getImageArray ?? []
+                                ])
+                            
+                        }
+                        
+                        DispatchQueue.main.async {
+                            
+                            self.tableView.reloadData()
+                            
+                        }
+                        
+                        
+                    } else if result is NSArray {
+                        
+                        
+                    } else {
+                        
+                        
+                    }
+                    
+                }
+                
+            }
         }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,25 +182,29 @@ class PengumumanTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 2
+        return getJSONData.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if(indexPath.row == 1){
+        let checkImageArray: NSDictionary = self.getJSONData.object(at: indexPath.row) as! NSDictionary
+        let checkImage: NSArray = checkImageArray.value(forKey: "ARTICLE_IMAGE") as! NSArray
+        
+        
+        if(checkImage.count != 0){
             let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCWithPicCellID", for: indexPath) as! PengumumanTVCell
 
-        // Configure the cell...
-            cell.updateImageCell(data: [:])
+            // Configure the cell...
+            cell.updateImageCell(data: getJSONData.object(at: indexPath.row) as! NSDictionary)
 
             return cell
         }
         else {
             let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCNoPicCellID", for: indexPath) as! PengumumanTVCell
 
-            
             // Configure the cell...
+            cell.updateCell(data: getJSONData.object(at: indexPath.row) as! NSDictionary)
             
             return cell
         }
@@ -79,6 +213,8 @@ class PengumumanTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        self.selectedRow = indexPath.row
         
         self.performSegue(withIdentifier: "MYA_GOTO_PENGUMUMAN_DETAILS", sender: self)
         
@@ -119,14 +255,21 @@ class PengumumanTVC: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        if(segue.identifier == "MYA_GOTO_PENGUMUMAN_DETAILS" )
+        {
+            let destViewController: PengumumanDetailsTVC = segue.destination as! PengumumanDetailsTVC
+        
+            destViewController.detailsData = self.getJSONData.object(at: selectedRow) as! NSDictionary
+        }
     }
-    */
+    
 
 }

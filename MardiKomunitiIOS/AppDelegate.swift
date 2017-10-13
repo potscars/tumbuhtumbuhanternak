@@ -35,7 +35,44 @@ extension UIImage{
         
         return imageWithPadding
     }
+    
+    func drawInRectAspectFill(rect: CGRect) {
+        let targetSize = rect.size
+        if targetSize == CGSize.zero {
+            return self.draw(in: rect)
+        }
+        let widthRatio    = targetSize.width  / self.size.width
+        let heightRatio   = targetSize.height / self.size.height
+        let scalingFactor = max(widthRatio, heightRatio)
+        let newSize = CGSize(width:  self.size.width  * scalingFactor,
+                             height: self.size.height * scalingFactor)
+        UIGraphicsBeginImageContext(targetSize)
+        let origin = CGPoint(x: (targetSize.width  - newSize.width)  / 2,
+                             y: (targetSize.height - newSize.height) / 2)
+        self.draw(in: CGRect(origin: origin, size: newSize))
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        scaledImage!.draw(in: rect)
+    }
+    
+}
 
+extension String {
+    
+    static func checkStringValidity(data: Any?, defaultValue: String) -> String {
+        
+        if data is String {
+            
+            return data as! String
+            
+        }
+        else {
+            
+            return defaultValue
+            
+        }
+        
+    }
     
 }
 
@@ -43,9 +80,13 @@ extension UIImage{
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    
+    static let developmentMode: Bool = true // false for production
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        print("**THIS IS A REMINDER** \n\nSet developmentMode to production at AppDelegate once when publishing app to AppStore \n\n********************")
         
         UIApplication.shared.statusBarStyle = .lightContent
         
@@ -59,6 +100,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBarItem.appearance().titlePositionAdjustment.vertical = -15
         
         return true
+    }
+    
+    static func switchingURL() -> String {
+        
+        if(developmentMode == true) {
+            return "http://myagro.myapp.my" //development URL 
+        }
+        else {
+            return "" //production URL
+        }
+        
     }
     
     func navigationBar() {

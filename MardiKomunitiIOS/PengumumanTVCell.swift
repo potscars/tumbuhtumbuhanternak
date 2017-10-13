@@ -31,16 +31,21 @@ class PengumumanTVCell: UITableViewCell {
     
     func updateImageCell(data: NSDictionary) {
         
-        uiivPVCWPImage.image = UIImage.init(named: "")?.resizeImageWith(newSize: CGSize.init(width: 359, height: 145))
-        uilPVCWPTitle.text = "Persidangan Padi Kebangsaan 2017"
-        uilPVCWPDesc.text = "Padi merupakan tanaman strategik dari segi keselamatan makanan, pembasmian kemiskinan dan sosio-politik di Malaysia."
+        let getFirstImageArray: NSArray = data.value(forKey: "ARTICLE_IMAGE") as! NSArray
+        let getFirstImageDict: NSDictionary = getFirstImageArray.object(at: 0) as! NSDictionary
+        let getFirstImageString: String = String.checkStringValidity(data: getFirstImageDict.value(forKey: "name"), defaultValue: "ic_default.png")
+        let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString)
+        
+        ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: uiivPVCWPImage)
+        uilPVCWPTitle.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_TITLE"), defaultValue: "Data Kosong")
+        uilPVCWPDesc.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_CONTENT"), defaultValue: "Data Kosong")
         
     }
     
     func updateCell(data: NSDictionary) {
         
-        uilPVCNPTitle.text = ""
-        uilPVCNPDesc.text = ""
+        uilPVCNPTitle.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_TITLE"), defaultValue: "Data Kosong")
+        uilPVCNPDesc.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_CONTENT"), defaultValue: "Data Kosong")
         
     }
 

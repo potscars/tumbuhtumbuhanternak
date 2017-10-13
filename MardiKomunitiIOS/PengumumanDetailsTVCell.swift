@@ -33,9 +33,21 @@ class PengumumanDetailsTVCell: UITableViewCell {
         
     }
     
-    func updateSenderImage(data: NSDictionary) {
+    func updateSenderImage(data: NSArray) {
         
-        uiivPDTVCArticleImage.image = UIImage.init(named: "")
+        //let getFirstImageArray: NSArray = data.value(forKey: "ARTICLE_IMAGE") as! NSArray
+        
+        for i in 0...data.count - 1 {
+            
+            let getFirstImageDict: NSDictionary = data.object(at: i) as! NSDictionary
+            let getFirstImageString: String = String.checkStringValidity(data: getFirstImageDict.value(forKey: "name"), defaultValue: "ic_default.png")
+            let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString)
+            
+            ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: uiivPDTVCArticleImage)
+            
+        }
+        
+        
         
     }
     
