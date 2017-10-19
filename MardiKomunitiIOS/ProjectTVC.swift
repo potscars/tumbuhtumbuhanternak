@@ -154,6 +154,7 @@ extension ProjectTVC {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageErrorCell, for: indexPath) as! ErrorCell
             
+            cell.selectionStyle = .none
             cell.errorMessage = errorMessage
             
             return cell
@@ -172,7 +173,7 @@ extension ProjectTVC {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if isError {
-            return self.view.frame.height
+            return self.view.frame.height - (tabBarController?.tabBar.frame.height)!
         } else {
             return UITableViewAutomaticDimension
         }

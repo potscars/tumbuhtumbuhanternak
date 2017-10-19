@@ -123,7 +123,7 @@ class MessageDetailsVC: UIViewController {
         let networkProcessor = NetworkProcessor.init(URLs.sendConversationRespondURL)
         
         
-        if replyTextView.textColor != .lightGray && !(messageText?.isEmpty)! {
+        if replyTextView.textColor != .lightGray && !(messageText?.isEmpty)! && messageText != ""{
             print("Sent")
             
             let params = ["token" : token,
@@ -147,6 +147,8 @@ class MessageDetailsVC: UIViewController {
                     self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
                 }
             })
+        } else {
+            self.alertController.alertController(self, title: "Ralat", message: "Sila masukkan mesej terlebih dahulu")
         }
     }
     

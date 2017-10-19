@@ -61,6 +61,8 @@ class MessageInboxTVC: UITableViewController {
                         self.tableView.reloadData()
                     }
                 })
+            } else {
+                spinner.removeLoadingScreen()
             }
         } else {
             spinner.removeLoadingScreen()
@@ -127,7 +129,7 @@ extension MessageInboxTVC {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if isError {
-           return self.view.frame.height
+           return self.view.frame.height - (tabBarController?.tabBar.frame.height)!
         } else {
             return UITableViewAutomaticDimension
         }

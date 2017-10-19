@@ -36,7 +36,15 @@ class ProjekDetailsTVC: UITableViewController {
         projekCategoryLabel.text = projek.projekCategory
         startDateLabel.text = projek.dateStart
         endDateLabel.text = projek.dateEnd
-        agencyLabel.text = projek.agency?[0]
+        
+        var agencyString = ""
+        
+        for agency in projek.agency! {
+            agencyString += agency
+            return
+        }
+        
+        agencyLabel.text = agencyString
         
     }
     

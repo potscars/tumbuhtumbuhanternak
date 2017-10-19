@@ -591,13 +591,13 @@
                                                 <constraint firstAttribute="height" constant="56" id="rQQ-SJ-JwX"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Projek Penternakan Ikan Yu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LP7-7i-zgl">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Projek Penternakan Ikan Yu" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LP7-7i-zgl">
                                             <rect key="frame" x="72" y="16" width="295" height="17"/>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Adam Levine, Terry Crews, Steve Austion, Dwayne Johnson, Mark Wehlberg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-gP-Dgn">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="Adam Levine, Terry Crews, Steve Austion, Dwayne Johnson, Mark Wehlberg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-gP-Dgn">
                                             <rect key="frame" x="72" y="41" width="295" height="31.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
@@ -1159,7 +1159,7 @@
         <scene sceneID="IMh-AZ-Dt4">
             <objects>
                 <collectionViewController hidesBottomBarWhenPushed="YES" id="76F-yC-1wk" customClass="AplikasiBerkaitanCVC" customModule="MardiKomunitiIOS" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" id="38z-1J-vXP">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="38z-1J-vXP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1178,14 +1178,14 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fermion" translatesAutoresizingMaskIntoConstraints="NO" id="9E8-eT-zVU">
-                                            <rect key="frame" x="23" y="8" width="105" height="105"/>
+                                            <rect key="frame" x="25.5" y="8" width="100" height="100"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="105" id="2ua-wc-3ZD"/>
-                                                <constraint firstAttribute="width" constant="105" id="iyz-l9-ABC"/>
+                                                <constraint firstAttribute="height" constant="100" id="2ua-wc-3ZD"/>
+                                                <constraint firstAttribute="width" constant="100" id="iyz-l9-ABC"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fertigasi Manga" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="LNW-53-6Pn">
-                                            <rect key="frame" x="23" y="121" width="104.5" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyAgro Kalendar Aktiviti" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="LNW-53-6Pn">
+                                            <rect key="frame" x="4" y="108" width="142" height="36.5"/>
                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -1194,11 +1194,11 @@
                                 </view>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="LNW-53-6Pn" secondAttribute="bottom" constant="8" id="443-nu-ewB"/>
+                                    <constraint firstItem="LNW-53-6Pn" firstAttribute="leading" secondItem="qLB-gS-pjL" secondAttribute="leading" constant="4" id="0Aq-xs-uhz"/>
                                     <constraint firstItem="9E8-eT-zVU" firstAttribute="centerX" secondItem="qLB-gS-pjL" secondAttribute="centerX" id="Ijk-HT-88t"/>
                                     <constraint firstItem="9E8-eT-zVU" firstAttribute="top" secondItem="qLB-gS-pjL" secondAttribute="top" constant="8" id="JGT-vm-DOi"/>
-                                    <constraint firstItem="LNW-53-6Pn" firstAttribute="centerX" secondItem="qLB-gS-pjL" secondAttribute="centerX" id="M5Y-Jz-Xrm"/>
-                                    <constraint firstItem="LNW-53-6Pn" firstAttribute="top" secondItem="9E8-eT-zVU" secondAttribute="bottom" constant="8" id="fCE-Wi-KVM"/>
+                                    <constraint firstItem="LNW-53-6Pn" firstAttribute="top" secondItem="9E8-eT-zVU" secondAttribute="bottom" id="fCE-Wi-KVM"/>
+                                    <constraint firstAttribute="trailing" secondItem="LNW-53-6Pn" secondAttribute="trailing" constant="4" id="hbf-XT-Sst"/>
                                 </constraints>
                                 <size key="customSize" width="150" height="150"/>
                                 <connections>
@@ -1216,7 +1216,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yjJ-Ld-xMl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2881" y="1478"/>
+            <point key="canvasLocation" x="2880.8000000000002" y="1477.5112443778112"/>
         </scene>
         <!--InitialNC-->
         <scene sceneID="vfZ-zy-lhE">

@@ -56,7 +56,7 @@ class Projeks {
                 var enrollUsername: String = "Chief"
                 var enrollICNumber: String = "0000"
                 var enrollPhoneNumber: String = "0000"
-                var agencyNameTemp: String = "Not Available"
+                var agencyNameTemp: String = ""
                 
                 for dataResult in dataResults {
                     
@@ -90,7 +90,7 @@ class Projeks {
                             projectCategoryName = name
                         }
                         
-                        if let conducts = (project as AnyObject).value(forKey: "project_category") as? NSArray {
+                        if let conducts = (project as AnyObject).value(forKey: "conducts") as? NSArray {
                             for conduct in conducts {
                                 
                                 if let agency = (conduct as AnyObject).value(forKey: "agency") as? NSDictionary, let agencyName = agency["name"] as? String {

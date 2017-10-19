@@ -32,6 +32,7 @@ class RepliedCell: UITableViewCell {
         
         let timeElapsed = dateformatter(dateString: respond.responderPostedDate!)
         dateLabel.text = timeElapsed
+        dateLabel.sizeToFit()
         
         imageFeatured.backgroundColor = .green
         imageFeatured.circledView(imageFeatured.frame.width)

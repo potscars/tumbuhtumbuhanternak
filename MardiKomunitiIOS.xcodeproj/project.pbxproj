@@ -41,6 +41,7 @@
 		9E58847C1F8210FA001EDA2E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58847B1F8210FA001EDA2E /* Colors.swift */; };
 		9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58847D1F8215D2001EDA2E /* AplikasiCell.swift */; };
 		9E5884801F821B6F001EDA2E /* MainTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E58847F1F821B6F001EDA2E /* MainTabBarVC.swift */; };
+		9E6B45811F98912200EDB928 /* AplikasiName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6B45801F98912200EDB928 /* AplikasiName.swift */; };
 		9EC60DF11F8738A100E056EF /* ProjectTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC60DF01F8738A100E056EF /* ProjectTVC.swift */; };
 		9EC60DF31F87552000E056EF /* ProjekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC60DF21F87552000E056EF /* ProjekCell.swift */; };
 		9EC60DF51F876C0A00E056EF /* Projek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC60DF41F876C0A00E056EF /* Projek.swift */; };
@@ -112,6 +113,7 @@
 		9E58847B1F8210FA001EDA2E /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		9E58847D1F8215D2001EDA2E /* AplikasiCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AplikasiCell.swift; sourceTree = "<group>"; };
 		9E58847F1F821B6F001EDA2E /* MainTabBarVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarVC.swift; sourceTree = "<group>"; };
+		9E6B45801F98912200EDB928 /* AplikasiName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AplikasiName.swift; sourceTree = "<group>"; };
 		9EC60DF01F8738A100E056EF /* ProjectTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTVC.swift; sourceTree = "<group>"; };
 		9EC60DF21F87552000E056EF /* ProjekCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjekCell.swift; sourceTree = "<group>"; };
 		9EC60DF41F876C0A00E056EF /* Projek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Projek.swift; sourceTree = "<group>"; };
@@ -262,6 +264,7 @@
 			children = (
 				9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */,
 				9E58847D1F8215D2001EDA2E /* AplikasiCell.swift */,
+				9E6B45801F98912200EDB928 /* AplikasiName.swift */,
 			);
 			name = AplikasiBerkaitan;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				9E0552D91F84DBDD002BA0E0 /* MembersCollectionCell.swift in Sources */,
 				9E0552CC1F849132002BA0E0 /* MessageInboxTVC.swift in Sources */,
 				B7C8AF1B1F8346410097597F /* ZGraphics.swift in Sources */,
+				9E6B45811F98912200EDB928 /* AplikasiName.swift in Sources */,
 				B7C8AF171F8342630097597F /* PengumumanDetailsTVC.swift in Sources */,
 				9E49FCBF1F8DF90A001006A5 /* Respond.swift in Sources */,
 				9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */,
