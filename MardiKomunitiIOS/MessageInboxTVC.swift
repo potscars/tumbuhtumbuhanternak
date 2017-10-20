@@ -23,6 +23,9 @@ class MessageInboxTVC: UITableViewController {
 
     var messages = [Mesej]()
     var spinner: LoadingSpinner!
+    let alertController = AlertController()
+    var errorMessage = "Tiada data buat ketika ini."
+    var isError = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,23 +39,36 @@ class MessageInboxTVC: UITableViewController {
         
         let mesej = Mesej()
         
-        if messages.count <= 0 {
+        if ZNetwork.isConnectedToNetwork() {
             spinner.setLoadingScreen()
-            mesej.fetchData({ (result, responses) in
-                
-                guard responses == nil else {
-                    //show error message
-                    return
-                }
-                
-                guard let mesejResult = result else { return; }
-                
-                DispatchQueue.main.async {
-                    self.messages = mesejResult
-                    self.tableView.reloadData()
-                    self.spinner.removeLoadingScreen()
-                }
-            })
+            isError = false
+            if messages.count <= 0 {
+                mesej.fetchData({ (result, responses) in
+                    DispatchQueue.main.async {
+                        
+                        self.spinner.removeLoadingScreen()
+                        
+                        guard responses == nil else {
+                            self.errorMessage = responses!
+                            self.isError = true
+                            self.tableView.reloadData()
+                            return
+                        }
+                        
+                        guard let mesejResult = result else { return; }
+                        
+                        self.messages = mesejResult
+                        self.tableView.reloadData()
+                    }
+                })
+            } else {
+                spinner.removeLoadingScreen()
+            }
+        } else {
+            spinner.removeLoadingScreen()
+            isError = true
+            errorMessage = "Tiada internet dikesan. Sila periksa rangkaian anda."
+            tableView.reloadData()
         }
     }
     
@@ -61,6 +77,9 @@ class MessageInboxTVC: UITableViewController {
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 120.0
+        
+        let nibName = UINib(nibName: "ErrorCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.MessageErrorCell)
     }
     
     var selectedMessage: Mesej!
@@ -83,16 +102,37 @@ extension MessageInboxTVC {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return messages.count
+        let count = isError ? 1 : messages.count
+        return count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageInboxCell, for: indexPath) as! MessageInboxCell
         
-        cell.selectionStyle = .none
-        cell.message = messages[indexPath.row]
+        if messages.count > 0 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageInboxCell, for: indexPath) as! MessageInboxCell
+            
+            cell.selectionStyle = .none
+            cell.message = messages[indexPath.row]
+            
+            return cell
+        } else {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageErrorCell, for: indexPath) as! ErrorCell
+            cell.selectionStyle = .none
+            cell.errorMessage = errorMessage
+            
+            return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
-        return cell
+        if isError {
+           return self.view.frame.height - (tabBarController?.tabBar.frame.height)!
+        } else {
+            return UITableViewAutomaticDimension
+        }
     }
 }
 
@@ -100,8 +140,10 @@ extension MessageInboxTVC {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        selectedMessage = messages[indexPath.row]
-        performSegue(withIdentifier: MessageIdentifier.GotoMessageDetails, sender: self)
+        if let _ = tableView.cellForRow(at: indexPath) as? MessageInboxCell {
+            selectedMessage = messages[indexPath.row]
+            performSegue(withIdentifier: MessageIdentifier.GotoMessageDetails, sender: self)
+        }
     }
 }
 

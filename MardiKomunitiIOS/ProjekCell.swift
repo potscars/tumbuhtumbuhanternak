@@ -22,10 +22,15 @@ class ProjekCell: UITableViewCell {
         
         for enroll in projek.enrolls! {
             
-            enrollTemp += "\(enroll.name!) - \(enroll.agency!)\n"
+            
+            if enroll.agency! == "" {
+                enrollTemp += "\(enroll.name!)\n"
+            } else {
+                enrollTemp += "\(enroll.name!) - \(enroll.agency!)\n"
+            }
+            
         }
         
-        let  finalEnroll = enrollTemp.substring(to: enrollTemp.index(enrollTemp.endIndex, offsetBy: -4))
         projekContentLabel.text = enrollTemp
         
         featuredImage.circledView(featuredImage.frame.width)

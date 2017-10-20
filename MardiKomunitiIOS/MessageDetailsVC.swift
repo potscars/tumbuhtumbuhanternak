@@ -16,7 +16,6 @@ class MessageDetailsVC: UIViewController {
     @IBOutlet weak var tableView : UITableView!
     @IBOutlet weak var replyCommentView : UIView!
     @IBOutlet weak var replyTextView: UITextView!
-    
     @IBOutlet weak var replyViewConstraint : NSLayoutConstraint!
     
     var sectionHeader = ["Members", "Replies"]
@@ -28,6 +27,8 @@ class MessageDetailsVC: UIViewController {
     var collectionCell: MembersCell!
     
     var spinner: LoadingSpinner!
+    var tableViewSpinner: LoadingSpinner!
+    let alertController = AlertController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +58,7 @@ class MessageDetailsVC: UIViewController {
                 let cell = self.tableView.cellForRow(at: IndexPath(item: 0, section: 0)) as! MembersCell
                 cell.collectionView.reloadData()
                 
+                self.tableViewSpinner.stopSpinner()
                 self.tableView.reloadSections(IndexSet(integer: 1), with: .none)
             }
         }
@@ -110,6 +112,44 @@ class MessageDetailsVC: UIViewController {
         
         let nibName = UINib(nibName: name, bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: identifier)
+    }
+    
+    @IBAction func sendButtonTapped(_ sender: UIButton) {
+        
+        let messageText = replyTextView.text
+        let conversationId = message.id
+        let token = UserDefaults.standard.object(forKey: "MYA_USERTOKEN")
+        
+        let networkProcessor = NetworkProcessor.init(URLs.sendConversationRespondURL)
+        
+        
+        if replyTextView.textColor != .lightGray && !(messageText?.isEmpty)! && messageText != ""{
+            print("Sent")
+            
+            let params = ["token" : token,
+                          "conversation_id" : conversationId!,
+                          "message" : messageText!]
+            
+            networkProcessor.postRequestJSONFromUrl(params, completion: { (result, response) in
+                
+                guard response == nil else {
+                    
+                    return;
+                }
+                
+                guard let status = result?["status"] as? Int, status == 1 else {
+                    self.alertController.alertController(self, title: "Ralat", message: "Gagal untuk membalas.")
+                    return;
+                }
+                
+                DispatchQueue.main.async {
+                    self.alertController.alertController(self, title: "Berjaya", message: "Mesej anda berjaya dihantarkan.")
+                    self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+                }
+            })
+        } else {
+            self.alertController.alertController(self, title: "Ralat", message: "Sila masukkan mesej terlebih dahulu")
+        }
     }
     
     func keyboardWillShow(_ notification: NSNotification) {

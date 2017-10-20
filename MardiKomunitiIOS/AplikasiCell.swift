@@ -13,4 +13,10 @@ class AplikasiCell: UICollectionViewCell {
     @IBOutlet weak var featuredImage : UIImageView!
     @IBOutlet weak var aplikasiName : UILabel!
     
+    func updateCell(_ name: String, image: UIImage) {
+        
+        aplikasiName.text = name
+        featuredImage.image = image
+    }
+    
 }

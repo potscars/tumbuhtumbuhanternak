@@ -57,7 +57,7 @@ class PengumumanTVC: UITableViewController {
     func grabAnnouncementInfo() {
         
         var np: NetworkProcessor? = nil
-        
+            
         if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil)
         {
             if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
@@ -70,6 +70,11 @@ class PengumumanTVC: UITableViewController {
                     if result != nil {
                         
                         let convertData: NSDictionary = result! as NSDictionary
+                        
+                        guard let status = convertData.value(forKey: "status") as? Int, status == 1 else {
+                            return
+                        }
+                        
                         let grabDataDict: NSDictionary = convertData.value(forKey: "data") as! NSDictionary
                         let grabFullDataArray: NSArray = grabDataDict.value(forKey: "data") as! NSArray
                         
@@ -141,7 +146,7 @@ class PengumumanTVC: UITableViewController {
             }
         } else {
             
-             print("not logged in")
+            print("not logged in")
             
             np = NetworkProcessor.init(URLs.guestAnnouncementURL)
             np!.getRequestJSONFromUrl  { (result, response) in
@@ -188,8 +193,6 @@ class PengumumanTVC: UITableViewController {
             }
             
         }
-        
-        
     }
 
     override func didReceiveMemoryWarning() {
