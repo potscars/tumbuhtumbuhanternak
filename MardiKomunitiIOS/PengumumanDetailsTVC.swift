@@ -11,6 +11,7 @@ import UIKit
 class PengumumanDetailsTVC: UITableViewController {
     
     var detailsData: NSDictionary = [:]
+    var updatingImage: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +24,7 @@ class PengumumanDetailsTVC: UITableViewController {
         
         ZUISetup.setupTableViewWithTabView(tableView: self)
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 160.0
+        self.tableView.estimatedRowHeight = 60.0
         
         ZGraphics.hideTableSeparatorAfterLastCell(tableView: self.tableView)
         
@@ -54,6 +55,7 @@ class PengumumanDetailsTVC: UITableViewController {
             let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDSenderInfoCellID", for: indexPath) as! PengumumanDetailsTVCell
 
             // Configure the cell...
+            self.updatingImage = false
 
             return cell
         }
@@ -65,7 +67,10 @@ class PengumumanDetailsTVC: UITableViewController {
             print("check imagearray \(imageArray)")
         
             // Configure the cell...
-            cell.updateSenderImage(data: imageArray)
+            cell.updateSenderImage(data: imageArray, tableView: self.tableView)
+            
+            self.updatingImage = true
+            
         
             return cell
         }
@@ -74,6 +79,7 @@ class PengumumanDetailsTVC: UITableViewController {
             
             // Configure the cell...
             cell.updateDescriptions(data: [:])
+            self.updatingImage = false
             
             return cell
         }

@@ -14,6 +14,8 @@ class PengumumanDetailsTVCell: UITableViewCell {
     @IBOutlet weak var uilPDTVCSenderDate: UILabel!
     @IBOutlet weak var uiivPDTVCArticleImage: UIImageView!
     @IBOutlet weak var uilPDTVCArticleFullDesc: UILabel!
+    @IBOutlet weak var uiivPDTVCArticleImageWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var uiivPDTVCArticleImageHeightConstraint: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -33,7 +35,7 @@ class PengumumanDetailsTVCell: UITableViewCell {
         
     }
     
-    func updateSenderImage(data: NSArray) {
+    func updateSenderImage(data: NSArray, tableView: UITableView) {
         
         //let getFirstImageArray: NSArray = data.value(forKey: "ARTICLE_IMAGE") as! NSArray
         
@@ -43,7 +45,9 @@ class PengumumanDetailsTVCell: UITableViewCell {
             let getFirstImageString: String = String.checkStringValidity(data: getFirstImageDict.value(forKey: "name"), defaultValue: "ic_default.png")
             let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString)
             
-            ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: uiivPDTVCArticleImage)
+            tableView.beginUpdates()
+            ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: uiivPDTVCArticleImage, imageViewConstraints: nil)
+            tableView.endUpdates()
             
         }
         

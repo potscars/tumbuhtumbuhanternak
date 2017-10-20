@@ -1,17 +1,29 @@
 PODS:
+  - BSGridCollectionViewLayout (1.2.0)
+  - BSImagePicker (2.6.0):
+    - BSGridCollectionViewLayout (~> 1.2.0)
+    - UIImageViewModeScaleAspect (= 1.5)
+  - DTZFloatingActionButton (0.2.0)
   - NVActivityIndicatorView (4.0.0):
     - NVActivityIndicatorView/Presenter (= 4.0.0)
   - NVActivityIndicatorView/Presenter (4.0.0)
   - PlainPing (0.4)
+  - UIImageViewModeScaleAspect (1.5)
 
 DEPENDENCIES:
+  - BSImagePicker (~> 2.6.0)
+  - DTZFloatingActionButton
   - NVActivityIndicatorView
   - PlainPing
 
 SPEC CHECKSUMS:
+  BSGridCollectionViewLayout: 8f12c8e1e08c47057f5a39a6828f4395f043d78f
+  BSImagePicker: 7b740d0a9f23160bcdca01f179445583bd1c09b0
+  DTZFloatingActionButton: 9dc86d3e566c2c601d82e9c86003289dc8b7559b
   NVActivityIndicatorView: 54c9b93b6f25a4f467512680c0c90c09a1095cf2
   PlainPing: 17845ab9e2b41460edc0faa94fd02093fa17d236
+  UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
-PODFILE CHECKSUM: bddbb4798074b7c27b36fcdcff2f2c01a480c4bd
+PODFILE CHECKSUM: e0615b373f17cc17a956c678cc79e2e1b40eae4e
 
 COCOAPODS: 1.2.0

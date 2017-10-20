@@ -73,7 +73,10 @@ class LoginProcessVC: UIViewController {
                     
                     //in future, remember me will be set
                     //in future, language will be set
-                    self.performSegue(withIdentifier: "MYA_LOGGED_GOTO_MAIN", sender: self)
+                    DispatchQueue.main.async {
+                        self.performSegue(withIdentifier: "MYA_LOGGED_GOTO_MAIN", sender: self)
+                    }
+                    
                     
                 }
                 else {
@@ -97,13 +100,24 @@ class LoginProcessVC: UIViewController {
         if let data = datas.value(forKey: apiKeyString) {
             
             if let data = data as? NSDictionary {
-                print("Key")
+                print("NSDictionary")
                 let dataKeyArchived = NSKeyedArchiver.archivedData(withRootObject: data)
                 UserDefaults.standard.set(dataKeyArchived, forKey: userDefaultsKeyString)
             }
             
+            if let data = data as? NSArray {
+                print("NSArray")
+                UserDefaults.standard.set(data, forKey: userDefaultsKeyString)
+            }
+            
+            if let data = data as? Data {
+                print("NSData")
+                let dataKeyArchived = NSKeyedUnarchiver.unarchiveObject(with: data)
+                UserDefaults.standard.set(dataKeyArchived, forKey: userDefaultsKeyString)
+            }
+            
             if let data = data as? String {
-                print("Unkey")
+                print("String")
                 UserDefaults.standard.set(data, forKey: userDefaultsKeyString)
             }
         } else {
