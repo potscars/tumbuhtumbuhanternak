@@ -166,40 +166,9 @@ class NetworkProcessor {
         
         if parameters != nil {
             for (key, value) in parameters! {
-                if key == "token" {
-                    body.appendString("--\(boundary)\r\n")
-                    body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-                    body.appendString("\(value)\r\n")
-                } else if key == "location" {
-
-                    if let dictValue = value as? NSDictionary {
-                        
-                        for (locationKey, locationValue) in dictValue {
-                            
-                            let locationKeyString = locationKey as! String
-                            let locationDictKey = "\(key)[\(locationKeyString)]"
-                            print("\(locationDictKey),\(locationValue)")
-                            if locationKeyString == "category" {
-                                
-                                if let dictLocationValue = locationValue as? NSDictionary {
-                                    for (categoryKey, categoryValue) in dictLocationValue {
-                                        
-                                        let locationCategoryKey = "\(locationDictKey)[\(categoryKey)]"
-                                        print("\(locationCategoryKey),\(categoryValue)")
-                                        body.appendString("--\(boundary)\r\n")
-                                        body.appendString("Content-Disposition: form-data; name=\"\(locationCategoryKey)\"\r\n\r\n")
-                                        body.appendString("\(categoryValue)\r\n")
-                                    }
-                                }
-                            } else {
-                                
-                                body.appendString("--\(boundary)\r\n")
-                                body.appendString("Content-Disposition: form-data; name=\"\(locationDictKey)\"\r\n\r\n")
-                                body.appendString("\(locationValue)\r\n")
-                            }
-                        }
-                    }
-                }
+                body.appendString("--\(boundary)\r\n")
+                body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+                body.appendString("\(value)\r\n")
             }
         }
         
