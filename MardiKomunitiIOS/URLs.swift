@@ -16,6 +16,7 @@ class URLs: NSObject {
     static let projectByCategoryURL = String.init(format: "%@/api/project/viewbysector", AppDelegate.switchingURL())
     
     static let loadImage: String = String.init(format: "%@/images/original/", AppDelegate.switchingURL())
-    static let listConversationURL = "\(AppDelegate.switchingURL())/api/conversation"
-    static let sendConversationRespondURL = "\(AppDelegate.switchingURL())/api/conversation/reply"
+    static let listConversationURL = String.init(format: "%@/api/conversation", AppDelegate.switchingURL())
+    static let sendConversationRespondURL = String.init(format: "%@/api/conversation/reply", AppDelegate.switchingURL())
+
 }

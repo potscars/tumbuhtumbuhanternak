@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import DTZFloatingActionButton
 
 class PengumumanTVC: UITableViewController {
     
     var getJSONData: NSMutableArray = []
     var selectedRow: Int = 0
+    
+    var dtzButtonAddComment: DTZFloatingActionButton? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +30,28 @@ class PengumumanTVC: UITableViewController {
         self.tableView.estimatedRowHeight = 160.0
         
         grabAnnouncementInfo()
+        
+        dtzButtonAddComment = DTZFloatingActionButton.init(frame: CGRect.init(x: self.view.frame.size.width - 56 - 14, y: self.view.frame.height - 100 - 14, width: 56, height: 56))
+        dtzButtonAddComment!.tag = 100
+        dtzButtonAddComment!.buttonColor = Colors.mainGreen
+        dtzButtonAddComment!.handler = {
+            button in
+            self.performSegue(withIdentifier: "MYA_GOTO_WRITE_ARTICLE", sender: self)
+        }
+        
+        self.navigationController?.view.addSubview(dtzButtonAddComment!)
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.view.addSubview(dtzButtonAddComment!)
+        
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        dtzButtonAddComment!.removeFromSuperview()
     }
     
     func grabAnnouncementInfo() {
@@ -151,6 +176,7 @@ class PengumumanTVC: UITableViewController {
                     
                     DispatchQueue.main.async {
                         
+                        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
                         self.tableView.reloadData()
                         
                     }
@@ -183,29 +209,40 @@ class PengumumanTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return getJSONData.count
+        if(getJSONData.count != 0) { return getJSONData.count }
+        else { return 1 }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let checkImageArray: NSDictionary = self.getJSONData.object(at: indexPath.row) as! NSDictionary
-        let checkImage: NSArray = checkImageArray.value(forKey: "ARTICLE_IMAGE") as! NSArray
+        if(getJSONData.count != 0){
         
+            let checkImageArray: NSDictionary = self.getJSONData.object(at: indexPath.row) as! NSDictionary
+            let checkImage: NSArray = checkImageArray.value(forKey: "ARTICLE_IMAGE") as! NSArray
         
-        if(checkImage.count != 0){
-            let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCWithPicCellID", for: indexPath) as! PengumumanTVCell
+            if(checkImage.count != 0){
+                let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCWithPicCellID", for: indexPath) as! PengumumanTVCell
 
-            // Configure the cell...
-            cell.updateImageCell(data: getJSONData.object(at: indexPath.row) as! NSDictionary)
+                // Configure the cell...
+                cell.updateImageCell(data: getJSONData.object(at: indexPath.row) as! NSDictionary)
 
-            return cell
+                return cell
+            }
+            else {
+                let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCNoPicCellID", for: indexPath) as! PengumumanTVCell
+
+                // Configure the cell...
+                cell.updateCell(data: getJSONData.object(at: indexPath.row) as! NSDictionary)
+            
+                return cell
+            }
         }
         else {
-            let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCNoPicCellID", for: indexPath) as! PengumumanTVCell
-
+            let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCLoadingCellID", for: indexPath) as! PengumumanTVCell
+            
             // Configure the cell...
-            cell.updateCell(data: getJSONData.object(at: indexPath.row) as! NSDictionary)
+            cell.updateLoadingCell(cellIdentifier: cell)
             
             return cell
         }
@@ -266,9 +303,9 @@ class PengumumanTVC: UITableViewController {
         
         if(segue.identifier == "MYA_GOTO_PENGUMUMAN_DETAILS" )
         {
-            let destViewController: PengumumanDetailsTVC = segue.destination as! PengumumanDetailsTVC
+            let destViewController: PengumumanDetailsTVC? = segue.destination as? PengumumanDetailsTVC
         
-            destViewController.detailsData = self.getJSONData.object(at: selectedRow) as! NSDictionary
+            destViewController?.detailsData = self.getJSONData.object(at: selectedRow) as! NSDictionary
         }
     }
     

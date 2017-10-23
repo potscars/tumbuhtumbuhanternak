@@ -79,6 +79,61 @@ class InfoPenggunaTVC: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
+        switch (indexPath.row) {
+        case 0:
+            self.performSegue(withIdentifier: "MYA_GOTO_USERINFO", sender: self)
+            break
+        case 1:
+            break
+        case 2:
+            break
+        case 3:
+            logOut()
+            break
+        default:
+            break
+        }
+    }
+    
+    func logOut() {
+        
+        let alertView: UIAlertController = UIAlertController.init(title: "Log Keluar", message: "Anda pasti untuk mendaftar keluar dari aplikasi?", preferredStyle: UIAlertControllerStyle.alert)
+        
+        let alertCancelAction: UIAlertAction = UIAlertAction.init(title: "Tidak", style: UIAlertActionStyle.default, handler: { (action) in
+            
+            alertView.dismiss(animated: true, completion: { (Void) in })
+            
+        })
+        
+        alertView.addAction(alertCancelAction)
+        
+        let alertOKAction: UIAlertAction = UIAlertAction.init(title: "Ya", style: UIAlertActionStyle.default, handler: { (action) in
+            
+            UserDefaults.standard.set(false, forKey: "MYA_USERLOGGEDIN")
+            UserDefaults.standard.set("", forKey: "MYA_USERID")
+            UserDefaults.standard.set("", forKey: "MYA_USERNAME")
+            UserDefaults.standard.set("", forKey: "MYA_ALTUSERNAME")
+            UserDefaults.standard.set("", forKey: "MYA_NAME")
+            UserDefaults.standard.set("", forKey: "MYA_ICNO")
+            UserDefaults.standard.set("", forKey: "MYA_EMAIL")
+            UserDefaults.standard.set("", forKey: "MYA_ROLES_ARR")
+            UserDefaults.standard.set("", forKey: "MYA_ADDRESS_ARR")
+            UserDefaults.standard.set("", forKey: "MYA_USERTOKEN")
+            
+            let getStoryBoard: UIStoryboard = UIStoryboard.init(name: "Main", bundle: nil)
+            let viewController: BeforeNavController = getStoryBoard.instantiateViewController(withIdentifier: "NotLoggedInNC") as! BeforeNavController
+            let appDel: AppDelegate = UIApplication.shared.delegate as! AppDelegate
+            appDel.window?.rootViewController = viewController
+            
+            alertView.dismiss(animated: true, completion: { (Void) in })
+            
+        })
+        
+        alertView.addAction(alertOKAction)
+        
+        alertView.preferredAction = alertCancelAction
+        
+        self.present(alertView, animated: true, completion: nil)
         
     }
     

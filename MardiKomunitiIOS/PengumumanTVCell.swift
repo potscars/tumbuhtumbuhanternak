@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import NVActivityIndicatorView
 
 class PengumumanTVCell: UITableViewCell {
 
@@ -36,7 +37,7 @@ class PengumumanTVCell: UITableViewCell {
         let getFirstImageString: String = String.checkStringValidity(data: getFirstImageDict.value(forKey: "name"), defaultValue: "ic_default.png")
         let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString)
         
-        ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: uiivPVCWPImage)
+        ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: uiivPVCWPImage, imageViewConstraints: nil)
         uilPVCWPTitle.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_TITLE"), defaultValue: "Data Kosong")
         uilPVCWPDesc.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_CONTENT"), defaultValue: "Data Kosong")
         
@@ -46,6 +47,22 @@ class PengumumanTVCell: UITableViewCell {
         
         uilPVCNPTitle.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_TITLE"), defaultValue: "Data Kosong")
         uilPVCNPDesc.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_CONTENT"), defaultValue: "Data Kosong")
+        
+    }
+    
+    func updateLoadingCell(cellIdentifier: PengumumanTVCell) {
+        
+        let xAxis = cellIdentifier.center.x
+        let yAxis = cellIdentifier.center.y
+        let setLoadingFrame = CGRect.init(x: xAxis - 100, y: yAxis - 20, width: 40, height: 40)
+        let setTextFrame = CGRect.init(x: xAxis - 60, y: yAxis - 15, width: 200, height: 40)
+        let nvIndicator: NVActivityIndicatorView = NVActivityIndicatorView.init(frame: setLoadingFrame, type: .ballPulse, color: UIColor.init(red: 6.0/255.0, green: 142.0/255.0, blue: 61.0/255.0, alpha: 1), padding: nil)
+        let textView: UITextView = UITextView.init(frame: setTextFrame)
+        textView.text = "Sedang memuatkan..."
+        
+        cellIdentifier.addSubview(nvIndicator)
+        cellIdentifier.addSubview(textView)
+        nvIndicator.startAnimating()
         
     }
 

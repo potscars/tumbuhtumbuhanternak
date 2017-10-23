@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ZImages: NSObject {
 
@@ -92,7 +93,7 @@ class ZImages: NSObject {
     }
     
     
-    static func getImageFromUrlSession(fromURL: String, defaultImage: String, imageView: UIImageView) {
+    static func getImageFromUrlSession(fromURL: String, defaultImage: String, imageView: UIImageView, imageViewConstraints: [String:NSLayoutConstraint]?) {
         
         let imageURL: URL = URL.init(string: fromURL.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
         let session = URLSession(configuration: URLSessionConfiguration.default)
@@ -114,9 +115,43 @@ class ZImages: NSObject {
                         
                         DispatchQueue.main.async() { () -> Void in
                             
-                            let image: UIImage = UIImage.init(data: imageData)!.resizeImageWith(newSize: CGSize.init(width: 359, height: 145))
+                            let image: UIImage = UIImage.init(data: imageData)!//.resizeImageWith(newSize: CGSize.init(width: 359, height: 145))
                             
                             imageView.image = image
+                            //imageView.frame = AVMakeRect(aspectRatio: image.size, insideRect: imageView.frame)
+                            
+                            
+                            //let scaleFactor: CGFloat = max(image.size.width/imageView.bounds.size.width, image.size.height/imageView.bounds.size.height)
+                            //imageView.frame = CGRect.init(x: 0, y: 0, width: image.size.width/scaleFactor, height: image.size.height/scaleFactor)
+                            
+                            //imageView.frame = CGRect.init(x: 0, y: 0, width: imageView.frame.width, height: image.size.height)
+                            //imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: image.size.width / image.size.height).isActive = true
+                            /*
+                            if(imageViewConstraints != nil)
+                            {
+                                let widthLayoutConstraint: NSLayoutConstraint = imageViewConstraints!["CONSTRAINT_WIDTH"]!
+                                let heightLayoutConstraint: NSLayoutConstraint = imageViewConstraints!["CONSTRAINT_HEIGHT"]!
+                                
+                                if imageView.frame.size.width < imageView.image!.size.width {
+                                
+                                    print("Resizing Width Frame...")
+                                    
+                                    heightLayoutConstraint.constant = imageView.frame.size.width / (imageView.image!.size.width) * (imageView.image!.size.height)
+                                
+                                }
+                                
+                                if imageView.frame.size.height < imageView.image!.size.height {
+                                    
+                                    print("Resizing Height Frame...")
+                                    
+                                    widthLayoutConstraint.constant = imageView.frame.size.height / (imageView.image!.size.height) * (imageView.image!.size.height)
+                                    
+                                    //widthLayoutConstraint.constant = -100
+                                    
+                                }
+                                imageView.setNeedsUpdateConstraints()
+                            }
+                            */
                             
                         }
                         

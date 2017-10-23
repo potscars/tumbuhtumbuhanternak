@@ -9,5 +9,7 @@ target 'MardiKomunitiIOS' do
 
 pod 'NVActivityIndicatorView'
 pod 'PlainPing'
+pod "DTZFloatingActionButton"
+pod 'BSImagePicker', '~> 2.6.0'
 
 end
