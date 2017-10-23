@@ -116,7 +116,7 @@ class NetworkProcessor {
     }
     
     //MARK: - UPLOAD with image(s) using multipart.
-    func uploadDataMultipart(_ params: [String: Any], images: [UIImage], completion: @escaping JSONDictionaryHandler) {
+    func uploadDataMultipart(_ params: [String: Any], images: [UIImage], imagesPathKey: String, completion: @escaping JSONDictionaryHandler) {
         
         var imageDataList = [Data]()
         let boundary = generateBoundaryString()
@@ -131,7 +131,7 @@ class NetworkProcessor {
             imageDataList.append(imageData)
         }
         
-        request.httpBody = createBodyWithParameters(params, filePathKey: "img", imagesData: imageDataList, boundary: boundary)
+        request.httpBody = createBodyWithParameters(params, filePathKey: imagesPathKey, imagesData: imageDataList, boundary: boundary)
 
         let task = session.dataTask(with: request) { (data, response, error) in
             
