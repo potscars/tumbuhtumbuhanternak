@@ -37,3 +37,11 @@ class ProjekCell: UITableViewCell {
         ZGraphics().createImageWithLetter(name, imageView: featuredImage, fontSize: featuredImage.frame.width / 2)
     }
 }
+
+
+
+
+
+
+
+
