@@ -53,8 +53,17 @@ class AplikasiBerkaitanCVC: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.navigationItem.title = "Aplikasi Berkaitan"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "X", style: UIBarButtonItemStyle.plain, target: self, action: #selector(closeThisWindow(sender:)))
+        
         //configureNavigationBar()
         configureCollectionView()
+    }
+    
+    func closeThisWindow(sender: UIBarButtonItem) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
     }
     
     func configureCollectionView() {

@@ -30,8 +30,15 @@ class PengumumanDetailsTVCell: UITableViewCell {
 
     func updateSenderInfo(data: NSDictionary) {
         
-        uilPDTVCSenderName.text = ""
-        uilPDTVCSenderDate.text = ""
+        var senderName: String? = nil
+        var senderDate: String? = nil
+        
+        if data.value(forKey: "name") is NSNull { senderName = "Tiada Data" } else { senderName = data.value(forKey: "name") as? String }
+        
+        if data.value(forKey: "created_at") is NSNull { senderDate = "1970-01-01 00:00:00" } else { senderDate = data.value(forKey: "created_at") as? String }
+        
+        uilPDTVCSenderName.text = senderName
+        uilPDTVCSenderDate.text = DateComponents.dateFormatConverter(valueInString: String.checkStringValidity(data: senderDate, defaultValue: "1970-01-01 00:00:00"), dateTimeFormatFrom: nil, dateTimeFormatTo: DateComponents.DateInLong)
         
     }
     
@@ -45,9 +52,9 @@ class PengumumanDetailsTVCell: UITableViewCell {
             let getFirstImageString: String = String.checkStringValidity(data: getFirstImageDict.value(forKey: "name"), defaultValue: "ic_default.png")
             let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString)
             
-            tableView.beginUpdates()
+            //tableView.beginUpdates()
             ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: uiivPDTVCArticleImage, imageViewConstraints: nil)
-            tableView.endUpdates()
+            //tableView.endUpdates()
             
         }
         
@@ -57,7 +64,7 @@ class PengumumanDetailsTVCell: UITableViewCell {
     
     func updateDescriptions(data: NSDictionary) {
         
-        uilPDTVCArticleFullDesc.text = "Padi merupakan tanaman strategik dari segi keselamatan makanan, pembasmian kemiskinan dan sosio-politik di Malaysia."
+        uilPDTVCArticleFullDesc.text = String.init(format: "%@", data.value(forKey: "ARTICLE_CONTENT") as? String ?? "Data Tiada")
         
     }
     

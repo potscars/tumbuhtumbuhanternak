@@ -26,15 +26,27 @@ class ProjectTVC: UITableViewController {
     var isError = false
     var errorMessage = "Tiada data."
     
+    var segueIdentifier: String? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         spinner = LoadingSpinner(view: self.view, isNavBar: true)
         configureTableView()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if let appDel = AppDelegate.temporaryData as? String
+        {
+            let rightButton: UIBarButtonItem = UIBarButtonItem.init(title: "Batal", style: UIBarButtonItemStyle.plain, target: self, action: #selector(closeWindow(sender:)))
+            
+            self.navigationItem.rightBarButtonItem = rightButton
+            
+            self.segueIdentifier = appDel
+        }
         
         let projek = Projeks()
         
@@ -74,12 +86,20 @@ class ProjectTVC: UITableViewController {
     func configureTableView() {
         
         tableView.separatorStyle = .none
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, (tabBarController?.tabBar.frame.height)!, 0)
+        if(self.tabBarController != nil){
+            tableView.contentInset = UIEdgeInsetsMake(0, 0, (tabBarController?.tabBar.frame.height)!, 0)
+        }
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
         
         let nibName = UINib(nibName: "ErrorCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.MessageErrorCell)
+    }
+    
+    func closeWindow(sender: UIBarButtonItem) {
+        
+        self.dismiss(animated: true, completion: nil)
+        
     }
     
     var selectedProjek: Projek!
@@ -92,6 +112,11 @@ class ProjectTVC: UITableViewController {
                 
                 destination.projek = selectedProjek
             }
+        }
+        else {
+            
+            
+            
         }
     }
 }
@@ -166,7 +191,17 @@ extension ProjectTVC {
         if let _ = tableView.cellForRow(at: indexPath) as? ProjekCell {
             
             selectedProjek = projeksData[indexPath.section].projek[indexPath.row]
-            performSegue(withIdentifier: ProjekIdentifier.ProjekDetailSegue, sender: self)
+            
+            if(segueIdentifier == "MYA_GOTO_MSG_PROJ") {
+                
+                let getProject: Projek = selectedProjek!
+                AppDelegate.temporaryData = getProject
+                
+                self.dismiss(animated: true, completion: nil)
+            }
+            else {
+                performSegue(withIdentifier: ProjekIdentifier.ProjekDetailSegue, sender: self)
+            }
         }
     }
     

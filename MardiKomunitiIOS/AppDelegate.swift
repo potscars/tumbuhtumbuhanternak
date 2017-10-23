@@ -10,14 +10,14 @@ import UIKit
 
 extension UIImage{
     
-    func resizeImageWith(newSize: CGSize) -> UIImage {
+    func resizeImageWith(newSize: CGSize, opaque: Bool) -> UIImage {
         
         let horizontalRatio = newSize.width / size.width
         let verticalRatio = newSize.height / size.height
         
         let ratio = max(horizontalRatio, verticalRatio)
         let newSize = CGSize(width: size.width * ratio, height: size.height * ratio)
-        UIGraphicsBeginImageContextWithOptions(newSize, true, 0)
+        UIGraphicsBeginImageContextWithOptions(newSize, opaque, 0)
         draw(in: CGRect(origin: CGPoint(x: 0, y: 0), size: newSize))
         let newImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
@@ -76,12 +76,32 @@ extension String {
     
 }
 
+extension DateComponents {
+    
+    static let DateInLong: String = "dd MMMM yyyy, h:mm:ss a"
+    static let DateInShort: String = "dd/MM/yy"
+    
+    static func dateFormatConverter(valueInString: String, dateTimeFormatFrom: String?, dateTimeFormatTo: String?) -> String {
+        
+        let originalDate: DateFormatter = DateFormatter()
+        originalDate.timeZone = NSTimeZone(name: "GMT+08:00")! as TimeZone
+        if(dateTimeFormatFrom != nil) { originalDate.dateFormat = dateTimeFormatFrom } else { originalDate.dateFormat = "yyyy-MM-dd HH:mm:ss" }
+        let setDate: Date = originalDate.date(from: valueInString)!
+        if(dateTimeFormatTo != nil) { originalDate.dateFormat = dateTimeFormatTo } else { originalDate.dateFormat = DateInLong }
+        
+        
+        return String(utf8String: originalDate.string(from: setDate))!
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
     static let developmentMode: Bool = true // false for production
+    
+    static var temporaryData: AnyObject? = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

@@ -15,6 +15,8 @@ struct AfterLoginIdentifier {
 
 class AfterLoginVC: UITabBarController {
     
+    let label = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,8 +26,21 @@ class AfterLoginVC: UITabBarController {
             
         })
         
+        /*
+        label.text = Strings.MYA_APP_TITLE
+        label.textColor = UIColor.white
+        label.textAlignment = .left
+        self.navigationItem.titleView = label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.superview?.addConstraint(NSLayoutConstraint(item: label, attribute: .centerX, relatedBy: .equal, toItem: label.superview, attribute: .centerX, multiplier: 1, constant: 0))
+        label.superview?.addConstraint(NSLayoutConstraint(item: label, attribute: .width, relatedBy: .equal, toItem: label.superview, attribute: .width, multiplier: 1, constant: 0))
+        label.superview?.addConstraint(NSLayoutConstraint(item: label, attribute: .centerY, relatedBy: .equal, toItem: label.superview, attribute: .centerY, multiplier: 1, constant: 0))
+        label.superview?.addConstraint(NSLayoutConstraint(item: label, attribute: .height, relatedBy: .equal, toItem: label.superview, attribute: .height, multiplier: 1, constant: 0))
+         */
+        
         configureNavigationBar()
     }
+    
 
     func configureNavigationBar() {
         
