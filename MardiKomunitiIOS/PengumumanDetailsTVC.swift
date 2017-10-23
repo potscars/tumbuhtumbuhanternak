@@ -12,6 +12,7 @@ class PengumumanDetailsTVC: UITableViewController {
     
     var detailsData: NSDictionary = [:]
     var updatingImage: Bool = false
+    var getImageArray: NSArray = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +29,10 @@ class PengumumanDetailsTVC: UITableViewController {
         
         ZGraphics.hideTableSeparatorAfterLastCell(tableView: self.tableView)
         
-        print("\(detailsData)")
+        self.getImageArray = detailsData.value(forKey: "ARTICLE_IMAGE") as? NSArray ?? []
+        
+        print("DETAILS DATA: \(detailsData)")
+        print("Check GMT: \(NSTimeZone.default)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,45 +44,51 @@ class PengumumanDetailsTVC: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        if(self.getImageArray.count != 0) { return 3 }
+        else { return 2 }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        if(self.getImageArray.count != 0) {
+            if(section == 0) { return 1 }
+            else if (section == 1) { return self.getImageArray.count }
+            else { return 1 }
+        } else {
+            if(section == 0) { return 1 }
+            else { return 1 }
+        }
+        
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if(indexPath.row == 0) {
+        if(indexPath.section == 0) {
             let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDSenderInfoCellID", for: indexPath) as! PengumumanDetailsTVCell
 
             // Configure the cell...
             self.updatingImage = false
+            cell.updateSenderInfo(data: detailsData.value(forKey: "ARTICLE_SENDER") as? NSDictionary ?? [:])
 
             return cell
         }
-        else if(indexPath.row == 1) {
+        else if(indexPath.section == 1 && self.getImageArray.count != 0) {
             let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDImageCellID", for: indexPath) as! PengumumanDetailsTVCell
             
             let imageArray: NSArray = detailsData.value(forKey: "ARTICLE_IMAGE") as! NSArray
-            
-            print("check imagearray \(imageArray)")
         
             // Configure the cell...
             cell.updateSenderImage(data: imageArray, tableView: self.tableView)
-            
             self.updatingImage = true
             
-        
             return cell
         }
         else {
             let cell: PengumumanDetailsTVCell = tableView.dequeueReusableCell(withIdentifier: "PDFullDescCellID", for: indexPath) as! PengumumanDetailsTVCell
             
             // Configure the cell...
-            cell.updateDescriptions(data: [:])
+            cell.updateDescriptions(data: detailsData)
             self.updatingImage = false
             
             return cell

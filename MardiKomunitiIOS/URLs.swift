@@ -14,6 +14,8 @@ class URLs: NSObject {
     static let loggedAnnouncementURL: String = String.init(format: "%@/api/announcement/list", AppDelegate.switchingURL())
     static let loginURL: String = String.init(format: "%@/api/login", AppDelegate.switchingURL())
     static let projectByCategoryURL = String.init(format: "%@/api/project/viewbysector", AppDelegate.switchingURL())
+    static let sendPengumumanURL = String.init(format: "%@/api/announcement/create/seo", AppDelegate.switchingURL())
+
     
     static let loadImage: String = String.init(format: "%@/images/original/", AppDelegate.switchingURL())
     static let listConversationURL = String.init(format: "%@/api/conversation", AppDelegate.switchingURL())

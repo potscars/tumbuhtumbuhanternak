@@ -29,6 +29,14 @@ class CreateAnnouncementTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func getNameOfArticleWriter(data: String) {
+        uilCATVCSenderName.text = data
+    }
+    
+    func getProjectData(data: String) {
+        uilCATVCSelectProjLabel.text = data
+    }
+    
     func displayImage(data: UIImage) {
         
         uivCATVCSelectedImage.image = data

@@ -58,6 +58,13 @@
 		B71AD02A1F8331E2008DA4AF /* ZUISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71AD0291F8331E2008DA4AF /* ZUISetup.swift */; };
 		B71AD02E1F833708008DA4AF /* padikebangsaan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */; };
 		B7C5FFC31F98510B00DB252D /* ic_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C5FFC21F98510B00DB252D /* ic_plus.png */; };
+		B7C5FFC61F99DD4600DB252D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5FFC51F99DD4600DB252D /* Strings.swift */; };
+		B7C5FFC81F99E00300DB252D /* AplikasiBerkaitanNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5FFC71F99E00300DB252D /* AplikasiBerkaitanNC.swift */; };
+		B7C5FFCA1F99EEB000DB252D /* SettingsPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5FFC91F99EEB000DB252D /* SettingsPassVC.swift */; };
+		B7C5FFCC1F9D881F00DB252D /* GetProjectNVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5FFCB1F9D881F00DB252D /* GetProjectNVC.swift */; };
+		B7C5FFCE1F9D981500DB252D /* ic_sendmsg.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C5FFCD1F9D981500DB252D /* ic_sendmsg.png */; };
+		B7C5FFD11F9DC22A00DB252D /* ic_photo-camera.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C5FFCF1F9DC22A00DB252D /* ic_photo-camera.png */; };
+		B7C5FFD21F9DC22A00DB252D /* ic_picture.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C5FFD01F9DC22A00DB252D /* ic_picture.png */; };
 		B7C8AF151F833A670097597F /* ZImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF141F833A670097597F /* ZImages.swift */; };
 		B7C8AF171F8342630097597F /* PengumumanDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF161F8342630097597F /* PengumumanDetailsTVC.swift */; };
 		B7C8AF191F8342770097597F /* PengumumanDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF181F8342770097597F /* PengumumanDetailsTVCell.swift */; };
@@ -140,6 +147,13 @@
 		B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = padikebangsaan.jpg; sourceTree = "<group>"; };
 		B7C5FFC21F98510B00DB252D /* ic_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_plus.png; sourceTree = "<group>"; };
 		B7C5FFC41F98995F00DB252D /* MardiKomunitiIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MardiKomunitiIOS.entitlements; sourceTree = "<group>"; };
+		B7C5FFC51F99DD4600DB252D /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		B7C5FFC71F99E00300DB252D /* AplikasiBerkaitanNC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AplikasiBerkaitanNC.swift; sourceTree = "<group>"; };
+		B7C5FFC91F99EEB000DB252D /* SettingsPassVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsPassVC.swift; sourceTree = "<group>"; };
+		B7C5FFCB1F9D881F00DB252D /* GetProjectNVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetProjectNVC.swift; sourceTree = "<group>"; };
+		B7C5FFCD1F9D981500DB252D /* ic_sendmsg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_sendmsg.png; sourceTree = "<group>"; };
+		B7C5FFCF1F9DC22A00DB252D /* ic_photo-camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_photo-camera.png"; sourceTree = "<group>"; };
+		B7C5FFD01F9DC22A00DB252D /* ic_picture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_picture.png; sourceTree = "<group>"; };
 		B7C8AF141F833A670097597F /* ZImages.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZImages.swift; sourceTree = "<group>"; };
 		B7C8AF161F8342630097597F /* PengumumanDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PengumumanDetailsTVC.swift; sourceTree = "<group>"; };
 		B7C8AF181F8342770097597F /* PengumumanDetailsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PengumumanDetailsTVCell.swift; sourceTree = "<group>"; };
@@ -245,7 +259,6 @@
 				9E44624A1F7E374700F82591 /* Assets.xcassets */,
 				9E44624C1F7E374700F82591 /* LaunchScreen.storyboard */,
 				9E44624F1F7E374700F82591 /* Info.plist */,
-				9E58847F1F821B6F001EDA2E /* MainTabBarVC.swift */,
 			);
 			path = MardiKomunitiIOS;
 			sourceTree = "<group>";
@@ -285,6 +298,7 @@
 				9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */,
 				9E58847D1F8215D2001EDA2E /* AplikasiCell.swift */,
 				9E6B45801F98912200EDB928 /* AplikasiName.swift */,
+				B7C5FFC71F99E00300DB252D /* AplikasiBerkaitanNC.swift */,
 			);
 			name = AplikasiBerkaitan;
 			sourceTree = "<group>";
@@ -304,6 +318,7 @@
 				B7C8AF2E1F85EEE60097597F /* URLs.swift */,
 				9E49FCD21F906ADA001006A5 /* AlertController.swift */,
 				9E49FCBC1F8CC02C001006A5 /* LoadingSpinner.swift */,
+				B7C5FFC51F99DD4600DB252D /* Strings.swift */,
 			);
 			name = Etc;
 			sourceTree = "<group>";
@@ -328,6 +343,7 @@
 				B7C8AF181F8342770097597F /* PengumumanDetailsTVCell.swift */,
 				B712FAD11F90AA1C003A873F /* CreateAnnouncementTVC.swift */,
 				B712FAD31F90AA42003A873F /* CreateAnnouncementTVCell.swift */,
+				B7C5FFCB1F9D881F00DB252D /* GetProjectNVC.swift */,
 			);
 			name = Pengumuman;
 			sourceTree = "<group>";
@@ -343,6 +359,9 @@
 		B71AD02C1F8336F6008DA4AF /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				B7C5FFCF1F9DC22A00DB252D /* ic_photo-camera.png */,
+				B7C5FFD01F9DC22A00DB252D /* ic_picture.png */,
+				B7C5FFCD1F9D981500DB252D /* ic_sendmsg.png */,
 				B7C5FFC21F98510B00DB252D /* ic_plus.png */,
 				B712FAC91F8F9A29003A873F /* ic_email.png */,
 				B712FACA1F8F9A29003A873F /* ic_phone.png */,
@@ -364,6 +383,7 @@
 				B7C8AF1F1F8384530097597F /* InfoPenggunaTVCell.swift */,
 				B712FAC51F8F605F003A873F /* UserDetailsTVC.swift */,
 				B712FAC71F8F6089003A873F /* UserDetailsTVCell.swift */,
+				B7C5FFC91F99EEB000DB252D /* SettingsPassVC.swift */,
 			);
 			name = Info;
 			sourceTree = "<group>";
@@ -371,6 +391,7 @@
 		B7C8AF211F8488520097597F /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				9E58847F1F821B6F001EDA2E /* MainTabBarVC.swift */,
 				B7C8AF241F8488A80097597F /* LoginVC.swift */,
 				B7C8AF261F84BDF50097597F /* LoginProcessVC.swift */,
 				B7C8AF301F861BAF0097597F /* AfterLoginVC.swift */,
@@ -480,6 +501,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7C5FFD21F9DC22A00DB252D /* ic_picture.png in Resources */,
 				B712FACE1F8F9A29003A873F /* ic_phone.png in Resources */,
 				9E44624E1F7E374700F82591 /* LaunchScreen.storyboard in Resources */,
 				B7C8AF3B1F8CAF9B0097597F /* ic_cog.png in Resources */,
@@ -497,12 +519,14 @@
 				B71AD02E1F833708008DA4AF /* padikebangsaan.jpg in Resources */,
 				B7C5FFC31F98510B00DB252D /* ic_plus.png in Resources */,
 				B7C8AF431F8DD1FB0097597F /* ic_default.png in Resources */,
+				B7C5FFCE1F9D981500DB252D /* ic_sendmsg.png in Resources */,
 				9E49FCC21F8E3F1F001006A5 /* ErrorCell.xib in Resources */,
 				B7C8AF341F8623090097597F /* ic_loginavt300.png in Resources */,
 				B7C8AF411F8CBFEE0097597F /* ic_logout.png in Resources */,
 				9E4462491F7E374700F82591 /* Main.storyboard in Resources */,
 				B712FACD1F8F9A29003A873F /* ic_email.png in Resources */,
 				B712FAD01F8F9A29003A873F /* ic_profile.png in Resources */,
+				B7C5FFD11F9DC22A00DB252D /* ic_photo-camera.png in Resources */,
 				9E0552DF1F84E86E002BA0E0 /* ContentCell.xib in Resources */,
 				B712FACF1F8F9A29003A873F /* ic_placepoint.png in Resources */,
 			);
@@ -565,8 +589,10 @@
 			files = (
 				B7C8AF291F84E5A50097597F /* ZUIs.swift in Sources */,
 				9E4462461F7E374700F82591 /* ViewController.swift in Sources */,
+				B7C5FFCA1F99EEB000DB252D /* SettingsPassVC.swift in Sources */,
 				9E0552D41F84CE19002BA0E0 /* ContentCell.swift in Sources */,
 				9E58847C1F8210FA001EDA2E /* Colors.swift in Sources */,
+				B7C5FFCC1F9D881F00DB252D /* GetProjectNVC.swift in Sources */,
 				9E49FCCD1F8E6FB0001006A5 /* BasicInfoCell.swift in Sources */,
 				B71AD0281F833001008DA4AF /* PengumumanTVCell.swift in Sources */,
 				9EC60DF51F876C0A00E056EF /* Projek.swift in Sources */,
@@ -609,6 +635,8 @@
 				B7C8AF271F84BDF50097597F /* LoginProcessVC.swift in Sources */,
 				B7C8AF251F8488A80097597F /* LoginVC.swift in Sources */,
 				9EC60DF31F87552000E056EF /* ProjekCell.swift in Sources */,
+				B7C5FFC81F99E00300DB252D /* AplikasiBerkaitanNC.swift in Sources */,
+				B7C5FFC61F99DD4600DB252D /* Strings.swift in Sources */,
 				9E5884801F821B6F001EDA2E /* MainTabBarVC.swift in Sources */,
 				B7C8AF1E1F83843C0097597F /* InfoPenggunaTVC.swift in Sources */,
 				B7C8AF191F8342770097597F /* PengumumanDetailsTVCell.swift in Sources */,

@@ -81,12 +81,13 @@ class PengumumanTVC: UITableViewController {
                         for i in 0...grabFullDataArray.count - 1 {
                             
                             let grabData: NSDictionary = grabFullDataArray.object(at: i) as! NSDictionary
-                            let getImageArray: NSArray? = grabData.value(forKey: "imageable") as? NSArray
+                            let getImageArray: NSArray? = grabData.value(forKey: "images") as? NSArray
                             
                             self.getJSONData.add([
                                 "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
                                 "ARTICLE_CONTENT":String.checkStringValidity(data: grabData.value(forKey: "content"), defaultValue: "Data Kosong"),
-                                "ARTICLE_IMAGE":getImageArray ?? []
+                                "ARTICLE_IMAGE":getImageArray ?? [],
+                                "ARTICLE_SENDER": grabData.value(forKey: "user")
                                 ])
                             
                         }
@@ -116,12 +117,13 @@ class PengumumanTVC: UITableViewController {
                         for i in 0...grabFullDataArray.count - 1 {
                             
                             let grabData: NSDictionary = grabFullDataArray.object(at: i) as! NSDictionary
-                            let getImageArray: NSArray? = grabData.value(forKey: "imageable") as? NSArray
+                            let getImageArray: NSArray? = grabData.value(forKey: "images") as? NSArray
                             
                             self.getJSONData.add([
                                 "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
                                 "ARTICLE_CONTENT":String.checkStringValidity(data: grabData.value(forKey: "content"), defaultValue: "Data Kosong"),
-                                "ARTICLE_IMAGE":getImageArray ?? []
+                                "ARTICLE_IMAGE":getImageArray ?? [],
+                                "ARTICLE_SENDER": grabData.value(forKey: "user")
                                 ])
                             
                         }
@@ -169,7 +171,8 @@ class PengumumanTVC: UITableViewController {
                         self.getJSONData.add([
                             "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
                             "ARTICLE_CONTENT":String.checkStringValidity(data: grabData.value(forKey: "content"), defaultValue: "Data Kosong"),
-                            "ARTICLE_IMAGE":getImageArray ?? []
+                            "ARTICLE_IMAGE":getImageArray ?? [],
+                            "ARTICLE_SENDER": grabData.value(forKey: "user")
                             ])
                         
                     }

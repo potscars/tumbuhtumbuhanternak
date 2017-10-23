@@ -84,8 +84,10 @@ class InfoPenggunaTVC: UITableViewController {
             self.performSegue(withIdentifier: "MYA_GOTO_USERINFO", sender: self)
             break
         case 1:
+            self.performSegue(withIdentifier: "MYA_GOTO_SETTINGS", sender: self)
             break
         case 2:
+            self.performSegue(withIdentifier: "MYA_GOTO_ABOUT", sender: self)
             break
         case 3:
             logOut()

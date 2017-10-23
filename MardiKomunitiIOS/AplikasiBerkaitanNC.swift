@@ -1,14 +1,14 @@
 //
-//  AfterNavController.swift
+//  AplikasiBerkaitanNC.swift
 //  MardiKomunitiIOS
 //
-//  Created by Mohd Zulhilmi Mohd Zain on 12/10/2017.
+//  Created by Mohd Zulhilmi Mohd Zain on 20/10/2017.
 //  Copyright © 2017 com.ingeniworks. All rights reserved.
 //
 
 import UIKit
 
-class AfterNavController: UINavigationController {
+class AplikasiBerkaitanNC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,6 @@ class AfterNavController: UINavigationController {
         
         
         
-       
     }
 
     override func didReceiveMemoryWarning() {
