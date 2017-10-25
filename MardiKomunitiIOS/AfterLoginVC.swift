@@ -53,7 +53,7 @@ class AfterLoginVC: UITabBarController {
         
         let nameLabel = UILabel()
         
-        if let username = UserDefaults.standard.object(forKey: "MYA_USERNAME") as? String {
+        if let username = UserDefaults.standard.object(forKey: "MYA_NAME") as? String {
             nameLabel.text = username
         } else {
             nameLabel.text = "Guest007"

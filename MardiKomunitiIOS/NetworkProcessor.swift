@@ -116,6 +116,11 @@ class NetworkProcessor {
     }
     
     //MARK: - UPLOAD with image(s) using multipart.
+    //cara guna: let np = NetworkProcessor.init(url)
+    //let params: [String: Any] = ["name" : "John", "Age" : 23]
+    //let images = [1.jpg, 2.jpg, 3.jpg]
+    //let imagesPathKey = "image" -> tak perlu letak banyak sebab da handle da func createbodywithparameters.
+    // np.uploadDataMultipart(_ params, images, imagesPathKey)
     func uploadDataMultipart(_ params: [String: Any], images: [UIImage], imagesPathKey: String, completion: @escaping JSONDictionaryHandler) {
         
         var imageDataList = [Data]()
