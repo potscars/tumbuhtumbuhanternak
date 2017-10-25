@@ -11,7 +11,7 @@ import UIKit
 class CreateAnnouncementTVCell: UITableViewCell {
     
     @IBOutlet weak var uilCATVCSenderName: UILabel!
-    @IBOutlet weak var uilCATVCSelectProjLabel: UILabel!
+    @IBOutlet weak var uilCATVCSelectProjLabel: CustomLabel!
     @IBOutlet weak var uitfCATVCSubject: UITextField!
     @IBOutlet weak var uitvCATVCContent: UITextView!
     @IBOutlet weak var uilCATVCImageLoadLabel: UILabel!

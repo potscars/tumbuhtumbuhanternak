@@ -41,11 +41,15 @@ class PengumumanTVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        grabAnnouncementInfo()
-        
-        if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil) {
+        if(Connectivity.checkConnectionToMardi(viewController: self)){
             
-            self.navigationController?.view.addSubview(dtzButtonAddComment!)
+            grabAnnouncementInfo()
+        
+            if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil) {
+            
+                self.navigationController?.view.addSubview(dtzButtonAddComment!)
+            
+            }
             
         }
     }

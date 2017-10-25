@@ -120,6 +120,7 @@ extension DateComponents {
 
 extension UILabel
 {
+    /*
     private struct AssociatedKeys {
         static var padding = UIEdgeInsets()
     }
@@ -153,7 +154,10 @@ extension UILabel
             return contentSize
         }
     }
+ */
+        
 }
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

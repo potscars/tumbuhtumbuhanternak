@@ -15,24 +15,24 @@ class ZImages: NSObject {
         
         if(fromURL != nil)
         {
-            print("[ZImages] fromURL: \(fromURL!)")
+            //print("[ZImages] fromURL: \(fromURL!)")
             
             let imageURL: URL = URL.init(string: fromURL!.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
             var imageReturn: UIImage? = nil
             
-            print("[ZImages] ImageURL: \(imageURL)")
+            //print("[ZImages] ImageURL: \(imageURL)")
         
             DispatchQueue.global(qos: .default).async() { () -> Void in
             
-                print("[ZImages] Dispatching queue in global...")
+                //print("[ZImages] Dispatching queue in global...")
                 
                 let data: NSData? = NSData.init(contentsOf: imageURL)
                 
-                print("[ZImages] Data: \(data)")
+                //print("[ZImages] Data: \(data)")
             
                 DispatchQueue.main.async() { () -> Void in
             
-                    imageReturn = UIImage.init(data: data as! Data)
+                    imageReturn = UIImage.init(data: data! as Data)
 
                 }
             }
@@ -59,7 +59,7 @@ class ZImages: NSObject {
             else {
                     
                 if let res = response as? HTTPURLResponse {
-                    print("[ZImages] Response got : \(res.statusCode)")
+                    //print("[ZImages] Response got : \(res.statusCode)")
                         
                     if let imageData = data {
                             
@@ -99,7 +99,7 @@ class ZImages: NSObject {
         let session = URLSession(configuration: URLSessionConfiguration.default)
         imageView.image = UIImage.init(named: defaultImage)!
         
-        print("[ZImages] ImageURL: \(imageURL)")
+        //print("[ZImages] ImageURL: \(imageURL)")
         
         let downloadPicTask = session.dataTask(with: imageURL) { (data, response, error) in
             
@@ -109,7 +109,7 @@ class ZImages: NSObject {
             else {
                 
                 if let res = response as? HTTPURLResponse {
-                    print("[ZImages] Response got : \(res.statusCode)")
+                    //print("[ZImages] Response got : \(res.statusCode)")
                     
                     if let imageData = data {
                         
