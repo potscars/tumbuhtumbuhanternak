@@ -60,6 +60,7 @@ class LoginProcessVC: UIViewController {
                     
                     print("dataaq: \(data)")
                     self.insertDataToUserDefaults("user_id", userDefaultsKeyString: "MYA_USERID", datas: data)
+                    UserDefaults.standard.set(self.loginData.value(forKey: "password") as! String, forKey: "MYA_USERPASS")
                     self.insertDataToUserDefaults("username", userDefaultsKeyString: "MYA_USERNAME", datas: data)
                     self.insertDataToUserDefaults("alt_username", userDefaultsKeyString: "MYA_ALTUSERNAME", datas: data)
                     self.insertDataToUserDefaults("name", userDefaultsKeyString: "MYA_NAME", datas: data)

@@ -10,13 +10,19 @@ import UIKit
 
 class ZUIs: NSObject {
     
-    static func showOKDialogBox(viewController:UIViewController, dialogTitle:String, dialogMessage:String, afterDialogDismissed:String?)
+    struct AfterDialogDismissed {
+        
+        static let back = "BACK_TO_PREVIOUS_VIEWCONTROLLER"
+        
+    }
+    
+    static func showOKDialogBox(viewController:UIViewController, dialogTitle:String, dialogMessage:String, afterDialogDismissed: String?)
     {
         let alertView: UIAlertController = UIAlertController.init(title: dialogTitle, message: dialogMessage, preferredStyle: UIAlertControllerStyle.alert)
         
         let alertOKAction: UIAlertAction = UIAlertAction.init(title: "OK", style: UIAlertActionStyle.default, handler: { (action) in
             
-            if(afterDialogDismissed == "BACK_TO_PREVIOUS_VIEWCONTROLLER") {
+            if afterDialogDismissed == "BACK_TO_PREVIOUS_VIEWCONTROLLER" {
                 
                 print("[ZUIs] showOKDialogBox: Back to prev controller.")
                 
