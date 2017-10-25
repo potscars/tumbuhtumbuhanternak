@@ -30,7 +30,7 @@ class Connectivity: NSObject {
         {
             print("[Connectivity] Has internet connection.")
             
-            PlainPing.ping("http://myagro.myapp.my", withTimeout: 1.0, completionBlock: {(timeElapsed:Double?, error:Error?) in
+            PlainPing.ping(AppDelegate.switchingURL(), withTimeout: 1.0, completionBlock: {(timeElapsed:Double?, error:Error?) in
                 
                 if let latency = timeElapsed {
                     

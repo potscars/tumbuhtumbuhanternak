@@ -89,6 +89,8 @@
 		B7C8AF451F8F1A1D0097597F /* BeforeNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF441F8F1A1D0097597F /* BeforeNavController.swift */; };
 		B7C8AF471F8F1C070097597F /* AfterNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF461F8F1C070097597F /* AfterNavController.swift */; };
 		B7C8AF491F8F243D0097597F /* InitialNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF481F8F243D0097597F /* InitialNC.swift */; };
+		B7D672781FA03BD900F916EF /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D672771FA03BD900F916EF /* AboutVC.swift */; };
+		B7D6727A1FA03F7300F916EF /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D672791FA03F7300F916EF /* CustomLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -178,6 +180,8 @@
 		B7C8AF441F8F1A1D0097597F /* BeforeNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeforeNavController.swift; sourceTree = "<group>"; };
 		B7C8AF461F8F1C070097597F /* AfterNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AfterNavController.swift; sourceTree = "<group>"; };
 		B7C8AF481F8F243D0097597F /* InitialNC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialNC.swift; sourceTree = "<group>"; };
+		B7D672771FA03BD900F916EF /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
+		B7D672791FA03F7300F916EF /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MardiKomunitiIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -319,6 +323,7 @@
 				9E49FCD21F906ADA001006A5 /* AlertController.swift */,
 				9E49FCBC1F8CC02C001006A5 /* LoadingSpinner.swift */,
 				B7C5FFC51F99DD4600DB252D /* Strings.swift */,
+				B7D672791FA03F7300F916EF /* CustomLabel.swift */,
 			);
 			name = Etc;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 				B712FAC51F8F605F003A873F /* UserDetailsTVC.swift */,
 				B712FAC71F8F6089003A873F /* UserDetailsTVCell.swift */,
 				B7C5FFC91F99EEB000DB252D /* SettingsPassVC.swift */,
+				B7D672771FA03BD900F916EF /* AboutVC.swift */,
 			);
 			name = Info;
 			sourceTree = "<group>";
@@ -615,6 +621,7 @@
 				B7C8AF471F8F1C070097597F /* AfterNavController.swift in Sources */,
 				9E5884771F81FC91001EDA2E /* Extension.swift in Sources */,
 				B7C8AF151F833A670097597F /* ZImages.swift in Sources */,
+				B7D672781FA03BD900F916EF /* AboutVC.swift in Sources */,
 				B7C8AF491F8F243D0097597F /* InitialNC.swift in Sources */,
 				9E0552D91F84DBDD002BA0E0 /* MembersCollectionCell.swift in Sources */,
 				9E0552CC1F849132002BA0E0 /* MessageInboxTVC.swift in Sources */,
@@ -626,6 +633,7 @@
 				9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */,
 				9EC60DF11F8738A100E056EF /* ProjectTVC.swift in Sources */,
 				B712FAD21F90AA1C003A873F /* CreateAnnouncementTVC.swift in Sources */,
+				B7D6727A1FA03F7300F916EF /* CustomLabel.swift in Sources */,
 				B7C8AF451F8F1A1D0097597F /* BeforeNavController.swift in Sources */,
 				9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */,
 				9E49FCD31F906ADA001006A5 /* AlertController.swift in Sources */,

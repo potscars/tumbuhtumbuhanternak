@@ -1434,10 +1434,10 @@
             </objects>
             <point key="canvasLocation" x="5542" y="1117"/>
         </scene>
-        <!--View Controller-->
+        <!--AboutVC-->
         <scene sceneID="Ecy-bH-9J1">
             <objects>
-                <viewController id="wfC-xA-ghl" sceneMemberID="viewController">
+                <viewController id="wfC-xA-ghl" customClass="AboutVC" customModule="MardiKomunitiIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ade-7o-Lbc"/>
                         <viewControllerLayoutGuide type="bottom" id="iNi-fx-xWA"/>
@@ -1507,6 +1507,12 @@
                             <constraint firstItem="g8w-i0-Uvh" firstAttribute="top" secondItem="ade-7o-Lbc" secondAttribute="bottom" constant="41" id="yhO-3W-WJg"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="uilAVCAppBuildLabel" destination="ev1-ZJ-YhK" id="Sx5-o6-eCa"/>
+                        <outlet property="uilAVCAppCopyLabel" destination="sZ6-oD-xhC" id="Mb7-O0-PTF"/>
+                        <outlet property="uilAVCAppTitleLabel" destination="U6q-XI-1BJ" id="D9A-AA-Jx2"/>
+                        <outlet property="uilAVCAppVerLabel" destination="8ed-iy-6nN" id="pBF-H8-kMW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PVd-It-s4K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1656,7 +1662,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sila Pilih Projek..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idU-Yv-pzp">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sila Pilih Projek..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="idU-Yv-pzp" customClass="CustomLabel" customModule="MardiKomunitiIOS" customModuleProvider="target">
                                             <rect key="frame" x="58" y="8" width="309" height="44"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
