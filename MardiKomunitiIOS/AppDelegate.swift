@@ -150,6 +150,7 @@ extension UILabel
                 contentSize.height += insets.top + insets.bottom
                 contentSize.width += insets.left + insets.right
             }
+            
             return contentSize
         }
     }
