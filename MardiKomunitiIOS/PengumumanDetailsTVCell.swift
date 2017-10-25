@@ -14,6 +14,9 @@ class PengumumanDetailsTVCell: UITableViewCell {
     @IBOutlet weak var uilPDTVCSenderDate: UILabel!
     @IBOutlet weak var uiivPDTVCArticleImage: UIImageView!
     @IBOutlet weak var uilPDTVCArticleFullDesc: UILabel!
+    @IBOutlet weak var uilPDTVCArticleFirstName: UILabel!
+    
+    
     @IBOutlet weak var uiivPDTVCArticleImageWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var uiivPDTVCArticleImageHeightConstraint: NSLayoutConstraint!
     
@@ -37,7 +40,11 @@ class PengumumanDetailsTVCell: UITableViewCell {
         
         if data.value(forKey: "created_at") is NSNull { senderDate = "1970-01-01 00:00:00" } else { senderDate = data.value(forKey: "created_at") as? String }
         
-        uilPDTVCSenderName.text = senderName
+        uilPDTVCSenderName.text = senderName!
+        uilPDTVCArticleFirstName.text = senderName![0]
+        uilPDTVCArticleFirstName.textColor = UIColor.white
+        uilPDTVCArticleFirstName.layer.backgroundColor = UIColor.purple.cgColor
+        uilPDTVCArticleFirstName.layer.cornerRadius = 27
         uilPDTVCSenderDate.text = DateComponents.dateFormatConverter(valueInString: String.checkStringValidity(data: senderDate, defaultValue: "1970-01-01 00:00:00"), dateTimeFormatFrom: nil, dateTimeFormatTo: DateComponents.DateInLong)
         
     }

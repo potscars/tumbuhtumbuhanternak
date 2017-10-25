@@ -30,9 +30,6 @@ class PengumumanDetailsTVC: UITableViewController {
         ZGraphics.hideTableSeparatorAfterLastCell(tableView: self.tableView)
         
         self.getImageArray = detailsData.value(forKey: "ARTICLE_IMAGE") as? NSArray ?? []
-        
-        print("DETAILS DATA: \(detailsData)")
-        print("Check GMT: \(NSTimeZone.default)")
     }
 
     override func didReceiveMemoryWarning() {

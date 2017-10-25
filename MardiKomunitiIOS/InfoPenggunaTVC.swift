@@ -32,6 +32,15 @@ class InfoPenggunaTVC: UITableViewController {
         menuInfo.add(["MENU_NAME":"Log Keluar", "MENU_ICON":"ic_logout.png"])
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

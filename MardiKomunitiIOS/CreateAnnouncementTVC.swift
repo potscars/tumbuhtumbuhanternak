@@ -10,54 +10,6 @@ import UIKit
 import BSImagePicker
 import Photos
 
-extension NetworkProcessor {
-    
-    func postRequestJSONFromUrlNoContentType(_ params: [String: Any], completion: @escaping JSONDictionaryHandler) {
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        //request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        do {
-            
-            request.httpBody = try JSONSerialization.data(withJSONObject: params, options: [])
-        } catch let error {
-            
-            print(error.localizedDescription)
-            return
-        }
-        
-        
-        let task = session.dataTask(with: request) { (data, response, error) in
-            
-            guard error == nil else { completion(nil, error?.localizedDescription); return }
-            
-            if let httpResponse = response as? HTTPURLResponse {
-                
-                if httpResponse.statusCode == HttpResponsesCode.Success {
-                    
-                    let httpResponsesString = self.checkResponseStatusCode(httpResponse.statusCode)
-                    
-                    if let data = data {
-                        
-                        let jsonData = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as! [String: Any]
-                        
-                        completion(jsonData, nil)
-                    } else {
-                        completion(nil, httpResponsesString)
-                    }
-                    
-                }
-            } else {
-                completion(nil, "There is no http responses.")
-            }
-        }
-        
-        task.resume()
-    }
-    
-}
-
 class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFieldDelegate, UIDocumentMenuDelegate, UIDocumentPickerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     var subjectText: UITextField? = nil
@@ -87,31 +39,53 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
         ZUISetup.setupTableView(tableView: self)
         ZGraphics.hideTableSeparatorAfterLastCell(tableView: self.tableView)
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 80.0
+        self.tableView.estimatedRowHeight = 30.0
         
-        var rightButton: UIBarButtonItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "ic_sendmsg.png").resizeImageWith(newSize: CGSize.init(width: 20, height: 20), opaque: false), style: UIBarButtonItemStyle.plain, target: self, action: #selector(sendAnnouncement(sender:)))
+        let rightButton: UIBarButtonItem = UIBarButtonItem.init(image: #imageLiteral(resourceName: "ic_sendmsg.png").resizeImageWith(newSize: CGSize.init(width: 20, height: 20), opaque: false), style: UIBarButtonItemStyle.plain, target: self, action: #selector(sendAnnouncement(sender:)))
         self.navigationItem.rightBarButtonItem = rightButton
         self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
     
     func sendAnnouncement(sender: UIBarButtonItem) {
         
-        allValuesToSend.setValue(self.imageAndDocumentsInArray, forKey: "IMG_ARRAY")
+        var imageInArray: [UIImage]? = [UIImage].init()
+        
+        let ls: LoadingSpinner = LoadingSpinner.init(view: self.view, isNavBar: true)
+        
+        ls.setLoadingScreen()
+        
+        if(self.imageAndDocumentsInArray.count != 0) {
+            
+            for i in 0...self.imageAndDocumentsInArray.count - 1 {
+            
+                if self.imageAndDocumentsInArray.object(at: i) is UIImage {
+                    imageInArray?.append(self.imageAndDocumentsInArray.object(at: i) as! UIImage)
+                }
+            
+            }
+            
+        }
         
         let np: NetworkProcessor = NetworkProcessor.init(URLs.sendPengumumanURL)
         let sendAnnoucement: [String:Any] = ["token":String.init(format: "%@", allValuesToSend.value(forKey: "USER_TOKEN") as? String ?? ""),
                                              "project_id":String.init(format: "%i", allValuesToSend.value(forKey: "PROJ_ID") as? Int ?? 0),
                                              "title":String.init(format: "%@", allValuesToSend.value(forKey: "SUBJECT") as? String ?? ""),
-                                             "content":String.init(format: "%@", allValuesToSend.value(forKey: "CONTENT") as? String ?? ""),
-                                             "image[]":allValuesToSend.value(forKey: "IMG_ARRAY") as! NSArray]
+                                             "content":String.init(format: "%@", allValuesToSend.value(forKey: "CONTENT") as? String ?? "")]
         
-        print("ready: \(sendAnnoucement)")
+        np.uploadDataMultipart(sendAnnoucement, images: imageInArray!, imagesPathKey: "image") { (result, response) in
         
-        np.postRequestJSONFromUrlNoContentType(sendAnnoucement) { (result, response) in
-        
-            print("result: \(result)")
-            print("response: \(response)")
-            
+            if(result!["status"] as! Int == 1) {
+                
+                ls.removeLoadingScreen()
+                ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Selesai", dialogMessage: "Pengumuman berjaya dihantar.", afterDialogDismissed: "BACK_TO_PREVIOUS_VIEWCONTROLLER")
+                
+            } else {
+                
+                ls.removeLoadingScreen()
+                ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Masalah", dialogMessage: "Pengumuman gagal dihantar. Sila cuba sekali lagi.", afterDialogDismissed: nil)
+                
+            }
+    
         }
         
     }
@@ -176,11 +150,17 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
         
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        self.tableView.beginUpdates()
+        self.tableView.endUpdates()
+    }
+    
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         
         //let textView: UITextView = UITextView.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 100))
         //textView.text = "treyyy"
         //textView.inputAccessoryView = textView
+        textView.layoutIfNeeded()
         
         return true
     }
@@ -203,13 +183,6 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
         
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        
-        print("beginUpdates")
-        
-        
-    }
-    
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         print("shouldendediting")
         
@@ -218,13 +191,6 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
         }
         
         return true
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        print("endediting tag")
-        
-        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -278,6 +244,27 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
             for i in 0...asset.count - 1 {
                 
                 photoManager.requestImage(for: asset[i], targetSize: CGSize.init(width: 1280, height: 720), contentMode: PHImageContentMode.aspectFit, options: photoManagerOptions, resultHandler: { (result, info) -> Void in
+                    
+                    let image: UIImage = result!
+                    let checkOrientation: UIImageOrientation = image.imageOrientation
+                    
+                    if(checkOrientation == UIImageOrientation.up) {
+                        
+                        print("UIIMAGEORIENTATION UP")
+                        
+                    } else if(checkOrientation == UIImageOrientation.down) {
+                        
+                        print("UIIMAGEORIENTATION DOWN")
+                        
+                    } else if(checkOrientation == UIImageOrientation.left) {
+                        
+                        print("UIIMAGEORIENTATION LEFT")
+                        
+                    } else if(checkOrientation == UIImageOrientation.right) {
+                        
+                        print("UIIMAGEORIENTATION RIGHT")
+                        
+                    }
                     
                     self.imageAndDocumentsInArray.add(result!)
                 
@@ -354,13 +341,13 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
         
         if(self.imageAndDocumentsInArray.count != 0) {
             
-            if(section == 0) { return 4 }
+            if(section == 0) { return 3 }
             else if (section == 1) { return self.imageAndDocumentsInArray.count }
             else { return 1 }
             
         } else {
             
-            if(section == 0) { return 4 }
+            if(section == 0) { return 3 }
             else { return 1 }
             
         }
@@ -379,7 +366,7 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
                 
             return cell
             
-        } else if(indexPath.row == 0 && indexPath.section == 0) {
+        } /*else if(indexPath.row == 0 && indexPath.section == 0) {
             
             let cell: CreateAnnouncementTVCell = tableView.dequeueReusableCell(withIdentifier: "CANameOfSenderCellID", for: indexPath) as! CreateAnnouncementTVCell
 
@@ -389,7 +376,7 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
 
             return cell
             
-        } else if(indexPath.row == 1 && indexPath.section == 0) {
+        } */else if(indexPath.row == 0 && indexPath.section == 0) {
             
             let cell: CreateAnnouncementTVCell = tableView.dequeueReusableCell(withIdentifier: "CAProjectNameCellID", for: indexPath) as! CreateAnnouncementTVCell
             
@@ -397,10 +384,21 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
             if let dataGrab = projName {
                 cell.getProjectData(data: dataGrab)
             }
-        
+            
+            cell.uilCATVCSelectProjLabel.layer.backgroundColor = UIColor.lightGray.cgColor
+            cell.uilCATVCSelectProjLabel.textColor = UIColor.white
+            cell.uilCATVCSelectProjLabel.layer.cornerRadius = 20
+            cell.uilCATVCSelectProjLabel.padding = UIEdgeInsets.init(top: 0, left: 8.0, bottom: 0, right: 8.0)
+            
+            cell.uilCATVCNameOfSender.layer.backgroundColor = UIColor.purple.cgColor
+            cell.uilCATVCNameOfSender.layer.cornerRadius = 22
+            
+            let senderName: String = UserDefaults.standard.object(forKey: "MYA_NAME") as? String ?? "A"
+            cell.uilCATVCNameOfSender.text = senderName[0]
+            
             return cell
             
-        } else if(indexPath.row == 2 && indexPath.section == 0) {
+        } else if(indexPath.row == 1 && indexPath.section == 0) {
             
             let cell: CreateAnnouncementTVCell = tableView.dequeueReusableCell(withIdentifier: "CASubjectCellID", for: indexPath) as! CreateAnnouncementTVCell
             
@@ -412,13 +410,16 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
             
             return cell
             
-        }else if(indexPath.row == 3 && indexPath.section == 0) {
+        }else if(indexPath.row == 2 && indexPath.section == 0) {
             
             let cell: CreateAnnouncementTVCell = tableView.dequeueReusableCell(withIdentifier: "CAContentCellID", for: indexPath) as! CreateAnnouncementTVCell
             
             // Configure the cell...
             cell.uitvCATVCContent.delegate = self
             cell.uitvCATVCContent.tag = 838
+            cell.uitvCATVCContent.sizeToFit()
+            cell.uitvCATVCContent.layoutIfNeeded()
+            cell.uitvCATVCContent.isScrollEnabled = false
             contentText = cell.uitvCATVCContent
             cell.selectionStyle = UITableViewCellSelectionStyle.none
             
@@ -440,6 +441,10 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
         
         if((self.imageAndDocumentsInArray.count == 0 && indexPath.section == 1) || (self.imageAndDocumentsInArray.count != 0 && indexPath.section == 2)) {
             
+            self.subjectText!.resignFirstResponder()
+            self.contentText!.resignFirstResponder()
+            checkFields()
+            
             let menuImport: UIDocumentMenuViewController = UIDocumentMenuViewController.init(documentTypes: ["public.image"], in: UIDocumentPickerMode.import)
             menuImport.addOption(withTitle: "Gambar dari Photos", image: #imageLiteral(resourceName: "ic_picture.png").resizeImageWith(newSize: CGSize.init(width: 20, height: 20), opaque: false), order: UIDocumentMenuOrder.first, handler: {
                 self.setAddImageButton()
@@ -454,12 +459,21 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
             menuImport.modalPresentationStyle = UIModalPresentationStyle.formSheet
             self.navigationController?.present(menuImport, animated: true, completion: nil)
         }
-        else if(indexPath.section == 0 && indexPath.row == 1) {
+        else if(indexPath.section == 0 && indexPath.row == 0) {
             
             self.performSegue(withIdentifier: "MYA_GOTO_MSG_PROJ", sender: self)
             
         }
+        else if(indexPath.section == 1) {
+            
+            
+            
+        }
         
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 
     /*

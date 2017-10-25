@@ -16,6 +16,7 @@ class CreateAnnouncementTVCell: UITableViewCell {
     @IBOutlet weak var uitvCATVCContent: UITextView!
     @IBOutlet weak var uilCATVCImageLoadLabel: UILabel!
     @IBOutlet weak var uivCATVCSelectedImage: UIImageView!
+    @IBOutlet weak var uilCATVCNameOfSender: UILabel!
     
 
     override func awakeFromNib() {

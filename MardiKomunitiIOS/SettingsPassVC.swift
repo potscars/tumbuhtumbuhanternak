@@ -27,17 +27,38 @@ class SettingsPassVC: UIViewController, UITextFieldDelegate {
         
         uibSPVCOKBtn.addTarget(self, action: #selector(perform(sender:)), for: UIControlEvents.touchUpInside)
         
+        print("old password is \(UserDefaults.standard.object(forKey: "MYA_USERPASS") as? String ?? "")")
+        
     }
     
     func perform(sender: UIButton) {
         
-        if(uitfSPVCOldPass.text != "") {
+        if((uitfSPVCOldPass.text != "") && (uitfSPVCOldPass.text == UserDefaults.standard.object(forKey: "MYA_USERPASS") as? String ?? "")) {
             
             if(uitfSPVCNewPass.text != "") {
                 
                 if(uitfSPVCConfirmPass.text != "") {
                     
                     if(uitfSPVCConfirmPass.text == uitfSPVCNewPass.text) {
+                        
+                        let np: NetworkProcessor = NetworkProcessor.init(URLs.updateProfileURL)
+                        
+                        let params: [String:Any] = ["password":uitfSPVCNewPass.text ?? "",
+                                                    "token":String.init(format: "%@", UserDefaults.standard.object(forKey: "MYA_USERTOKEN") as? String ?? "")]
+                        
+                        np.postRequestJSONFromUrl(params) { (result, response) in
+                        
+                            if(result!["status"] as! Int == 1) {
+                                
+                                ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Selesai", dialogMessage: "Penukaran kata laluan telah ditetapkan.", afterDialogDismissed: "BACK_TO_PREVIOUS_VIEWCONTROLLER")
+                                
+                            } else {
+                                
+                                ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Masalah", dialogMessage: "Penukaran kata laluan menghadapi masalah. Sila cuba sekali lagi.", afterDialogDismissed: nil)
+                                
+                            }
+                            
+                        }
                         
                     } else {
                         
@@ -59,7 +80,7 @@ class SettingsPassVC: UIViewController, UITextFieldDelegate {
             
         } else {
             
-            ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Tidak Sah", dialogMessage: "Sila isi katalaluan lama.", afterDialogDismissed: nil)
+            ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Tidak Sah", dialogMessage: "Sila isi katalaluan lama atau katalaluan lama tidak sah.", afterDialogDismissed: nil)
             
         }
         

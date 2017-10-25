@@ -29,8 +29,6 @@ class PengumumanTVC: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 160.0
         
-        grabAnnouncementInfo()
-        
         dtzButtonAddComment = DTZFloatingActionButton.init(frame: CGRect.init(x: self.view.frame.size.width - 56 - 14, y: self.view.frame.height - 100 - 14, width: 56, height: 56))
         dtzButtonAddComment!.tag = 100
         dtzButtonAddComment!.buttonColor = Colors.mainGreen
@@ -39,22 +37,29 @@ class PengumumanTVC: UITableViewController {
             self.performSegue(withIdentifier: "MYA_GOTO_WRITE_ARTICLE", sender: self)
         }
         
-        self.navigationController?.view.addSubview(dtzButtonAddComment!)
-        
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.view.addSubview(dtzButtonAddComment!)
+        grabAnnouncementInfo()
         
+        if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil) {
+            
+            self.navigationController?.view.addSubview(dtzButtonAddComment!)
+            
+        }
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        dtzButtonAddComment!.removeFromSuperview()
+        if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil) {
+            dtzButtonAddComment!.removeFromSuperview()
+        }
     }
     
     func grabAnnouncementInfo() {
+        
+        self.getJSONData.removeAllObjects()
         
         var np: NetworkProcessor? = nil
             
@@ -166,7 +171,7 @@ class PengumumanTVC: UITableViewController {
                     for i in 0...grabFullDataArray.count - 1 {
                         
                         let grabData: NSDictionary = grabFullDataArray.object(at: i) as! NSDictionary
-                        let getImageArray: NSArray? = grabData.value(forKey: "imageable") as? NSArray
+                        let getImageArray: NSArray? = grabData.value(forKey: "images") as? NSArray
                         
                         self.getJSONData.add([
                             "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),

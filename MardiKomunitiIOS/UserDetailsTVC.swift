@@ -14,7 +14,7 @@ class UserDetailsTVC: UITableViewController {
     var getUserDataDict: NSDictionary = [:]
     
     var getUserLocationArray: NSArray = []
-    var getUserLocationData: Data? = nil
+    var getUserLocationData: NSDictionary = [:]
     var getUserLocationDict: NSDictionary = [:]
 
     override func viewDidLoad() {
@@ -29,11 +29,17 @@ class UserDetailsTVC: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 80.0
         
-        getUserDataArray = UserDefaults.standard.object(forKey: "MYA_ROLES_ARR") as! NSArray
-        getUserDataDict = getUserDataArray.object(at: 0) as! NSDictionary
         
-        getUserLocationData = UserDefaults.standard.object(forKey: "MYA_ADDRESS_ARR") as? Data
-        getUserLocationDict = NSKeyedUnarchiver.unarchiveObject(with: getUserLocationData!) as! NSDictionary
+        
+        getUserDataArray = UserDefaults.standard.object(forKey: "MYA_ROLES_ARR") as? NSArray ?? []
+        print("AllDatas: \(getUserDataArray)")
+        getUserDataDict = getUserDataArray.object(at: 0) as? NSDictionary ?? [:]
+        print("AllDatas: \(getUserDataDict)")
+        
+        getUserLocationData = UserDefaults.standard.object(forKey: "MYA_ADDRESS_ARR") as? NSDictionary ?? [:]
+        print("AllDatas: \(getUserLocationData) ")
+        //getUserLocationDict = NSKeyedUnarchiver.unarchiveObject(with: getUserLocationData!) as? NSDictionary ?? [:]
+        //print("AllDatas: \(getUserLocationDict)")
     }
 
     override func didReceiveMemoryWarning() {

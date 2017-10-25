@@ -59,6 +59,30 @@ extension UIImage{
 
 extension String {
     
+    var length: Int {
+        return self.characters.count
+    }
+    
+    subscript (i: Int) -> String {
+        return self[i ..< i + 1]
+    }
+    
+    func substring(fromIndex: Int) -> String {
+        return self[min(fromIndex, length) ..< length]
+    }
+    
+    func substring(toIndex: Int) -> String {
+        return self[0 ..< max(0, toIndex)]
+    }
+    
+    subscript (r: Range<Int>) -> String {
+        let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)),
+                                            upper: min(length, max(0, r.upperBound))))
+        let start = index(startIndex, offsetBy: range.lowerBound)
+        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
+        return String(self[start ..< end])
+    }
+    
     static func checkStringValidity(data: Any?, defaultValue: String) -> String {
         
         if data is String {
@@ -94,6 +118,43 @@ extension DateComponents {
     }
 }
 
+extension UILabel
+{
+    private struct AssociatedKeys {
+        static var padding = UIEdgeInsets()
+    }
+    
+    var padding: UIEdgeInsets? {
+        get {
+            return objc_getAssociatedObject(self, &AssociatedKeys.padding) as? UIEdgeInsets
+        }
+        set {
+            if let newValue = newValue {
+                objc_setAssociatedObject(self, &AssociatedKeys.padding, newValue as UIEdgeInsets!, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            }
+        }
+    }
+    
+    override open func draw(_ rect: CGRect) {
+        if let insets = padding {
+            self.drawText(in: UIEdgeInsetsInsetRect(rect, insets))
+        } else {
+            self.drawText(in: rect)
+        }
+    }
+    
+    override open var intrinsicContentSize: CGSize {
+        get {
+            var contentSize = super.intrinsicContentSize
+            if let insets = padding {
+                contentSize.height += insets.top + insets.bottom
+                contentSize.width += insets.left + insets.right
+            }
+            return contentSize
+        }
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -125,7 +186,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static func switchingURL() -> String {
         
         if(developmentMode == true) {
-            return "http://myagro.myapp.my" //development URL 
+            return "http://myagro.myapp.my" //development URL
         }
         else {
             return "" //production URL
