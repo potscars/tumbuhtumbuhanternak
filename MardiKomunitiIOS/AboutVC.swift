@@ -20,6 +20,19 @@ class AboutVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        let version: String? = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        let buildNo: String? = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        
+        let currentDate = Date.init()
+        let calendar = Calendar.current
+        let getYear = calendar.component(Calendar.Component.year, from: currentDate)
+        
+        uilAVCAppTitleLabel.text = "m@MYAgro"
+        uilAVCAppVerLabel.text = "Versi \(String(describing: version ?? ""))"
+        uilAVCAppBuildLabel.text = "Binaan \(String(describing: buildNo ?? ""))"
+        uilAVCAppCopyLabel.text = "Hakcipta © \(getYear) Ingeniworks Sdn. Bhd."
+        
     }
 
     override func didReceiveMemoryWarning() {

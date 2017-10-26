@@ -92,13 +92,13 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
     
     func checkFields() {
         
-        if let getToken = allValuesToSend.value(forKey: "USER_TOKEN") as? String {
+        if (allValuesToSend.value(forKey: "USER_TOKEN") as? String) != nil {
             
-            if let getProjID = allValuesToSend.value(forKey: "PROJ_ID") as? Int {
+            if (allValuesToSend.value(forKey: "PROJ_ID") as? Int) != nil {
                 
-                if let getSubject = allValuesToSend.value(forKey: "SUBJECT") as? String {
+                if (allValuesToSend.value(forKey: "SUBJECT") as? String) != nil {
                     
-                    if let getContent = allValuesToSend.value(forKey: "CONTENT") as? String {
+                    if (allValuesToSend.value(forKey: "CONTENT") as? String) != nil {
                         
                         self.navigationItem.rightBarButtonItem?.isEnabled = true
                         
@@ -112,6 +112,12 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+        DispatchQueue.main.async {
+            
+            self.tableView.reloadData()
+            
+        }
         
         allValuesToSend.setValue(UserDefaults.standard.object(forKey: "MYA_USERTOKEN"), forKey: "USER_TOKEN")
         
@@ -157,9 +163,6 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
     
     func textViewShouldBeginEditing(_ textView: UITextView) -> Bool {
         
-        //let textView: UITextView = UITextView.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 100))
-        //textView.text = "treyyy"
-        //textView.inputAccessoryView = textView
         textView.layoutIfNeeded()
         
         return true

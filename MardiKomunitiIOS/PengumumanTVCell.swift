@@ -11,9 +11,12 @@ import NVActivityIndicatorView
 
 class PengumumanTVCell: UITableViewCell {
 
+    @IBOutlet weak var uivPVCNPBackGround: UIView!
     @IBOutlet weak var uilPVCNPTitle: UILabel!
     @IBOutlet weak var uilPVCNPDesc: UILabel!
     
+    
+    @IBOutlet weak var uivPVCWPBackGround: UIView!
     @IBOutlet weak var uiivPVCWPImage: UIImageView!
     @IBOutlet weak var uilPVCWPTitle: UILabel!
     @IBOutlet weak var uilPVCWPDesc: UILabel!
@@ -40,11 +43,14 @@ class PengumumanTVCell: UITableViewCell {
         ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: uiivPVCWPImage, imageViewConstraints: nil)
         uilPVCWPTitle.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_TITLE"), defaultValue: "Data Kosong")
         uilPVCWPDesc.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_CONTENT"), defaultValue: "Data Kosong")
-        
+        uivPVCWPBackGround.layer.backgroundColor = UIColor.init(red: 221.0/255.0, green: 221.0/255.0, blue: 221.0/255.0, alpha: 1.0).cgColor
+        uivPVCWPBackGround.layer.cornerRadius = 3.0
     }
     
     func updateCell(data: NSDictionary) {
         
+        uivPVCNPBackGround.layer.backgroundColor = UIColor.init(red: 221.0/255.0, green: 221.0/255.0, blue: 221.0/255.0, alpha: 1.0).cgColor
+        uivPVCNPBackGround.layer.cornerRadius = 3.0
         uilPVCNPTitle.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_TITLE"), defaultValue: "Data Kosong")
         uilPVCNPDesc.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_CONTENT"), defaultValue: "Data Kosong")
         
