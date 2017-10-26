@@ -76,7 +76,7 @@ class MessageInboxTVC: UITableViewController {
         
         tableView.separatorStyle = .none
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 120.0
+        tableView.estimatedRowHeight = 150.0
         
         let nibName = UINib(nibName: "ErrorCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.MessageErrorCell)
