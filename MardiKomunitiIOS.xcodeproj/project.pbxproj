@@ -91,6 +91,7 @@
 		B7C8AF491F8F243D0097597F /* InitialNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C8AF481F8F243D0097597F /* InitialNC.swift */; };
 		B7D672781FA03BD900F916EF /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D672771FA03BD900F916EF /* AboutVC.swift */; };
 		B7D6727A1FA03F7300F916EF /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D672791FA03F7300F916EF /* CustomLabel.swift */; };
+		B7D6727C1FA06EF800F916EF /* PengumumanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6727B1FA06EF800F916EF /* PengumumanData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -182,6 +183,7 @@
 		B7C8AF481F8F243D0097597F /* InitialNC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialNC.swift; sourceTree = "<group>"; };
 		B7D672771FA03BD900F916EF /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		B7D672791FA03F7300F916EF /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
+		B7D6727B1FA06EF800F916EF /* PengumumanData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PengumumanData.swift; sourceTree = "<group>"; };
 		BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MardiKomunitiIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -342,6 +344,7 @@
 		B71AD0241F8242CA008DA4AF /* Pengumuman */ = {
 			isa = PBXGroup;
 			children = (
+				B7D6727D1FA0732700F916EF /* Modal */,
 				B71AD0251F832F8D008DA4AF /* PengumumanTVC.swift */,
 				B71AD0271F833001008DA4AF /* PengumumanTVCell.swift */,
 				B7C8AF161F8342630097597F /* PengumumanDetailsTVC.swift */,
@@ -426,6 +429,14 @@
 				B7C8AF3A1F8CAF9B0097597F /* ic_cog.png */,
 			);
 			name = Info;
+			sourceTree = "<group>";
+		};
+		B7D6727D1FA0732700F916EF /* Modal */ = {
+			isa = PBXGroup;
+			children = (
+				B7D6727B1FA06EF800F916EF /* PengumumanData.swift */,
+			);
+			name = Modal;
 			sourceTree = "<group>";
 		};
 		D3ABA0F4D711F4525CA64C50 /* Frameworks */ = {
@@ -625,6 +636,7 @@
 				B7C8AF491F8F243D0097597F /* InitialNC.swift in Sources */,
 				9E0552D91F84DBDD002BA0E0 /* MembersCollectionCell.swift in Sources */,
 				9E0552CC1F849132002BA0E0 /* MessageInboxTVC.swift in Sources */,
+				B7D6727C1FA06EF800F916EF /* PengumumanData.swift in Sources */,
 				B7C8AF1B1F8346410097597F /* ZGraphics.swift in Sources */,
 				B712FAD41F90AA42003A873F /* CreateAnnouncementTVCell.swift in Sources */,
 				9E6B45811F98912200EDB928 /* AplikasiName.swift in Sources */,
