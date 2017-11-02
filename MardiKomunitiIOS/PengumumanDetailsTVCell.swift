@@ -49,24 +49,16 @@ class PengumumanDetailsTVCell: UITableViewCell {
         
     }
     
-    func updateSenderImage(data: NSArray, tableView: UITableView) {
-        
-        //let getFirstImageArray: NSArray = data.value(forKey: "ARTICLE_IMAGE") as! NSArray
-        
-        for i in 0...data.count - 1 {
+    func updateSenderImage(data: NSArray, tableView: UITableView, indexPath: IndexPath) {
             
-            let getFirstImageDict: NSDictionary = data.object(at: i) as! NSDictionary
-            let getFirstImageString: String = String.checkStringValidity(data: getFirstImageDict.value(forKey: "name"), defaultValue: "ic_default.png")
-            let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString)
+        let getFirstImageDict: NSDictionary = data.object(at: indexPath.row) as! NSDictionary
+        let getFirstImageString: String = String.checkStringValidity(data: getFirstImageDict.value(forKey: "name"), defaultValue: "ic_default.png")
+        let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString)
             
-            //tableView.beginUpdates()
-            ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: uiivPDTVCArticleImage, imageViewConstraints: nil)
-            //tableView.endUpdates()
-            
-        }
-        
-        
-        
+        self.uiivPDTVCArticleImage.image = #imageLiteral(resourceName: "ic_default.png")
+        let loadImageToURL: URL = URL.init(string: getFirstImage)!
+        self.uiivPDTVCArticleImage.kf.setImage(with: loadImageToURL)
+ 
     }
     
     func updateDescriptions(data: NSDictionary) {

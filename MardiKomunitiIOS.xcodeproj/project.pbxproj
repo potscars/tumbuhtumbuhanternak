@@ -21,10 +21,11 @@
 		9E0552E51F84EDB6002BA0E0 /* MessageDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0552E41F84EDB6002BA0E0 /* MessageDetailsVC.swift */; };
 		9E0552E71F84FD6F002BA0E0 /* MessageDetailsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0552E61F84FD6F002BA0E0 /* MessageDetailsExtension.swift */; };
 		9E11F1851FAAF75A00489653 /* AplikasiKategoriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E11F1841FAAF75A00489653 /* AplikasiKategoriVC.swift */; };
+		9E11F18C1FAB383900489653 /* padikebangsaan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */; };
+		9E11F18D1FAB383900489653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E44624A1F7E374700F82591 /* Assets.xcassets */; };
 		9E4462441F7E374700F82591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4462431F7E374700F82591 /* AppDelegate.swift */; };
 		9E4462461F7E374700F82591 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4462451F7E374700F82591 /* ViewController.swift */; };
 		9E4462491F7E374700F82591 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4462471F7E374700F82591 /* Main.storyboard */; };
-		9E44624B1F7E374700F82591 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E44624A1F7E374700F82591 /* Assets.xcassets */; };
 		9E44624E1F7E374700F82591 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E44624C1F7E374700F82591 /* LaunchScreen.storyboard */; };
 		9E49FCBB1F8CACFC001006A5 /* Mesej.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCBA1F8CACFC001006A5 /* Mesej.swift */; };
 		9E49FCBD1F8CC02C001006A5 /* LoadingSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCBC1F8CC02C001006A5 /* LoadingSpinner.swift */; };
@@ -57,7 +58,8 @@
 		B71AD0261F832F8D008DA4AF /* PengumumanTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71AD0251F832F8D008DA4AF /* PengumumanTVC.swift */; };
 		B71AD0281F833001008DA4AF /* PengumumanTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71AD0271F833001008DA4AF /* PengumumanTVCell.swift */; };
 		B71AD02A1F8331E2008DA4AF /* ZUISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71AD0291F8331E2008DA4AF /* ZUISetup.swift */; };
-		B71AD02E1F833708008DA4AF /* padikebangsaan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */; };
+		B7601E481FA1BF9F007670C9 /* ic_userblank.png in Resources */ = {isa = PBXBuildFile; fileRef = B7601E471FA1BF9E007670C9 /* ic_userblank.png */; };
+		B7601E4A1FA1C09F007670C9 /* ic_userdef.png in Resources */ = {isa = PBXBuildFile; fileRef = B7601E491FA1C09D007670C9 /* ic_userdef.png */; };
 		B7C5FFC31F98510B00DB252D /* ic_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C5FFC21F98510B00DB252D /* ic_plus.png */; };
 		B7C5FFC61F99DD4600DB252D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5FFC51F99DD4600DB252D /* Strings.swift */; };
 		B7C5FFC81F99E00300DB252D /* AplikasiBerkaitanNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5FFC71F99E00300DB252D /* AplikasiBerkaitanNC.swift */; };
@@ -93,6 +95,7 @@
 		B7D672781FA03BD900F916EF /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D672771FA03BD900F916EF /* AboutVC.swift */; };
 		B7D6727A1FA03F7300F916EF /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D672791FA03F7300F916EF /* CustomLabel.swift */; };
 		B7D6727C1FA06EF800F916EF /* PengumumanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6727B1FA06EF800F916EF /* PengumumanData.swift */; };
+		B7D6727F1FA17ABC00F916EF /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6727E1FA17ABC00F916EF /* CustomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +153,8 @@
 		B71AD0271F833001008DA4AF /* PengumumanTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PengumumanTVCell.swift; sourceTree = "<group>"; };
 		B71AD0291F8331E2008DA4AF /* ZUISetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZUISetup.swift; sourceTree = "<group>"; };
 		B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = padikebangsaan.jpg; sourceTree = "<group>"; };
+		B7601E471FA1BF9E007670C9 /* ic_userblank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_userblank.png; sourceTree = "<group>"; };
+		B7601E491FA1C09D007670C9 /* ic_userdef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_userdef.png; sourceTree = "<group>"; };
 		B7C5FFC21F98510B00DB252D /* ic_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_plus.png; sourceTree = "<group>"; };
 		B7C5FFC41F98995F00DB252D /* MardiKomunitiIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MardiKomunitiIOS.entitlements; sourceTree = "<group>"; };
 		B7C5FFC51F99DD4600DB252D /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -186,6 +191,7 @@
 		B7D672771FA03BD900F916EF /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		B7D672791FA03F7300F916EF /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B7D6727B1FA06EF800F916EF /* PengumumanData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PengumumanData.swift; sourceTree = "<group>"; };
+		B7D6727E1FA17ABC00F916EF /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MardiKomunitiIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -257,9 +263,9 @@
 				9E0552CA1F8490F5002BA0E0 /* Message */,
 				B7C8AF211F8488520097597F /* Login */,
 				B7C8AF1C1F8384170097597F /* Info */,
-				B71AD02B1F8336EC008DA4AF /* Res */,
 				B71AD0241F8242CA008DA4AF /* Pengumuman */,
 				9E5884731F81FB9E001EDA2E /* AplikasiBerkaitan */,
+				B71AD02B1F8336EC008DA4AF /* Res */,
 				9E58847A1F81FCD4001EDA2E /* Etc */,
 				9E4462431F7E374700F82591 /* AppDelegate.swift */,
 				9E4462451F7E374700F82591 /* ViewController.swift */,
@@ -315,6 +321,7 @@
 		9E58847A1F81FCD4001EDA2E /* Etc */ = {
 			isa = PBXGroup;
 			children = (
+				B74DADA71FA875EA00951F2E /* CommonCrypto */,
 				B7C8AF2C1F85ECA60097597F /* ZNetwork.swift */,
 				B7C8AF281F84E5A50097597F /* ZUIs.swift */,
 				B7C8AF1A1F8346410097597F /* ZGraphics.swift */,
@@ -329,6 +336,7 @@
 				9E49FCBC1F8CC02C001006A5 /* LoadingSpinner.swift */,
 				B7C5FFC51F99DD4600DB252D /* Strings.swift */,
 				B7D672791FA03F7300F916EF /* CustomLabel.swift */,
+				B7D6727E1FA17ABC00F916EF /* CustomView.swift */,
 			);
 			name = Etc;
 			sourceTree = "<group>";
@@ -370,6 +378,8 @@
 		B71AD02C1F8336F6008DA4AF /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				B7601E491FA1C09D007670C9 /* ic_userdef.png */,
+				B7601E471FA1BF9E007670C9 /* ic_userblank.png */,
 				B7C5FFCF1F9DC22A00DB252D /* ic_photo-camera.png */,
 				B7C5FFD01F9DC22A00DB252D /* ic_picture.png */,
 				B7C5FFCD1F9D981500DB252D /* ic_sendmsg.png */,
@@ -385,6 +395,13 @@
 				B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */,
 			);
 			name = Sprites;
+			sourceTree = "<group>";
+		};
+		B74DADA71FA875EA00951F2E /* CommonCrypto */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CommonCrypto;
 			sourceTree = "<group>";
 		};
 		B7C8AF1C1F8384170097597F /* Info */ = {
@@ -480,7 +497,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = com.ingeniworks;
 				TargetAttributes = {
 					9E44623F1F7E374700F82591 = {
@@ -528,16 +545,16 @@
 				B7C8AF3F1F8CBFEE0097597F /* ic_info_black.png in Resources */,
 				9E0552E31F84EBF1002BA0E0 /* MembersCollectionCell.xib in Resources */,
 				9E49FCCB1F8E6CD4001006A5 /* ProjectMembersCell.xib in Resources */,
-				9E44624B1F7E374700F82591 /* Assets.xcassets in Resources */,
+				9E11F18D1FAB383900489653 /* Assets.xcassets in Resources */,
+				B7601E481FA1BF9F007670C9 /* ic_userblank.png in Resources */,
 				B7C8AF401F8CBFEE0097597F /* ic_info.png in Resources */,
 				9E0552E11F84EA87002BA0E0 /* RepliedCell.xib in Resources */,
-				B71AD02E1F833708008DA4AF /* padikebangsaan.jpg in Resources */,
+				9E11F18C1FAB383900489653 /* padikebangsaan.jpg in Resources */,
 				9E0552DD1F84E6DB002BA0E0 /* MembersCell.xib in Resources */,
 				B7C8AF361F8623210097597F /* ic_loginkey300.png in Resources */,
-				9E44624B1F7E374700F82591 /* Assets.xcassets in Resources */,
 				B7C8AF381F8625280097597F /* ic_mardilogo.png in Resources */,
-				B71AD02E1F833708008DA4AF /* padikebangsaan.jpg in Resources */,
 				B7C5FFC31F98510B00DB252D /* ic_plus.png in Resources */,
+				B7601E4A1FA1C09F007670C9 /* ic_userdef.png in Resources */,
 				B7C8AF431F8DD1FB0097597F /* ic_default.png in Resources */,
 				B7C5FFCE1F9D981500DB252D /* ic_sendmsg.png in Resources */,
 				9E49FCC21F8E3F1F001006A5 /* ErrorCell.xib in Resources */,
@@ -565,6 +582,8 @@
 				"${BUILT_PRODUCTS_DIR}/BSGridCollectionViewLayout/BSGridCollectionViewLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/DTZFloatingActionButton/DTZFloatingActionButton.framework",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/PlainPing/PlainPing.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
@@ -574,6 +593,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSGridCollectionViewLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTZFloatingActionButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlainPing.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",
@@ -660,6 +681,7 @@
 				B712FAD41F90AA42003A873F /* CreateAnnouncementTVCell.swift in Sources */,
 				9E6B45811F98912200EDB928 /* AplikasiName.swift in Sources */,
 				B7C8AF171F8342630097597F /* PengumumanDetailsTVC.swift in Sources */,
+				B7D6727F1FA17ABC00F916EF /* CustomView.swift in Sources */,
 				9E49FCBF1F8DF90A001006A5 /* Respond.swift in Sources */,
 				9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */,
 				9EC60DF11F8738A100E056EF /* ProjectTVC.swift in Sources */,
@@ -716,7 +738,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -724,7 +748,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -733,6 +761,10 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/**",
+					"$(inherited)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -765,7 +797,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -773,7 +807,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -782,6 +820,10 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)/**",
+					"$(inherited)",
+				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -805,6 +847,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MardiKomunitiIOS/MardiKomunitiIOS.entitlements;
 				DEVELOPMENT_TEAM = 6CSE68LD7S;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/BSGridCollectionViewLayout\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/BSImagePicker\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/DTZFloatingActionButton\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Floaty\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Kingfisher\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/NVActivityIndicatorView\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/PlainPing\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/UIImageViewModeScaleAspect\"",
+					"$(SRCROOT)/**",
+				);
 				INFOPLIST_FILE = MardiKomunitiIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -821,6 +875,18 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MardiKomunitiIOS/MardiKomunitiIOS.entitlements;
 				DEVELOPMENT_TEAM = 6CSE68LD7S;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/BSGridCollectionViewLayout\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/BSImagePicker\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/DTZFloatingActionButton\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Floaty\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/Kingfisher\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/NVActivityIndicatorView\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/PlainPing\"",
+					"\"$PODS_CONFIGURATION_BUILD_DIR/UIImageViewModeScaleAspect\"",
+					"$(SRCROOT)/**",
+				);
 				INFOPLIST_FILE = MardiKomunitiIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

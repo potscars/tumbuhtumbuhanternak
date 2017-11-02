@@ -9,8 +9,15 @@
 import UIKit
 import AVFoundation
 
-class ZImages: NSObject {
+class ZImages: NSObject, URLSessionDelegate, URLSessionDataDelegate {
 
+    typealias ImageReturn = (UIImage?,String?)
+    typealias ImageArraysReturn = (NSArray?,String?)
+    
+    var imageURL: String? = nil
+    
+    override init() { }
+    
     static func getImageFromUrlAsync(fromURL: String?, defaultImage: UIImage?) -> UIImage? {
         
         if(fromURL != nil)
@@ -45,53 +52,240 @@ class ZImages: NSObject {
         }
     }
     
-    static func getImageFromUrlSession(fromURL: String, defaultImage: String) -> UIImage {
+    static func getImageFromUrlSession(fromURL: String, defaultImage: UIImage) -> UIImage {
         
         let imageURL: URL = URL.init(string: fromURL.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
         let session = URLSession(configuration: URLSessionConfiguration.default)
-        var imageReturn: UIImage = UIImage.init(named: defaultImage)!
-            
+        var imageReturn: UIImage = defaultImage
+        
         let downloadPicTask = session.dataTask(with: imageURL) { (data, response, error) in
             
             if let e = error {
                 print("[ZImages] Error downloading picture, using defaultImage instead : \(e)")
             }
             else {
+                
+                if (response as? HTTPURLResponse) != nil {
                     
-                if let res = response as? HTTPURLResponse {
-                    //print("[ZImages] Response got : \(res.statusCode)")
-                        
                     if let imageData = data {
+                        
+                        DispatchQueue.main.async() { () -> Void in
                             
-                        imageReturn = UIImage.init(data: imageData)!
+                            let image: UIImage = UIImage.init(data: imageData)!
                             
+                            imageReturn = image
+
+                        }
+                        
                     } else if let e = error {
-                            
+                        
                         print("[ZImages] Error processing image, using defaultImage instead : \(e)")
-                            
+                        
                     } else {
                         
                         print("[ZImages] Unknown error")
                         
                     }
-                        
+                    
                 }
                 else if let e = error {
-                        
-                    print("[ZImages] Error retrieving response, using defaultImage instead : \(e)")
-                        
-                }
                     
+                    print("[ZImages] Error retrieving response, using defaultImage instead : \(e)")
+                    
+                }
+                
             }
             
             
         }
-            
         downloadPicTask.resume()
-            
+        
         return imageReturn
     }
     
+    func getImageFromURLInArrays(fromURLArrays: NSArray, defaultImage: UIImage, completionHandler: @escaping (ImageArraysReturn) -> ()) {
+        
+        var imageArrays: NSMutableArray = []
+        var errorCount: Int = 0
+        var errorCause: [String] = []
+        
+        if(fromURLArrays != []) {
+            
+            for i in 0...fromURLArrays.count - 1 {
+                
+                let imageURLString: String = fromURLArrays.object(at: i) as! String
+                let imageURL: URL = URL.init(string: imageURLString.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
+                let session = URLSession.init(configuration: URLSessionConfiguration.default, delegate: self, delegateQueue: OperationQueue.main)
+                var imageReturn: UIImage = defaultImage
+                
+                let downloadPicTask = session.dataTask(with: imageURL) { (data, response, error) in
+                    
+                    if let e = error {
+                        errorCause.append("Image \(imageURLString) is \(e.localizedDescription)")
+                    }
+                    else {
+                        
+                        if (response as? HTTPURLResponse) != nil {
+                            
+                            if let imageData = data {
+                                
+                                DispatchQueue.main.async() { () -> Void in
+                                    
+                                    let image: UIImage? = UIImage.init(data: imageData)
+                                    
+                                    if(image != nil) {
+                                        
+                                        imageReturn = image!
+                                        
+                                        //print("imagereturn \(imageReturn)")
+                                        
+                                        imageArrays.add(imageReturn)
+                                        
+                                        //print("inserted \(imageArrays.count) from \(fromURLArrays.count)")
+                                        
+                                        if(imageArrays.count == fromURLArrays.count) {
+                                            if(errorCount != 0) {
+                                                completionHandler((imageArrays,"Error image loads: \(errorCount) \n error cause: \(errorCause)"))
+                                            } else {
+                                                completionHandler((imageArrays,"No errors found"))
+                                            }
+                                        }
+                                        
+                                    }
+                                }
+                                
+                            } else if let e = error {
+                                
+                                errorCount += 1
+                                imageArrays.add(imageReturn)
+                                errorCause.append("Image \(imageURLString) is \(e.localizedDescription)")
+                                
+                                if(imageArrays.count == fromURLArrays.count) {
+                                    if(errorCount != 0) {
+                                        completionHandler((imageArrays,"Error image loads: \(errorCount) \n error cause: \(errorCause)"))
+                                    } else {
+                                        completionHandler((imageArrays,"No errors found"))
+                                    }
+                                }
+                                
+                            } else {
+                                
+                                errorCount += 1
+                                imageArrays.add(imageReturn)
+                                errorCause.append("Image \(imageURLString) is unknown error")
+                                
+                                if(imageArrays.count == fromURLArrays.count) {
+                                    if(errorCount != 0) {
+                                        completionHandler((imageArrays,"Error image loads: \(errorCount) \n error cause: \(errorCause)"))
+                                    } else {
+                                        completionHandler((imageArrays,"No errors found"))
+                                    }
+                                }
+                                
+                            }
+                            
+                        }
+                        else if let e = error {
+                            
+                            errorCount +=  1
+                            imageArrays.add(imageReturn)
+                            errorCause.append("Image \(imageURLString) is \(e.localizedDescription)")
+                            
+                            if(imageArrays.count == fromURLArrays.count) {
+                                if(errorCount != 0) {
+                                    completionHandler((imageArrays,"Error image loads: \(errorCount) \n error cause: \(errorCause)"))
+                                } else {
+                                    completionHandler((imageArrays,"No errors found"))
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+                    
+                    
+                }
+                downloadPicTask.resume()
+                
+            }
+            
+        } else {
+            
+            completionHandler(([],"No URL images provided"))
+            
+        }
+        
+        
+    }
+    
+    func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
+        print("session finished? \(session)")
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        print("session completed? \(session) with task \(task) and error \(error?.localizedDescription)")
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        print("session receive data \(session) with datatask \(dataTask) and data \(data)")
+    }
+    
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
+        print("Data task response \(session) \\ \(dataTask) \\ \(response)")
+    }
+    
+    func getImageFromUrlSession(fromURL: String, defaultImage: UIImage, completionHandler: @escaping (ImageReturn) -> ()) {
+        
+        let imageURL: URL = URL.init(string: fromURL.addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
+        let session = URLSession(configuration: URLSessionConfiguration.default)
+        var imageReturn: UIImage = defaultImage
+        
+        let downloadPicTask = session.dataTask(with: imageURL) { (data, response, error) in
+            
+            if let e = error {
+                completionHandler((nil,e.localizedDescription))
+            }
+            else {
+                
+                if let res = response as? HTTPURLResponse {
+                    
+                    if let imageData = data {
+                        
+                        DispatchQueue.main.async() { () -> Void in
+                            
+                            let image: UIImage? = UIImage.init(data: imageData)
+                            
+                            if(image != nil) {
+                                
+                                imageReturn = image!
+                                completionHandler((imageReturn,String.init(describing: res.statusCode)))
+                            }
+                        }
+                        
+                    } else if let e = error {
+                        
+                        completionHandler((defaultImage,e.localizedDescription))
+                        
+                    } else {
+                        
+                        completionHandler((defaultImage,"Unknown Error"))
+                        
+                    }
+                    
+                }
+                else if let e = error {
+                    
+                    completionHandler((defaultImage,e.localizedDescription))
+                    
+                }
+                
+            }
+            
+            
+        }
+        downloadPicTask.resume()
+        
+    }
     
     static func getImageFromUrlSession(fromURL: String, defaultImage: String, imageView: UIImageView, imageViewConstraints: [String:NSLayoutConstraint]?) {
         

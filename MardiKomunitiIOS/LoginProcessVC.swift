@@ -70,6 +70,7 @@ class LoginProcessVC: UIViewController {
                     self.insertDataToUserDefaults("roles", userDefaultsKeyString: "MYA_ROLES_ARR", datas: data)
                     self.insertDataToUserDefaults("address", userDefaultsKeyString: "MYA_ADDRESS_ARR", datas: data)
                     self.insertDataToUserDefaults("token", userDefaultsKeyString: "MYA_USERTOKEN", datas: data)
+                    self.insertDataToUserDefaults("images", userDefaultsKeyString: "MYA_USERIMAGE", datas: data)
                     UserDefaults.standard.set(true, forKey: "MYA_USERLOGGEDIN")
                     
                     //in future, remember me will be set

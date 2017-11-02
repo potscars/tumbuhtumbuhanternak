@@ -8,6 +8,7 @@
 
 import UIKit
 import DTZFloatingActionButton
+import Floaty
 
 class PengumumanTVC: UITableViewController {
     
@@ -16,6 +17,7 @@ class PengumumanTVC: UITableViewController {
     var refControl = UIRefreshControl()
     
     var dtzButtonAddComment: DTZFloatingActionButton? = nil
+    var floatyBtnAddComment: Floaty? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,29 +49,49 @@ class PengumumanTVC: UITableViewController {
             self.performSegue(withIdentifier: "MYA_GOTO_WRITE_ARTICLE", sender: self)
         }
         
+        floatyBtnAddComment = Floaty.init(frame: CGRect.init(x: self.view.center.x + 100, y: self.view.center.y + 230, width: 56, height: 56))
+        floatyBtnAddComment?.buttonColor = Colors.mainGreen
+        floatyBtnAddComment?.plusColor = UIColor.white
+        
+        let addGesRecg: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(goToWriteArticle(sender:)))
+        
+        floatyBtnAddComment?.addGestureRecognizer(addGesRecg)
+        
+        if(Connectivity.checkConnectionToMardi(viewController: self)){
+            
+            grabAnnouncementInfo()
+            
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if(Connectivity.checkConnectionToMardi(viewController: self)){
-            
-            grabAnnouncementInfo()
-        
             if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil && UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
             
-                self.navigationController?.view.addSubview(dtzButtonAddComment!)
+                floatyBtnAddComment!.frame = CGRect.init(x: self.view.center.x + 100, y: self.view.center.y + 230, width: 56, height: 56)
+                floatyBtnAddComment!.layer.removeAllAnimations()
+                self.navigationController?.view.addSubview(floatyBtnAddComment!)
             
             }
-            
         }
+        
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil && UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
-            dtzButtonAddComment!.removeFromSuperview()
+            floatyBtnAddComment!.removeFromSuperview()
         }
+    }
+    
+    func goToWriteArticle(sender: UITapGestureRecognizer) {
+        
+        self.performSegue(withIdentifier: "MYA_GOTO_WRITE_ARTICLE", sender: self)
+        
     }
     
     func gotRefreshing(sender: UIRefreshControl) {
@@ -82,24 +104,11 @@ class PengumumanTVC: UITableViewController {
         
         self.getJSONData.removeAllObjects()
 
-        if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil)
-        {
-            if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
+        if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil && UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as? Bool == true) {
                 
-                print("logged in")
-                
-                self.getJSONData = PengumumanData.loggedInData(tableView: self.tableView, refreshControl: refControl) as! NSMutableArray
-                
-            } else {
-                
-                print("not logged in")
-                
-               self.getJSONData = PengumumanData.nonLoggedInData(tableView: self.tableView, refreshControl: refControl) as! NSMutableArray
-                
-            }
-        } else {
+            self.getJSONData = PengumumanData.loggedInData(tableView: self.tableView, refreshControl: refControl) as! NSMutableArray
             
-            print("never logged in")
+        } else {
          
             self.getJSONData = PengumumanData.nonLoggedInData(tableView: self.tableView, refreshControl: refControl) as! NSMutableArray
             
@@ -136,8 +145,9 @@ class PengumumanTVC: UITableViewController {
                 let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCWithPicIICellID", for: indexPath) as! PengumumanTVCell
 
                 // Configure the cell...
-                cell.updateImageCell(data: getJSONData.object(at: indexPath.row) as! NSDictionary)
-
+                cell.updateImageCell(data: getJSONData.object(at: indexPath.row) as! NSDictionary, tableView: self.tableView, indexPath: indexPath)
+                cell.tag = indexPath.row
+                
                 return cell
             }
             else {
@@ -145,6 +155,7 @@ class PengumumanTVC: UITableViewController {
 
                 // Configure the cell...
                 cell.updateCell(data: getJSONData.object(at: indexPath.row) as! NSDictionary)
+                cell.tag = indexPath.row
             
                 return cell
             }
@@ -154,6 +165,7 @@ class PengumumanTVC: UITableViewController {
             
             // Configure the cell...
             cell.updateLoadingCell(cellIdentifier: cell)
+            cell.tag = indexPath.row
             
             return cell
         }

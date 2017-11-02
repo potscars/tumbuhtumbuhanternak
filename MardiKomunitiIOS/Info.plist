@@ -36,6 +36,15 @@
 				<string>TLSv1.1</string>
 			</dict>
 		</dict>
+        <key>myagro.myapp.my</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+            <key>NSTemporaryExceptionMinimumTLSVersion</key>
+            <string>TLSv1.1</string>
+        </dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Untuk penggunaan kamera, kebenaran anda untuk penggunaan sistem kamera diperlukan.</string>

@@ -18,7 +18,8 @@ class UserDetailsTVCell: UITableViewCell {
     
     @IBOutlet weak var uiivUDTCOneInfoIcon: UIImageView!
     @IBOutlet weak var uilUDTVCOneInfoBigText: UILabel!
-
+    @IBOutlet weak var uiivUDTVCUserAvatar: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -31,6 +32,8 @@ class UserDetailsTVCell: UITableViewCell {
     }
     
     func updateCellBanner() {
+        
+        
         
     }
     
