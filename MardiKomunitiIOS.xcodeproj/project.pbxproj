@@ -57,6 +57,8 @@
 		B71AD0281F833001008DA4AF /* PengumumanTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71AD0271F833001008DA4AF /* PengumumanTVCell.swift */; };
 		B71AD02A1F8331E2008DA4AF /* ZUISetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B71AD0291F8331E2008DA4AF /* ZUISetup.swift */; };
 		B71AD02E1F833708008DA4AF /* padikebangsaan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */; };
+		B7601E481FA1BF9F007670C9 /* ic_userblank.png in Resources */ = {isa = PBXBuildFile; fileRef = B7601E471FA1BF9E007670C9 /* ic_userblank.png */; };
+		B7601E4A1FA1C09F007670C9 /* ic_userdef.png in Resources */ = {isa = PBXBuildFile; fileRef = B7601E491FA1C09D007670C9 /* ic_userdef.png */; };
 		B7C5FFC31F98510B00DB252D /* ic_plus.png in Resources */ = {isa = PBXBuildFile; fileRef = B7C5FFC21F98510B00DB252D /* ic_plus.png */; };
 		B7C5FFC61F99DD4600DB252D /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5FFC51F99DD4600DB252D /* Strings.swift */; };
 		B7C5FFC81F99E00300DB252D /* AplikasiBerkaitanNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C5FFC71F99E00300DB252D /* AplikasiBerkaitanNC.swift */; };
@@ -92,6 +94,7 @@
 		B7D672781FA03BD900F916EF /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D672771FA03BD900F916EF /* AboutVC.swift */; };
 		B7D6727A1FA03F7300F916EF /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D672791FA03F7300F916EF /* CustomLabel.swift */; };
 		B7D6727C1FA06EF800F916EF /* PengumumanData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6727B1FA06EF800F916EF /* PengumumanData.swift */; };
+		B7D6727F1FA17ABC00F916EF /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7D6727E1FA17ABC00F916EF /* CustomView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -148,6 +151,8 @@
 		B71AD0271F833001008DA4AF /* PengumumanTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PengumumanTVCell.swift; sourceTree = "<group>"; };
 		B71AD0291F8331E2008DA4AF /* ZUISetup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZUISetup.swift; sourceTree = "<group>"; };
 		B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = padikebangsaan.jpg; sourceTree = "<group>"; };
+		B7601E471FA1BF9E007670C9 /* ic_userblank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_userblank.png; sourceTree = "<group>"; };
+		B7601E491FA1C09D007670C9 /* ic_userdef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_userdef.png; sourceTree = "<group>"; };
 		B7C5FFC21F98510B00DB252D /* ic_plus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_plus.png; sourceTree = "<group>"; };
 		B7C5FFC41F98995F00DB252D /* MardiKomunitiIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MardiKomunitiIOS.entitlements; sourceTree = "<group>"; };
 		B7C5FFC51F99DD4600DB252D /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
@@ -184,6 +189,7 @@
 		B7D672771FA03BD900F916EF /* AboutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		B7D672791FA03F7300F916EF /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		B7D6727B1FA06EF800F916EF /* PengumumanData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PengumumanData.swift; sourceTree = "<group>"; };
+		B7D6727E1FA17ABC00F916EF /* CustomView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		BE9394F831E349D44A66210D /* Pods_MardiKomunitiIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MardiKomunitiIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -255,9 +261,9 @@
 				9E0552CA1F8490F5002BA0E0 /* Message */,
 				B7C8AF211F8488520097597F /* Login */,
 				B7C8AF1C1F8384170097597F /* Info */,
-				B71AD02B1F8336EC008DA4AF /* Res */,
 				B71AD0241F8242CA008DA4AF /* Pengumuman */,
 				9E5884731F81FB9E001EDA2E /* AplikasiBerkaitan */,
+				B71AD02B1F8336EC008DA4AF /* Res */,
 				9E58847A1F81FCD4001EDA2E /* Etc */,
 				9E4462431F7E374700F82591 /* AppDelegate.swift */,
 				9E4462451F7E374700F82591 /* ViewController.swift */,
@@ -312,6 +318,7 @@
 		9E58847A1F81FCD4001EDA2E /* Etc */ = {
 			isa = PBXGroup;
 			children = (
+				B74DADA71FA875EA00951F2E /* CommonCrypto */,
 				B7C8AF2C1F85ECA60097597F /* ZNetwork.swift */,
 				B7C8AF281F84E5A50097597F /* ZUIs.swift */,
 				B7C8AF1A1F8346410097597F /* ZGraphics.swift */,
@@ -326,6 +333,7 @@
 				9E49FCBC1F8CC02C001006A5 /* LoadingSpinner.swift */,
 				B7C5FFC51F99DD4600DB252D /* Strings.swift */,
 				B7D672791FA03F7300F916EF /* CustomLabel.swift */,
+				B7D6727E1FA17ABC00F916EF /* CustomView.swift */,
 			);
 			name = Etc;
 			sourceTree = "<group>";
@@ -367,6 +375,8 @@
 		B71AD02C1F8336F6008DA4AF /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				B7601E491FA1C09D007670C9 /* ic_userdef.png */,
+				B7601E471FA1BF9E007670C9 /* ic_userblank.png */,
 				B7C5FFCF1F9DC22A00DB252D /* ic_photo-camera.png */,
 				B7C5FFD01F9DC22A00DB252D /* ic_picture.png */,
 				B7C5FFCD1F9D981500DB252D /* ic_sendmsg.png */,
@@ -382,6 +392,13 @@
 				B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */,
 			);
 			name = Sprites;
+			sourceTree = "<group>";
+		};
+		B74DADA71FA875EA00951F2E /* CommonCrypto */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = CommonCrypto;
 			sourceTree = "<group>";
 		};
 		B7C8AF1C1F8384170097597F /* Info */ = {
@@ -526,6 +543,7 @@
 				9E0552E31F84EBF1002BA0E0 /* MembersCollectionCell.xib in Resources */,
 				9E49FCCB1F8E6CD4001006A5 /* ProjectMembersCell.xib in Resources */,
 				9E44624B1F7E374700F82591 /* Assets.xcassets in Resources */,
+				B7601E481FA1BF9F007670C9 /* ic_userblank.png in Resources */,
 				B7C8AF401F8CBFEE0097597F /* ic_info.png in Resources */,
 				9E0552E11F84EA87002BA0E0 /* RepliedCell.xib in Resources */,
 				B71AD02E1F833708008DA4AF /* padikebangsaan.jpg in Resources */,
@@ -535,6 +553,7 @@
 				B7C8AF381F8625280097597F /* ic_mardilogo.png in Resources */,
 				B71AD02E1F833708008DA4AF /* padikebangsaan.jpg in Resources */,
 				B7C5FFC31F98510B00DB252D /* ic_plus.png in Resources */,
+				B7601E4A1FA1C09F007670C9 /* ic_userdef.png in Resources */,
 				B7C8AF431F8DD1FB0097597F /* ic_default.png in Resources */,
 				B7C5FFCE1F9D981500DB252D /* ic_sendmsg.png in Resources */,
 				9E49FCC21F8E3F1F001006A5 /* ErrorCell.xib in Resources */,
@@ -558,9 +577,26 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MardiKomunitiIOS/Pods-MardiKomunitiIOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BSGridCollectionViewLayout/BSGridCollectionViewLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/DTZFloatingActionButton/DTZFloatingActionButton.framework",
+				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/PlainPing/PlainPing.framework",
+				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSGridCollectionViewLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTZFloatingActionButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlainPing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -588,13 +624,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MardiKomunitiIOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -641,6 +680,7 @@
 				B712FAD41F90AA42003A873F /* CreateAnnouncementTVCell.swift in Sources */,
 				9E6B45811F98912200EDB928 /* AplikasiName.swift in Sources */,
 				B7C8AF171F8342630097597F /* PengumumanDetailsTVC.swift in Sources */,
+				B7D6727F1FA17ABC00F916EF /* CustomView.swift in Sources */,
 				9E49FCBF1F8DF90A001006A5 /* Respond.swift in Sources */,
 				9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */,
 				9EC60DF11F8738A100E056EF /* ProjectTVC.swift in Sources */,

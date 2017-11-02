@@ -8,15 +8,16 @@
 
 import UIKit
 import NVActivityIndicatorView
+import Kingfisher
 
 class PengumumanTVCell: UITableViewCell {
 
-    @IBOutlet weak var uivPVCNPBackGround: UIView!
+    @IBOutlet weak var uivPVCNPBackGround: CustomView!
     @IBOutlet weak var uilPVCNPTitle: UILabel!
     @IBOutlet weak var uilPVCNPDesc: UILabel!
     
     
-    @IBOutlet weak var uivPVCWPBackGround: UIView!
+    @IBOutlet weak var uivPVCWPBackGround: CustomView!
     @IBOutlet weak var uiivPVCWPImage: UIImageView!
     @IBOutlet weak var uilPVCWPTitle: UILabel!
     @IBOutlet weak var uilPVCWPDesc: UILabel!
@@ -33,23 +34,41 @@ class PengumumanTVCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func updateImageCell(data: NSDictionary) {
+    func updateImageCell(data: NSDictionary, tableView: UITableView, indexPath: IndexPath) {
         
         let getFirstImageArray: NSArray = data.value(forKey: "ARTICLE_IMAGE") as! NSArray
         let getFirstImageDict: NSDictionary = getFirstImageArray.object(at: 0) as! NSDictionary
         let getFirstImageString: String = String.checkStringValidity(data: getFirstImageDict.value(forKey: "name"), defaultValue: "ic_default.png")
         let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString)
         
-        ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: uiivPVCWPImage, imageViewConstraints: nil)
+        let cachedImage: NSArray? = data.value(forKey: "ARTICLE_CACHED_IMAGE") as? NSArray
+        let getFirstCachedImage: UIImage? = cachedImage?.object(at: 0) as? UIImage
+        /*
+        DispatchQueue.main.async {
+            
+            let updatedCell = tableView.cellForRow(at: indexPath) as? Any
+            
+            if(updatedCell != nil) {
+                ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: self.uiivPVCWPImage, imageViewConstraints: nil)
+            }
+        }
+        */
+        let loadImageToURL: URL = URL.init(string: getFirstImage)!
+        self.uiivPVCWPImage.kf.setImage(with: loadImageToURL)
+        
+        
+        //uiivPVCWPImage.image = getFirstCachedImage
         uilPVCWPTitle.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_TITLE"), defaultValue: "Data Kosong")
         uilPVCWPDesc.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_CONTENT"), defaultValue: "Data Kosong")
         uivPVCWPBackGround.layer.backgroundColor = UIColor.init(red: 221.0/255.0, green: 221.0/255.0, blue: 221.0/255.0, alpha: 1.0).cgColor
         uivPVCWPBackGround.layer.cornerRadius = 3.0
+        //uivPVCWPBackGround.defaultDropShadow(scale: true)
     }
     
     func updateCell(data: NSDictionary) {
         
         uivPVCNPBackGround.layer.backgroundColor = UIColor.init(red: 221.0/255.0, green: 221.0/255.0, blue: 221.0/255.0, alpha: 1.0).cgColor
+        //uivPVCNPBackGround.defaultDropShadow()
         uivPVCNPBackGround.layer.cornerRadius = 3.0
         uilPVCNPTitle.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_TITLE"), defaultValue: "Data Kosong")
         uilPVCNPDesc.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_CONTENT"), defaultValue: "Data Kosong")

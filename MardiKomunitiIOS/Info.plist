@@ -12,6 +12,15 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
+			<key>myagro.app</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+				<key>NSTemporaryExceptionMinimumTLSVersion</key>
+				<string>TLSv1.1</string>
+			</dict>
 			<key>myagro.myapp.my</key>
 			<dict>
 				<key>NSIncludesSubdomains</key>

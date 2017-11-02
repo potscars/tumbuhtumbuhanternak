@@ -30,6 +30,8 @@ class PengumumanDetailsTVC: UITableViewController {
         ZGraphics.hideTableSeparatorAfterLastCell(tableView: self.tableView)
         
         self.getImageArray = detailsData.value(forKey: "ARTICLE_IMAGE") as? NSArray ?? []
+        
+        print("article image: \(self.getImageArray)")
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +69,7 @@ class PengumumanDetailsTVC: UITableViewController {
             // Configure the cell...
             self.updatingImage = false
             cell.updateSenderInfo(data: detailsData.value(forKey: "ARTICLE_SENDER") as? NSDictionary ?? [:])
+            cell.tag = indexPath.row
 
             return cell
         }
@@ -76,8 +79,9 @@ class PengumumanDetailsTVC: UITableViewController {
             let imageArray: NSArray = detailsData.value(forKey: "ARTICLE_IMAGE") as! NSArray
         
             // Configure the cell...
-            cell.updateSenderImage(data: imageArray, tableView: self.tableView)
+            cell.updateSenderImage(data: imageArray, tableView: self.tableView, indexPath: indexPath)
             self.updatingImage = true
+            cell.tag = indexPath.row
             
             return cell
         }
@@ -87,6 +91,7 @@ class PengumumanDetailsTVC: UITableViewController {
             // Configure the cell...
             cell.updateDescriptions(data: detailsData)
             self.updatingImage = false
+            cell.tag = indexPath.row
             
             return cell
         }
