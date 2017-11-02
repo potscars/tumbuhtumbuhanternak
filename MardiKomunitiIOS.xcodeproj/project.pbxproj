@@ -828,7 +828,7 @@
 				INFOPLIST_FILE = MardiKomunitiIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ingeniworks.mmyagroi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ingeniworks.myagroios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -844,7 +844,7 @@
 				INFOPLIST_FILE = MardiKomunitiIOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ingeniworks.mmyagroi;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ingeniworks.myagroios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

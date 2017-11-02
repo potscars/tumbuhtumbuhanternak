@@ -599,8 +599,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projekCell" rowHeight="83" id="vZc-Wo-noq" customClass="ProjekCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="83"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projekCell" rowHeight="84" id="vZc-Wo-noq" customClass="ProjekCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vZc-Wo-noq" id="xDc-cF-799">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="82.5"/>
@@ -621,13 +621,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Adam Levine, Terry Crews, Steve Austion, Dwayne Johnson, Mark Wehlberg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ovB-gP-Dgn">
-                                            <rect key="frame" x="72" y="41" width="295" height="31.5"/>
+                                            <rect key="frame" x="72" y="41" width="295" height="33.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Ky-gZ-HhF">
-                                            <rect key="frame" x="16" y="81" width="343" height="1"/>
+                                            <rect key="frame" x="16" y="82.5" width="343" height="1"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="uNo-uT-i0O"/>
@@ -2177,8 +2177,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projekCell" rowHeight="83" id="802-xU-lQc" customClass="ProjekCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="83"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="projekCell" rowHeight="84" id="802-xU-lQc" customClass="ProjekCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="84"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="802-xU-lQc" id="aQ7-Mu-xlA">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="82.5"/>
@@ -2199,13 +2199,13 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Adam Levine, Terry Crews, Steve Austion, Dwayne Johnson, Mark Wehlberg" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e0U-yq-I0R">
-                                            <rect key="frame" x="72" y="41" width="295" height="31.5"/>
+                                            <rect key="frame" x="72" y="41" width="295" height="33.5"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vkY-sK-z9d">
-                                            <rect key="frame" x="16" y="81" width="343" height="1"/>
+                                            <rect key="frame" x="16" y="82.5" width="343" height="1"/>
                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="1" id="WKH-Oy-NML"/>
