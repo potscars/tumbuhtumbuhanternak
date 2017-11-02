@@ -20,6 +20,7 @@
 		9E0552E31F84EBF1002BA0E0 /* MembersCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0552E21F84EBF1002BA0E0 /* MembersCollectionCell.xib */; };
 		9E0552E51F84EDB6002BA0E0 /* MessageDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0552E41F84EDB6002BA0E0 /* MessageDetailsVC.swift */; };
 		9E0552E71F84FD6F002BA0E0 /* MessageDetailsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0552E61F84FD6F002BA0E0 /* MessageDetailsExtension.swift */; };
+		9E11F1851FAAF75A00489653 /* AplikasiKategoriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E11F1841FAAF75A00489653 /* AplikasiKategoriVC.swift */; };
 		9E4462441F7E374700F82591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4462431F7E374700F82591 /* AppDelegate.swift */; };
 		9E4462461F7E374700F82591 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4462451F7E374700F82591 /* ViewController.swift */; };
 		9E4462491F7E374700F82591 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4462471F7E374700F82591 /* Main.storyboard */; };
@@ -109,6 +110,7 @@
 		9E0552E21F84EBF1002BA0E0 /* MembersCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MembersCollectionCell.xib; sourceTree = "<group>"; };
 		9E0552E41F84EDB6002BA0E0 /* MessageDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailsVC.swift; sourceTree = "<group>"; };
 		9E0552E61F84FD6F002BA0E0 /* MessageDetailsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailsExtension.swift; sourceTree = "<group>"; };
+		9E11F1841FAAF75A00489653 /* AplikasiKategoriVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AplikasiKategoriVC.swift; sourceTree = "<group>"; };
 		9E4462401F7E374700F82591 /* MardiKomunitiIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MardiKomunitiIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E4462431F7E374700F82591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E4462451F7E374700F82591 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 				9E58847D1F8215D2001EDA2E /* AplikasiCell.swift */,
 				9E6B45801F98912200EDB928 /* AplikasiName.swift */,
 				B7C5FFC71F99E00300DB252D /* AplikasiBerkaitanNC.swift */,
+				9E11F1841FAAF75A00489653 /* AplikasiKategoriVC.swift */,
 			);
 			name = AplikasiBerkaitan;
 			sourceTree = "<group>";
@@ -558,9 +561,22 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MardiKomunitiIOS/Pods-MardiKomunitiIOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BSGridCollectionViewLayout/BSGridCollectionViewLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/DTZFloatingActionButton/DTZFloatingActionButton.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/PlainPing/PlainPing.framework",
+				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSGridCollectionViewLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTZFloatingActionButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlainPing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -588,13 +604,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MardiKomunitiIOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -661,6 +680,7 @@
 				B7C8AF1E1F83843C0097597F /* InfoPenggunaTVC.swift in Sources */,
 				B7C8AF191F8342770097597F /* PengumumanDetailsTVCell.swift in Sources */,
 				9E0552CE1F84972A002BA0E0 /* MessageInboxCell.swift in Sources */,
+				9E11F1851FAAF75A00489653 /* AplikasiKategoriVC.swift in Sources */,
 				B7C8AF2B1F85EC510097597F /* Connectivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
