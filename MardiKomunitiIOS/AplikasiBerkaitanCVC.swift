@@ -17,7 +17,7 @@ private struct AplikasiIdentifier {
 class AplikasiBerkaitanCVC: UICollectionViewController {
     
     var alertController = AlertController()
-    let aplikasiObject: [(String, UIImage, Int?, String)] = [("MyAgro Fertigasi Tomato", #imageLiteral(resourceName: "fertigasitomato.jpg"), 1055891350, "Tanaman"),
+    var aplikasiObject: [(String, UIImage, Int?, String)] = [("MyAgro Fertigasi Tomato", #imageLiteral(resourceName: "fertigasitomato.jpg"), 1055891350, "Tanaman"),
                          ("MyAgro Buah Nadir", #imageLiteral(resourceName: "buahnadir.jpg"), 1179623848, "Tanaman"),
                          ("MyAgro Padi Aerob", #imageLiteral(resourceName: "padiaerob"), 956071438, "Tanaman"),
                          ("MyAgro Dr Cili", #imageLiteral(resourceName: "drcili"), 953004069, "Tanaman"),
@@ -60,6 +60,8 @@ class AplikasiBerkaitanCVC: UICollectionViewController {
         
         self.navigationItem.title = "Aplikasi Berkaitan"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "X", style: UIBarButtonItemStyle.plain, target: self, action: #selector(closeThisWindow(sender:)))
+        
+        aplikasiObject = aplikasiObject.sorted(by:{ $0.0 < $1.0 })
         
         //configureNavigationBar()
         configureCollectionView()
