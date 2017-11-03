@@ -57,8 +57,7 @@ class PengumumanDetailsTVCell: UITableViewCell {
             
         self.uiivPDTVCArticleImage.image = #imageLiteral(resourceName: "ic_default.png")
         let loadImageToURL: URL = URL.init(string: getFirstImage)!
-        self.uiivPDTVCArticleImage.kf.setImage(with: loadImageToURL)
- 
+        self.uiivPDTVCArticleImage.kf.setImage(with: loadImageToURL, placeholder: #imageLiteral(resourceName: "ic_default.png"))
     }
     
     func updateDescriptions(data: NSDictionary) {

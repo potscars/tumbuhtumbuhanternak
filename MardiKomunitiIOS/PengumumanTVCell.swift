@@ -54,7 +54,7 @@ class PengumumanTVCell: UITableViewCell {
         }
         */
         let loadImageToURL: URL = URL.init(string: getFirstImage)!
-        self.uiivPVCWPImage.kf.setImage(with: loadImageToURL)
+        self.uiivPVCWPImage.kf.setImage(with: loadImageToURL, placeholder: #imageLiteral(resourceName: "ic_default.png"))
         
         
         //uiivPVCWPImage.image = getFirstCachedImage
