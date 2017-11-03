@@ -45,7 +45,7 @@ class AfterLoginVC: UITabBarController {
     func configureNavigationBar() {
         
         let titleLabel = UILabel()
-        titleLabel.text = "MYAgro"
+        titleLabel.text = "m@MYAgro"
         titleLabel.textColor = .white
         titleLabel.font = UIFont(name: "Futura-Bold", size: 14.0)!
         titleLabel.sizeToFit()
