@@ -30,8 +30,6 @@ class PengumumanDetailsTVC: UITableViewController {
         ZGraphics.hideTableSeparatorAfterLastCell(tableView: self.tableView)
         
         self.getImageArray = detailsData.value(forKey: "ARTICLE_IMAGE") as? NSArray ?? []
-        
-        print("article image: \(self.getImageArray)")
     }
 
     override func didReceiveMemoryWarning() {
