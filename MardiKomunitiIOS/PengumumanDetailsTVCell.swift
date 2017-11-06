@@ -64,6 +64,8 @@ class PengumumanDetailsTVCell: UITableViewCell {
         
         uilPDTVCArticleFullDesc.text = String.init(format: "%@", data.value(forKey: "ARTICLE_CONTENT") as? String ?? "Data Tiada")
         
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad { uilPDTVCArticleFullDesc.font = UIFont.systemFont(ofSize: 20.0) }
+        
     }
     
 }

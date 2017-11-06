@@ -7,7 +7,7 @@ target 'MardiKomunitiIOS' do
 
   # Pods for MardiKomunitiIOS
 
-pod 'NVActivityIndicatorView'
+pod 'NVActivityIndicatorView', '~> 3.7.0'
 pod 'PlainPing'
 pod 'DTZFloatingActionButton'
 pod 'BSImagePicker', '~> 2.6.0'

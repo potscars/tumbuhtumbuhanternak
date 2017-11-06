@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
+	<key>CFBundleDisplayName</key>
+	<string>m@MYAgro</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -36,15 +38,15 @@
 				<string>TLSv1.1</string>
 			</dict>
 		</dict>
-        <key>myagro.myapp.my</key>
-        <dict>
-            <key>NSIncludesSubdomains</key>
-            <true/>
-            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-            <true/>
-            <key>NSTemporaryExceptionMinimumTLSVersion</key>
-            <string>TLSv1.1</string>
-        </dict>
+		<key>myagro.myapp.my</key>
+		<dict>
+			<key>NSIncludesSubdomains</key>
+			<true/>
+			<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+			<true/>
+			<key>NSTemporaryExceptionMinimumTLSVersion</key>
+			<string>TLSv1.1</string>
+		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Untuk penggunaan kamera, kebenaran anda untuk penggunaan sistem kamera diperlukan.</string>
@@ -58,6 +60,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

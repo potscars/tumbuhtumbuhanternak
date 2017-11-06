@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F21151037B792CC5B65EFA7B3A818BFC"
-               BuildableName = "Pods-MardiKomunitiIOS"
+               BuildableName = "Pods_MardiKomunitiIOS.framework"
                BlueprintName = "Pods-MardiKomunitiIOS"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
@@ -48,7 +48,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "F21151037B792CC5B65EFA7B3A818BFC"
-            BuildableName = "Pods-MardiKomunitiIOS"
+            BuildableName = "Pods_MardiKomunitiIOS.framework"
             BlueprintName = "Pods-MardiKomunitiIOS"
             ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
