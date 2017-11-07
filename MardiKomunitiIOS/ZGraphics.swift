@@ -108,7 +108,7 @@ class ZGraphics: NSObject {
         
         for nameWord in nameWords {
             
-            if let firstWord = nameWord.characters.first {
+            if let firstWord = nameWord.first {
                 nameTemp += "\(firstWord)"
             }
         }

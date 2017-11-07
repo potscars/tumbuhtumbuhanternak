@@ -1511,7 +1511,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SJK-dr-5Rx">
-                                <rect key="frame" x="20" y="721" width="728" height="191"/>
+                                <rect key="frame" x="20" y="578" width="728" height="334"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="m@MYAgro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U6q-XI-1BJ">
                                         <rect key="frame" x="8" y="8" width="712" height="21"/>
@@ -1553,22 +1553,28 @@
                                     <constraint firstAttribute="trailing" secondItem="U6q-XI-1BJ" secondAttribute="trailing" constant="8" id="xs0-dP-rCe"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_mardilogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="g8w-i0-Uvh">
-                                <rect key="frame" x="102" y="105" width="564" height="564"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_mardilogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="g8w-i0-Uvh">
+                                <rect key="frame" x="102" y="214" width="564" height="264"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="g8w-i0-Uvh" secondAttribute="height" multiplier="1:1" id="EJd-sq-X3m"/>
+                                    <constraint firstAttribute="width" secondItem="g8w-i0-Uvh" secondAttribute="height" multiplier="1:1" id="EJd-sq-X3m">
+                                        <variation key="heightClass=regular-widthClass=regular" constant="300"/>
+                                    </constraint>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="SJK-dr-5Rx" firstAttribute="top" secondItem="g8w-i0-Uvh" secondAttribute="bottom" constant="52" id="2r7-TU-3R0"/>
+                            <constraint firstItem="SJK-dr-5Rx" firstAttribute="top" secondItem="g8w-i0-Uvh" secondAttribute="bottom" constant="52" id="2r7-TU-3R0">
+                                <variation key="heightClass=regular-widthClass=regular" constant="100"/>
+                            </constraint>
                             <constraint firstItem="SJK-dr-5Rx" firstAttribute="trailing" secondItem="JGi-5M-eDM" secondAttribute="trailingMargin" id="6It-zX-sdf"/>
                             <constraint firstItem="g8w-i0-Uvh" firstAttribute="leading" secondItem="JGi-5M-eDM" secondAttribute="leadingMargin" constant="82" id="Pof-gW-W6Q"/>
                             <constraint firstAttribute="trailingMargin" secondItem="g8w-i0-Uvh" secondAttribute="trailing" constant="82" id="Zm0-ED-5Y4"/>
                             <constraint firstItem="SJK-dr-5Rx" firstAttribute="leading" secondItem="JGi-5M-eDM" secondAttribute="leadingMargin" id="lIk-pi-msh"/>
                             <constraint firstItem="iNi-fx-xWA" firstAttribute="top" secondItem="SJK-dr-5Rx" secondAttribute="bottom" constant="112" id="tgw-qZ-gPT"/>
-                            <constraint firstItem="g8w-i0-Uvh" firstAttribute="top" secondItem="ade-7o-Lbc" secondAttribute="bottom" constant="41" id="yhO-3W-WJg"/>
+                            <constraint firstItem="g8w-i0-Uvh" firstAttribute="top" secondItem="ade-7o-Lbc" secondAttribute="bottom" constant="41" id="yhO-3W-WJg">
+                                <variation key="heightClass=regular-widthClass=regular" constant="150"/>
+                            </constraint>
                         </constraints>
                     </view>
                     <connections>
