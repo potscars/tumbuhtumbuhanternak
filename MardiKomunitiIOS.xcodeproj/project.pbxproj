@@ -23,6 +23,7 @@
 		9E11F1851FAAF75A00489653 /* AplikasiKategoriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E11F1841FAAF75A00489653 /* AplikasiKategoriVC.swift */; };
 		9E11F18C1FAB383900489653 /* padikebangsaan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */; };
 		9E11F18D1FAB383900489653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E44624A1F7E374700F82591 /* Assets.xcassets */; };
+		9E2796551FDA958A00B55F4C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9E2796541FDA958A00B55F4C /* GoogleService-Info.plist */; };
 		9E4462441F7E374700F82591 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4462431F7E374700F82591 /* AppDelegate.swift */; };
 		9E4462461F7E374700F82591 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E4462451F7E374700F82591 /* ViewController.swift */; };
 		9E4462491F7E374700F82591 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E4462471F7E374700F82591 /* Main.storyboard */; };
@@ -114,6 +115,7 @@
 		9E0552E41F84EDB6002BA0E0 /* MessageDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailsVC.swift; sourceTree = "<group>"; };
 		9E0552E61F84FD6F002BA0E0 /* MessageDetailsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailsExtension.swift; sourceTree = "<group>"; };
 		9E11F1841FAAF75A00489653 /* AplikasiKategoriVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AplikasiKategoriVC.swift; sourceTree = "<group>"; };
+		9E2796541FDA958A00B55F4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E4462401F7E374700F82591 /* MardiKomunitiIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MardiKomunitiIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E4462431F7E374700F82591 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E4462451F7E374700F82591 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +274,7 @@
 				9E4462471F7E374700F82591 /* Main.storyboard */,
 				9E44624A1F7E374700F82591 /* Assets.xcassets */,
 				9E44624C1F7E374700F82591 /* LaunchScreen.storyboard */,
+				9E2796541FDA958A00B55F4C /* GoogleService-Info.plist */,
 				9E44624F1F7E374700F82591 /* Info.plist */,
 			);
 			path = MardiKomunitiIOS;
@@ -505,8 +508,14 @@
 						DevelopmentTeam = 6CSE68LD7S;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.Keychain = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 							com.apple.iCloud = {
 								enabled = 1;
@@ -542,6 +551,7 @@
 				B712FACE1F8F9A29003A873F /* ic_phone.png in Resources */,
 				9E44624E1F7E374700F82591 /* LaunchScreen.storyboard in Resources */,
 				B7C8AF3B1F8CAF9B0097597F /* ic_cog.png in Resources */,
+				9E2796551FDA958A00B55F4C /* GoogleService-Info.plist in Resources */,
 				B7C8AF3F1F8CBFEE0097597F /* ic_info_black.png in Resources */,
 				9E0552E31F84EBF1002BA0E0 /* MembersCollectionCell.xib in Resources */,
 				9E49FCCB1F8E6CD4001006A5 /* ProjectMembersCell.xib in Resources */,
@@ -583,10 +593,13 @@
 				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/DTZFloatingActionButton/DTZFloatingActionButton.framework",
 				"${BUILT_PRODUCTS_DIR}/Floaty/Floaty.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/PlainPing/PlainPing.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -594,10 +607,13 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DTZFloatingActionButton.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Floaty.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PlainPing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -109,7 +109,8 @@ class LoginProcessVC: UIViewController {
             
             if let data = data as? NSArray {
                 print("NSArray")
-                UserDefaults.standard.set(data, forKey: userDefaultsKeyString)
+                let dataKeyArchived = NSKeyedArchiver.archivedData(withRootObject: data)
+                UserDefaults.standard.set(dataKeyArchived, forKey: userDefaultsKeyString)
             }
             
             if let data = data as? Data {

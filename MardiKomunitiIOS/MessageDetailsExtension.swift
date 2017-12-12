@@ -11,7 +11,6 @@ import UIKit
 extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return sectionHeader.count
     }
     
@@ -24,13 +23,6 @@ extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
         if section == 0 {
             return 2
         } else {
-            
-//            if isFetched {
-//                let count = respondData.count > 0 ? respondData.count : 1
-//                return count
-//            } else {
-//                return respondData.count
-//            }
             let count = respondData.count > 0 ? respondData.count : 1
             return count
         }
@@ -88,8 +80,12 @@ extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
         if let cell = cell as? MembersCell {
             cell.collectionView.dataSource = self
             cell.collectionView.delegate = self
-            spinner = LoadingSpinner.init(view: cell.contentView, isNavBar: false)
-            spinner.startSpinner()
+            
+            if isFirstTimeLoadMembersCell {
+                isFirstTimeLoadMembersCell = !isFirstTimeLoadMembersCell
+                spinner = LoadingSpinner.init(view: cell.contentView, isNavBar: false)
+                spinner.startSpinner()
+            }
         }
     }
     
@@ -137,3 +133,8 @@ extension MessageDetailsVC : UICollectionViewDataSource, UICollectionViewDelegat
         return CGSize(width: 90.0, height: (140.0 - 8))
     }
 }
+
+
+
+
+

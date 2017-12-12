@@ -28,11 +28,15 @@ class MessageDetailsVC: UIViewController {
     
     var spinner: LoadingSpinner!
     var tableViewSpinner: LoadingSpinner!
+    var isFirstTimeLoadMembersCell = true
     let alertController = AlertController()
+    var commentPlaceHolder = "Tulis sesuatu.."
+    var placeHolderLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        configureTextviewPlaceholder()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -50,7 +54,7 @@ class MessageDetailsVC: UIViewController {
             guard let respondResult = result else { return; }
             
             DispatchQueue.main.async {
-                self.respondersName = respondersName!
+                self.respondersName = (respondersName?.filterDuplicates { $0 == $1 })!
                 self.respondData = respondResult
                 self.isFetched = true
                 
@@ -74,10 +78,7 @@ class MessageDetailsVC: UIViewController {
     func configureTextview() {
         
         replyTextView.delegate = self
-        replyTextView.circledView(replyTextView.frame.height)
-        
-        replyTextView.text = "Comment.."
-        replyTextView.textColor = .lightGray
+        replyTextView.roundedCorners(3.0)
     }
     
     func registerObserver() {
@@ -86,7 +87,8 @@ class MessageDetailsVC: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    deinit {
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self)
     }
     
@@ -94,7 +96,7 @@ class MessageDetailsVC: UIViewController {
         
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
+        //tableView.contentInset = UIEdgeInsetsMake(0, 0, 50, 0)
         tableView.separatorStyle = .none
         
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -106,6 +108,23 @@ class MessageDetailsVC: UIViewController {
         registerCellNib("ContentCell", identifier: MessageIdentifier.MessageContentCell)
         registerCellNib("RepliedCell", identifier: MessageIdentifier.MessageRepliedCell)
         registerCellNib("ErrorCell", identifier: MessageIdentifier.MessageErrorCell)
+    }
+    
+    func configureTextviewPlaceholder() {
+        
+        replyTextView.text = ""
+        replyTextView.textColor = .black
+        
+        //buat label, untuk hold text act as placeholder.
+        replyTextView.delegate = self
+        placeHolderLabel = UILabel()
+        placeHolderLabel.text = "Tulis sesuatu..."
+        placeHolderLabel.font = UIFont.italicSystemFont(ofSize: (replyTextView.font?.pointSize)!)
+        placeHolderLabel.sizeToFit()
+        replyTextView.addSubview(placeHolderLabel)
+        placeHolderLabel.frame.origin = CGPoint(x: 5, y: (replyTextView.font?.pointSize)! / 2)
+        placeHolderLabel.textColor = UIColor.lightGray
+        placeHolderLabel.isHidden = !replyTextView.text.isEmpty
     }
     
     func registerCellNib(_ name: String, identifier: String) {
@@ -123,7 +142,7 @@ class MessageDetailsVC: UIViewController {
         let networkProcessor = NetworkProcessor.init(URLs.sendConversationRespondURL)
         
         
-        if replyTextView.textColor != .lightGray && !(messageText?.isEmpty)! && messageText != ""{
+        if !(messageText?.isEmpty)! && messageText != ""{
             print("Sent")
             
             let params = ["token" : token,
@@ -153,19 +172,19 @@ class MessageDetailsVC: UIViewController {
     }
     
     func keyboardWillShow(_ notification: NSNotification) {
-        
+
         var userInfo = notification.userInfo
         if let keyboardFrame = (userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardHeight = keyboardFrame.height
-            
-            UIView.animate(withDuration: 0.5, animations: { 
+
+            UIView.animate(withDuration: 0.5, animations: {
                 self.replyCommentView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight)
             })
         }
     }
-    
+
     func keyboardWillHide(_ notification: NSNotification) {
-        
+
         UIView.animate(withDuration: 0.5, animations: {
             self.replyCommentView.transform = .identity
         })
@@ -174,25 +193,8 @@ class MessageDetailsVC: UIViewController {
 
 extension MessageDetailsVC : UITextViewDelegate {
     
-    func textViewDidBeginEditing(_ textView: UITextView) {
-        
-        if replyTextView.textColor == .lightGray {
-            replyTextView.text = nil
-            replyTextView.textColor = .black
-        }
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        
-        if replyTextView.text.characters.count <= 0 {
-            
-            replyTextView.textColor = .lightGray
-            replyTextView.text = "Comment.."
-        }
-    }
-    
     func textViewDidChange(_ textView: UITextView) {
-        
+        placeHolderLabel.isHidden = !replyTextView.text.isEmpty
         expandAndShrinkingTheContentView()
     }
     

@@ -69,7 +69,7 @@ class RepliedCell: UITableViewCell {
         } else if components.hour! > 0 {
             return postedDateInTime
         } else if components.minute! > 1 {
-            return "\(components.minute!) minutes ago"
+            return "\(components.minute!)m ago"
         } else {
             return "Just Now"
         }

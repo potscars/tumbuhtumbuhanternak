@@ -50,7 +50,7 @@ class Respond {
                 var enNameTemp = "Rocky Balboa"
                 var resNameTemp = "Kim Byung Man"
                 var resMessageTemp: String?
-                var resCaptionTemp: String?
+                var resCaptionTemp: String? = "Tiada data."
                 var resPostedDateTemp: String?
                 var conPostedDateTemp: String?
                 var resNamesTemp = [String]()
@@ -104,6 +104,11 @@ class Respond {
                             
                             if let address = user["address"] as? NSDictionary, let district = address["district"] as? NSDictionary, let districtName = district["name"] as? String {
                                 resCaptionTemp = districtName
+                            }
+                            
+                            //data ni ada kat myagro-dev je
+                            if let agency = engage["agency"] as? [String: Any], let name = agency["name"] as? String {
+                                resCaptionTemp = name
                             }
                         }
                         

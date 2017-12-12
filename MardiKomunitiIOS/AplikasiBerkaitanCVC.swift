@@ -117,6 +117,8 @@ extension AplikasiBerkaitanCVC {
         default:
             assert(false, "Unexpected element kind")
         }
+        
+        return UICollectionReusableView()
     }
     
     func headerTextWithImage(_ headerTitle: String, textLabel: UILabel) {

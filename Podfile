@@ -13,5 +13,7 @@ pod 'DTZFloatingActionButton'
 pod 'BSImagePicker', '~> 2.6.0'
 pod 'Floaty', '~> 3.0.1'
 pod 'Kingfisher', '~> 3.13.1'
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
 
 end

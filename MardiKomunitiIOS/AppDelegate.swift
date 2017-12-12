@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import UserNotifications
+import Firebase
+import FirebaseMessaging
 
 extension UIImage{
     
@@ -134,14 +137,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.shared.statusBarStyle = .lightContent
         
+        // Use Firebase library to configure APIs
+        FirebaseApp.configure()
+        self.registerForPushNotifications(application: application)
+        Messaging.messaging().delegate = self
+        
+        if let token = InstanceID.instanceID().token() {
+            NSLog("FCM TOKEN : \(token)")
+            self.connectToFcm()
+        }
+        
+        application.registerForRemoteNotifications()
+        
         self.navigationBar()
-        
-        UITabBar.appearance().barTintColor = Colors.mainGreen
-        UITabBar.appearance().tintColor = UIColor.white
-        
-        let attributes: [String : Any] = [ NSFontAttributeName: UIFont(name: "Futura-Bold", size: 12.0)!]
-        UITabBarItem.appearance().setTitleTextAttributes(attributes, for: .normal)
-        UITabBarItem.appearance().titlePositionAdjustment.vertical = -15
         
         return true
     }
@@ -149,10 +157,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     static func switchingURL() -> String {
         
         if(developmentMode == true) {
-            return "http://myagro.myapp.my" //development URL
+            return "http://myagro-dev.myapp.my" //development URL
         }
         else {
-            return "" //production URL
+            return "http://myagro.myapp.my" //production URL
         }
         
     }
@@ -165,6 +173,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         UINavigationBar.appearance().shadowImage = UIImage()
+        
+        UITabBar.appearance().barTintColor = Colors.mainGreen
+        UITabBar.appearance().tintColor = UIColor.white
+        
+        let attributes: [String : Any] = [ NSFontAttributeName: UIFont(name: "Futura-Bold", size: 12.0)!]
+        UITabBarItem.appearance().setTitleTextAttributes(attributes, for: .normal)
+        UITabBarItem.appearance().titlePositionAdjustment.vertical = -15
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -188,7 +203,92 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    //Register for push notification.
+    func registerForPushNotifications(application: UIApplication) {
+        if #available(iOS 10.0, *) {
+            let center  = UNUserNotificationCenter.current()
+            center.delegate = self
+            center.requestAuthorization(options: [.alert,.sound]) { (granted, error) in
+                if error == nil{
+                    DispatchQueue.main.async(execute: {
+                        application.registerForRemoteNotifications()
+                    })
+                }
+            }
+        }
+        else {
+            
+            let settings = UIUserNotificationSettings(types: [.alert,.sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+            application.registerForRemoteNotifications()
+        }
+        
+        // Add observer for InstanceID token refresh callback.
+        NotificationCenter.default.addObserver(self, selector: #selector(self.tokenRefreshNotification), name: NSNotification.Name.InstanceIDTokenRefresh, object: nil)
+        
+    }
+    
+    @objc func tokenRefreshNotification(_ notification: Notification) {
+        print(#function)
+        if let refreshedToken = InstanceID.instanceID().token() {
+            NSLog("Notification: refresh token from FCM -> \(refreshedToken)")
+            
+        }
+        // Connect to FCM since connection may have failed when attempted before having a token.
+        connectToFcm()
+    }
+    
+    func connectToFcm() {
+        // Won't connect since there is no token
+        guard InstanceID.instanceID().token() != nil else {
+            NSLog("FCM: Token does not exist.")
+            return
+        }
+        
+        Messaging.messaging().shouldEstablishDirectChannel = true
+    }
 }
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    // iOS10+, called when presenting notification in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        NSLog("[UserNotificationCenter] willPresentNotification: \(userInfo)")
+        //TODO: Handle foreground notification
+        completionHandler([.alert])
+    }
+    
+    // iOS10+, called when received response (default open, dismiss or custom action) for a notification
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        NSLog("[UserNotificationCenter] didReceiveResponse: \(userInfo)")
+        //TODO: Handle background notification
+        completionHandler()
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    
+    //MARK: FCM Token Refreshed
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        NSLog("[RemoteNotification] didRefreshRegistrationToken: \(fcmToken)")
+    }
+    
+    // Receive data message on iOS 10 devices while app is in the foreground.
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        NSLog("remoteMessage: \(remoteMessage.appData)")
+    }
+}
+
+
+
+
+
+
+
+
+
+
 

@@ -49,3 +49,32 @@ extension UIColor {
         return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
     }
 }
+
+extension Array {
+    
+    func filterDuplicates(includeElement: @escaping (_ lhs: Element, _ rhs: Element) -> Bool) -> [Element] {
+        
+        var results = [Element]()
+        
+        forEach { (element) in
+            
+            let existingElements = results.filter {
+                return includeElement(element, $0)
+            }
+            
+            if existingElements.count == 0 {
+                results.append(element)
+            }
+        }
+        return results
+    }
+}
+
+
+
+
+
+
+
+
+

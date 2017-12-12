@@ -1,21 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="repliedCell" rowHeight="131" id="uMi-eX-6QP" customClass="RepliedCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="repliedCell" rowHeight="129" id="uMi-eX-6QP" customClass="RepliedCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uMi-eX-6QP" id="yGo-vr-tEw">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="131"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="128.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="B7Z-es-T1j">
@@ -25,63 +25,60 @@
                             <constraint firstAttribute="height" constant="40" id="VbG-IC-2e0"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="uDF-PA-ZuL">
-                        <rect key="frame" x="56" y="8" width="311" height="17"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seo Chan Hee" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvL-Hz-dLA">
-                                <rect key="frame" x="0.0" y="0.0" width="231" height="17"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017/02/28" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4Z-aZ-PE4">
-                                <rect key="frame" x="231" y="0.0" width="80" height="17"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="Kiq-aS-Ahx"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seo Chan Hee" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PvL-Hz-dLA">
+                        <rect key="frame" x="56" y="8" width="231" height="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2017/02/28" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4Z-aZ-PE4">
+                        <rect key="frame" x="287" y="8" width="80" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="uYi-2g-vZw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="seo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-Um-Jax">
-                        <rect key="frame" x="56" y="29" width="311" height="12"/>
+                        <rect key="frame" x="56" y="27" width="311" height="12"/>
                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8F2-Wu-J7p">
-                        <rect key="frame" x="56" y="49" width="311" height="72"/>
-                        <string key="text">The police officer tells Jong-goo of what he saw, and hands over a shoe which belongs to Jong-goo's daughter, Hyo-jin. Soon, Hyo-jin becomes sick and displays similar symptoms as the other infected villagers.</string>
-                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DYd-d1-jJy">
-                        <rect key="frame" x="16" y="129" width="343" height="1"/>
+                        <rect key="frame" x="16" y="127.5" width="343" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="vvk-Zp-fZJ"/>
                         </constraints>
                     </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8F2-Wu-J7p">
+                        <rect key="frame" x="56" y="47" width="311" height="72"/>
+                        <string key="text">The police officer tells Jong-goo of what he saw, and hands over a shoe which belongs to Jong-goo's daughter, Hyo-jin. Soon, Hyo-jin becomes sick and displays similar symptoms as the other infected villagers.\</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="DYd-d1-jJy" firstAttribute="leading" secondItem="yGo-vr-tEw" secondAttribute="leading" constant="16" id="0Ks-hz-VUO"/>
+                    <constraint firstItem="i4Z-aZ-PE4" firstAttribute="leading" secondItem="PvL-Hz-dLA" secondAttribute="trailing" id="6AF-3d-pY5"/>
                     <constraint firstItem="B7Z-es-T1j" firstAttribute="top" secondItem="yGo-vr-tEw" secondAttribute="top" constant="8" id="7Ey-5y-9Oc"/>
-                    <constraint firstAttribute="trailing" secondItem="o1f-Um-Jax" secondAttribute="trailing" constant="8" id="9zY-Fv-g6e"/>
-                    <constraint firstItem="DYd-d1-jJy" firstAttribute="top" secondItem="8F2-Wu-J7p" secondAttribute="bottom" constant="8" id="M5h-b5-dOz"/>
-                    <constraint firstItem="uDF-PA-ZuL" firstAttribute="leading" secondItem="B7Z-es-T1j" secondAttribute="trailing" constant="8" id="QDg-aZ-lm9"/>
-                    <constraint firstAttribute="trailing" secondItem="uDF-PA-ZuL" secondAttribute="trailing" constant="8" id="Xbg-mr-quZ"/>
-                    <constraint firstItem="o1f-Um-Jax" firstAttribute="leading" secondItem="B7Z-es-T1j" secondAttribute="trailing" constant="8" id="axA-i8-Qai"/>
+                    <constraint firstItem="o1f-Um-Jax" firstAttribute="top" secondItem="PvL-Hz-dLA" secondAttribute="bottom" constant="2" id="C8z-1R-98g"/>
+                    <constraint firstAttribute="trailing" secondItem="i4Z-aZ-PE4" secondAttribute="trailing" constant="8" id="NcA-JS-TNz"/>
+                    <constraint firstItem="o1f-Um-Jax" firstAttribute="leading" secondItem="B7Z-es-T1j" secondAttribute="trailing" constant="8" id="Ujc-9h-HAH"/>
+                    <constraint firstAttribute="trailing" secondItem="o1f-Um-Jax" secondAttribute="trailing" constant="8" id="Xcf-Ks-BbR"/>
+                    <constraint firstItem="PvL-Hz-dLA" firstAttribute="top" secondItem="yGo-vr-tEw" secondAttribute="top" constant="8" id="Xql-iB-0dn"/>
+                    <constraint firstItem="8F2-Wu-J7p" firstAttribute="top" secondItem="o1f-Um-Jax" secondAttribute="bottom" constant="8" id="ZyB-kV-7aS"/>
                     <constraint firstAttribute="bottom" secondItem="DYd-d1-jJy" secondAttribute="bottom" id="eib-yA-8t4"/>
-                    <constraint firstItem="o1f-Um-Jax" firstAttribute="top" secondItem="uDF-PA-ZuL" secondAttribute="bottom" constant="4" id="gOX-4E-ZIx"/>
+                    <constraint firstItem="8F2-Wu-J7p" firstAttribute="leading" secondItem="o1f-Um-Jax" secondAttribute="leading" id="f0d-8e-Axr"/>
+                    <constraint firstItem="PvL-Hz-dLA" firstAttribute="leading" secondItem="B7Z-es-T1j" secondAttribute="trailing" constant="8" id="fLC-dX-BpC"/>
+                    <constraint firstItem="DYd-d1-jJy" firstAttribute="top" secondItem="8F2-Wu-J7p" secondAttribute="bottom" constant="8.5" id="flC-56-wzN"/>
                     <constraint firstItem="B7Z-es-T1j" firstAttribute="leading" secondItem="yGo-vr-tEw" secondAttribute="leading" constant="8" id="ge8-oQ-ITV"/>
-                    <constraint firstItem="uDF-PA-ZuL" firstAttribute="top" secondItem="yGo-vr-tEw" secondAttribute="top" constant="8" id="k6V-EH-erM"/>
-                    <constraint firstItem="8F2-Wu-J7p" firstAttribute="top" secondItem="o1f-Um-Jax" secondAttribute="bottom" constant="8" id="m3D-UV-bv7"/>
-                    <constraint firstItem="8F2-Wu-J7p" firstAttribute="leading" secondItem="o1f-Um-Jax" secondAttribute="leading" id="nyv-k5-eAZ"/>
-                    <constraint firstItem="8F2-Wu-J7p" firstAttribute="trailing" secondItem="o1f-Um-Jax" secondAttribute="trailing" id="p93-9n-9Cp"/>
                     <constraint firstAttribute="trailing" secondItem="DYd-d1-jJy" secondAttribute="trailing" constant="16" id="rjh-jr-6ed"/>
+                    <constraint firstItem="i4Z-aZ-PE4" firstAttribute="top" secondItem="yGo-vr-tEw" secondAttribute="top" constant="8" id="tRb-bv-aOR"/>
+                    <constraint firstItem="8F2-Wu-J7p" firstAttribute="trailing" secondItem="o1f-Um-Jax" secondAttribute="trailing" id="wGJ-sh-vY9"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
