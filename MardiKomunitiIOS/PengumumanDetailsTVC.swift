@@ -25,7 +25,7 @@ class PengumumanDetailsTVC: UITableViewController {
         
         ZUISetup.setupTableViewWithTabView(tableView: self)
         self.tableView.rowHeight = UITableViewAutomaticDimension
-        self.tableView.estimatedRowHeight = 60.0
+        self.tableView.estimatedRowHeight = 120.0
         
         ZGraphics.hideTableSeparatorAfterLastCell(tableView: self.tableView)
         
@@ -96,6 +96,12 @@ class PengumumanDetailsTVC: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.section == 1 && UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad && self.getImageArray.count != 0 { return 500.0 }
+        else if indexPath.section == 1 && UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.phone && self.getImageArray.count != 0 { return 250.0 }
+        else { return UITableViewAutomaticDimension }
+    }
 
     /*
     // Override to support conditional editing of the table view.

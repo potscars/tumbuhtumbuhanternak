@@ -33,7 +33,7 @@ class Respond {
         
         let networkProcessor = NetworkProcessor.init("\(URLs.listConversationURL)/\(conversationId)")
         let token = UserDefaults.standard.object(forKey: "MYA_USERTOKEN")
-        let params = ["token" : token]
+        let params: [String : Any] = ["token" : token ?? ""]
         
         networkProcessor.postRequestJSONFromUrl(params) { (results, responses) in
             

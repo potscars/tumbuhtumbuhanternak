@@ -49,7 +49,12 @@ class PengumumanTVC: UITableViewController {
             self.performSegue(withIdentifier: "MYA_GOTO_WRITE_ARTICLE", sender: self)
         }
         
-        floatyBtnAddComment = Floaty.init(frame: CGRect.init(x: self.view.center.x + 100, y: self.view.center.y + 230, width: 56, height: 56))
+        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
+            floatyBtnAddComment = Floaty.init(frame: CGRect.init(x: self.view.center.x + 300, y: self.view.center.y + 450, width: 56, height: 56)) }
+        else {
+            floatyBtnAddComment = Floaty.init(frame: CGRect.init(x: self.view.center.x + 100, y: self.view.center.y + 230, width: 56, height: 56))
+        }
+        
         floatyBtnAddComment?.buttonColor = Colors.mainGreen
         floatyBtnAddComment?.plusColor = UIColor.white
         
@@ -70,8 +75,14 @@ class PengumumanTVC: UITableViewController {
         
         if(Connectivity.checkConnectionToMardi(viewController: self)){
             if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil && UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
-            
-                floatyBtnAddComment!.frame = CGRect.init(x: self.view.center.x + 100, y: self.view.center.y + 230, width: 56, height: 56)
+                
+                if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
+                    floatyBtnAddComment!.frame = CGRect.init(x: self.view.center.x + 300, y: self.view.center.y + 450, width: 56, height: 56) }
+                else {
+                    floatyBtnAddComment!.frame = CGRect.init(x: self.view.center.x + 100, y: self.view.center.y + 230, width: 56, height: 56)
+                    
+                }
+                
                 floatyBtnAddComment!.layer.removeAllAnimations()
                 self.navigationController?.view.addSubview(floatyBtnAddComment!)
             

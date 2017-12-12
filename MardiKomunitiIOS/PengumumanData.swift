@@ -97,7 +97,7 @@ class PengumumanData: NSObject {
                         
                     }
                     
-                    print("image arrays is \(cachedImage)")
+                    //print("image arrays is \(cachedImage)")
                     
                     dataDictionary = [
                         "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),

@@ -50,7 +50,7 @@ DEPENDENCIES:
   - Firebase/Messaging
   - Floaty (~> 3.0.1)
   - Kingfisher (~> 3.13.1)
-  - NVActivityIndicatorView
+  - NVActivityIndicatorView (~> 3.7.0)
   - PlainPing
 
 SPEC CHECKSUMS:
