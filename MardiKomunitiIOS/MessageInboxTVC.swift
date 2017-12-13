@@ -32,10 +32,44 @@ class MessageInboxTVC: UITableViewController {
         
         spinner = LoadingSpinner(view: self.view, isNavBar: true)
         configureTableView()
+        configureRefreshControl()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        populateData()
+    }
+    
+    func configureTableView() {
+        
+        tableView.separatorStyle = .none
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 150.0
+        
+        let nibName = UINib(nibName: "ErrorCell", bundle: nil)
+        tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.MessageErrorCell)
+    }
+    
+    func configureRefreshControl() {
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshedData(_:)), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl!)
+        }
+    }
+    
+    @objc func refreshedData(_ sender: Any) {
+        isError = false
+        messages.removeAll()
+        populateData()
+    }
+    
+    func populateData() {
         
         let mesej = Mesej()
         
@@ -51,12 +85,14 @@ class MessageInboxTVC: UITableViewController {
                         guard responses == nil else {
                             self.errorMessage = responses!
                             self.isError = true
+                            self.stopRefreshing()
                             self.tableView.reloadData()
                             return
                         }
                         
                         guard let mesejResult = result else { return; }
                         
+                        self.stopRefreshing()
                         self.messages = mesejResult
                         self.tableView.reloadData()
                     }
@@ -68,18 +104,15 @@ class MessageInboxTVC: UITableViewController {
             spinner.removeLoadingScreen()
             isError = true
             errorMessage = "Tiada internet dikesan. Sila periksa rangkaian anda."
+            stopRefreshing()
             tableView.reloadData()
         }
     }
     
-    func configureTableView() {
-        
-        tableView.separatorStyle = .none
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 150.0
-        
-        let nibName = UINib(nibName: "ErrorCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.MessageErrorCell)
+    func stopRefreshing() {
+        if (refreshControl?.isRefreshing)! {
+            refreshControl?.endRefreshing()
+        }
     }
     
     var selectedMessage: Mesej!

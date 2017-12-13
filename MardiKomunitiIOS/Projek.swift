@@ -142,7 +142,7 @@ class Projeks {
                 
                 completion(projeksTemp, nil)
             } else {
-                completion(nil, "Gagal untuk mendapatkan data.")
+                completion(nil, "Gagal untuk mendapatkan data: status \(status)")
             }
         }
     }
