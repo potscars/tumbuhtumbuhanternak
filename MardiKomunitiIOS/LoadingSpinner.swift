@@ -84,8 +84,10 @@ class LoadingSpinner: NSObject {
     func removeLoadingScreen() {
         
         // Hides and stops the text and the spinner
-        self.spinner.stopAnimating()
-        self.loadingView.removeFromSuperview()
+        if spinner.isAnimating {
+            self.spinner.stopAnimating()
+            self.loadingView.removeFromSuperview()
+        }
     }
 }
 
