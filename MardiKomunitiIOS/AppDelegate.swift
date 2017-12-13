@@ -127,14 +127,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    static let developmentMode: Bool = true // false for production
+    static let developmentModeManual: Bool? = nil // false for production, true for debug, nil for auto
     
     static var temporaryData: AnyObject? = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        print("**THIS IS A REMINDER** \n\nSet developmentMode to production at AppDelegate once when publishing app to AppStore \n\n********************")
         
         UIApplication.shared.statusBarStyle = .lightContent
         
@@ -157,11 +155,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     static func switchingURL() -> String {
         
-        if(developmentMode == true) {
-            return "http://myagro-dev.myapp.my" //development URL
+        let devUrl: String = "http://myagro-dev.myapp.my"
+        let relUrl: String = "http://myagro.myapp.my"
+        
+        if(developmentModeManual != nil && developmentModeManual == true) {
+            return devUrl //development URL
+        }
+        else if(developmentModeManual != nil && developmentModeManual == false) {
+            return relUrl //production URL
         }
         else {
-            return "http://myagro.myapp.my" //production URL
+            #if DEBUG
+                print("Debug Mode Activated")
+                return devUrl //development URL
+            #else
+                print("Release")
+                return relUrl //production URL
+            #endif
         }
         
     }
