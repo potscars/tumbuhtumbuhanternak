@@ -127,7 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    static let developmentModeManual: Bool? = nil // false for production, true for debug, nil for auto
+    static let developmentModeManual: Bool? = false // false for production, true for debug, nil for auto
     
     static var temporaryData: AnyObject? = nil
 
@@ -286,7 +286,7 @@ extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         NSLog("[RemoteNotification] didRefreshRegistrationToken: \(fcmToken)")
     }
-    
+     
     // Receive data message on iOS 10 devices while app is in the foreground.
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         NSLog("remoteMessage: \(remoteMessage.appData)")

@@ -118,13 +118,8 @@ class UserDetailsTVC: UITableViewController, UIImagePickerControllerDelegate, UI
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 80.0
         
-        /* obsoleted
         let tempData = UserDefaults.standard.object(forKey: "MYA_ROLES_ARR") as! Data
-        print("TEMP DATA IS \(tempData)")
         getUserDataArray = NSKeyedUnarchiver.unarchiveObject(with: tempData) as! NSArray
-         */
-        
-        getUserDataArray = UserDefaults.standard.object(forKey: "MYA_ROLES_ARR") as! NSArray
         getUserDataDict = getUserDataArray.object(at: 0) as? NSDictionary ?? [:]
         
         getUserLocationData = UserDefaults.standard.object(forKey: "MYA_ADDRESS_ARR") as? NSDictionary ?? [:]
