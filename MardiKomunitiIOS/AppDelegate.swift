@@ -166,10 +166,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         else {
             #if DEBUG
-                print("Debug Mode Activated")
                 return devUrl //development URL
             #else
-                print("Release")
                 return relUrl //production URL
             #endif
         }
@@ -286,7 +284,7 @@ extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         NSLog("[RemoteNotification] didRefreshRegistrationToken: \(fcmToken)")
     }
-    
+     
     // Receive data message on iOS 10 devices while app is in the foreground.
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         NSLog("remoteMessage: \(remoteMessage.appData)")
