@@ -181,7 +181,11 @@ extension AplikasiBerkaitanCVC : UICollectionViewDelegateFlowLayout{
         layout.minimumInteritemSpacing = 8
         layout.sectionInset = UIEdgeInsetsMake(8, 8, 8, 8)
         
-        let itemWidth = (collectionView.bounds.width - 24) / 2
+        //check kalau ipad ke iphone.
+        let expectedPaddingSize: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 40 : 24
+        let expectedCellCount: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 4 : 2
+        
+        let itemWidth = (collectionView.bounds.width - expectedPaddingSize) / expectedCellCount
         
         return CGSize(width: itemWidth, height: itemWidth)
     }
