@@ -152,7 +152,7 @@ class UserDetailsTVC: UITableViewController, UIImagePickerControllerDelegate, UI
                     ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Selesai", dialogMessage: "Gambar telah disimpan.", afterDialogDismissed: nil)
                     self.tableView.reloadData()
                 } else {
-                    print("photo failed to save: \(result)")
+                    print("photo failed to save: \(String(describing: result))")
                     ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Masalah", dialogMessage: "Gambar gagal disimpan. Sila cuba sebentar lagi.", afterDialogDismissed: nil)
                 }
             }

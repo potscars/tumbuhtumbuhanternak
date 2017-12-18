@@ -16,6 +16,7 @@ class PengumumanData: NSObject {
         
         let dataArray: NSMutableArray = []
         np = NetworkProcessor.init(URLs.guestAnnouncementURL)
+        
         np!.getRequestJSONFromUrl  { (result, response) in
             
             if result is NSDictionary {
@@ -39,12 +40,11 @@ class PengumumanData: NSObject {
                 }
                 
                 DispatchQueue.main.async {
-                    
+                
                     tableView.reloadData()
                     if refreshControl != nil { refreshControl!.endRefreshing() }
                     
                 }
-                
                 
             } else if result is NSArray {
                 
@@ -64,13 +64,22 @@ class PengumumanData: NSObject {
         let dataArray: NSMutableArray = []
         var dataDictionary: NSMutableDictionary = [:]
         np = NetworkProcessor.init(URLs.loggedAnnouncementURL)
+        
         np!.postRequestJSONFromUrl(["token":UserDefaults.standard.object(forKey: "MYA_USERTOKEN") as! String]) { (result, response) in
             
+            print("result is \(result) and response is \(response)")
+            
             if result != nil {
-                
+                    
                 let convertData: NSDictionary = result! as NSDictionary
-                
                 guard let status = convertData.value(forKey: "status") as? Int, status == 1 else {
+                
+                    DispatchQueue.main.async {
+                        
+                        tableView.reloadData()
+                        if refreshControl != nil { refreshControl!.endRefreshing() }
+                        
+                    }
                     return
                 }
                 
@@ -87,8 +96,6 @@ class PengumumanData: NSObject {
                         
                         for i in 0...getImageArray!.count - 1 {
                             
-                            //print("increment \(i) from \(getImageArray!.count)")
-                            
                             let fullImageArrayURLs: String = String.init(format: "%@%@", URLs.loadImage,(getImageArray?.object(at: i) as! NSDictionary).value(forKey: "name") as! String)
                             
                             cachedImage.add(fullImageArrayURLs)
@@ -96,8 +103,6 @@ class PengumumanData: NSObject {
                         }
                         
                     }
-                    
-                    //print("image arrays is \(cachedImage)")
                     
                     dataDictionary = [
                         "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
@@ -108,8 +113,6 @@ class PengumumanData: NSObject {
                     
                     let zimg: ZImages = ZImages.init()
                     zimg.getImageFromURLInArrays(fromURLArrays: cachedImage, defaultImage: #imageLiteral(resourceName: "ic_default.png"), completionHandler: { (result, response) in
-                        
-                        //print("result is \(result!) and response is \(response!)")
                         
                         dataDictionary.setValue(result!, forKey: "ARTICLE_CACHED_IMAGE")
                         
@@ -123,9 +126,11 @@ class PengumumanData: NSObject {
                     
                     tableView.reloadData()
                     if refreshControl != nil { refreshControl!.endRefreshing() }
-                    
                 }
                 
+            }
+            else {
+                print("Result is nil")
             }
         }
         return dataArray

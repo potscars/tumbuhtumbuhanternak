@@ -23,7 +23,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
         
-        uitfLVCUsername.text = "eruan.hanapi"
+        uitfLVCUsername.text = "haniza"
         uitfLVCPassword.text = "password"
         
         UIApplication.shared.statusBarStyle = UIStatusBarStyle.default

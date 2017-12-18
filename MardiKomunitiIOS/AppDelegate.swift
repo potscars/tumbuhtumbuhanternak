@@ -127,7 +127,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    static let developmentModeManual: Bool? = nil // false for production, true for debug, nil for auto
+    static let developmentModeManual: Bool? = false // false for production, true for debug, nil for auto
     
     static var temporaryData: AnyObject? = nil
 

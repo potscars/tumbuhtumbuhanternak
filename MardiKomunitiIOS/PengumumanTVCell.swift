@@ -60,14 +60,14 @@ class PengumumanTVCell: UITableViewCell {
         //uiivPVCWPImage.image = getFirstCachedImage
         uilPVCWPTitle.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_TITLE"), defaultValue: "Data Kosong")
         uilPVCWPDesc.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_CONTENT"), defaultValue: "Data Kosong")
-        uivPVCWPBackGround.layer.backgroundColor = UIColor.init(red: 221.0/255.0, green: 221.0/255.0, blue: 221.0/255.0, alpha: 1.0).cgColor
+        //uivPVCWPBackGround.layer.backgroundColor = UIColor.init(red: 221.0/255.0, green: 221.0/255.0, blue: 221.0/255.0, alpha: 1.0).cgColor
         uivPVCWPBackGround.layer.cornerRadius = 3.0
         //uivPVCWPBackGround.defaultDropShadow(scale: true)
     }
     
     func updateCell(data: NSDictionary) {
         
-        uivPVCNPBackGround.layer.backgroundColor = UIColor.init(red: 221.0/255.0, green: 221.0/255.0, blue: 221.0/255.0, alpha: 1.0).cgColor
+        //uivPVCNPBackGround.layer.backgroundColor = UIColor.init(red: 221.0/255.0, green: 221.0/255.0, blue: 221.0/255.0, alpha: 1.0).cgColor
         //uivPVCNPBackGround.defaultDropShadow()
         uivPVCNPBackGround.layer.cornerRadius = 3.0
         uilPVCNPTitle.text = String.checkStringValidity(data: data.value(forKey: "ARTICLE_TITLE"), defaultValue: "Data Kosong")
