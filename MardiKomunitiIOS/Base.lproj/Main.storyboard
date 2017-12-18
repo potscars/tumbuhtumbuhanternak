@@ -60,7 +60,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Persidangan Padi Kebangsaan 2017" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezb-bo-puX">
                                                             <rect key="frame" x="8" y="8" width="359" height="25"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="359" id="IFD-m4-kFB"/>
+                                                                <constraint firstAttribute="width" constant="359" placeholder="YES" id="IFD-m4-kFB"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                             <nil key="textColor"/>
@@ -69,7 +69,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QpN-br-7HN">
                                                             <rect key="frame" x="8" y="41" width="359" height="25"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="359" id="YiG-wa-ZBa"/>
+                                                                <constraint firstAttribute="width" constant="359" placeholder="YES" id="YiG-wa-ZBa"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
@@ -121,62 +121,55 @@
                                     <outlet property="uivPVCWPBackGround" destination="LzK-bq-eI6" id="8A7-N6-FJ3"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PVCNoPicCellID" rowHeight="92" id="PsF-Kv-lur" customClass="PengumumanTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="308" width="375" height="92"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PVCNoPicCellID" rowHeight="86" id="PsF-Kv-lur" customClass="PengumumanTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="308" width="375" height="86"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="PsF-Kv-lur" id="rpw-17-fN3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PsF-Kv-lur" id="rpw-17-fN3">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="59t-yQ-yWP" customClass="CustomView" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="11" width="359" height="70"/>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="59t-yQ-yWP" customClass="CustomView" customModule="MardiKomunitiIOS" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="6" width="375" height="74"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9eO-Oc-sFm">
-                                                    <rect key="frame" x="8" y="8" width="343" height="54"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Persidangan Padi Kebangsaan 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9w-ER-vbt">
-                                                            <rect key="frame" x="8" y="8" width="327" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Padi merupakan tanaman strategik dari segi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWK-lo-frh">
-                                                            <rect key="frame" x="8" y="36" width="327" height="16"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Padi merupakan tanaman strategik dari segi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWK-lo-frh">
+                                                    <rect key="frame" x="8" y="41" width="359" height="25"/>
                                                     <constraints>
-                                                        <constraint firstItem="b9w-ER-vbt" firstAttribute="top" secondItem="9eO-Oc-sFm" secondAttribute="top" constant="8" id="2Mr-HG-v87"/>
-                                                        <constraint firstAttribute="trailing" secondItem="b9w-ER-vbt" secondAttribute="trailing" constant="8" id="2eB-E7-k1L"/>
-                                                        <constraint firstItem="HWK-lo-frh" firstAttribute="leading" secondItem="9eO-Oc-sFm" secondAttribute="leading" constant="8" id="B0T-D7-gLR"/>
-                                                        <constraint firstAttribute="trailing" secondItem="HWK-lo-frh" secondAttribute="trailing" constant="8" id="BlW-ru-vI1"/>
-                                                        <constraint firstAttribute="bottom" secondItem="HWK-lo-frh" secondAttribute="bottom" constant="8" id="Gnx-fX-KS7"/>
-                                                        <constraint firstItem="b9w-ER-vbt" firstAttribute="leading" secondItem="9eO-Oc-sFm" secondAttribute="leading" constant="8" id="L43-NX-pnA"/>
-                                                        <constraint firstAttribute="width" constant="343" placeholder="YES" id="Rya-tA-nbr"/>
-                                                        <constraint firstItem="HWK-lo-frh" firstAttribute="top" secondItem="b9w-ER-vbt" secondAttribute="bottom" constant="8" id="TwG-Hu-1FP"/>
+                                                        <constraint firstAttribute="width" constant="359" id="423-9M-T65"/>
                                                     </constraints>
-                                                </view>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Persidangan Padi Kebangsaan 2017" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b9w-ER-vbt">
+                                                    <rect key="frame" x="8" y="8" width="359" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="359" placeholder="YES" id="eR3-Ne-JFz"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="359" placeholder="YES" id="R5H-jx-ZDj"/>
-                                                <constraint firstItem="9eO-Oc-sFm" firstAttribute="top" secondItem="59t-yQ-yWP" secondAttribute="top" constant="8" id="ciF-af-VRO"/>
-                                                <constraint firstAttribute="trailing" secondItem="9eO-Oc-sFm" secondAttribute="trailing" constant="8" id="k4C-u5-LiR"/>
-                                                <constraint firstAttribute="bottom" secondItem="9eO-Oc-sFm" secondAttribute="bottom" constant="8" id="oSU-AT-F7C"/>
-                                                <constraint firstItem="9eO-Oc-sFm" firstAttribute="leading" secondItem="59t-yQ-yWP" secondAttribute="leading" constant="8" id="tgV-08-5K1"/>
+                                                <constraint firstAttribute="bottom" secondItem="HWK-lo-frh" secondAttribute="bottom" constant="8" id="K15-77-rPz"/>
+                                                <constraint firstAttribute="trailing" secondItem="HWK-lo-frh" secondAttribute="trailing" constant="8" id="Ovf-AB-og8"/>
+                                                <constraint firstItem="HWK-lo-frh" firstAttribute="leading" secondItem="59t-yQ-yWP" secondAttribute="leading" constant="8" id="RDK-XG-qdH"/>
+                                                <constraint firstItem="b9w-ER-vbt" firstAttribute="leading" secondItem="59t-yQ-yWP" secondAttribute="leading" constant="8" id="mTn-QU-pDK"/>
+                                                <constraint firstItem="b9w-ER-vbt" firstAttribute="top" secondItem="59t-yQ-yWP" secondAttribute="top" constant="8" id="qIs-ot-H4K"/>
+                                                <constraint firstAttribute="trailing" secondItem="b9w-ER-vbt" secondAttribute="trailing" constant="8" id="tQy-XM-dbI"/>
+                                                <constraint firstItem="HWK-lo-frh" firstAttribute="top" secondItem="b9w-ER-vbt" secondAttribute="bottom" constant="8" id="z6a-qG-iax"/>
                                             </constraints>
                                         </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="59t-yQ-yWP" firstAttribute="top" secondItem="rpw-17-fN3" secondAttribute="topMargin" id="0el-u8-pm9"/>
-                                        <constraint firstItem="59t-yQ-yWP" firstAttribute="bottom" secondItem="rpw-17-fN3" secondAttribute="bottomMargin" id="X18-hP-IgE"/>
-                                        <constraint firstItem="59t-yQ-yWP" firstAttribute="leading" secondItem="rpw-17-fN3" secondAttribute="leadingMargin" id="bM5-Bz-NiW"/>
-                                        <constraint firstItem="59t-yQ-yWP" firstAttribute="trailing" secondItem="rpw-17-fN3" secondAttribute="trailingMargin" id="pb8-Qr-apM"/>
-                                        <constraint firstItem="59t-yQ-yWP" firstAttribute="centerY" secondItem="rpw-17-fN3" secondAttribute="centerY" id="xWW-Oc-tT2"/>
+                                        <constraint firstAttribute="bottom" secondItem="59t-yQ-yWP" secondAttribute="bottom" constant="6" id="42n-vf-a6a"/>
+                                        <constraint firstItem="59t-yQ-yWP" firstAttribute="leading" secondItem="rpw-17-fN3" secondAttribute="leading" id="5xC-p7-ABc"/>
+                                        <constraint firstAttribute="trailing" secondItem="59t-yQ-yWP" secondAttribute="trailing" id="9iH-6D-9TC"/>
+                                        <constraint firstItem="59t-yQ-yWP" firstAttribute="top" secondItem="rpw-17-fN3" secondAttribute="top" constant="6" id="Ydk-Zx-bDS"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="uilPVCNPDesc" destination="HWK-lo-frh" id="gtM-v7-gmm"/>
                                     <outlet property="uilPVCNPTitle" destination="b9w-ER-vbt" id="SmO-NE-zwv"/>
@@ -184,7 +177,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PVCLoadingCellID" rowHeight="50" id="UTW-h2-MYT" customClass="PengumumanTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="400" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="394" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UTW-h2-MYT" id="zjd-Wa-xBm">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -192,7 +185,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PVCErrorCellID" rowHeight="50" id="iX5-IU-F8z" customClass="PengumumanTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="450" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="444" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iX5-IU-F8z" id="cqL-hx-3A7">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -214,7 +207,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PVCWithPicIIICellID" rowHeight="280" id="hyW-Ob-hhY" customClass="PengumumanTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="500" width="375" height="280"/>
+                                <rect key="frame" x="0.0" y="494" width="375" height="280"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hyW-Ob-hhY" id="2j1-Sf-o2i">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
@@ -2254,70 +2247,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PVCNoPicCellID" rowHeight="92" id="UP2-f5-2GM" customClass="PengumumanTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="92"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="UP2-f5-2GM" id="ax9-qh-2BY">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fm7-UV-QrT" customClass="CustomView" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                            <rect key="frame" x="8" y="11" width="359" height="70"/>
-                                            <subviews>
-                                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xKE-3t-1KK">
-                                                    <rect key="frame" x="8" y="8" width="343" height="54"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Persidangan Padi Kebangsaan 2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Agk-sq-xgc">
-                                                            <rect key="frame" x="8" y="8" width="327" height="20"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Padi merupakan tanaman strategik dari segi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VNJ-CQ-xPn">
-                                                            <rect key="frame" x="8" y="36" width="327" height="16"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="VNJ-CQ-xPn" secondAttribute="bottom" constant="8" id="0zD-UK-eJh"/>
-                                                        <constraint firstAttribute="trailing" secondItem="VNJ-CQ-xPn" secondAttribute="trailing" constant="8" id="9R8-nw-diz"/>
-                                                        <constraint firstItem="VNJ-CQ-xPn" firstAttribute="top" secondItem="Agk-sq-xgc" secondAttribute="bottom" constant="8" id="Eek-TN-gbd"/>
-                                                        <constraint firstAttribute="trailing" secondItem="Agk-sq-xgc" secondAttribute="trailing" constant="8" id="Wwo-JR-nA2"/>
-                                                        <constraint firstItem="VNJ-CQ-xPn" firstAttribute="leading" secondItem="xKE-3t-1KK" secondAttribute="leading" constant="8" id="dyx-te-cOh"/>
-                                                        <constraint firstItem="Agk-sq-xgc" firstAttribute="leading" secondItem="xKE-3t-1KK" secondAttribute="leading" constant="8" id="ne4-bD-fAP"/>
-                                                        <constraint firstItem="Agk-sq-xgc" firstAttribute="top" secondItem="xKE-3t-1KK" secondAttribute="top" constant="8" id="qxz-z9-wzk"/>
-                                                        <constraint firstAttribute="width" constant="343" placeholder="YES" id="zFM-Dk-j4T"/>
-                                                    </constraints>
-                                                </view>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="359" placeholder="YES" id="4iM-vS-jnT"/>
-                                                <constraint firstAttribute="bottom" secondItem="xKE-3t-1KK" secondAttribute="bottom" constant="8" id="6ac-Wo-74t"/>
-                                                <constraint firstItem="xKE-3t-1KK" firstAttribute="leading" secondItem="fm7-UV-QrT" secondAttribute="leading" constant="8" id="Dmc-cM-eAC"/>
-                                                <constraint firstAttribute="trailing" secondItem="xKE-3t-1KK" secondAttribute="trailing" constant="8" id="OQl-Iu-VbG"/>
-                                                <constraint firstItem="xKE-3t-1KK" firstAttribute="top" secondItem="fm7-UV-QrT" secondAttribute="top" constant="8" id="Rci-g5-TRO"/>
-                                            </constraints>
-                                        </view>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="fm7-UV-QrT" firstAttribute="centerY" secondItem="ax9-qh-2BY" secondAttribute="centerY" id="Tj1-ML-seg"/>
-                                        <constraint firstItem="fm7-UV-QrT" firstAttribute="bottom" secondItem="ax9-qh-2BY" secondAttribute="bottomMargin" id="WjF-sh-fYn"/>
-                                        <constraint firstItem="fm7-UV-QrT" firstAttribute="top" secondItem="ax9-qh-2BY" secondAttribute="topMargin" id="cFc-Ku-D0K"/>
-                                        <constraint firstItem="fm7-UV-QrT" firstAttribute="leading" secondItem="ax9-qh-2BY" secondAttribute="leadingMargin" id="eFu-jb-2c1"/>
-                                        <constraint firstItem="fm7-UV-QrT" firstAttribute="trailing" secondItem="ax9-qh-2BY" secondAttribute="trailingMargin" id="etU-ac-60U"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="uilPVCNPDesc" destination="VNJ-CQ-xPn" id="cCZ-uj-Zvf"/>
-                                    <outlet property="uilPVCNPTitle" destination="Agk-sq-xgc" id="EJD-w8-OKE"/>
-                                    <outlet property="uivPVCNPBackGround" destination="fm7-UV-QrT" id="GUj-bi-J7K"/>
-                                </connections>
-                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PVCWithPicIIICellID" rowHeight="280" id="4wQ-H2-4MC" customClass="PengumumanTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="120" width="375" height="280"/>
+                                <rect key="frame" x="0.0" y="28" width="375" height="280"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4wQ-H2-4MC" id="0m8-jp-QL7">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
@@ -2393,7 +2324,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PVCLoadingCellID" rowHeight="50" id="Dzk-d8-8ki" customClass="PengumumanTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="400" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="308" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dzk-d8-8ki" id="Cyw-Rr-ohi">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -2401,7 +2332,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PVCErrorCellID" rowHeight="50" id="Fad-jh-ApA" customClass="PengumumanTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="450" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="358" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Fad-jh-ApA" id="ROT-r8-9fj">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
@@ -2423,7 +2354,7 @@
                                 </tableViewCellContentView>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PVCWithPicIICellID" rowHeight="280" id="bhN-44-pwP" customClass="PengumumanTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="500" width="375" height="280"/>
+                                <rect key="frame" x="0.0" y="408" width="375" height="280"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bhN-44-pwP" id="grx-TY-AVW">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
@@ -2438,7 +2369,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Persidangan Padi Kebangsaan 2017" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPB-jy-O6F">
                                                             <rect key="frame" x="8" y="8" width="359" height="25"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="359" id="u4t-bE-2XT"/>
+                                                                <constraint firstAttribute="width" constant="359" placeholder="YES" id="u4t-bE-2XT"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                             <nil key="textColor"/>
@@ -2447,7 +2378,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1F-OD-CWn">
                                                             <rect key="frame" x="8" y="41" width="359" height="25"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" constant="359" id="JAf-C2-ZTW"/>
+                                                                <constraint firstAttribute="width" constant="359" placeholder="YES" id="JAf-C2-ZTW"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                             <nil key="textColor"/>
@@ -2497,6 +2428,61 @@
                                     <outlet property="uilPVCWPDesc" destination="w1F-OD-CWn" id="D9P-6d-g0v"/>
                                     <outlet property="uilPVCWPTitle" destination="hPB-jy-O6F" id="WjJ-wb-Nlj"/>
                                     <outlet property="uivPVCWPBackGround" destination="hg6-Fl-psR" id="0Be-0c-VF3"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PVCNoPicCellID" rowHeight="86" id="OI9-kz-0C3" customClass="PengumumanTVCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="688" width="375" height="86"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OI9-kz-0C3" id="uzk-YH-rL5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="arl-HP-fdb" customClass="CustomView" customModule="MardiKomunitiIOS" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="6" width="375" height="74"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Padi merupakan tanaman strategik dari segi" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4cc-f2-uiG">
+                                                    <rect key="frame" x="8" y="41" width="359" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="359" id="UiK-qf-xN9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Persidangan Padi Kebangsaan 2017" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xoz-X4-K6t">
+                                                    <rect key="frame" x="8" y="8" width="359" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="359" placeholder="YES" id="InU-S7-q6E"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="xoz-X4-K6t" secondAttribute="trailing" constant="8" id="NfH-A6-YUz"/>
+                                                <constraint firstItem="xoz-X4-K6t" firstAttribute="top" secondItem="arl-HP-fdb" secondAttribute="top" constant="8" id="Pnb-kk-RL2"/>
+                                                <constraint firstItem="xoz-X4-K6t" firstAttribute="leading" secondItem="arl-HP-fdb" secondAttribute="leading" constant="8" id="Vtb-ao-MXr"/>
+                                                <constraint firstAttribute="bottom" secondItem="4cc-f2-uiG" secondAttribute="bottom" constant="8" id="fjE-UK-OGk"/>
+                                                <constraint firstItem="4cc-f2-uiG" firstAttribute="leading" secondItem="arl-HP-fdb" secondAttribute="leading" constant="8" id="mVb-VG-l00"/>
+                                                <constraint firstItem="4cc-f2-uiG" firstAttribute="top" secondItem="xoz-X4-K6t" secondAttribute="bottom" constant="8" id="nQ8-D9-8Qk"/>
+                                                <constraint firstAttribute="trailing" secondItem="4cc-f2-uiG" secondAttribute="trailing" constant="8" id="tZr-kN-nf7"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="arl-HP-fdb" firstAttribute="leading" secondItem="uzk-YH-rL5" secondAttribute="leading" id="3f2-DI-0f4"/>
+                                        <constraint firstAttribute="trailing" secondItem="arl-HP-fdb" secondAttribute="trailing" id="7hG-Y0-hYe"/>
+                                        <constraint firstItem="arl-HP-fdb" firstAttribute="top" secondItem="uzk-YH-rL5" secondAttribute="top" constant="6" id="d4V-5k-EqM"/>
+                                        <constraint firstAttribute="bottom" secondItem="arl-HP-fdb" secondAttribute="bottom" constant="6" id="t9F-MX-fML"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="uilPVCNPDesc" destination="4cc-f2-uiG" id="btr-kn-XId"/>
+                                    <outlet property="uilPVCNPTitle" destination="xoz-X4-K6t" id="cPs-ai-V34"/>
+                                    <outlet property="uivPVCNPBackGround" destination="arl-HP-fdb" id="q3c-JD-Ztt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

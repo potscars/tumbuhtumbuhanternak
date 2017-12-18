@@ -39,22 +39,11 @@ class PengumumanTVCell: UITableViewCell {
         let getFirstImageArray: NSArray = data.value(forKey: "ARTICLE_IMAGE") as! NSArray
         let getFirstImageDict: NSDictionary = getFirstImageArray.object(at: 0) as! NSDictionary
         let getFirstImageString: String = String.checkStringValidity(data: getFirstImageDict.value(forKey: "name"), defaultValue: "ic_default.png")
-        let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString)
-        
-        let cachedImage: NSArray? = data.value(forKey: "ARTICLE_CACHED_IMAGE") as? NSArray
-        let getFirstCachedImage: UIImage? = cachedImage?.object(at: 0) as? UIImage
-        /*
-        DispatchQueue.main.async {
-            
-            let updatedCell = tableView.cellForRow(at: indexPath) as? Any
-            
-            if(updatedCell != nil) {
-                ZImages.getImageFromUrlSession(fromURL: getFirstImage, defaultImage: "ic_default.png", imageView: self.uiivPVCWPImage, imageViewConstraints: nil)
-            }
-        }
-        */
+        //let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString) // original
+        let getFirstImage: String =  String.init(format: "%@", getFirstImageString)
         let loadImageToURL: URL = URL.init(string: getFirstImage)!
         self.uiivPVCWPImage.kf.setImage(with: loadImageToURL, placeholder: #imageLiteral(resourceName: "ic_default.png"))
+        print("imageurl: \(loadImageToURL)")
         
         
         //uiivPVCWPImage.image = getFirstCachedImage
