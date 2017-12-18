@@ -25,6 +25,7 @@ class ProjectTVC: UITableViewController {
     var spinner: LoadingSpinner!
     var isError = false
     var errorMessage = "Tiada data."
+    var isRefreshMode = false
     
     var segueIdentifier: String? = nil
     
@@ -33,6 +34,7 @@ class ProjectTVC: UITableViewController {
         
         spinner = LoadingSpinner(view: self.view, isNavBar: true)
         configureTableView()
+        configureRefreshControl()
         
     }
     
@@ -47,40 +49,7 @@ class ProjectTVC: UITableViewController {
             
             self.segueIdentifier = appDel
         }
-        
-        let projek = Projeks()
-        
-        if ZNetwork.isConnectedToNetwork() {
-            spinner.setLoadingScreen()
-            isError = false
-            if projeksData.count <= 0 {
-                projek.fetchProjek { (data, responses) in
-                    
-                    DispatchQueue.main.async {
-                        
-                        self.spinner.removeLoadingScreen()
-                        
-                        guard responses == nil else {
-                            self.isError = true
-                            self.errorMessage = responses!
-                            self.tableView.reloadData()
-                            return
-                        }
-                        
-                        guard let dataResult = data else { return }
-                        self.projeksData = dataResult
-                        self.tableView.reloadData()
-                    }
-                }
-            } else {
-                spinner.removeLoadingScreen()
-            }
-        } else {
-            isError = true
-            errorMessage = "Tiada internet. Sila periksa rangkaian anda."
-            spinner.removeLoadingScreen()
-            self.tableView.reloadData()
-        }
+        populateData()
     }
     
     func configureTableView() {
@@ -94,6 +63,73 @@ class ProjectTVC: UITableViewController {
         
         let nibName = UINib(nibName: "ErrorCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.MessageErrorCell)
+    }
+    
+    func configureRefreshControl() {
+        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshedData(_:)), for: .valueChanged)
+        
+        if #available(iOS 10.0, *) {
+            tableView.refreshControl = refreshControl
+        } else {
+            tableView.addSubview(refreshControl!)
+        }
+    }
+    
+    //func called, bila guna untuk refresh.
+    @objc func refreshedData(_ sender: Any) {
+        isError = false
+        isRefreshMode = true
+        projeksData.removeAll()
+        populateData()
+    }
+    
+    func populateData() {
+        
+        let projek = Projeks()
+        
+        if ZNetwork.isConnectedToNetwork() {
+            if !isRefreshMode { spinner.setLoadingScreen() }
+            isError = false
+            isRefreshMode = false
+            if projeksData.count <= 0 {
+                projek.fetchProjek { (data, responses) in
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.spinner.removeLoadingScreen()
+                        
+                        guard responses == nil else {
+                            self.isError = true
+                            self.errorMessage = responses!
+                            self.stopRefreshing()
+                            self.tableView.reloadData()
+                            return
+                        }
+                        
+                        guard let dataResult = data else { return }
+                        self.projeksData = dataResult
+                        self.stopRefreshing()
+                        self.tableView.reloadData()
+                    }
+                }
+            } else {
+                spinner.removeLoadingScreen()
+            }
+        } else {
+            isError = true
+            errorMessage = "Tiada internet. Sila periksa rangkaian anda."
+            spinner.removeLoadingScreen()
+            stopRefreshing()
+            self.tableView.reloadData()
+        }
+    }
+    
+    func stopRefreshing() {
+        if (refreshControl?.isRefreshing)! {
+            refreshControl?.endRefreshing()
+        }
     }
     
     func closeWindow(sender: UIBarButtonItem) {

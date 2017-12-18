@@ -26,6 +26,7 @@ class MessageInboxTVC: UITableViewController {
     let alertController = AlertController()
     var errorMessage = "Tiada data buat ketika ini."
     var isError = false
+    var isRefreshMode = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +66,7 @@ class MessageInboxTVC: UITableViewController {
     
     @objc func refreshedData(_ sender: Any) {
         isError = false
+        isRefreshMode = true
         messages.removeAll()
         populateData()
     }
@@ -74,8 +76,9 @@ class MessageInboxTVC: UITableViewController {
         let mesej = Mesej()
         
         if ZNetwork.isConnectedToNetwork() {
-            spinner.setLoadingScreen()
+            if !isRefreshMode { spinner.setLoadingScreen() }
             isError = false
+            isRefreshMode = false
             if messages.count <= 0 {
                 mesej.fetchData({ (result, responses) in
                     DispatchQueue.main.async {
