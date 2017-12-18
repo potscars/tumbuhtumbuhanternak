@@ -69,6 +69,10 @@ class PengumumanTVC: UITableViewController {
             grabAnnouncementInfo()
             
         }
+        else {
+            self.refreshed = true
+            self.refControl.endRefreshing()
+        }
         
     }
     
@@ -114,10 +118,16 @@ class PengumumanTVC: UITableViewController {
             grabAnnouncementInfo()
             
         }
+        else {
+            self.refreshed = true
+            self.refControl.endRefreshing()
+        }
         
     }
     
     func grabAnnouncementInfo() {
+        
+        self.refreshed = false
         
         self.getJSONData.removeAllObjects()
 
@@ -223,7 +233,7 @@ class PengumumanTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        print("jsondatacount: \(getJSONData.count)")
+        print("jsondatacount: \(refreshed)")
         if(getJSONData.count != 0) { return getJSONData.count }
         else if(refreshed == true && getJSONData.count == 0) { return 1 }
         else { return 1 }
