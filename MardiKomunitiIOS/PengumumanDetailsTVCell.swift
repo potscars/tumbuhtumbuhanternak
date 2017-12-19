@@ -53,7 +53,8 @@ class PengumumanDetailsTVCell: UITableViewCell {
             
         let getFirstImageDict: NSDictionary = data.object(at: indexPath.row) as! NSDictionary
         let getFirstImageString: String = String.checkStringValidity(data: getFirstImageDict.value(forKey: "name"), defaultValue: "ic_default.png")
-        let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString)
+        //let getFirstImage: String =  String.init(format: "%@%@", URLs.loadImage, getFirstImageString) // original
+        let getFirstImage: String =  String.init(format: "%@", getFirstImageString)
             
         self.uiivPDTVCArticleImage.image = #imageLiteral(resourceName: "ic_default.png")
         let loadImageToURL: URL = URL.init(string: getFirstImage)!

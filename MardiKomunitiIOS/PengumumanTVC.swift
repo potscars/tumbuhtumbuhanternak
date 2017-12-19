@@ -15,6 +15,7 @@ class PengumumanTVC: UITableViewController {
     var getJSONData: NSMutableArray = []
     var selectedRow: Int = 0
     var refControl = UIRefreshControl()
+    var refreshed: Bool = false
     
     var dtzButtonAddComment: DTZFloatingActionButton? = nil
     var floatyBtnAddComment: Floaty? = nil
@@ -43,11 +44,15 @@ class PengumumanTVC: UITableViewController {
         }
         
         createFloatingButton()
+
         
         if(Connectivity.checkConnectionToMardi(viewController: self)){
-            
+
             grabAnnouncementInfo()
             
+        } else {
+            self.refreshed = true
+            self.refControl.endRefreshing()
         }
     }
     
@@ -124,22 +129,109 @@ class PengumumanTVC: UITableViewController {
     
     func gotRefreshing(sender: UIRefreshControl) {
         
-        grabAnnouncementInfo()
+        if(Connectivity.checkConnectionToMardi(viewController: self)) {
+            
+            grabAnnouncementInfo()
+            
+        }
+        else {
+            self.refreshed = true
+            self.refControl.endRefreshing()
+        }
         
     }
     
     func grabAnnouncementInfo() {
         
+        self.refreshed = false
+        
         self.getJSONData.removeAllObjects()
 
         if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil && UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as? Bool == true) {
-                
-            self.getJSONData = PengumumanData.loggedInData(tableView: self.tableView, refreshControl: refControl) as! NSMutableArray
+            
+            loggedInData()
             
         } else {
          
-            self.getJSONData = PengumumanData.nonLoggedInData(tableView: self.tableView, refreshControl: refControl) as! NSMutableArray
+            print("before not loggin: \(self.getJSONData)")
+            self.getJSONData = PengumumanData.nonLoggedInData(tableView: self.tableView, refreshControl: refControl) as? NSMutableArray ?? []
+            print("after not loggin: \(self.getJSONData)")         }
+    }
+    
+    func loggedInData() {
+        
+        var dataDictionary: NSMutableDictionary = [:]
+        let np: NetworkProcessor = NetworkProcessor.init(URLs.loggedAnnouncementURL)
+        
+        np.postRequestJSONFromUrl(["token":UserDefaults.standard.object(forKey: "MYA_USERTOKEN") as! String]) { (result, response) in
             
+            print("result is \(result) and response is \(response)")
+            
+            if result != nil {
+                
+                let convertData: NSDictionary = result! as NSDictionary
+                guard let status = convertData.value(forKey: "status") as? Int, status == 1 else {
+                    
+                    DispatchQueue.main.async {
+                        
+                        self.refreshed = true
+                        self.tableView.reloadData()
+                        self.refControl.endRefreshing()
+                        
+                    }
+                    return
+                }
+                
+                let grabDataDict: NSDictionary = convertData.value(forKey: "data") as! NSDictionary
+                let grabFullDataArray: NSArray = grabDataDict.value(forKey: "data") as! NSArray
+                
+                for i in 0...grabFullDataArray.count - 1 {
+                    
+                    let grabData: NSDictionary = grabFullDataArray.object(at: i) as! NSDictionary
+                    let getImageArray: NSArray? = grabData.value(forKey: "images") as? NSArray
+                    let cachedImage: NSMutableArray = []
+                    
+                    if(getImageArray != nil && getImageArray?.count != 0) {
+                        
+                        for i in 0...getImageArray!.count - 1 {
+                            
+                            let fullImageArrayURLs: String = String.init(format: "%@%@", URLs.loadImage,(getImageArray?.object(at: i) as! NSDictionary).value(forKey: "name") as! String)
+                            
+                            cachedImage.add(fullImageArrayURLs)
+                            
+                        }
+                        
+                    }
+                    
+                    dataDictionary = [
+                        "ARTICLE_TITLE":String.checkStringValidity(data: grabData.value(forKey: "title"), defaultValue: "Data Kosong"),
+                        "ARTICLE_CONTENT":String.checkStringValidity(data: grabData.value(forKey: "content"), defaultValue: "Data Kosong"),
+                        "ARTICLE_IMAGE":getImageArray ?? [],
+                        "ARTICLE_SENDER": grabData.value(forKey: "user")
+                    ]
+                    
+                    let zimg: ZImages = ZImages.init()
+                    zimg.getImageFromURLInArrays(fromURLArrays: cachedImage, defaultImage: #imageLiteral(resourceName: "ic_default.png"), completionHandler: { (result, response) in
+                        
+                        dataDictionary.setValue(result!, forKey: "ARTICLE_CACHED_IMAGE")
+                        
+                    })
+                    
+                    self.getJSONData.add(dataDictionary)
+                    
+                }
+                
+                DispatchQueue.main.async {
+                    
+                    self.refreshed = true
+                    self.tableView.reloadData()
+                    self.refControl.endRefreshing()
+                }
+                
+            }
+            else {
+                print("Result is nil")
+            }
         }
     }
 
@@ -157,10 +249,11 @@ class PengumumanTVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        print("jsondatacount: \(refreshed)")
         if(getJSONData.count != 0) { return getJSONData.count }
+        else if(refreshed == true && getJSONData.count == 0) { return 1 }
         else { return 1 }
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -189,13 +282,23 @@ class PengumumanTVC: UITableViewController {
             }
         }
         else {
-            let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCLoadingCellID", for: indexPath) as! PengumumanTVCell
+            if(refreshed == true) {
+                let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCErrorCellID", for: indexPath) as! PengumumanTVCell
+                
+                // Configure the cell...
+                cell.tag = indexPath.row
+                
+                return cell
+            }
+            else {
+                let cell: PengumumanTVCell = tableView.dequeueReusableCell(withIdentifier: "PVCLoadingCellID", for: indexPath) as! PengumumanTVCell
             
-            // Configure the cell...
-            cell.updateLoadingCell(cellIdentifier: cell)
-            cell.tag = indexPath.row
+                // Configure the cell...
+                cell.updateLoadingCell(cellIdentifier: cell)
+                cell.tag = indexPath.row
             
-            return cell
+                return cell
+            }
         }
     }
     
