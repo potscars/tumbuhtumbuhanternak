@@ -20,15 +20,25 @@ class ProjekCell: UITableViewCell {
         guard let name = projek.name else { return; }
         projekTitleLabel.text = name
         
-        for enroll in projek.enrolls! {
-            
-            
-            if enroll.agency! == "" {
-                enrollTemp += "\(enroll.name!)\n"
-            } else {
-                enrollTemp += "\(enroll.name!) - \(enroll.agency!)\n"
+        if (projek.enrolls?.count)! > 0 {
+            for (index, enroll) in projek.enrolls!.enumerated() {
+
+                if enroll.agency! == "" {
+                    if index == (projek.enrolls?.count)! - 1 {
+                        enrollTemp += "\(enroll.name!)"
+                    } else {
+                        enrollTemp += "\(enroll.name!)\n"
+                    }
+                } else {
+                    if index == (projek.enrolls?.count)! - 1 {
+                        enrollTemp += "\(enroll.name!) - \(enroll.agency!)"
+                    } else {
+                        enrollTemp += "\(enroll.name!) - \(enroll.agency!)\n"
+                    }
+                }
             }
-            
+        } else {
+            enrollTemp = "Tiada ahli buat ketika ini."
         }
         
         projekContentLabel.text = enrollTemp

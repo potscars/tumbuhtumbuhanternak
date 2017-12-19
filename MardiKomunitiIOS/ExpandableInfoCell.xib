@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="expandableInfoCell" rowHeight="106" id="KGk-i7-Jjw" customClass="ExpandableInfoCell" customModule="MardiKomunitiIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="105.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sektor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eae-37-hpE">
+                        <rect key="frame" x="8" y="13" width="272" height="14.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_arrow_drop_down" translatesAutoresizingMaskIntoConstraints="NO" id="eOG-vp-5TD">
+                        <rect key="frame" x="288" y="8" width="24" height="24"/>
+                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="m9T-Qi-ybT"/>
+                            <constraint firstAttribute="height" constant="24" id="pMx-d8-eTs"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HW-FC-kvR">
+                        <rect key="frame" x="8" y="40" width="304" height="57.5"/>
+                        <string key="text">Manga is the Japanese comics with a unique story line and style. In Japan people of all ages read manga, manga does not target younger audiences like american comics.</string>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="eOG-vp-5TD" firstAttribute="leading" secondItem="Eae-37-hpE" secondAttribute="trailing" constant="8" id="7mM-Oq-HRW"/>
+                    <constraint firstItem="eOG-vp-5TD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="D0e-t1-1pt"/>
+                    <constraint firstItem="Eae-37-hpE" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="VuY-m8-Uvq"/>
+                    <constraint firstAttribute="trailing" secondItem="eOG-vp-5TD" secondAttribute="trailing" constant="8" id="gIM-hN-67Q"/>
+                    <constraint firstAttribute="trailing" secondItem="5HW-FC-kvR" secondAttribute="trailing" constant="8" id="gn4-a9-PLs"/>
+                    <constraint firstItem="5HW-FC-kvR" firstAttribute="top" secondItem="eOG-vp-5TD" secondAttribute="bottom" constant="8" id="nNp-c9-8me"/>
+                    <constraint firstAttribute="bottom" secondItem="5HW-FC-kvR" secondAttribute="bottom" constant="8" id="oGq-zc-0VY"/>
+                    <constraint firstItem="5HW-FC-kvR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="8" id="s1v-sV-w6k"/>
+                    <constraint firstItem="Eae-37-hpE" firstAttribute="centerY" secondItem="eOG-vp-5TD" secondAttribute="centerY" id="yPr-Al-QJ1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="contentLabel" destination="5HW-FC-kvR" id="NJx-hg-Oso"/>
+                <outlet property="expandedHeaderName" destination="Eae-37-hpE" id="DbS-qh-HNd"/>
+            </connections>
+            <point key="canvasLocation" x="-117" y="41"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="ic_arrow_drop_down" width="24" height="24"/>
+    </resources>
+</document>

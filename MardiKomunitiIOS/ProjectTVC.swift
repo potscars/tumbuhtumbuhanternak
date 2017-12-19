@@ -16,11 +16,11 @@ struct ProjekIdentifier {
     static let ProjekStatusCell = "projectStatusCell"
     static let ProjekDescriptionCell = "projectDescriptionCell"
     static let ProjekDetailSegue = "projekDetailsSegue"
+    static let ExpandableInfoCell = "expandableInfoCell"
 }
 
 class ProjectTVC: UITableViewController {
     
-    var sectionHeader = ["PERIKANAN", "TANAMAN", "TERNAKAN"]
     var projeksData = [Projeks]()
     var spinner: LoadingSpinner!
     var isError = false
@@ -63,6 +63,7 @@ class ProjectTVC: UITableViewController {
         
         let nibName = UINib(nibName: "ErrorCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.MessageErrorCell)
+        
     }
     
     func configureRefreshControl() {
@@ -94,6 +95,7 @@ class ProjectTVC: UITableViewController {
             isError = false
             isRefreshMode = false
             if projeksData.count <= 0 {
+                print("Masuk dalam tiada data")
                 projek.fetchProjek { (data, responses) in
                     
                     DispatchQueue.main.async {
@@ -244,7 +246,14 @@ extension ProjectTVC {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if isError {
-            return self.view.frame.height - (tabBarController?.tabBar.frame.height)!
+            
+            if let tabBarHeight = tabBarController?.tabBar.frame.height {
+                return self.view.frame.height - tabBarHeight
+            } else {
+                return self.view.frame.height
+            }
+        } else if (projeksData[indexPath.section].projek[indexPath.row].enrolls)!.count <= 0 {
+            return 84.0
         } else {
             return UITableViewAutomaticDimension
         }

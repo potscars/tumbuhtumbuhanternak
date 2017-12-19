@@ -38,7 +38,7 @@ class Mesej {
         let networkProcessor = NetworkProcessor.init(URLs.listConversationURL)
         let token = UserDefaults.standard.object(forKey: "MYA_USERTOKEN")
         let params = ["token" : token]
-        
+
         networkProcessor.postRequestJSONFromUrl(params) { (result, responses) in
             
             guard responses == nil else { completion(nil, responses); return; }

@@ -48,6 +48,8 @@
 		9EC60DF11F8738A100E056EF /* ProjectTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC60DF01F8738A100E056EF /* ProjectTVC.swift */; };
 		9EC60DF31F87552000E056EF /* ProjekCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC60DF21F87552000E056EF /* ProjekCell.swift */; };
 		9EC60DF51F876C0A00E056EF /* Projek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC60DF41F876C0A00E056EF /* Projek.swift */; };
+		9ED2705C1FE54E3200F1CBE9 /* ExpandableInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED2705A1FE54E3200F1CBE9 /* ExpandableInfoCell.swift */; };
+		9ED2705D1FE54E3200F1CBE9 /* ExpandableInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED2705B1FE54E3200F1CBE9 /* ExpandableInfoCell.xib */; };
 		B712FAC61F8F605F003A873F /* UserDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B712FAC51F8F605F003A873F /* UserDetailsTVC.swift */; };
 		B712FAC81F8F6089003A873F /* UserDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B712FAC71F8F6089003A873F /* UserDetailsTVCell.swift */; };
 		B712FACD1F8F9A29003A873F /* ic_email.png in Resources */ = {isa = PBXBuildFile; fileRef = B712FAC91F8F9A29003A873F /* ic_email.png */; };
@@ -143,6 +145,8 @@
 		9EC60DF01F8738A100E056EF /* ProjectTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectTVC.swift; sourceTree = "<group>"; };
 		9EC60DF21F87552000E056EF /* ProjekCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjekCell.swift; sourceTree = "<group>"; };
 		9EC60DF41F876C0A00E056EF /* Projek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Projek.swift; sourceTree = "<group>"; };
+		9ED2705A1FE54E3200F1CBE9 /* ExpandableInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableInfoCell.swift; sourceTree = "<group>"; };
+		9ED2705B1FE54E3200F1CBE9 /* ExpandableInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandableInfoCell.xib; sourceTree = "<group>"; };
 		B712FAC51F8F605F003A873F /* UserDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsTVC.swift; sourceTree = "<group>"; };
 		B712FAC71F8F6089003A873F /* UserDetailsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsTVCell.swift; sourceTree = "<group>"; };
 		B712FAC91F8F9A29003A873F /* ic_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_email.png; sourceTree = "<group>"; };
@@ -305,6 +309,8 @@
 				9E49FCCE1F8E716D001006A5 /* ProjekDetailsTVC.swift */,
 				9E49FCC81F8E6CD4001006A5 /* ProjectMembersCell.swift */,
 				9E49FCC91F8E6CD4001006A5 /* ProjectMembersCell.xib */,
+				9ED2705A1FE54E3200F1CBE9 /* ExpandableInfoCell.swift */,
+				9ED2705B1FE54E3200F1CBE9 /* ExpandableInfoCell.xib */,
 			);
 			name = Details;
 			sourceTree = "<group>";
@@ -570,6 +576,7 @@
 				9E49FCC21F8E3F1F001006A5 /* ErrorCell.xib in Resources */,
 				B7C8AF341F8623090097597F /* ic_loginavt300.png in Resources */,
 				B7C8AF411F8CBFEE0097597F /* ic_logout.png in Resources */,
+				9ED2705D1FE54E3200F1CBE9 /* ExpandableInfoCell.xib in Resources */,
 				9E4462491F7E374700F82591 /* Main.storyboard in Resources */,
 				B712FACD1F8F9A29003A873F /* ic_email.png in Resources */,
 				B712FAD01F8F9A29003A873F /* ic_profile.png in Resources */,
@@ -704,6 +711,7 @@
 				B712FAD21F90AA1C003A873F /* CreateAnnouncementTVC.swift in Sources */,
 				B7D6727A1FA03F7300F916EF /* CustomLabel.swift in Sources */,
 				B7C8AF451F8F1A1D0097597F /* BeforeNavController.swift in Sources */,
+				9ED2705C1FE54E3200F1CBE9 /* ExpandableInfoCell.swift in Sources */,
 				9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */,
 				9E49FCD31F906ADA001006A5 /* AlertController.swift in Sources */,
 				B7C8AF2D1F85ECA60097597F /* ZNetwork.swift in Sources */,
@@ -883,7 +891,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingeniworks.myagroios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -914,7 +922,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ingeniworks.myagroios;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

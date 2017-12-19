@@ -136,6 +136,9 @@ class MessageDetailsVC: UIViewController {
     
     @IBAction func sendButtonTapped(_ sender: UIButton) {
         
+        spinner = LoadingSpinner.init(view: self.view, isNavBar: true)
+        
+        //parameters for send messages
         let messageText = replyTextView.text
         let conversationId = message.id
         let token = UserDefaults.standard.object(forKey: "MYA_USERTOKEN")
@@ -146,6 +149,7 @@ class MessageDetailsVC: UIViewController {
         if !(messageText?.isEmpty)! && messageText != ""{
             print("Sent")
             
+            spinner.setLoadingScreen()
             let params = ["token" : token,
                           "conversation_id" : conversationId!,
                           "message" : messageText!]
@@ -158,13 +162,19 @@ class MessageDetailsVC: UIViewController {
                 }
                 
                 guard let status = result?["status"] as? Int, status == 1 else {
-                    self.alertController.alertController(self, title: "Ralat", message: "Gagal untuk membalas.")
+                    
+                    DispatchQueue.main.async {
+                        self.alertController.alertController(self, title: "Ralat", message: "Gagal untuk membalas.")
+                        self.spinner.removeLoadingScreen()
+                    }
                     return;
                 }
                 
                 DispatchQueue.main.async {
                     self.alertController.alertController(self, title: "Berjaya", message: "Mesej anda berjaya dihantarkan.")
-                    self.tableView.reloadSections(IndexSet(integer: 0), with: .automatic)
+                    self.tableView.reloadData()
+                    self.replyTextView.text.removeAll()
+                    self.spinner.removeLoadingScreen()
                 }
             })
         } else {

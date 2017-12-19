@@ -18,6 +18,10 @@ extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
         return sectionHeader[section]
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 40
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if section == 0 {
@@ -63,7 +67,7 @@ extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
                 
                 if isFetched {
                     cell.errorLabel.isHidden = false
-                    cell.errorMessage = "Ops. Tiada data."
+                    cell.errorMessage = "Jadilah orang pertama untuk memberi cadangan."
                 } else {
                     tableViewSpinner = LoadingSpinner.init(view: cell.contentView, isNavBar: false)
                     tableViewSpinner.startSpinner()

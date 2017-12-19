@@ -43,10 +43,19 @@ class LoginProcessVC: UIViewController {
     
     func loginProcess() {
         
+        let deviceUniqueId: String = UIDevice.current.identifierForVendor?.uuidString ?? "isSimulator"
+        let osVersion = UIDevice.current.systemVersion
+        let osType = "iOS"
+        let fcmToken = UserDefaults.standard.object(forKey: "FCM_TOKEN") as! String
+        
         let np: NetworkProcessor = NetworkProcessor.init(URLs.loginURL)
         
         let loginParamParam: [String : Any] = ["username":loginData.value(forKey: "username") as! String,
-                                               "password":loginData.value(forKey: "password") as! String]
+                                               "password":loginData.value(forKey: "password") as! String,
+                                               "device_unique_id" : deviceUniqueId,
+                                               "os" : osType,
+                                               "os_version" : osVersion,
+                                               "fcm_token" : fcmToken]
         
         np.postRequestJSONFromUrl(loginParamParam) { (result, response) in
             
