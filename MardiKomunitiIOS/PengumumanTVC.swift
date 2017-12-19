@@ -20,6 +20,7 @@ class PengumumanTVC: UITableViewController {
     
     var dtzButtonAddComment: DTZFloatingActionButton? = nil
     var floatyBtnAddComment: Floaty? = nil
+    var isSEO = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,63 @@ class PengumumanTVC: UITableViewController {
             self.tableView.addSubview(refControl)
         }
         
+        createFloatingButton()
+
+        
+        if(Connectivity.checkConnectionToMardi(viewController: self, showDialog: false)){
+
+            grabAnnouncementInfo()
+        }
+        else {
+            self.errorOccur = true
+            self.refreshed = true
+            self.refControl.endRefreshing()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if(Connectivity.checkConnectionToMardi(viewController: self, showDialog: false)){
+            if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil && UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
+                
+                
+                //check kalau seo, baru keluar floating button.
+                let tempData = UserDefaults.standard.object(forKey: "MYA_ROLES_ARR") as! Data
+                let rolesArray = NSKeyedUnarchiver.unarchiveObject(with: tempData) as! NSArray
+                let rolesDictionary = rolesArray.object(at: 0) as? NSDictionary ?? [:]
+                
+                if let rolesName = rolesDictionary["name"] as? String {
+                    
+                    if rolesName == "seo" {
+                        isSEO = true
+                        if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
+                            floatyBtnAddComment!.frame = CGRect.init(x: self.view.center.x + 300, y: self.view.center.y + 450, width: 56, height: 56) }
+                        else {
+                            floatyBtnAddComment!.frame = CGRect.init(x: self.view.center.x + 100, y: self.view.center.y + 230, width: 56, height: 56)
+                            
+                        }
+                        
+                        floatyBtnAddComment!.layer.removeAllAnimations()
+                        self.navigationController?.view.addSubview(floatyBtnAddComment!)
+                    }
+                }
+            }
+        }
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil && UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
+            
+            if isSEO {
+                floatyBtnAddComment!.removeFromSuperview()
+            }
+        }
+    }
+    
+    func createFloatingButton() {
+        
         dtzButtonAddComment = DTZFloatingActionButton.init(frame: CGRect.init(x: self.view.frame.size.width - 56 - 14, y: self.view.frame.height - 100 - 14, width: 56, height: 56))
         dtzButtonAddComment!.tag = 100
         dtzButtonAddComment!.buttonColor = Colors.mainGreen
@@ -52,8 +110,7 @@ class PengumumanTVC: UITableViewController {
         }
         
         if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
-            floatyBtnAddComment = Floaty.init(frame: CGRect.init(x: self.view.center.x + 300, y: self.view.center.y + 450, width: 56, height: 56))
-        }
+            floatyBtnAddComment = Floaty.init(frame: CGRect.init(x: self.view.center.x + 300, y: self.view.center.y + 450, width: 56, height: 56)) }
         else {
             floatyBtnAddComment = Floaty.init(frame: CGRect.init(x: self.view.center.x + 100, y: self.view.center.y + 230, width: 56, height: 56))
         }
@@ -64,47 +121,6 @@ class PengumumanTVC: UITableViewController {
         let addGesRecg: UITapGestureRecognizer = UITapGestureRecognizer.init(target: self, action: #selector(goToWriteArticle(sender:)))
         
         floatyBtnAddComment?.addGestureRecognizer(addGesRecg)
-        
-        if(Connectivity.checkConnectionToMardi(viewController: self, showDialog: false)){
-
-            grabAnnouncementInfo()
-            
-        }
-        else {
-            self.errorOccur = true
-            self.refreshed = true
-            self.refControl.endRefreshing()
-        }
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if(Connectivity.checkConnectionToMardi(viewController: self, showDialog: false)){
-            if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil && UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
-                
-                if UIDevice.current.userInterfaceIdiom == UIUserInterfaceIdiom.pad {
-                    floatyBtnAddComment!.frame = CGRect.init(x: self.view.center.x + 300, y: self.view.center.y + 450, width: 56, height: 56) }
-                else {
-                    floatyBtnAddComment!.frame = CGRect.init(x: self.view.center.x + 100, y: self.view.center.y + 230, width: 56, height: 56)
-                    
-                }
-                
-                floatyBtnAddComment!.layer.removeAllAnimations()
-                self.navigationController?.view.addSubview(floatyBtnAddComment!)
-            
-            }
-        }
-        
-        
-    }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil && UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
-            floatyBtnAddComment!.removeFromSuperview()
-        }
     }
     
     func goToWriteArticle(sender: UITapGestureRecognizer) {

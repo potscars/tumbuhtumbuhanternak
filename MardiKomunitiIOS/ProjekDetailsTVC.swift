@@ -18,7 +18,8 @@ class ProjekDetailsTVC: UITableViewController {
     @IBOutlet weak var startDateLabel: UILabel!
     @IBOutlet weak var agencyLabel: UILabel!
     
-    var sectionHeader = ["Status", "Maklumat Aktiviti", "Lokasi"]
+    var sectionHeader = ["Maklumat Aktiviti", "Lokasi"]
+    var expandedHeaderName = [("Sektor", false), ("Sub - Sektor", false), ("Kumpulan Komoditi", false), ("Komuditi", false)]
     var projek: Projek!
     
     override func viewDidLoad() {
@@ -34,18 +35,16 @@ class ProjekDetailsTVC: UITableViewController {
         
         projekNameLabel.text = projek.name
         projekCategoryLabel.text = projek.projekCategory
-        startDateLabel.text = projek.dateStart
-        endDateLabel.text = projek.dateEnd
+        startDateLabel.text = projek.dateStart != "" ? projek.dateStart : "-"
+        endDateLabel.text = projek.dateEnd != "" ? projek.dateEnd : "-"
         
         var agencyString = ""
         
         for agency in projek.agency! {
             agencyString += agency
-            return
         }
         
         agencyLabel.text = agencyString
-        
     }
     
     func configureTableView() {
@@ -56,6 +55,9 @@ class ProjekDetailsTVC: UITableViewController {
         
         let nibName = UINib(nibName: "ProjectMembersCell", bundle: nil)
         tableView.register(nibName, forCellReuseIdentifier: ProjekIdentifier.ProjekMembersCell)
+        
+        let expandNibName = UINib(nibName: "ExpandableInfoCell", bundle: nil)
+        tableView.register(expandNibName, forCellReuseIdentifier: ProjekIdentifier.ExpandableInfoCell)
     }
 }
 
@@ -73,34 +75,33 @@ extension ProjekDetailsTVC {
     }
     
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        if section == 0 {
-            return 0
-        } else {
-            return 20.0
-        }
+        return 20.0
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        
+        if section == 0 {
+            return expandedHeaderName.count
+        } else {
+            return 1
+        }
     }
+    
+    /*
+     Section:
+     0 - Status - deleted
+     1 - Maklumat Aktiviti
+     2 - Lokasi
+     */
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let section = indexPath.section
         
         if section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProjekIdentifier.ProjekStatusCell, for: indexPath)
+            let cell = tableView.dequeueReusableCell(withIdentifier: ProjekIdentifier.ExpandableInfoCell, for: indexPath) as! ExpandableInfoCell
             
-            let featuredImage = cell.viewWithTag(1) as! UIImageView
-            
-            featuredImage.image = #imageLiteral(resourceName: "ic_check_circle")
-            featuredImage.tintColor = .green
-            
-            return cell
-        } else if section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: ProjekIdentifier.ProjekDescriptionCell, for: indexPath)
-
-            let descriptionLabel = cell.viewWithTag(1) as! UILabel
-            descriptionLabel.text = "Tiada maklumat mengenai projek ini buat masa kini."
+            cell.selectionStyle = .none
+            cell.updateView(expandedHeaderName[indexPath.row].0)
             
             return cell
         } else {
@@ -110,11 +111,35 @@ extension ProjekDetailsTVC {
             let featuredImage = cell.viewWithTag(1) as! UIImageView
             let locationLabel = cell.viewWithTag(2) as! UILabel
             
+            cell.selectionStyle = .none
             featuredImage.image = #imageLiteral(resourceName: "ic_location_on")
             featuredImage.tintColor = .gray
             locationLabel.text = "Seoul"
             
             return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0 {
+            expandedHeaderName[indexPath.row].1 = !expandedHeaderName[indexPath.row].1
+            tableView.beginUpdates()
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if indexPath.section == 0 {
+            if expandedHeaderName[indexPath.row].1 {
+                return UITableViewAutomaticDimension
+            } else {
+                return 42.0
+            }
+        } else {
+            return UITableViewAutomaticDimension
         }
     }
 }

@@ -143,6 +143,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if let token = InstanceID.instanceID().token() {
             NSLog("FCM TOKEN : \(token)")
+            UserDefaults.standard.set(token, forKey: "FCM_TOKEN")
             self.connectToFcm()
         }
         

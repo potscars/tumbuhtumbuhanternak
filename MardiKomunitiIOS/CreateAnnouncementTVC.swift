@@ -72,22 +72,38 @@ class CreateAnnouncementTVC: UITableViewController, UITextViewDelegate, UITextFi
                                              "title":String.init(format: "%@", allValuesToSend.value(forKey: "SUBJECT") as? String ?? ""),
                                              "content":String.init(format: "%@", allValuesToSend.value(forKey: "CONTENT") as? String ?? "")]
         
-        np.uploadDataMultipart(sendAnnoucement, images: imageInArray!, imagesPathKey: "image") { (result, response) in
-        
-            if(result!["status"] as! Int == 1) {
+        if (imageInArray?.count)! > 0 {
+            np.uploadDataMultipart(sendAnnoucement, images: imageInArray!, imagesPathKey: "image") { (result, response) in
                 
-                ls.removeLoadingScreen()
-                ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Selesai", dialogMessage: "Pengumuman berjaya dihantar.", afterDialogDismissed: "BACK_TO_PREVIOUS_VIEWCONTROLLER")
-                
-            } else {
-                
-                ls.removeLoadingScreen()
-                ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Masalah", dialogMessage: "Pengumuman gagal dihantar. Sila cuba sekali lagi.", afterDialogDismissed: nil)
+                if(result!["status"] as! Int == 1) {
+                    
+                    ls.removeLoadingScreen()
+                    ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Selesai", dialogMessage: "Pengumuman berjaya dihantar.", afterDialogDismissed: "BACK_TO_PREVIOUS_VIEWCONTROLLER")
+                    
+                } else {
+                    
+                    ls.removeLoadingScreen()
+                    ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Masalah", dialogMessage: "Pengumuman gagal dihantar. Sila cuba sekali lagi.", afterDialogDismissed: nil)
+                    
+                }
                 
             }
-    
+        } else {
+            
+            np.postRequestJSONFromUrl(sendAnnoucement, completion: { (results, responses) in
+                
+                if let status = results?["status"] as? Int {
+                    
+                    if status == 1 {
+                        ls.removeLoadingScreen()
+                        ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Selesai", dialogMessage: "Pengumuman berjaya dihantar.", afterDialogDismissed: "BACK_TO_PREVIOUS_VIEWCONTROLLER")
+                    } else {
+                        ls.removeLoadingScreen()
+                        ZUIs.showOKDialogBox(viewController: self, dialogTitle: "Masalah", dialogMessage: "Pengumuman gagal dihantar. Sila cuba sekali lagi.", afterDialogDismissed: nil)
+                    }
+                }
+            })
         }
-        
     }
     
     func checkFields() {

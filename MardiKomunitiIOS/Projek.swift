@@ -27,13 +27,17 @@ class Projeks {
         
         let networkProcessors = NetworkProcessor.init(URLs.projectByCategoryURL)
         let token = UserDefaults.standard.object(forKey: "MYA_USERTOKEN")
-        
         let params = ["token" : token]
         
         networkProcessors.postRequestJSONFromUrl(params) { (data, responses) in
             
-            guard responses == nil else { return }
-            guard let status = data?["status"] as? Int else { return; }
+            guard responses == nil else {
+                return
+            }
+            guard let status = (data as AnyObject).object(forKey: "status") as? Int else {
+                completion(nil, "Maaf, masalah teknikal.")
+                return
+            }
             
             if status == 1 {
                 
@@ -63,11 +67,9 @@ class Projeks {
                     var projekTemp = [Projek]()
                     
                     let projekCategory = (dataResult as AnyObject).value(forKey: "name") as! String
-                    
                     guard let projects = (dataResult as AnyObject).value(forKey: "projects") as? NSArray else { return }
-                    
+
                     for project in projects {
-                        
                         var projekEnrollsTemp = [Enrolls]()
                         
                         if let id = (project as AnyObject).value(forKey: "id") as? Int {
@@ -94,44 +96,53 @@ class Projeks {
                             for conduct in conducts {
                                 
                                 if let agency = (conduct as AnyObject).value(forKey: "agency") as? NSDictionary, let agencyName = agency["name"] as? String {
+                                    print(agencyName)
                                     projectAgency.append(agencyName)
                                 }
                             }
                         }
                         
-                        guard let enrolls = (project as AnyObject).value(forKey: "enrolls") as? NSArray else { return }
-                        
-                        for enroll in enrolls {
+                        if let enrolls = (project as AnyObject).value(forKey: "enrolls") as? NSArray {
+                            for enroll in enrolls {
+                                
+                                if let address = (enroll as AnyObject).value(forKey: "address") as? NSDictionary, let district = address["district"] as? NSDictionary, let districtName = district["name"] as? String {
+                                    
+                                    agencyNameTemp = districtName
+                                }
+                                
+                                if let enlist = (enroll as AnyObject).value(forKey: "enlist") as? NSDictionary {
 
-                            if let address = (enroll as AnyObject).value(forKey: "address") as? NSDictionary, let district = address["district"] as? NSDictionary, let districtName = district["name"] as? String {
+                                    //ini untuk yang dulu punya, later will be deleted.
+//                                    if let name = user["name"] as? String{
+//                                        enrollName = name
+//                                    }
+//
+//                                    if let username = user["username"] as? String {
+//                                        enrollUsername = username
+//                                    }
+//
+//                                    if let employment = user["employment"] as? NSDictionary, let branch = employment["branch"] as? NSDictionary, let agency = branch["agency"] as? NSDictionary, let agencyName = agency["name"] as? String {
+//
+//                                        agencyNameTemp = agencyName
+//                                    }
+//
+//                                    if let icNumber = user["ic_no"] as? String{
+//                                        enrollICNumber = icNumber
+//                                    }
+//
+//                                    if let phoneNumber = user["hp_no"] as? String{
+//                                        enrollPhoneNumber = phoneNumber
+//                                    }
+                                    
+                                    if let user = enlist["user"] as? NSDictionary {
+                                        if let name = user["name"] as? String {
+                                            enrollName = name
+                                        }
+                                    }
+                                }
                                 
-                                agencyNameTemp = districtName
+                                projekEnrollsTemp.append(Enrolls(name: enrollName, username: enrollUsername, icNumber: enrollICNumber, phoneNumber: enrollPhoneNumber, agency: agencyNameTemp))
                             }
-                            
-                            guard let user = (enroll as AnyObject).value(forKey: "user") as? NSDictionary else { return }
-                            
-                            if let name = user["name"] as? String{
-                                enrollName = name
-                            }
-                            
-                            if let username = user["username"] as? String {
-                                enrollUsername = username
-                            }
-                            
-                            if let employment = user["employment"] as? NSDictionary, let branch = employment["branch"] as? NSDictionary, let agency = branch["agency"] as? NSDictionary, let agencyName = agency["name"] as? String {
-                                
-                                agencyNameTemp = agencyName
-                            }
-                            
-                            if let icNumber = user["ic_no"] as? String{
-                                enrollICNumber = icNumber
-                            }
-                            
-                            if let phoneNumber = user["hp_no"] as? String{
-                                enrollPhoneNumber = phoneNumber
-                            }
-                            
-                            projekEnrollsTemp.append(Enrolls(name: enrollName, username: enrollUsername, icNumber: enrollICNumber, phoneNumber: enrollPhoneNumber, agency: agencyNameTemp))
                         }
                         
                         projekTemp.append(Projek(projectId, name: projectName, dateStart: projectDateStart, dateEnd: projectDateEnd, agency: projectAgency, projekCategory: projectCategoryName, enrolls: projekEnrollsTemp))
