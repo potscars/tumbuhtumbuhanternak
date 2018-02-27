@@ -17,6 +17,13 @@ struct ProjekIdentifier {
     static let ProjekDescriptionCell = "projectDescriptionCell"
     static let ProjekDetailSegue = "projekDetailsSegue"
     static let ExpandableInfoCell = "expandableInfoCell"
+    static let LocationActivityCell = "locationActivityCell"
+    static let MaklumatAktivitiCell = "maklumatAktivitiCell"
+    static let MaklumatPegawaiCell = "maklumatPegawaiCell"
+    static let MaklumatPetaniCell = "maklumatPetaniCell"
+    static let PetaniTableViewCell = "petaniCell"
+    static let AktivitiTableViewCell = "aktivitiCell"
+    static let PegawaiTableViewCell = "pegawaiCell"
 }
 
 class ProjectTVC: UITableViewController {
@@ -58,11 +65,9 @@ class ProjectTVC: UITableViewController {
         if(self.tabBarController != nil){
             tableView.contentInset = UIEdgeInsetsMake(0, 0, (tabBarController?.tabBar.frame.height)!, 0)
         }
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 100.0
         
         let nibName = UINib(nibName: "ErrorCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.MessageErrorCell)
+        tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.ErrorCell)
         
     }
     
@@ -143,19 +148,7 @@ class ProjectTVC: UITableViewController {
     var selectedProjek: Projek!
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
-        if segue.identifier == ProjekIdentifier.ProjekDetailSegue {
-            
-            if let destination = segue.destination as? ProjekDetailsTVC {
-                
-                destination.projek = selectedProjek
-            }
-        }
-        else {
-            
-            
-            
-        }
+
     }
 }
 
@@ -215,7 +208,7 @@ extension ProjectTVC {
             return cell
         } else {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageErrorCell, for: indexPath) as! ErrorCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.ErrorCell, for: indexPath) as! ErrorCell
             
             cell.selectionStyle = .none
             cell.errorMessage = errorMessage
@@ -230,16 +223,10 @@ extension ProjectTVC {
             
             selectedProjek = projeksData[indexPath.section].projek[indexPath.row]
             
-            if(segueIdentifier == "MYA_GOTO_MSG_PROJ") {
-                
-                let getProject: Projek = selectedProjek!
-                AppDelegate.temporaryData = getProject
-                
-                self.dismiss(animated: true, completion: nil)
-            }
-            else {
-                performSegue(withIdentifier: ProjekIdentifier.ProjekDetailSegue, sender: self)
-            }
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ProjectDetailsVC") as! ProjectDetailsVC
+            vc.projek = selectedProjek
+            self.navigationController?.pushViewController(vc, animated: true)
         }
     }
     
@@ -252,10 +239,9 @@ extension ProjectTVC {
             } else {
                 return self.view.frame.height
             }
-        } else if (projeksData[indexPath.section].projek[indexPath.row].enrolls)!.count <= 0 {
-            return 84.0
         } else {
-            return UITableViewAutomaticDimension
+            
+            return 73.0
         }
     }
 }

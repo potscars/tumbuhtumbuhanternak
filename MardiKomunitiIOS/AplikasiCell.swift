@@ -15,6 +15,11 @@ class AplikasiCell: UICollectionViewCell {
     
     func updateCell(_ name: String, image: UIImage) {
         
+        //setting for auto shrink to fit the label.
+        aplikasiName.numberOfLines = 2
+        aplikasiName.lineBreakMode = .byTruncatingTail
+        aplikasiName.minimumScaleFactor = 0.5
+        
         aplikasiName.text = name
         featuredImage.image = image
     }

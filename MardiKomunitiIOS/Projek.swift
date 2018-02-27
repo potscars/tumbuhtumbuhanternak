@@ -51,8 +51,8 @@ class Projeks {
                 //tempt string to hold project json
                 var projectId: Int = 99999
                 var projectName: String = ""
-                var projectDateEnd: String = "1889"
-                var projectDateStart: String = "1885"
+                var projectDateEnd: String = ""
+                var projectDateStart: String = ""
                 var projectAgency = [String]()
                 var projectCategoryName: String = ""
                 
@@ -103,7 +103,9 @@ class Projeks {
                         }
                         
                         if let enrolls = (project as AnyObject).value(forKey: "enrolls") as? NSArray {
+
                             for enroll in enrolls {
+                                var taxonomyTemp: [String: Any] = [:]
                                 
                                 if let address = (enroll as AnyObject).value(forKey: "address") as? NSDictionary, let district = address["district"] as? NSDictionary, let districtName = district["name"] as? String {
                                     
@@ -111,37 +113,42 @@ class Projeks {
                                 }
                                 
                                 if let enlist = (enroll as AnyObject).value(forKey: "enlist") as? NSDictionary {
-
-                                    //ini untuk yang dulu punya, later will be deleted.
-//                                    if let name = user["name"] as? String{
-//                                        enrollName = name
-//                                    }
-//
-//                                    if let username = user["username"] as? String {
-//                                        enrollUsername = username
-//                                    }
-//
-//                                    if let employment = user["employment"] as? NSDictionary, let branch = employment["branch"] as? NSDictionary, let agency = branch["agency"] as? NSDictionary, let agencyName = agency["name"] as? String {
-//
-//                                        agencyNameTemp = agencyName
-//                                    }
-//
-//                                    if let icNumber = user["ic_no"] as? String{
-//                                        enrollICNumber = icNumber
-//                                    }
-//
-//                                    if let phoneNumber = user["hp_no"] as? String{
-//                                        enrollPhoneNumber = phoneNumber
-//                                    }
                                     
                                     if let user = enlist["user"] as? NSDictionary {
                                         if let name = user["name"] as? String {
                                             enrollName = name
                                         }
+                                        
+                                        /*
+                                         1 - sektor
+                                         2 - sub sektor
+                                         3 - kump komiditi
+                                         4 - komiditi
+                                         */
+                                        
+                                        if let taxos = user["taxonomies"] as? NSArray {
+                                            print("TOXOS: \(taxos)")
+                                            for taxo in taxos {
+                                                
+                                                taxonomyTemp = self.getTaxonomyName(taxoData: taxo as AnyObject, taxoTemp: taxonomyTemp)
+                                                if let parent1 = (taxo as AnyObject).object(forKey: "parent") as? [String: Any] {
+                                                    taxonomyTemp = self.getTaxonomyName(taxoData: parent1 as AnyObject, taxoTemp: taxonomyTemp)
+                                                    if let parent2 = parent1["parent"] as? [String: Any]
+                                                    {
+                                                        taxonomyTemp = self.getTaxonomyName(taxoData: parent2 as AnyObject, taxoTemp: taxonomyTemp)
+                                                        if let parent3 = parent2["parent"] as? [String: Any]
+                                                        {
+                                                            taxonomyTemp = self.getTaxonomyName(taxoData: parent3 as AnyObject, taxoTemp: taxonomyTemp)
+                                                        }
+                                                    }
+                                                }
+                                                print("TaxDetails: \(taxonomyTemp)")
+                                            }
+                                        }
                                     }
                                 }
                                 
-                                projekEnrollsTemp.append(Enrolls(name: enrollName, username: enrollUsername, icNumber: enrollICNumber, phoneNumber: enrollPhoneNumber, agency: agencyNameTemp))
+                                projekEnrollsTemp.append(Enrolls(name: enrollName, username: enrollUsername, icNumber: enrollICNumber, phoneNumber: enrollPhoneNumber, agency: agencyNameTemp, taxonomy: taxonomyTemp))
                             }
                         }
                         
@@ -156,6 +163,31 @@ class Projeks {
                 completion(nil, "Maaf, masalah teknikal.")
             }
         }
+    }
+    
+    func getTaxonomyName(taxoData: AnyObject, taxoTemp: [String: Any]) -> [String: Any] {
+        
+        var newTaxoTemp = taxoTemp
+        print("MORE TAXO \(newTaxoTemp)")
+        if let taxoId = taxoData.object(forKey: "taxonomy_group_id") as? Int {
+            
+            if let name = taxoData.object(forKey: "name") as? String {
+                print("\(taxoId) \(name)")
+                if taxoId == 1 {
+                    newTaxoTemp.updateValue(name, forKey: "SEKTOR")
+                } else if taxoId == 2 {
+                    newTaxoTemp.updateValue(name, forKey: "SUB-SEKTOR")
+                } else if taxoId == 3 {
+                    newTaxoTemp.updateValue(name, forKey: "KUMP KOMUDITI")
+                } else if taxoId == 4 {
+                    newTaxoTemp.updateValue(name, forKey: "KOMUDITI")
+                } else {
+                    newTaxoTemp.updateValue(name, forKey: "VARIASI")
+                }
+            }
+        }
+        
+        return newTaxoTemp
     }
 }
 
@@ -188,42 +220,18 @@ class Enrolls {
     var icNumber : String?
     var phoneNumber : String?
     var agency: String?
+    var taxonomy: [String: Any]?
     
-    init (name: String, username: String, icNumber: String, phoneNumber: String, agency: String?) {
+    init (name: String, username: String, icNumber: String, phoneNumber: String, agency: String?, taxonomy: [String: Any]) {
         
         self.name = name
         self.username = username
         self.icNumber = icNumber
         self.phoneNumber = phoneNumber
         self.agency = agency
+        self.taxonomy = taxonomy
     }
 }
-
-//"enrolls": [
-//{
-//"id": 36,
-//"user_id": 14,
-//"project_id": 7,
-//"address_id": 86,
-//"role_id": 1,
-//"status": "1",
-//"created_at": "-0001-11-30 00:00:00",
-//"updated_at": "-0001-11-30 00:00:00",
-//"user": {
-//"id": 14,
-//"address_id": 5,
-//"username": "eruan.hanapi",
-//"alt_username": "",
-//"name": "Eruan Bin Hanapi",
-//"ic_no": "761003025905",
-//"hp_no": "019-5619075",
-//"phone_no": "",
-//"email": null,
-//"remember_token": null,
-//"created_at": "2017-10-05 16:04:33",
-//"updated_at": "2017-10-05 16:04:33"
-//}
-//},
 
 
 

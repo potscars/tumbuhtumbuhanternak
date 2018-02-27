@@ -61,7 +61,7 @@ extension MessageDetailsVC : UITableViewDataSource, UITableViewDelegate {
                 return cell
             } else {
                 
-                let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageErrorCell, for: indexPath) as! ErrorCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.ErrorCell, for: indexPath) as! ErrorCell
                 
                 cell.selectionStyle = .none
                 

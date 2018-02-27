@@ -20,6 +20,9 @@
 		9E0552E31F84EBF1002BA0E0 /* MembersCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E0552E21F84EBF1002BA0E0 /* MembersCollectionCell.xib */; };
 		9E0552E51F84EDB6002BA0E0 /* MessageDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0552E41F84EDB6002BA0E0 /* MessageDetailsVC.swift */; };
 		9E0552E71F84FD6F002BA0E0 /* MessageDetailsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0552E61F84FD6F002BA0E0 /* MessageDetailsExtension.swift */; };
+		9E11CB82203ECC8C005FD04D /* PetaniInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E11CB81203ECC8C005FD04D /* PetaniInfoTableViewCell.swift */; };
+		9E11CB84203ED5A1005FD04D /* LokasiAktivitiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E11CB83203ED5A1005FD04D /* LokasiAktivitiCell.swift */; };
+		9E11CB86203F3041005FD04D /* ProjectDetailsTableViewExtensionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E11CB85203F3041005FD04D /* ProjectDetailsTableViewExtensionVC.swift */; };
 		9E11F1851FAAF75A00489653 /* AplikasiKategoriVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E11F1841FAAF75A00489653 /* AplikasiKategoriVC.swift */; };
 		9E11F18C1FAB383900489653 /* padikebangsaan.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B71AD02D1F833708008DA4AF /* padikebangsaan.jpg */; };
 		9E11F18D1FAB383900489653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E44624A1F7E374700F82591 /* Assets.xcassets */; };
@@ -36,7 +39,6 @@
 		9E49FCCA1F8E6CD4001006A5 /* ProjectMembersCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCC81F8E6CD4001006A5 /* ProjectMembersCell.swift */; };
 		9E49FCCB1F8E6CD4001006A5 /* ProjectMembersCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9E49FCC91F8E6CD4001006A5 /* ProjectMembersCell.xib */; };
 		9E49FCCD1F8E6FB0001006A5 /* BasicInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCCC1F8E6FB0001006A5 /* BasicInfoCell.swift */; };
-		9E49FCCF1F8E716D001006A5 /* ProjekDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCCE1F8E716D001006A5 /* ProjekDetailsTVC.swift */; };
 		9E49FCD31F906ADA001006A5 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E49FCD21F906ADA001006A5 /* AlertController.swift */; };
 		9E5884751F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */; };
 		9E5884771F81FC91001EDA2E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5884761F81FC91001EDA2E /* Extension.swift */; };
@@ -50,6 +52,12 @@
 		9EC60DF51F876C0A00E056EF /* Projek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC60DF41F876C0A00E056EF /* Projek.swift */; };
 		9ED2705C1FE54E3200F1CBE9 /* ExpandableInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED2705A1FE54E3200F1CBE9 /* ExpandableInfoCell.swift */; };
 		9ED2705D1FE54E3200F1CBE9 /* ExpandableInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9ED2705B1FE54E3200F1CBE9 /* ExpandableInfoCell.xib */; };
+		9ED81C85203EAE7E00C480F1 /* ProjectDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED81C84203EAE7E00C480F1 /* ProjectDetailsVC.swift */; };
+		9ED81C87203EB09800C480F1 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED81C86203EB09800C480F1 /* MenuBar.swift */; };
+		9ED81C89203EB11A00C480F1 /* MenuBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED81C88203EB11A00C480F1 /* MenuBarCell.swift */; };
+		9ED81C8B203EBEB400C480F1 /* MaklumatAktivitiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED81C8A203EBEB400C480F1 /* MaklumatAktivitiCell.swift */; };
+		9ED81C8D203EBEC700C480F1 /* MaklumatPegawaiCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED81C8C203EBEC700C480F1 /* MaklumatPegawaiCell.swift */; };
+		9ED81C8F203EBEDE00C480F1 /* MaklumatPetaniCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED81C8E203EBEDE00C480F1 /* MaklumatPetaniCell.swift */; };
 		B712FAC61F8F605F003A873F /* UserDetailsTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B712FAC51F8F605F003A873F /* UserDetailsTVC.swift */; };
 		B712FAC81F8F6089003A873F /* UserDetailsTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B712FAC71F8F6089003A873F /* UserDetailsTVCell.swift */; };
 		B712FACD1F8F9A29003A873F /* ic_email.png in Resources */ = {isa = PBXBuildFile; fileRef = B712FAC91F8F9A29003A873F /* ic_email.png */; };
@@ -116,6 +124,9 @@
 		9E0552E21F84EBF1002BA0E0 /* MembersCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MembersCollectionCell.xib; sourceTree = "<group>"; };
 		9E0552E41F84EDB6002BA0E0 /* MessageDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailsVC.swift; sourceTree = "<group>"; };
 		9E0552E61F84FD6F002BA0E0 /* MessageDetailsExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDetailsExtension.swift; sourceTree = "<group>"; };
+		9E11CB81203ECC8C005FD04D /* PetaniInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetaniInfoTableViewCell.swift; sourceTree = "<group>"; };
+		9E11CB83203ED5A1005FD04D /* LokasiAktivitiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LokasiAktivitiCell.swift; sourceTree = "<group>"; };
+		9E11CB85203F3041005FD04D /* ProjectDetailsTableViewExtensionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsTableViewExtensionVC.swift; sourceTree = "<group>"; };
 		9E11F1841FAAF75A00489653 /* AplikasiKategoriVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AplikasiKategoriVC.swift; sourceTree = "<group>"; };
 		9E2796541FDA958A00B55F4C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9E4462401F7E374700F82591 /* MardiKomunitiIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MardiKomunitiIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,7 +144,6 @@
 		9E49FCC81F8E6CD4001006A5 /* ProjectMembersCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectMembersCell.swift; sourceTree = "<group>"; };
 		9E49FCC91F8E6CD4001006A5 /* ProjectMembersCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProjectMembersCell.xib; sourceTree = "<group>"; };
 		9E49FCCC1F8E6FB0001006A5 /* BasicInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicInfoCell.swift; sourceTree = "<group>"; };
-		9E49FCCE1F8E716D001006A5 /* ProjekDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjekDetailsTVC.swift; sourceTree = "<group>"; };
 		9E49FCD21F906ADA001006A5 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		9E5884741F81FBF5001EDA2E /* AplikasiBerkaitanCVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AplikasiBerkaitanCVC.swift; sourceTree = "<group>"; };
 		9E5884761F81FC91001EDA2E /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
@@ -147,6 +157,12 @@
 		9EC60DF41F876C0A00E056EF /* Projek.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Projek.swift; sourceTree = "<group>"; };
 		9ED2705A1FE54E3200F1CBE9 /* ExpandableInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableInfoCell.swift; sourceTree = "<group>"; };
 		9ED2705B1FE54E3200F1CBE9 /* ExpandableInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandableInfoCell.xib; sourceTree = "<group>"; };
+		9ED81C84203EAE7E00C480F1 /* ProjectDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsVC.swift; sourceTree = "<group>"; };
+		9ED81C86203EB09800C480F1 /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		9ED81C88203EB11A00C480F1 /* MenuBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarCell.swift; sourceTree = "<group>"; };
+		9ED81C8A203EBEB400C480F1 /* MaklumatAktivitiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaklumatAktivitiCell.swift; sourceTree = "<group>"; };
+		9ED81C8C203EBEC700C480F1 /* MaklumatPegawaiCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaklumatPegawaiCell.swift; sourceTree = "<group>"; };
+		9ED81C8E203EBEDE00C480F1 /* MaklumatPetaniCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaklumatPetaniCell.swift; sourceTree = "<group>"; };
 		B712FAC51F8F605F003A873F /* UserDetailsTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsTVC.swift; sourceTree = "<group>"; };
 		B712FAC71F8F6089003A873F /* UserDetailsTVCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDetailsTVCell.swift; sourceTree = "<group>"; };
 		B712FAC91F8F9A29003A873F /* ic_email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_email.png; sourceTree = "<group>"; };
@@ -243,6 +259,34 @@
 			name = Details;
 			sourceTree = "<group>";
 		};
+		9E11CB87203F307D005FD04D /* MaklumatAktiviti */ = {
+			isa = PBXGroup;
+			children = (
+				9ED81C8A203EBEB400C480F1 /* MaklumatAktivitiCell.swift */,
+				9E11CB83203ED5A1005FD04D /* LokasiAktivitiCell.swift */,
+				9ED2705A1FE54E3200F1CBE9 /* ExpandableInfoCell.swift */,
+				9ED2705B1FE54E3200F1CBE9 /* ExpandableInfoCell.xib */,
+			);
+			name = MaklumatAktiviti;
+			sourceTree = "<group>";
+		};
+		9E11CB88203F30A4005FD04D /* MaklumatPetani */ = {
+			isa = PBXGroup;
+			children = (
+				9ED81C8E203EBEDE00C480F1 /* MaklumatPetaniCell.swift */,
+				9E11CB81203ECC8C005FD04D /* PetaniInfoTableViewCell.swift */,
+			);
+			name = MaklumatPetani;
+			sourceTree = "<group>";
+		};
+		9E11CB89203F30AE005FD04D /* MaklumatPegawai */ = {
+			isa = PBXGroup;
+			children = (
+				9ED81C8C203EBEC700C480F1 /* MaklumatPegawaiCell.swift */,
+			);
+			name = MaklumatPegawai;
+			sourceTree = "<group>";
+		};
 		9E4462371F7E374600F82591 = {
 			isa = PBXGroup;
 			children = (
@@ -306,11 +350,15 @@
 			isa = PBXGroup;
 			children = (
 				9E49FCCC1F8E6FB0001006A5 /* BasicInfoCell.swift */,
-				9E49FCCE1F8E716D001006A5 /* ProjekDetailsTVC.swift */,
 				9E49FCC81F8E6CD4001006A5 /* ProjectMembersCell.swift */,
 				9E49FCC91F8E6CD4001006A5 /* ProjectMembersCell.xib */,
-				9ED2705A1FE54E3200F1CBE9 /* ExpandableInfoCell.swift */,
-				9ED2705B1FE54E3200F1CBE9 /* ExpandableInfoCell.xib */,
+				9ED81C86203EB09800C480F1 /* MenuBar.swift */,
+				9ED81C88203EB11A00C480F1 /* MenuBarCell.swift */,
+				9ED81C84203EAE7E00C480F1 /* ProjectDetailsVC.swift */,
+				9E11CB85203F3041005FD04D /* ProjectDetailsTableViewExtensionVC.swift */,
+				9E11CB87203F307D005FD04D /* MaklumatAktiviti */,
+				9E11CB88203F30A4005FD04D /* MaklumatPetani */,
+				9E11CB89203F30AE005FD04D /* MaklumatPegawai */,
 			);
 			name = Details;
 			sourceTree = "<group>";
@@ -644,7 +692,7 @@
 		};
 		8BF612A76DB8C414AB0B7C65 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -671,7 +719,10 @@
 				9E4462461F7E374700F82591 /* ViewController.swift in Sources */,
 				B7C5FFCA1F99EEB000DB252D /* SettingsPassVC.swift in Sources */,
 				9E0552D41F84CE19002BA0E0 /* ContentCell.swift in Sources */,
+				9E11CB82203ECC8C005FD04D /* PetaniInfoTableViewCell.swift in Sources */,
 				9E58847C1F8210FA001EDA2E /* Colors.swift in Sources */,
+				9E11CB84203ED5A1005FD04D /* LokasiAktivitiCell.swift in Sources */,
+				9ED81C87203EB09800C480F1 /* MenuBar.swift in Sources */,
 				B7C5FFCC1F9D881F00DB252D /* GetProjectNVC.swift in Sources */,
 				9E49FCCD1F8E6FB0001006A5 /* BasicInfoCell.swift in Sources */,
 				B71AD0281F833001008DA4AF /* PengumumanTVCell.swift in Sources */,
@@ -688,9 +739,9 @@
 				9E49FCBD1F8CC02C001006A5 /* LoadingSpinner.swift in Sources */,
 				9E4462441F7E374700F82591 /* AppDelegate.swift in Sources */,
 				B71AD02A1F8331E2008DA4AF /* ZUISetup.swift in Sources */,
+				9ED81C89203EB11A00C480F1 /* MenuBarCell.swift in Sources */,
 				B712FAC81F8F6089003A873F /* UserDetailsTVCell.swift in Sources */,
 				9E0552D61F84CE26002BA0E0 /* RepliedCell.swift in Sources */,
-				9E49FCCF1F8E716D001006A5 /* ProjekDetailsTVC.swift in Sources */,
 				B7C8AF311F861BAF0097597F /* AfterLoginVC.swift in Sources */,
 				B7C8AF471F8F1C070097597F /* AfterNavController.swift in Sources */,
 				9E5884771F81FC91001EDA2E /* Extension.swift in Sources */,
@@ -698,12 +749,15 @@
 				B7D672781FA03BD900F916EF /* AboutVC.swift in Sources */,
 				B7C8AF491F8F243D0097597F /* InitialNC.swift in Sources */,
 				9E0552D91F84DBDD002BA0E0 /* MembersCollectionCell.swift in Sources */,
+				9E11CB86203F3041005FD04D /* ProjectDetailsTableViewExtensionVC.swift in Sources */,
 				9E0552CC1F849132002BA0E0 /* MessageInboxTVC.swift in Sources */,
 				B7D6727C1FA06EF800F916EF /* PengumumanData.swift in Sources */,
+				9ED81C85203EAE7E00C480F1 /* ProjectDetailsVC.swift in Sources */,
 				B7C8AF1B1F8346410097597F /* ZGraphics.swift in Sources */,
 				B712FAD41F90AA42003A873F /* CreateAnnouncementTVCell.swift in Sources */,
 				9E6B45811F98912200EDB928 /* AplikasiName.swift in Sources */,
 				B7C8AF171F8342630097597F /* PengumumanDetailsTVC.swift in Sources */,
+				9ED81C8B203EBEB400C480F1 /* MaklumatAktivitiCell.swift in Sources */,
 				B7D6727F1FA17ABC00F916EF /* CustomView.swift in Sources */,
 				9E49FCBF1F8DF90A001006A5 /* Respond.swift in Sources */,
 				9E58847E1F8215D2001EDA2E /* AplikasiCell.swift in Sources */,
@@ -715,12 +769,14 @@
 				9E5884791F81FCAC001EDA2E /* NetworkProcessor.swift in Sources */,
 				9E49FCD31F906ADA001006A5 /* AlertController.swift in Sources */,
 				B7C8AF2D1F85ECA60097597F /* ZNetwork.swift in Sources */,
+				9ED81C8F203EBEDE00C480F1 /* MaklumatPetaniCell.swift in Sources */,
 				9E49FCC41F8E3FB1001006A5 /* ErrorCell.swift in Sources */,
 				B7C8AF2F1F85EEE60097597F /* URLs.swift in Sources */,
 				B7C8AF271F84BDF50097597F /* LoginProcessVC.swift in Sources */,
 				B7C8AF251F8488A80097597F /* LoginVC.swift in Sources */,
 				9EC60DF31F87552000E056EF /* ProjekCell.swift in Sources */,
 				B7C5FFC81F99E00300DB252D /* AplikasiBerkaitanNC.swift in Sources */,
+				9ED81C8D203EBEC700C480F1 /* MaklumatPegawaiCell.swift in Sources */,
 				B7C5FFC61F99DD4600DB252D /* Strings.swift in Sources */,
 				9E5884801F821B6F001EDA2E /* MainTabBarVC.swift in Sources */,
 				B7C8AF1E1F83843C0097597F /* InfoPenggunaTVC.swift in Sources */,

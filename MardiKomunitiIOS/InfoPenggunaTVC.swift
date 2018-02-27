@@ -39,7 +39,13 @@ class InfoPenggunaTVC: UITableViewController {
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let imagePath = UserDefaults.standard.object(forKey: "MYA_USERIMAGE")
+        print(imagePath as! String)
     }
 
     override func didReceiveMemoryWarning() {

@@ -18,6 +18,10 @@ class AplikasiBerkaitanCVC: UICollectionViewController {
     
     var alertController = AlertController()
     var aplikasiObject: [(String, UIImage, Int?, String)] = [("MyAgro Fertigasi Tomato", #imageLiteral(resourceName: "fertigasitomato.jpg"), 1055891350, "Tanaman"),
+                         ("Mardi MyBeeMenu", #imageLiteral(resourceName: "mybeemenu"), 1318519884, "Ternakan"),
+                         ("Mardi MyAgriSmartCalculator", #imageLiteral(resourceName: "myagrismartCalculator"), 1315862445, "Lain - lain"),
+                         ("Mardi MyNanas", #imageLiteral(resourceName: "mynanas"), 1321249443, "Tanaman"),
+                         ("Mardi MySilaj", #imageLiteral(resourceName: "mysilaj"), 1318130824, "Tanaman"),
                          ("MyAgro Buah Nadir", #imageLiteral(resourceName: "buahnadir.jpg"), 1179623848, "Tanaman"),
                          ("MyAgro Padi Aerob", #imageLiteral(resourceName: "padiaerob"), 956071438, "Tanaman"),
                          ("MyAgro Dr Cili", #imageLiteral(resourceName: "drcili"), 953004069, "Tanaman"),
@@ -39,18 +43,20 @@ class AplikasiBerkaitanCVC: UICollectionViewController {
                          ("MyAgro Maklumat Cuaca", #imageLiteral(resourceName: "cuaca"), 1232145436, "Lain - lain"),
                          ("MyAgro Kalendar Latihan", #imageLiteral(resourceName: "kalendarlatihan"), 1238005041, "Lain - lain"),
                          ("MyAgro Rekod Ladang", #imageLiteral(resourceName: "rekodladang"), 1247783186, "Tanaman"),
-                         ("MyAgro Kalendar Komoditi", #imageLiteral(resourceName: "kalendarkomoditi"), nil, "Lain - lain"),
+                         ("MyAgro Kalendar Komoditi", #imageLiteral(resourceName: "kalendarkomoditi"), 1247754433, "Lain - lain"),
                          ("MyAgro Maklumat Pasaran", #imageLiteral(resourceName: "maklumatpasaran"), 1230894873, "Lain - lain"),
-                         ("MyAgro Maklumat Komoditi", #imageLiteral(resourceName: "maklumatkomoditi"), nil, "Lain - lain"),
+                         ("MyAgro Maklumat Komoditi", #imageLiteral(resourceName: "maklumatkomoditi"), 1232115203, "Lain - lain"),
                          ("MyAgro Kalkulator Aliran Tuai", #imageLiteral(resourceName: "kalkulator"), 1238028973, "Lain - lain"),
-                         ("Info Banjir", #imageLiteral(resourceName: "infobanjir"), nil, "Lain - lain"),
                          ("MyHarga Tani", #imageLiteral(resourceName: "myhargatani"), 1100112126, "Lain - lain"),
                          ("Agrimaths", #imageLiteral(resourceName: "opf"), 1221201581, "Lain - lain"),
                          ("eBioSekuriti", #imageLiteral(resourceName: "ebiosekuriti"), 1062734822, "Perikanan"),
-                         ("MyAgro 100 Tips Tanaman", #imageLiteral(resourceName: "tipstanaman"), nil, "Tanaman"),
                          ("eLesen Perikanan", #imageLiteral(resourceName: "elesen"), 1059675349, "Perikanan"),
                          ("MyHealth", #imageLiteral(resourceName: "myhealth"), 660740349, "Lain - lain")
     ]
+    
+//    ("Info Banjir", #imageLiteral(resourceName: "infobanjir"), nil, "Lain - lain"),
+//    ("MyAgro 100 Tips Tanaman", #imageLiteral(resourceName: "tipstanaman"), nil, "Tanaman"),
+    
     var tempAplikasiTuple = [(String, UIImage, Int?, String)]()
     var isFiltered = false
     var headerTitle = "Semua Kategori"

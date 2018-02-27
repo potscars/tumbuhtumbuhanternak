@@ -46,7 +46,11 @@ class LoginProcessVC: UIViewController {
         let deviceUniqueId: String = UIDevice.current.identifierForVendor?.uuidString ?? "isSimulator"
         let osVersion = UIDevice.current.systemVersion
         let osType = "iOS"
-        let fcmToken = UserDefaults.standard.object(forKey: "FCM_TOKEN") as! String
+        
+        var fcmToken = ""
+        if let fToken = UserDefaults.standard.object(forKey: "FCM_TOKEN") as? String {
+            fcmToken = fToken
+        }
         
         let np: NetworkProcessor = NetworkProcessor.init(URLs.loginURL)
         

@@ -34,7 +34,7 @@ class RepliedCell: UITableViewCell {
         dateLabel.text = timeElapsed
         dateLabel.sizeToFit()
         
-        imageFeatured.backgroundColor = .green
+        imageFeatured.backgroundColor = .smoothGreen
         imageFeatured.circledView(imageFeatured.frame.width)
         
         ZGraphics().createImageWithLetter(respond.responderName!, imageView: imageFeatured, fontSize: imageFeatured.frame.width / 2)

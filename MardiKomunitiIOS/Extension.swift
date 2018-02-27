@@ -45,8 +45,28 @@ extension UIView {
 }
 
 extension UIColor {
-    static func rgb(_ red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
-        return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: 1)
+    
+    static let smoothGreen = UIColor.rgb(red: 130, green: 224, blue: 170)
+    static let customDarkGray = UIColor.rgb(red: 93, green: 109, blue: 126)
+    static let customLightGray = UIColor.rgb(red: 191, green: 201, blue: 202)
+    static let darkBlue = UIColor.init(red: 21/255, green: 67/255, blue: 96/255, alpha: 1)
+    static let lightBlue = UIColor.init(red: 93/255, green: 173/255, blue: 226/255, alpha: 1)
+    static let lightRed = UIColor.rgb(red: 255, green: 52, blue: 52)
+    static let lightOrange = UIColor.rgb(red: 255, green: 175, blue: 52)
+    static let lightYellow = UIColor.rgb(red: 249, green: 255, blue: 52)
+    static let lightPurple = UIColor.rgb(red: 155, green: 89, blue: 182)
+    
+    static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
+        return UIColor.init(red: red/255, green: green/255, blue: blue/255, alpha: 1)
+    }
+}
+
+extension String {
+    
+    func getStringSize(usingFont font: UIFont) -> CGSize {
+        let fontAttributes = [NSFontAttributeName: font]
+        let size = self.size(attributes: fontAttributes)
+        return size
     }
 }
 

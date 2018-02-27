@@ -16,6 +16,11 @@ class ExpandableInfoCell: UITableViewCell {
     func updateView(_ headerName: String, content: String = "Tiada maklumat setakat ini.") {
         
         expandedHeaderName.text = headerName
-        contentLabel.text = content
+        
+        if content != "" {
+            contentLabel.text = content
+        } else {
+            contentLabel.text = "-"
+        }
     }
 }

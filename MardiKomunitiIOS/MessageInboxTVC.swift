@@ -16,7 +16,7 @@ struct MessageIdentifier {
     static let MessageRepliedCell = "repliedCell"
     static let MessageMemberCollectionCell = "membersCollectionCell"
     static let GotoMessageDetails = "gotoMessageDetails"
-    static let MessageErrorCell = "errorCell"
+    static let ErrorCell = "errorCell"
 }
 
 class MessageInboxTVC: UITableViewController {
@@ -48,8 +48,12 @@ class MessageInboxTVC: UITableViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 150.0
         
+        if let tabbarHeight = tabBarController?.tabBar.frame.height {
+            tableView.contentInset = UIEdgeInsetsMake(0, 0, tabbarHeight, 0)
+        }
+        
         let nibName = UINib(nibName: "ErrorCell", bundle: nil)
-        tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.MessageErrorCell)
+        tableView.register(nibName, forCellReuseIdentifier: MessageIdentifier.ErrorCell)
     }
     
     func configureRefreshControl() {
@@ -154,7 +158,7 @@ extension MessageInboxTVC {
             return cell
         } else {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.MessageErrorCell, for: indexPath) as! ErrorCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: MessageIdentifier.ErrorCell, for: indexPath) as! ErrorCell
             cell.selectionStyle = .none
             cell.errorMessage = errorMessage
             

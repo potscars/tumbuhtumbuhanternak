@@ -12,6 +12,14 @@
 import UIKit
 
 class MessageDetailsVC: UIViewController {
+    
+    override var inputAccessoryView: UIView? {
+        return UIView(frame: CGRect.zero)
+    }
+    
+    override var canBecomeFirstResponder: Bool {
+        return true
+    }
 
     @IBOutlet weak var tableView : UITableView!
     @IBOutlet weak var replyCommentView : UIView!
@@ -32,16 +40,19 @@ class MessageDetailsVC: UIViewController {
     let alertController = AlertController()
     var commentPlaceHolder = "Tulis sesuatu.."
     var placeHolderLabel: UILabel!
+    //var isKeyboardShown = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureTableView()
         configureTextviewPlaceholder()
+        configureTextview()
+        registerObserver()
     }
     
     override func viewDidAppear(_ animated: Bool) {
          super.viewDidAppear(animated)
-        
         let respond = Respond()
         
         respond.fetchData(message.id!) { (result, respondersName, responses) in
@@ -55,7 +66,7 @@ class MessageDetailsVC: UIViewController {
             
             DispatchQueue.main.async {
                 self.respondersName = (respondersName?.filterDuplicates { $0 == $1 })!
-                self.respondData = respondResult
+                self.respondData = respondResult.reversed()
                 self.isFetched = true
                 
                 self.spinner.stopSpinner()
@@ -68,13 +79,6 @@ class MessageDetailsVC: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        configureTextview()
-        registerObserver()
-    }
-    
     func configureTextview() {
         
         replyTextView.delegate = self
@@ -83,12 +87,12 @@ class MessageDetailsVC: UIViewController {
     
     func registerObserver() {
         
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MessageDetailsVC.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(MessageDetailsVC.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -108,7 +112,7 @@ class MessageDetailsVC: UIViewController {
         registerCellNib("MembersCell", identifier: MessageIdentifier.MessageMemberCell)
         registerCellNib("ContentCell", identifier: MessageIdentifier.MessageContentCell)
         registerCellNib("RepliedCell", identifier: MessageIdentifier.MessageRepliedCell)
-        registerCellNib("ErrorCell", identifier: MessageIdentifier.MessageErrorCell)
+        registerCellNib("ErrorCell", identifier: MessageIdentifier.ErrorCell)
     }
     
     func configureTextviewPlaceholder() {
@@ -157,7 +161,6 @@ class MessageDetailsVC: UIViewController {
             networkProcessor.postRequestJSONFromUrl(params, completion: { (result, response) in
                 
                 guard response == nil else {
-                    
                     return;
                 }
                 
@@ -172,8 +175,9 @@ class MessageDetailsVC: UIViewController {
                 
                 DispatchQueue.main.async {
                     self.alertController.alertController(self, title: "Berjaya", message: "Mesej anda berjaya dihantarkan.")
-                    self.tableView.reloadData()
+                    self.tableView.reloadSections(IndexSet(integer: 1), with: .none)
                     self.replyTextView.text.removeAll()
+                    self.placeHolderLabel.isHidden = false
                     self.spinner.removeLoadingScreen()
                 }
             })
@@ -182,23 +186,28 @@ class MessageDetailsVC: UIViewController {
         }
     }
     
-    func keyboardWillShow(_ notification: NSNotification) {
-
+    @objc func keyboardWillShow(_ notification: NSNotification) {
+        
         var userInfo = notification.userInfo
         if let keyboardFrame = (userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
             let keyboardHeight = keyboardFrame.height
-
-            UIView.animate(withDuration: 0.5, animations: {
-                self.replyCommentView.transform = CGAffineTransform(translationX: 0, y: -keyboardHeight)
-            })
+            
+            if self.view.frame.origin.y == 64.0 {
+                self.view.frame.origin.y -= keyboardHeight
+            }
         }
     }
-
-    func keyboardWillHide(_ notification: NSNotification) {
-
-        UIView.animate(withDuration: 0.5, animations: {
-            self.replyCommentView.transform = .identity
-        })
+    
+    @objc func keyboardWillHide(_ notification: NSNotification) {
+        print("Hide")
+        var userInfo = notification.userInfo
+        if let keyboardFrame = (userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            let keyboardHeight = keyboardFrame.height
+            
+            if self.view.frame.origin.y != 64.0 {
+                self.view.frame.origin.y += keyboardHeight
+            }
+        }
     }
 }
 
@@ -225,13 +234,6 @@ extension MessageDetailsVC : UITextViewDelegate {
         }
         
         replyCommentView.sizeToFit()
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
-        if scrollView == replyTextView {
-            
-        }
     }
 }
 
