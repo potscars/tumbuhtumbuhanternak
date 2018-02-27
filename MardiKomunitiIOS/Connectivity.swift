@@ -11,18 +11,19 @@ import PlainPing
 
 class Connectivity: NSObject {
     
-    static func checkConnectionToMardi(viewController: AnyObject) -> Bool {
+    static func checkConnectionToMardi(viewController: AnyObject, showDialog: Bool) -> Bool {
         
         if(ZNetwork.isConnectedToNetwork() == false)
         {
             print("[Connectivity] No internet connection.")
-            
-            let alert = UIAlertController(title: "Masalah", message: "Sambungan Internet gagal. Sila periksa sambungan Internet anda.", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action: UIAlertAction) -> Void in
+            if(showDialog == true) {
+                let alert = UIAlertController(title: "Masalah", message: "Sambungan Internet gagal. Sila periksa sambungan Internet anda.", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: {(action: UIAlertAction) -> Void in
+                    
+                }))
                 
-            }))
-            
-            viewController.parent!!.present(alert, animated: true, completion: nil)
+                viewController.parent!!.present(alert, animated: true, completion: nil)
+            }
             
             return false
         }

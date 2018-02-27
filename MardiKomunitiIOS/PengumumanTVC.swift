@@ -16,6 +16,7 @@ class PengumumanTVC: UITableViewController {
     var selectedRow: Int = 0
     var refControl = UIRefreshControl()
     var refreshed: Bool = false
+    var errorOccur: Bool = false
     
     var dtzButtonAddComment: DTZFloatingActionButton? = nil
     var floatyBtnAddComment: Floaty? = nil
@@ -46,11 +47,12 @@ class PengumumanTVC: UITableViewController {
         createFloatingButton()
 
         
-        if(Connectivity.checkConnectionToMardi(viewController: self)){
+        if(Connectivity.checkConnectionToMardi(viewController: self, showDialog: false)){
 
             grabAnnouncementInfo()
-            
-        } else {
+        }
+        else {
+            self.errorOccur = true
             self.refreshed = true
             self.refControl.endRefreshing()
         }
@@ -59,7 +61,7 @@ class PengumumanTVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if(Connectivity.checkConnectionToMardi(viewController: self)){
+        if(Connectivity.checkConnectionToMardi(viewController: self, showDialog: false)){
             if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil && UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as! Bool == true) {
                 
                 
@@ -129,12 +131,13 @@ class PengumumanTVC: UITableViewController {
     
     func gotRefreshing(sender: UIRefreshControl) {
         
-        if(Connectivity.checkConnectionToMardi(viewController: self)) {
+        if(Connectivity.checkConnectionToMardi(viewController: self, showDialog: false)) {
             
             grabAnnouncementInfo()
             
         }
         else {
+            self.errorOccur = true
             self.refreshed = true
             self.refControl.endRefreshing()
         }
@@ -144,7 +147,6 @@ class PengumumanTVC: UITableViewController {
     func grabAnnouncementInfo() {
         
         self.refreshed = false
-        
         self.getJSONData.removeAllObjects()
 
         if(UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") != nil && UserDefaults.standard.object(forKey: "MYA_USERLOGGEDIN") as? Bool == true) {
@@ -174,6 +176,7 @@ class PengumumanTVC: UITableViewController {
                     
                     DispatchQueue.main.async {
                         
+                        self.errorOccur = true
                         self.refreshed = true
                         self.tableView.reloadData()
                         self.refControl.endRefreshing()
@@ -223,6 +226,7 @@ class PengumumanTVC: UITableViewController {
                 
                 DispatchQueue.main.async {
                     
+                    self.errorOccur = false
                     self.refreshed = true
                     self.tableView.reloadData()
                     self.refControl.endRefreshing()
@@ -268,6 +272,7 @@ class PengumumanTVC: UITableViewController {
                 // Configure the cell...
                 cell.updateImageCell(data: getJSONData.object(at: indexPath.row) as! NSDictionary, tableView: self.tableView, indexPath: indexPath)
                 cell.tag = indexPath.row
+                self.tableView.allowsSelection = true
                 
                 return cell
             }
@@ -277,6 +282,7 @@ class PengumumanTVC: UITableViewController {
                 // Configure the cell...
                 cell.updateCell(data: getJSONData.object(at: indexPath.row) as! NSDictionary)
                 cell.tag = indexPath.row
+                self.tableView.allowsSelection = true
             
                 return cell
             }
@@ -287,6 +293,7 @@ class PengumumanTVC: UITableViewController {
                 
                 // Configure the cell...
                 cell.tag = indexPath.row
+                self.tableView.allowsSelection = false
                 
                 return cell
             }
@@ -296,6 +303,7 @@ class PengumumanTVC: UITableViewController {
                 // Configure the cell...
                 cell.updateLoadingCell(cellIdentifier: cell)
                 cell.tag = indexPath.row
+                self.tableView.allowsSelection = false
             
                 return cell
             }
@@ -309,6 +317,17 @@ class PengumumanTVC: UITableViewController {
         self.selectedRow = indexPath.row
         
         self.performSegue(withIdentifier: "MYA_GOTO_PENGUMUMAN_DETAILS", sender: self)
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        if self.errorOccur == true {
+            return self.tableView.bounds.height
+        }
+        else {
+            return UITableViewAutomaticDimension
+        }
         
     }
 
